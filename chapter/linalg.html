@@ -1,0 +1,327 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Linear Algebra &#8212; Owl Numerical Library 0.3 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fast Fourier Transform" href="fft.html" />
+    <link rel="prev" title="Statistics Module" href="stats.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Linear Algebra</a><ul>
+<li><a class="reference internal" href="#low-level-interface-to-cblas-lapacke">Low-level Interface to CBLAS &amp; LAPACKE</a></li>
+<li><a class="reference internal" href="#high-level-wrappers-in-linalg-module">High-level Wrappers in Linalg Module</a></li>
+<li><a class="reference internal" href="#basic-functions">Basic functions</a></li>
+<li><a class="reference internal" href="#factorisation">Factorisation</a></li>
+<li><a class="reference internal" href="#eigenvalues-eigenvectors">Eigenvalues &amp; eigenvectors</a></li>
+<li><a class="reference internal" href="#linear-system-of-equations">Linear system of equations</a></li>
+<li><a class="reference internal" href="#low-level-factorisation-and-helper-functions">Low-level factorisation and Helper functions</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#example-1-simple-linear-regression">Example 1 - Simple Linear Regression</a></li>
+<li><a class="reference internal" href="#example-2-lq-factorisation">Example 2 - LQ Factorisation</a></li>
+<li><a class="reference internal" href="#example-3-singular-value-decomposition">Example 3 - Singular Value Decomposition</a></li>
+<li><a class="reference internal" href="#example-4-eigenvalues">Example 4 - Eigenvalues</a></li>
+<li><a class="reference internal" href="#example-5-inverse-of-matrices">Example 5 - Inverse of Matrices</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Owl’s Tutorial Book</a><ul>
+      <li>Previous: <a href="stats.html" title="previous chapter">Statistics Module</a></li>
+      <li>Next: <a href="fft.html" title="next chapter">Fast Fourier Transform</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="linear-algebra">
+<h1>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h1>
+<p>This chapter briefly covers the linear algebra modules in Owl. There are two levels abstraction in Owl’s <cite>Linalg</cite> module:</p>
+<ol class="arabic simple">
+<li>low-level raw interface to CBLAS and LAPACKE;</li>
+<li>high-level wrapper functions in <code class="docutils literal notranslate"><span class="pre">Linalg</span></code> module;</li>
+</ol>
+<div class="section" id="low-level-interface-to-cblas-lapacke">
+<h2>Low-level Interface to CBLAS &amp; LAPACKE<a class="headerlink" href="#low-level-interface-to-cblas-lapacke" title="Permalink to this headline">¶</a></h2>
+<p>Owl has implemented the full interface to CBLAS and LAPACKE. Comparing to Julia which chooses to interface to BLAS/LAPACK, you might notice the extra <code class="docutils literal notranslate"><span class="pre">C</span></code> in <code class="docutils literal notranslate"><span class="pre">CBLAS</span></code> and <code class="docutils literal notranslate"><span class="pre">E</span></code> in <code class="docutils literal notranslate"><span class="pre">LAPACKE</span></code> because they are the corresponding C-interface of Fortran implementations. It is often believed that C-interface may introduce some extra overhead. However, it turns out that we cannot really notice any difference at all in practice when dealing with medium or large problems.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas.mli">Owl_cblas module</a> provides the raw interface to CBLAS functions, from level-1 to level-3. The interfaced functions have the same names as those in CBLAS.</li>
+<li><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke_generated.mli">Owl_lapacke_generated module</a> provides the raw interface to LAPACKE functions (over 1,000) which also have the same names defined in <a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/lapacke.h">lapacke.h</a>.</li>
+<li><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml">Owl_lapacke module</a> is a very thin layer of interface between <a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke_generated.mli">Owl_lapacke_generated module</a> and <a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.mli">Linalg module</a>. The purpose is to provide a unified function to make generic functions over different number types.</li>
+</ul>
+</div>
+<div class="section" id="high-level-wrappers-in-linalg-module">
+<h2>High-level Wrappers in Linalg Module<a class="headerlink" href="#high-level-wrappers-in-linalg-module" title="Permalink to this headline">¶</a></h2>
+<p>The functions in <a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas.mli">Owl_cblas</a> and <a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke_generated.mli">Owl_lapacke_generated</a> are very low-level, e.g., you need to deal with calculating parameters, allocating workspace, post-processing results, and many other tedious details. You do not really want to use them directly unless you have enough background in numerical analysis and chase after the performance. In practice, you should use <a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.mli">Linalg</a> module which gives you a high-level wrapper for frequently used functions.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Linalg</span></code> has the following module structure.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.mli">Owl.Linalg.Generic</a>: generic functions for four number types <code class="docutils literal notranslate"><span class="pre">S/D/C/Z</span></code>.</li>
+<li><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_s.mli">Owl.Linalg.S</a>: only for <code class="docutils literal notranslate"><span class="pre">float32</span></code> type.</li>
+<li><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_d.mli">Owl.Linalg.D</a>: only for <code class="docutils literal notranslate"><span class="pre">float64</span></code> type.</li>
+<li><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_c.mli">Owl.Linalg.C</a>: only for <code class="docutils literal notranslate"><span class="pre">complex32</span></code> type.</li>
+<li><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_z.mli">Owl.Linalg.Z</a>: only for <code class="docutils literal notranslate"><span class="pre">complex64</span></code> type.</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Generic</span></code> actually can do everything that <code class="docutils literal notranslate"><span class="pre">S/D/C/Z</span></code> can but needs some extra type information. The functions in <code class="docutils literal notranslate"><span class="pre">Linalg</span></code> module are divided into the following groups.</p>
+</div>
+<div class="section" id="basic-functions">
+<h2>Basic functions<a class="headerlink" href="#basic-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">inv</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* inverse of a square matrix *)</span>
+
+<span class="k">val</span> <span class="n">pinv</span> <span class="o">:</span> <span class="o">?</span><span class="n">tol</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* Moore-Penrose pseudo-inverse of a matrix *)</span>
+
+<span class="k">val</span> <span class="n">det</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
+<span class="c">(* determinant of a square matrix  *)</span>
+
+<span class="k">val</span> <span class="n">logdet</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
+<span class="c">(* log of the determinant of a square matrix *)</span>
+
+<span class="k">val</span> <span class="n">rank</span> <span class="o">:</span> <span class="o">?</span><span class="n">tol</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+<span class="c">(* rank of a rectangular matrix *)</span>
+
+<span class="k">val</span> <span class="n">norm</span> <span class="o">:</span> <span class="o">?</span><span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+<span class="c">(* p-norm of a matrix *)</span>
+
+<span class="k">val</span> <span class="n">cond</span> <span class="o">:</span> <span class="o">?</span><span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+<span class="c">(* p-norm condition number of a matrix *)</span>
+
+<span class="k">val</span> <span class="n">rcond</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+<span class="c">(* estimate for the reciprocal condition of a matrix in 1-norm *)</span>
+
+<span class="k">val</span> <span class="n">is_triu</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+<span class="c">(* check if a matrix is upper triangular *)</span>
+
+<span class="k">val</span> <span class="n">is_tril</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+<span class="c">(* check if a matrix is lower triangular *)</span>
+
+<span class="k">val</span> <span class="n">is_symmetric</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+<span class="c">(* check if a matrix is symmetric *)</span>
+
+<span class="k">val</span> <span class="n">is_hermitian</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+<span class="c">(* check if a matrix is hermitian *)</span>
+
+<span class="k">val</span> <span class="n">is_diag</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+<span class="c">(* check if a matrix is diagonal *)</span>
+
+<span class="k">val</span> <span class="n">is_posdef</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+<span class="c">(* check if a matrix is positive semi-definite *)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="factorisation">
+<h2>Factorisation<a class="headerlink" href="#factorisation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lu</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="n">int32</span><span class="o">,</span> <span class="n">int32_elt</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* LU factorisation *)</span>
+
+<span class="k">val</span> <span class="n">lq</span> <span class="o">:</span> <span class="o">?</span><span class="n">thin</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* LQ factorisation *)</span>
+
+<span class="k">val</span> <span class="n">qr</span> <span class="o">:</span> <span class="o">?</span><span class="n">thin</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">pivot</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="n">int32</span><span class="o">,</span> <span class="n">int32_elt</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* QR factorisation  *)</span>
+
+<span class="k">val</span> <span class="n">chol</span> <span class="o">:</span> <span class="o">?</span><span class="n">upper</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* Cholesky factorisation *)</span>
+
+<span class="k">val</span> <span class="n">svd</span> <span class="o">:</span> <span class="o">?</span><span class="n">thin</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* singular value decomposition *)</span>
+
+<span class="k">val</span> <span class="n">svdvals</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* only singular values of SVD *)</span>
+
+<span class="k">val</span> <span class="n">gsvd</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* generalised singular value decomposition *)</span>
+
+<span class="k">val</span> <span class="n">gsvdvals</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* only singular values of generalised SVD *)</span>
+
+<span class="k">val</span> <span class="n">schur</span> <span class="o">:</span> <span class="n">otyp</span><span class="o">:(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* Schur factorisation *)</span>
+
+<span class="k">val</span> <span class="n">hess</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* Hessenberg form of a given matrix *)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="eigenvalues-eigenvectors">
+<h2>Eigenvalues &amp; eigenvectors<a class="headerlink" href="#eigenvalues-eigenvectors" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">eig</span> <span class="o">:</span> <span class="o">?</span><span class="n">permute</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">scale</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">otyp</span><span class="o">:(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* right eigenvectors and eigenvalues of an arbitrary square matrix *)</span>
+
+<span class="k">val</span> <span class="n">eigvals</span> <span class="o">:</span> <span class="o">?</span><span class="n">permute</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">scale</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">otyp</span><span class="o">:(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* only computes the eigenvalues of an arbitrary square matrix *)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="linear-system-of-equations">
+<h2>Linear system of equations<a class="headerlink" href="#linear-system-of-equations" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">null</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* an orthonormal basis for the null space of a matrix *)</span>
+
+<span class="k">val</span> <span class="n">linsolve</span> <span class="o">:</span> <span class="o">?</span><span class="n">trans</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+<span class="c">(* solves ``A * x = b`` linear equation system. *)</span>
+
+<span class="k">val</span> <span class="n">linreg</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">*</span> <span class="k">&#39;</span><span class="n">a</span>
+<span class="c">(* simple linear regression using OLS. *)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="low-level-factorisation-and-helper-functions">
+<h2>Low-level factorisation and Helper functions<a class="headerlink" href="#low-level-factorisation-and-helper-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lufact</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="n">int32</span><span class="o">,</span> <span class="n">int32_elt</span><span class="o">)</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">qrfact</span> <span class="o">:</span> <span class="o">?</span><span class="n">pivot</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="n">int32</span><span class="o">,</span> <span class="n">int32_elt</span><span class="o">)</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">bkfact</span> <span class="o">:</span> <span class="o">?</span><span class="n">upper</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">symmetric</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">rook</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="n">int32</span><span class="o">,</span> <span class="n">int32_elt</span><span class="o">)</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">peakflops</span> <span class="o">:</span> <span class="o">?</span><span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+<span class="c">(* peak number of float point operations using [Owl_cblas.dgemm] function. *)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>The following examples demonstrate how to use high-level functions in Linalg module.</p>
+<div class="section" id="example-1-simple-linear-regression">
+<h3>Example 1 - Simple Linear Regression<a class="headerlink" href="#example-1-simple-linear-regression" title="Permalink to this headline">¶</a></h3>
+<p>The code snippet below first generates some random data, then using <code class="docutils literal notranslate"><span class="pre">linreg</span></code> function to perform a simple linear regression and plots the data as well as the regression line.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">generate_data</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">uniform</span> <span class="mi">500</span> <span class="mi">1</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">p</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">uniform</span> <span class="mi">1</span> <span class="mi">1</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">y</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="o">(</span><span class="n">x</span> <span class="o">*@</span> <span class="n">p</span> <span class="o">+</span> <span class="n">gaussian</span> <span class="o">~</span><span class="n">sigma</span><span class="o">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">05</span> <span class="mi">500</span> <span class="mi">1</span><span class="o">)</span> <span class="k">in</span>
+  <span class="n">x</span><span class="o">,</span> <span class="n">y</span>
+
+<span class="k">let</span> <span class="n">t1_sol</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">generate_data</span> <span class="bp">()</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">h</span> <span class="o">=</span> <span class="nn">Plot</span><span class="p">.</span><span class="n">create</span> <span class="s2">&quot;plot_t1.png&quot;</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">a</span><span class="o">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nn">Linalg</span><span class="p">.</span><span class="nn">D</span><span class="p">.</span><span class="n">linreg</span> <span class="n">x</span> <span class="n">y</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">y&#39;</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="o">(</span><span class="n">x</span> <span class="o">*$</span> <span class="n">b</span> <span class="o">+$</span> <span class="n">a</span><span class="o">)</span> <span class="k">in</span>
+  <span class="nn">Plot</span><span class="p">.</span><span class="n">scatter</span> <span class="o">~</span><span class="n">h</span> <span class="n">x</span> <span class="n">y</span><span class="o">;</span>
+  <span class="nn">Plot</span><span class="p">.</span><span class="n">plot</span> <span class="o">~</span><span class="n">h</span> <span class="o">~</span><span class="n">spec</span><span class="o">:[</span> <span class="nc">RGB</span> <span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">255</span><span class="o">,</span><span class="mi">0</span><span class="o">)</span> <span class="o">]</span> <span class="n">x</span> <span class="n">y&#39;</span><span class="o">;</span>
+  <span class="nn">Plot</span><span class="p">.</span><span class="n">output</span> <span class="n">h</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-2-lq-factorisation">
+<h3>Example 2 - LQ Factorisation<a class="headerlink" href="#example-2-lq-factorisation" title="Permalink to this headline">¶</a></h3>
+<p>The following code performs an LQ decomposition on a random square matrix. Note that in the last step we used <code class="docutils literal notranslate"><span class="pre">=~</span></code> rather than <code class="docutils literal notranslate"><span class="pre">=</span></code> to check the equality due to float number precision. You can check the difference with <code class="docutils literal notranslate"><span class="pre">Mat.(l</span> <span class="pre">*&#64;</span> <span class="pre">q</span> <span class="pre">-</span> <span class="pre">x)</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">uniform</span> <span class="mi">8</span> <span class="mi">8</span><span class="o">;;</span>    <span class="c">(* generate a random matrix *)</span>
+<span class="k">let</span> <span class="n">l</span><span class="o">,</span> <span class="n">q</span> <span class="o">=</span> <span class="nn">Linalg</span><span class="p">.</span><span class="nn">D</span><span class="p">.</span><span class="n">lq</span> <span class="n">x</span><span class="o">;;</span>   <span class="c">(* perform lq decomposition *)</span>
+<span class="nn">Mat</span><span class="p">.</span><span class="o">(</span><span class="n">l</span> <span class="o">*@</span> <span class="n">q</span> <span class="o">=~</span> <span class="n">x</span><span class="o">);;</span>          <span class="c">(* check the approx equality *)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-3-singular-value-decomposition">
+<h3>Example 3 - Singular Value Decomposition<a class="headerlink" href="#example-3-singular-value-decomposition" title="Permalink to this headline">¶</a></h3>
+<p>The following code performs an SVD on a random matrix then check the equality.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">uniform</span> <span class="mi">8</span> <span class="mi">16</span><span class="o">;;</span>        <span class="c">(* generate a random matrix *)</span>
+<span class="k">let</span> <span class="n">u</span><span class="o">,</span> <span class="n">s</span><span class="o">,</span> <span class="n">vt</span> <span class="o">=</span> <span class="nn">Linalg</span><span class="p">.</span><span class="nn">D</span><span class="p">.</span><span class="n">svd</span> <span class="n">x</span><span class="o">;;</span>   <span class="c">(* perform lq decomposition *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">diagm</span> <span class="n">s</span><span class="o">;;</span>             <span class="c">(* exapand to diagonal matrix *)</span>
+<span class="nn">Mat</span><span class="p">.</span><span class="o">(</span><span class="n">u</span> <span class="o">*@</span> <span class="n">s</span> <span class="o">*@</span> <span class="n">vt</span> <span class="o">=~</span> <span class="n">x</span><span class="o">);;</span>         <span class="c">(* check the approx equality *)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-4-eigenvalues">
+<h3>Example 4 - Eigenvalues<a class="headerlink" href="#example-4-eigenvalues" title="Permalink to this headline">¶</a></h3>
+<p>The following code calculates the right eigenvalues and eigenvectors of a positive-definite matrix <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">semidef</span> <span class="mi">8</span><span class="o">;;</span>                                  <span class="c">(* generate a random matrix *)</span>
+<span class="k">let</span> <span class="n">v</span><span class="o">,</span> <span class="n">w</span> <span class="o">=</span> <span class="nn">Linalg</span><span class="p">.</span><span class="nn">D</span><span class="p">.</span><span class="n">eig</span> <span class="o">~</span><span class="n">permute</span><span class="o">:</span><span class="bp">false</span> <span class="o">~</span><span class="n">scale</span><span class="o">:</span><span class="bp">false</span> <span class="n">x</span><span class="o">;;</span>  <span class="c">(* calculate eigenvalues and vectors *)</span>
+<span class="k">let</span> <span class="n">v</span> <span class="o">=</span> <span class="nn">Dense</span><span class="p">.</span><span class="nn">Matrix</span><span class="p">.</span><span class="nn">Z</span><span class="p">.</span><span class="n">re</span> <span class="n">v</span><span class="o">;;</span>                            <span class="c">(* only real part since [x] is semidef *)</span>
+<span class="k">let</span> <span class="n">w</span> <span class="o">=</span> <span class="nn">Dense</span><span class="p">.</span><span class="nn">Matrix</span><span class="p">.</span><span class="nn">Z</span><span class="p">.</span><span class="n">re</span> <span class="n">w</span><span class="o">;;</span>                            <span class="c">(* only real part since [x] is semidef *)</span>
+<span class="nn">Mat</span><span class="p">.</span><span class="o">((</span><span class="n">x</span> <span class="o">*@</span> <span class="n">v</span><span class="o">)</span> <span class="o">=~</span> <span class="o">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">v</span><span class="o">));;</span>                              <span class="c">(* check the approx equality *)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-5-inverse-of-matrices">
+<h3>Example 5 - Inverse of Matrices<a class="headerlink" href="#example-5-inverse-of-matrices" title="Permalink to this headline">¶</a></h3>
+<p>The following code calculates the inverse of a square matrix <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">semidef</span> <span class="mi">8</span><span class="o">;;</span>    <span class="c">(* generate a random semidef matrix *)</span>
+<span class="k">let</span> <span class="n">y</span> <span class="o">=</span> <span class="nn">Linalg</span><span class="p">.</span><span class="nn">D</span><span class="p">.</span><span class="n">inv</span> <span class="n">x</span><span class="o">;;</span>   <span class="c">(* calculate the matrix inverse *)</span>
+<span class="nn">Mat</span><span class="p">.</span><span class="o">(</span><span class="n">x</span> <span class="o">*@</span> <span class="n">y</span> <span class="o">=~</span> <span class="n">eye</span> <span class="mi">8</span><span class="o">);;</span>    <span class="c">(* check the approx equality *)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/chapter/linalg.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

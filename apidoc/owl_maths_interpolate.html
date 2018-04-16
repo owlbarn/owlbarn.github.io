@@ -1,0 +1,133 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Maths_interpolate &#8212; Owl Numerical Library 0.3 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dense.Ndarray.Generic" href="owl_dense_ndarray_generic.html" />
+    <link rel="prev" title="Maths_quadrature" href="owl_maths_quadrature.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Owl’s API Reference</a><ul>
+      <li>Previous: <a href="owl_maths_quadrature.html" title="previous chapter">Maths_quadrature</a></li>
+      <li>Next: <a href="owl_dense_ndarray_generic.html" title="next chapter">Dense.Ndarray.Generic</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="maths-interpolate">
+<h1>Maths_interpolate<a class="headerlink" href="#maths-interpolate" title="Permalink to this headline">¶</a></h1>
+<p>This document is auto-generated for Owl’s APIs.
+#2 entries have been extracted.
+timestamp: 2018-04-16 14:04:07</p>
+<p>Github:
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_maths_interpolate.mli">{Signature}</a>
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_maths_interpolate.ml">{Implementation}</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">polint</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">polint</span> <span class="pre">xs</span> <span class="pre">ys</span> <span class="pre">x</span></code> performs polynomial interpolation of the given arrays <code class="docutils literal notranslate"><span class="pre">xs</span></code>
+and <code class="docutils literal notranslate"><span class="pre">ys</span></code>. Given arrays <code class="docutils literal notranslate"><span class="pre">xs[0..(n-1)]</span></code> and <code class="docutils literal notranslate"><span class="pre">ys[0..(n-1)]</span></code>, and a value
+<code class="docutils literal notranslate"><span class="pre">x</span></code>, the function returns a value <code class="docutils literal notranslate"><span class="pre">y</span></code>, and an error estimate <code class="docutils literal notranslate"><span class="pre">dy</span></code>. If
+<code class="docutils literal notranslate"><span class="pre">P(x)</span></code> is the polynomial of degree <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">−</span> <span class="pre">1</span></code> such that <code class="docutils literal notranslate"><span class="pre">P(xs[i])</span> <span class="pre">=</span> <span class="pre">ys[i]</span></code>
+for <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">0,...,n-1</span></code>,</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">xs</span></code>: an array of input <code class="docutils literal notranslate"><span class="pre">x</span></code> values of <code class="docutils literal notranslate"><span class="pre">P(x)</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ys</span></code>: an array of corresponding <code class="docutils literal notranslate"><span class="pre">y</span></code> values of <code class="docutils literal notranslate"><span class="pre">P(x)</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code>: value to interpolate.</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">dy)</span></code> wherein <code class="docutils literal notranslate"><span class="pre">y</span></code> is the returned value <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">P(x)</span></code>, and <code class="docutils literal notranslate"><span class="pre">dy</span></code> is the estimated error.</li>
+</ul>
+</dd>
+</dl>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_interpolate.ml#L9">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ratint</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_interpolate.ml#L54">source code</a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/apidoc/owl_maths_interpolate.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

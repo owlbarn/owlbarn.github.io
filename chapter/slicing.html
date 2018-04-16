@@ -1,0 +1,322 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Indexing and Slicing &#8212; Owl Numerical Library 0.3 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Function Naming Conventions" href="naming.html" />
+    <link rel="prev" title="Broadcasting Operation" href="broadcast.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Indexing and Slicing</a><ul>
+<li><a class="reference internal" href="#basic-slicing">Basic Slicing</a></li>
+<li><a class="reference internal" href="#fancy-slicing">Fancy Slicing</a></li>
+<li><a class="reference internal" href="#conventions-in-definition">Conventions in Definition</a></li>
+<li><a class="reference internal" href="#extending-operators">Extending Operators</a></li>
+<li><a class="reference internal" href="#slicing-examples">Slicing Examples</a></li>
+<li><a class="reference internal" href="#advanced-usage">Advanced Usage</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Owl’s Tutorial Book</a><ul>
+      <li>Previous: <a href="broadcast.html" title="previous chapter">Broadcasting Operation</a></li>
+      <li>Next: <a href="naming.html" title="next chapter">Function Naming Conventions</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="indexing-and-slicing">
+<h1>Indexing and Slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this headline">¶</a></h1>
+<p>Indexing and slicing is arguably the most important and fundamental functions in any numerical library. The flexible design can significantly simplify the code and enables us to write concise algorithms. In this chapter, I will present how to use slicing function in Owl.</p>
+<p>Before we start, let’s clarify some things.</p>
+<ul class="simple">
+<li>Slicing refers to the operation that extracts part of the data from an ndarrays or a matrix according to the well-defined <strong>slice definition</strong>.</li>
+<li>Slicing can be applied to all the dense data structures, i.e. both ndarrays and matrice.</li>
+<li>Slice definition is an <cite>index list</cite> which clarifies <strong>what indices</strong> should be accessed and in <strong>what order</strong> for each dimension of the passed in variable.</li>
+<li>There are two types of slicing in Owl: <cite>basic slicing</cite> and <cite>fancy slicing</cite>. The difference between the two is how the slice is define.</li>
+</ul>
+<div class="section" id="basic-slicing">
+<h2>Basic Slicing<a class="headerlink" href="#basic-slicing" title="Permalink to this headline">¶</a></h2>
+<p>For basic slicing, each dimension in the slice definition must be defined in the format of <strong>[start:stop:step]</strong>. Owl provides two functions <code class="docutils literal notranslate"><span class="pre">get_slice</span></code> and <code class="docutils literal notranslate"><span class="pre">set_slice</span></code> to retrieve and assign slice values respectively.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_slice</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">list</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">set_slice</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">list</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Both functions accept <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">list</span> <span class="pre">list</span></code> as its slice definition. Every <code class="docutils literal notranslate"><span class="pre">list</span></code> element in the <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">list</span> <span class="pre">list</span></code> is assumed to be a range. E.g., <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">[];</span> <span class="pre">[2];</span> <span class="pre">[-1;3]</span> <span class="pre">]</span></code> is equivalent to its full slice definition <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">R</span> <span class="pre">[];</span> <span class="pre">R</span> <span class="pre">[2];</span> <span class="pre">R</span> <span class="pre">[-1;3]</span> <span class="pre">]</span></code>, as we will introduce below in fancy slicing.</p>
+</div>
+<div class="section" id="fancy-slicing">
+<h2>Fancy Slicing<a class="headerlink" href="#fancy-slicing" title="Permalink to this headline">¶</a></h2>
+<p>Fancy slicing is more powerful than the basic one thanks to its slice definition. With fancy slicing, we can pass in a list of arbitrary indices which may not be possible to specify with aforementioned <code class="docutils literal notranslate"><span class="pre">[start;stop;step]</span></code> format.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">index</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">I</span> <span class="k">of</span> <span class="kt">int</span>       <span class="c">(* single index *)</span>
+  <span class="o">|</span> <span class="nc">L</span> <span class="k">of</span> <span class="kt">int</span> <span class="kt">list</span>  <span class="c">(* list of indices *)</span>
+  <span class="o">|</span> <span class="nc">R</span> <span class="k">of</span> <span class="kt">int</span> <span class="kt">list</span>  <span class="c">(* index range *)</span>
+</pre></div>
+</div>
+<p>Fancy slice is defined by an <code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">list</span></code> where you can use three type constructors to specify:</p>
+<ol class="arabic simple">
+<li>an individual index (using <code class="docutils literal notranslate"><span class="pre">I</span></code> constructor);</li>
+<li>a list of indices (using <code class="docutils literal notranslate"><span class="pre">L</span></code> constructor);</li>
+<li>a range of indices (using <code class="docutils literal notranslate"><span class="pre">R</span></code> constructor).</li>
+</ol>
+<p>There are two functions to handle fancy slicing operations.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_fancy</span> <span class="o">:</span> <span class="n">index</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">set_fancy</span> <span class="o">:</span> <span class="n">index</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">get_fancy</span> <span class="pre">s</span> <span class="pre">x</span></code> retrieves a slice of <code class="docutils literal notranslate"><span class="pre">x</span></code> defined by <code class="docutils literal notranslate"><span class="pre">s</span></code>; whereas <code class="docutils literal notranslate"><span class="pre">set_fancy</span> <span class="pre">s</span> <span class="pre">x</span> <span class="pre">y</span></code> assigns the slice of <code class="docutils literal notranslate"><span class="pre">x</span></code> defined by <code class="docutils literal notranslate"><span class="pre">s</span></code> according to values in <code class="docutils literal notranslate"><span class="pre">y</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">y</span></code> must have the same shape as that defined by <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+<p>Basic slicing is a special case of fancy slicing where only type constructor <code class="docutils literal notranslate"><span class="pre">R</span></code> is used in the definition. For example, the following two definitions are equivalent.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Arr</span><span class="p">.</span><span class="n">get_basic</span> <span class="o">[</span> <span class="bp">[]</span><span class="o">;</span> <span class="o">[</span><span class="mi">0</span><span class="o">;</span><span class="mi">8</span><span class="o">];</span> <span class="o">[</span><span class="mi">3</span><span class="o">;</span><span class="mi">9</span><span class="o">;</span><span class="mi">2</span><span class="o">]</span> <span class="o">];;</span>
+
+<span class="nn">Arr</span><span class="p">.</span><span class="n">get_fancy</span> <span class="o">[</span> <span class="nc">R</span><span class="bp">[]</span><span class="o">;</span> <span class="nc">R</span><span class="o">[</span><span class="mi">0</span><span class="o">;</span><span class="mi">8</span><span class="o">];</span> <span class="nc">R</span><span class="o">[</span><span class="mi">3</span><span class="o">;</span><span class="mi">9</span><span class="o">;</span><span class="mi">2</span><span class="o">]</span> <span class="o">];;</span>
+</pre></div>
+</div>
+<p>Note that both <code class="docutils literal notranslate"><span class="pre">get_basic</span></code> and <code class="docutils literal notranslate"><span class="pre">get_fancy</span></code> return a copy (rather than a view as that in Numpy); whilst <code class="docutils literal notranslate"><span class="pre">set_basic</span></code> and <code class="docutils literal notranslate"><span class="pre">set_fancy</span></code> modifies the original data in place.</p>
+</div>
+<div class="section" id="conventions-in-definition">
+<h2>Conventions in Definition<a class="headerlink" href="#conventions-in-definition" title="Permalink to this headline">¶</a></h2>
+<p>Essentially, Owl’s slicing functions are very similar to those in Numpy. So if you already know how to slice n-dimensional arrays in Numpy, you should find this chapter very easy.</p>
+<p>The following conventions require our attentions in order to write correct slice definition. These conventions can be equally applied to both basic and fancy slicing.</p>
+<ul class="simple">
+<li>Slice definition is a <code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">list</span></code>. Each element within the <code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">list</span></code> corresponds one dimension in the passed in data, and it defines how the indices along this dimension should be accessed. Owl provides three constructors <code class="docutils literal notranslate"><span class="pre">I</span></code>, <code class="docutils literal notranslate"><span class="pre">L</span></code>, and <code class="docutils literal notranslate"><span class="pre">R</span></code> to let you specify single index, a list of indices, or a range of indices.</li>
+<li>Constructor <code class="docutils literal notranslate"><span class="pre">I</span></code> is trivial, it specifies a specific index. E.g., <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">I</span> <span class="pre">2;</span> <span class="pre">I</span> <span class="pre">5</span> <span class="pre">]</span></code> returns the element at position <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">5)</span></code> in a matrix.</li>
+<li>Constructor <code class="docutils literal notranslate"><span class="pre">L</span></code> is used to specify a list of indices. E.g., <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">I</span> <span class="pre">2;</span> <span class="pre">L</span> <span class="pre">[5;3]</span> <span class="pre">]</span></code> returns a <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">x</span> <span class="pre">2</span></code> matrix consists of the elements at <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">5)</span></code> and <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">3)</span></code> in the original matrix.</li>
+<li>Constructor <code class="docutils literal notranslate"><span class="pre">R</span></code> is for specifying a range of indices. It has more conventions but by no means complicated. The following text is dedicated for range conventions.</li>
+<li>The format of the range definition follows <strong>R [ start; stop; step ]</strong>. Obviously, <code class="docutils literal notranslate"><span class="pre">start</span></code> specifies the starting index; <code class="docutils literal notranslate"><span class="pre">stop</span></code> specifies the stopping index (inclusive); and <code class="docutils literal notranslate"><span class="pre">step</span></code> specifies the step size. You do not have to specifies all three variables in the definition, please see the following rules.</li>
+<li>All three variables <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code>, and <code class="docutils literal notranslate"><span class="pre">step</span></code> can take both positive and negative values, but <code class="docutils literal notranslate"><span class="pre">step</span></code> is not allowed to take <code class="docutils literal notranslate"><span class="pre">0</span></code> value. Positive step indicates that indices will be visited in increasing order from <code class="docutils literal notranslate"><span class="pre">start</span></code> to <code class="docutils literal notranslate"><span class="pre">stop</span></code>; and vice versa.</li>
+<li>For <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">stop</span></code> variables, positive value refers to a specific index; whereas negative value <code class="docutils literal notranslate"><span class="pre">a</span></code> will be translated into <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">a</span></code> where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the total number of indices. E.g., <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">-1;</span> <span class="pre">0</span> <span class="pre">]</span></code> means from the last index to the first one.</li>
+<li>If you pass in an empty list <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">[]</span></code>, this will be expanded into <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">0;</span> <span class="pre">n</span> <span class="pre">-</span> <span class="pre">1;</span> <span class="pre">1</span> <span class="pre">]</span></code> which means all the indices will be visited in increasing order with step size <cite>1</cite>.</li>
+<li>If you only specify one variable such as <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">start</span> <span class="pre">]</span></code>, then <code class="docutils literal notranslate"><span class="pre">get_slice</span></code> function assumes that you will take one specific index by automatically extending it into <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">start;</span> <span class="pre">start;</span> <span class="pre">1</span> <span class="pre">]</span></code>. As we can see, <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">stop</span></code> are the same, with step size 1.</li>
+<li>If you only specify two variables then <code class="docutils literal notranslate"><span class="pre">slice</span></code> function assumes they are <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">start;</span> <span class="pre">stop</span> <span class="pre">]</span></code> which defines the range of indices. However, how <code class="docutils literal notranslate"><span class="pre">get_slice</span></code> will expand this slice definition depends, as we can see in the below, <code class="docutils literal notranslate"><span class="pre">slice</span></code> will visit the indices in different orders.<ul>
+<li>if <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">&lt;=</span> <span class="pre">stop</span></code>, then it will be expanded to <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">start;</span> <span class="pre">stop;</span> <span class="pre">1</span> <span class="pre">]</span></code>;</li>
+<li>if <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">&gt;</span> <span class="pre">stop</span></code>, then it will be expanded to <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">start;</span> <span class="pre">stop;</span> <span class="pre">-1</span> <span class="pre">]</span></code>;</li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li>It is not necessary to specify all the definitions for all the dimensions, <code class="docutils literal notranslate"><span class="pre">get_slice</span></code> function will also expand it by assuming you will take all the data in higher dimensions. E.g., <code class="docutils literal notranslate"><span class="pre">x</span></code> has the shape <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">2;</span> <span class="pre">3;</span> <span class="pre">4</span> <span class="pre">]</span></code>, if we define the slice as <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">[0]</span> <span class="pre">]</span></code> then <code class="docutils literal notranslate"><span class="pre">get_slice</span></code> will expand the definition into <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">[0];</span> <span class="pre">[];</span> <span class="pre">[]</span> <span class="pre">]</span></code></li>
+</ul>
+<p>OK, that’s all. Please make sure you understand it well before you start, but it is also fine you just learn by doing.</p>
+</div>
+<div class="section" id="extending-operators">
+<h2>Extending Operators<a class="headerlink" href="#extending-operators" title="Permalink to this headline">¶</a></h2>
+<p>The operators for indexing and slicing are built atop of the extending indexing operators introduced in OCaml 4.06. Three are used in Owl as follows. All of them are defined in the functors in  <cite>Owl_operator</cite> module.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">.%{</span> <span class="pre">}</span></code>   : <cite>get</cite></li>
+<li><code class="docutils literal notranslate"><span class="pre">.%{</span> <span class="pre">}&lt;-</span></code> : <cite>set</cite></li>
+<li><code class="docutils literal notranslate"><span class="pre">.${</span> <span class="pre">}</span></code>   : <cite>get_slice</cite></li>
+<li><code class="docutils literal notranslate"><span class="pre">.${</span> <span class="pre">}&lt;-</span></code> : <cite>set_slice</cite></li>
+<li><code class="docutils literal notranslate"><span class="pre">.!{</span> <span class="pre">}</span></code>   : <cite>get_fancy</cite></li>
+<li><code class="docutils literal notranslate"><span class="pre">.!{</span> <span class="pre">}&lt;-</span></code> : <cite>set_fancy</cite></li>
+</ul>
+<p>Here are some examples to show how to use them.</p>
+<p><strong>.%{ }</strong> for indexing, as follows.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nc">Arr</span><span class="o">;;</span>
+
+<span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="n">sequential</span> <span class="o">[|</span><span class="mi">10</span><span class="o">;</span> <span class="mi">10</span><span class="o">;</span> <span class="mi">10</span><span class="o">|];;</span>
+<span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="o">.%{</span> <span class="o">[|</span><span class="mi">2</span><span class="o">;</span> <span class="mi">3</span><span class="o">;</span> <span class="mi">4</span><span class="o">|]</span> <span class="o">};;</span>         <span class="c">(* i.e. Arr.get *)</span>
+<span class="n">x</span><span class="o">.%{</span> <span class="o">[|</span><span class="mi">2</span><span class="o">;</span> <span class="mi">3</span><span class="o">;</span> <span class="mi">4</span><span class="o">|]</span> <span class="o">}</span> <span class="o">&lt;-</span> <span class="mi">111</span><span class="o">.;;</span>         <span class="c">(* i.e. Arr.set *)</span>
+</pre></div>
+</div>
+<p><strong>.${ }</strong> for basic slicing, as follows.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nc">Arr</span><span class="o">;;</span>
+
+<span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="n">sequential</span> <span class="o">[|</span><span class="mi">10</span><span class="o">;</span> <span class="mi">10</span><span class="o">;</span> <span class="mi">10</span><span class="o">|];;</span>
+<span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="o">.${</span> <span class="o">[[</span><span class="mi">0</span><span class="o">;</span><span class="mi">4</span><span class="o">];</span> <span class="o">[</span><span class="mi">6</span><span class="o">;-</span><span class="mi">1</span><span class="o">];</span> <span class="o">[-</span><span class="mi">1</span><span class="o">;</span><span class="mi">0</span><span class="o">]]</span> <span class="o">};;</span>  <span class="c">(* i.e. Arr.get_slice *)</span>
+
+<span class="k">let</span> <span class="n">b</span> <span class="o">=</span> <span class="n">zeros</span> <span class="o">(</span><span class="n">shape</span> <span class="n">a</span><span class="o">);;</span>
+<span class="n">x</span><span class="o">.${</span> <span class="o">[[</span><span class="mi">0</span><span class="o">;</span><span class="mi">4</span><span class="o">];</span> <span class="o">[</span><span class="mi">6</span><span class="o">;-</span><span class="mi">1</span><span class="o">];</span> <span class="o">[-</span><span class="mi">1</span><span class="o">;</span><span class="mi">0</span><span class="o">]]</span> <span class="o">}</span> <span class="o">&lt;-</span> <span class="n">b</span><span class="o">;;</span>     <span class="c">(* i.e. Arr.set_slice *)</span>
+</pre></div>
+</div>
+<p><strong>.!{ }</strong> for fancy slicing, as follows.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nc">Arr</span><span class="o">;;</span>
+
+<span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="n">sequential</span> <span class="o">[|</span><span class="mi">10</span><span class="o">;</span> <span class="mi">10</span><span class="o">;</span> <span class="mi">10</span><span class="o">|];;</span>
+<span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="o">.!{</span> <span class="o">[</span> <span class="nc">L</span><span class="o">[</span><span class="mi">2</span><span class="o">;</span><span class="mi">2</span><span class="o">;</span><span class="mi">1</span><span class="o">];</span> <span class="nc">R</span><span class="o">[</span><span class="mi">6</span><span class="o">;-</span><span class="mi">1</span><span class="o">];</span> <span class="nc">I</span> <span class="mi">5</span><span class="o">]</span> <span class="o">};;</span>  <span class="c">(* i.e. Arr.get_fancy *)</span>
+
+<span class="k">let</span> <span class="n">b</span> <span class="o">=</span> <span class="n">zeros</span> <span class="o">(</span><span class="n">shape</span> <span class="n">a</span><span class="o">);;</span>
+<span class="n">x</span><span class="o">.!{</span> <span class="o">[</span><span class="nc">L</span><span class="o">[</span><span class="mi">2</span><span class="o">;</span><span class="mi">2</span><span class="o">;</span><span class="mi">1</span><span class="o">];</span> <span class="nc">R</span><span class="o">[</span><span class="mi">6</span><span class="o">;-</span><span class="mi">1</span><span class="o">];</span> <span class="nc">I</span> <span class="mi">5</span><span class="o">]</span> <span class="o">}</span> <span class="o">&lt;-</span> <span class="n">b</span><span class="o">;;</span>      <span class="c">(* i.e. Arr.set_fancy *)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="slicing-examples">
+<h2>Slicing Examples<a class="headerlink" href="#slicing-examples" title="Permalink to this headline">¶</a></h2>
+<p>I always believe that nothing is better than concrete examples. I will use the basic slicing to demonstrate some examples in the following. Note that all the following examples can be equally applied to ndarray. OK, here they are.</p>
+<p>Let’s first define a sequential matrix as the input data for the following examples.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">sequential</span> <span class="mi">5</span> <span class="mi">7</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>You should be able to see the following output in <cite>utop</cite>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>   C0 C1 C2 C3 C4 C5 C6
+R0  <span class="m">0</span>  <span class="m">1</span>  <span class="m">2</span>  <span class="m">3</span>  <span class="m">4</span>  <span class="m">5</span>  <span class="m">6</span>
+R1  <span class="m">7</span>  <span class="m">8</span>  <span class="m">9</span> <span class="m">10</span> <span class="m">11</span> <span class="m">12</span> <span class="m">13</span>
+R2 <span class="m">14</span> <span class="m">15</span> <span class="m">16</span> <span class="m">17</span> <span class="m">18</span> <span class="m">19</span> <span class="m">20</span>
+R3 <span class="m">21</span> <span class="m">22</span> <span class="m">23</span> <span class="m">24</span> <span class="m">25</span> <span class="m">26</span> <span class="m">27</span>
+R4 <span class="m">28</span> <span class="m">29</span> <span class="m">30</span> <span class="m">31</span> <span class="m">32</span> <span class="m">33</span> <span class="m">34</span>
+
+val x : Mat.mat <span class="o">=</span>
+</pre></div>
+</div>
+<p>Now, we can finally start our experiment. One benefit of running code in <cite>utop</cite> is that you can observe the output immediately to understand better how <code class="docutils literal notranslate"><span class="pre">slice</span></code> function works.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="c">(* simply take all the elements *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+
+<span class="c">(* take row 2 *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">2</span><span class="o">];</span> <span class="bp">[]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+
+<span class="c">(* same as above, take row 2, but only specify low dimension slice definition *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+
+<span class="c">(* take from row 1 to 3 *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">1</span><span class="o">;</span><span class="mi">3</span><span class="o">]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+
+<span class="c">(* take from row 3 to 1, same as the example above but in reverse order *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">3</span><span class="o">;</span><span class="mi">1</span><span class="o">]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>Let’ see some more complicated examples.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="c">(* take from row 1 to 3 and column 3 to 5, so a sub-matrix of x *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">1</span><span class="o">;</span><span class="mi">3</span><span class="o">];</span> <span class="o">[</span><span class="mi">3</span><span class="o">;</span><span class="mi">5</span><span class="o">]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+
+<span class="c">(* take from row 1 to the last row *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">1</span><span class="o">;-</span><span class="mi">1</span><span class="o">];</span> <span class="bp">[]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+
+<span class="c">(* take the rows of even number indices, i.e., 0;2;4 *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">0</span><span class="o">;-</span><span class="mi">1</span><span class="o">;</span><span class="mi">2</span><span class="o">]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+
+<span class="c">(* take the column of odd number indices, i.e.,1;3;5 ... *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="bp">[]</span><span class="o">;</span> <span class="o">[</span><span class="mi">1</span><span class="o">;-</span><span class="mi">1</span><span class="o">;</span><span class="mi">2</span><span class="o">]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+
+<span class="c">(* reverse all the rows of x *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[-</span><span class="mi">1</span><span class="o">;</span><span class="mi">0</span><span class="o">]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+
+<span class="c">(* reverse all the elements of x, same as applying reverse function *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[-</span><span class="mi">1</span><span class="o">;</span><span class="mi">0</span><span class="o">];</span> <span class="o">[-</span><span class="mi">1</span><span class="o">;</span><span class="mi">0</span><span class="o">]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+
+<span class="c">(* take the second last row, from the first column to the last, with step size 3 *)</span>
+<span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[-</span><span class="mi">2</span><span class="o">];</span> <span class="o">[</span><span class="mi">0</span><span class="o">;-</span><span class="mi">1</span><span class="o">;</span><span class="mi">3</span><span class="o">]</span> <span class="o">]</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="n">s</span> <span class="n">x</span><span class="o">;;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="advanced-usage">
+<h2>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h2>
+<p>Here are some more advanced examples to show how to use slicing to achieve quite complicated stuffs.</p>
+<p>How to implement <code class="docutils literal notranslate"><span class="pre">flip</span></code> using slicing?</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">flip</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="o">[</span> <span class="o">[-</span><span class="mi">1</span><span class="o">;</span> <span class="mi">0</span><span class="o">];</span> <span class="o">[</span> <span class="o">]</span> <span class="o">]</span> <span class="n">x</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>How to implement <code class="docutils literal notranslate"><span class="pre">reverse</span></code> using slicing?</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">reverse</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">get_slice</span> <span class="o">[</span> <span class="o">[-</span><span class="mi">1</span><span class="o">;</span> <span class="mi">0</span><span class="o">];</span> <span class="o">[-</span><span class="mi">1</span><span class="o">;</span> <span class="mi">0</span><span class="o">]</span> <span class="o">]</span> <span class="n">x</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>How to rotate a matrix 90 degrees in clockwise direction?</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">rotate90</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="o">(</span><span class="n">transpose</span> <span class="n">x</span> <span class="o">|&gt;</span> <span class="n">get_slice</span> <span class="o">[</span> <span class="bp">[]</span><span class="o">;</span> <span class="o">[-</span><span class="mi">1</span><span class="o">;</span><span class="mi">0</span><span class="o">]</span> <span class="o">]);;</span>
+</pre></div>
+</div>
+<p>How to perform right circular shift along columns of a matrix?</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">cshift</span> <span class="n">x</span> <span class="n">n</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">c</span> <span class="o">=</span> <span class="nn">Mat</span><span class="p">.</span><span class="n">col_num</span> <span class="n">x</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">h</span> <span class="o">=</span> <span class="nn">Utils</span><span class="p">.</span><span class="o">(</span><span class="n">range</span> <span class="o">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">n</span><span class="o">)</span> <span class="o">(</span><span class="n">c</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span> <span class="o">|&gt;</span> <span class="nn">Array</span><span class="p">.</span><span class="n">to_list</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">t</span> <span class="o">=</span> <span class="nn">Utils</span><span class="p">.</span><span class="o">(</span><span class="n">range</span> <span class="mi">0</span> <span class="o">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">n</span> <span class="o">-</span><span class="mi">1</span><span class="o">))</span> <span class="o">|&gt;</span> <span class="nn">Array</span><span class="p">.</span><span class="n">to_list</span> <span class="k">in</span>
+  <span class="nn">Mat</span><span class="p">.</span><span class="n">get_fancy</span> <span class="o">[</span> <span class="nc">R</span> <span class="bp">[]</span><span class="o">;</span> <span class="nc">L</span> <span class="o">(</span><span class="n">h</span> <span class="o">@</span> <span class="n">t</span><span class="o">)</span> <span class="o">]</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>Slicing and indexing is an important topic in Owl, make sure you understand it well before proceeding to other chapters.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/chapter/slicing.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,221 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Compile into Javascript &#8212; Owl Numerical Library 0.3 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Constants and Metric System" href="metric.html" />
+    <link rel="prev" title="Sparse Data Structures" href="sparse.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Compile into Javascript</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#base-library">Base Library</a></li>
+<li><a class="reference internal" href="#use-native-ocaml">Use Native OCaml</a></li>
+<li><a class="reference internal" href="#use-facebook-reason">Use Facebook Reason</a></li>
+<li><a class="reference internal" href="#future-plan">Future Plan</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Owl’s Tutorial Book</a><ul>
+      <li>Previous: <a href="sparse.html" title="previous chapter">Sparse Data Structures</a></li>
+      <li>Next: <a href="metric.html" title="next chapter">Constants and Metric System</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="compile-into-javascript">
+<h1>Compile into Javascript<a class="headerlink" href="#compile-into-javascript" title="Permalink to this headline">¶</a></h1>
+<p>This chapter uses two simple examples to demonstrate how to compile Owl applications into Javascript code so that you can deploy the analytical code into browsers.</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>At first glance, Javascript has very little to do with high-performance scientific computing. Then why Owl cares about it? One important reason is that browser is arguably the most widely deployed technology on various edge devices, e.g. mobile phones, tablets, laptops, and etc. More functionality are being pushed from datacenters to edge for reduced latency, better privacy and security. The Javascript applications running in a browser are getting more complicated and powerful.</p>
+<p>Moreover, the engine for executing Javascript is highly optimised even the relatively complicated computational tasks can run with reasonable performance.</p>
+</div>
+<div class="section" id="base-library">
+<h2>Base Library<a class="headerlink" href="#base-library" title="Permalink to this headline">¶</a></h2>
+<p>Before we start, you need to know some basic things to understand how Owl is able to support Javascript</p>
+<p>Owl system is actually divided to two parts: <a class="reference external" href="https://github.com/owlbarn/owl/tree/master/src/base">Base library</a> and <a class="reference external" href="https://github.com/owlbarn/owl/tree/master/src/owl">Core library</a>. The base library is implemented with pure OCaml so it can be safely compiled into Javascript. Many functionality (e.g. Ndarray) in the base library will be replaced with high-performance C implementation in the Core library.</p>
+<p>As you can see, to enable Javascript, we can only use the functions implemented in the Base. You may wonder how much we will be limited by the Base. Fortunately, the most advanced functions in Owl are often implemented in pure OCaml and they live in the Base, which includes e.g. algorithmic differentiation, optimisation, even neural networks and many others.</p>
+<p>In this following, I will present how to use <code class="docutils literal notranslate"><span class="pre">Owl_base</span></code> in writing Javascript applications using both native OCaml code and Facebook Reason. Both examples are straightforward thanks to the powerful jbuilder.</p>
+</div>
+<div class="section" id="use-native-ocaml">
+<h2>Use Native OCaml<a class="headerlink" href="#use-native-ocaml" title="Permalink to this headline">¶</a></h2>
+<p>We know that <code class="docutils literal notranslate"><span class="pre">Owl_algodiff_generic</span></code> is the cornerstone of Owl’s fast neural network module. The first example uses Algodiff functor to optimise a mathematical function.</p>
+<p>The first step is writing down our application in OCaml as follows, then save it into a file <cite>demo.ml</cite></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="c">(* Javascript example: use Owl_base to minimise sin *)</span>
+
+<span class="k">include</span> <span class="nn">Owl_algodiff_generic</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span><span class="nn">Owl_base_dense_ndarray</span><span class="p">.</span><span class="nc">D</span><span class="o">)</span>
+
+<span class="k">let</span> <span class="k">rec</span> <span class="n">desc</span> <span class="o">?(</span><span class="n">eta</span><span class="o">=</span><span class="nc">F</span> <span class="mi">0</span><span class="o">.</span><span class="mi">01</span><span class="o">)</span> <span class="o">?(</span><span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="o">)</span> <span class="n">f</span> <span class="n">x</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">g</span> <span class="o">=</span> <span class="o">(</span><span class="n">diff</span> <span class="n">f</span><span class="o">)</span> <span class="n">x</span> <span class="k">in</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">unpack_flt</span> <span class="n">g</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">eps</span> <span class="k">then</span> <span class="n">x</span>
+  <span class="k">else</span> <span class="n">desc</span> <span class="o">~</span><span class="n">eta</span> <span class="o">~</span><span class="n">eps</span> <span class="n">f</span> <span class="nn">Maths</span><span class="p">.</span><span class="o">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">g</span><span class="o">)</span>
+
+<span class="k">let</span> <span class="o">_</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">f</span> <span class="o">=</span> <span class="nn">Maths</span><span class="p">.</span><span class="n">sin</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">y</span> <span class="o">=</span> <span class="n">desc</span> <span class="n">f</span> <span class="o">(</span><span class="nc">F</span> <span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="o">)</span> <span class="k">in</span>
+  <span class="nn">Owl_log</span><span class="p">.</span><span class="n">info</span> <span class="s2">&quot;argmin f(x) = %g&quot;</span> <span class="o">(</span><span class="n">unpack_flt</span> <span class="n">y</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>The code is very simple: the <code class="docutils literal notranslate"><span class="pre">desc</span></code> defines a gradient descent algorithm, then we use <code class="docutils literal notranslate"><span class="pre">desc</span></code> to calculate the minimum value of <code class="docutils literal notranslate"><span class="pre">Maths.sin</span></code> function. In the end, we print out the result using <code class="docutils literal notranslate"><span class="pre">Owl_log</span></code> module’s <code class="docutils literal notranslate"><span class="pre">info</span></code> function. You should have noticed, we used <code class="docutils literal notranslate"><span class="pre">Owl_algodiff_generic</span></code> functor to create and include an algorithmic differentiation module by passing the pure implementation of Ndarray in the base library.</p>
+<p>In the second step, we need to create a <cite>jbuild</cite> file as follows. This file will instruct how the OCaml code will be first compiled into bytecode then converted into javascript by calling <code class="docutils literal notranslate"><span class="pre">js_of_ocaml</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jbuild_version <span class="m">1</span><span class="o">)</span>
+
+<span class="o">(</span>executables
+ <span class="o">((</span>libraries <span class="o">(</span>owl_base<span class="o">))</span>
+  <span class="o">(</span>names <span class="o">(</span>demo<span class="o">))))</span>
+
+  <span class="o">(</span>rule
+   <span class="o">((</span>targets <span class="o">(</span>demo.js<span class="o">))</span>
+    <span class="o">(</span>action
+      <span class="o">(</span>run <span class="si">${</span><span class="nv">bin</span><span class="p">:</span><span class="nv">js_of_ocaml</span><span class="si">}</span>
+        --noruntime <span class="si">${</span><span class="nv">lib</span><span class="p">:</span><span class="nv">js_of_ocaml</span><span class="p">-compiler:</span><span class="nv">runtime</span><span class="p">.js</span><span class="si">}</span>
+        --source-map <span class="si">${</span><span class="nv">path</span><span class="p">:</span><span class="nv">demo</span><span class="p">.bc</span><span class="si">}</span> -o <span class="si">${</span><span class="p">@</span><span class="si">}</span> --pretty
+      <span class="o">))))</span>
+</pre></div>
+</div>
+<p>With these two files in the same folder, you can then simply run the following command in the terminal. The command builds the application and generates a <cite>demo.js</cite> in <cite>_build/default/</cite> folder.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jbuilder build demo.js
+</pre></div>
+</div>
+<p>In the last, we can run the javascript using Node.js engine.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>node _build/default/demo.js
+</pre></div>
+</div>
+<p>You should be able to see the output result similar to <code class="docutils literal notranslate"><span class="pre">2018-03-24</span> <span class="pre">16:27:42.368</span> <span class="pre">INFO</span> <span class="pre">:</span> <span class="pre">argmin</span> <span class="pre">f(x)</span> <span class="pre">=</span> <span class="pre">-1.5708</span></code>.</p>
+</div>
+<div class="section" id="use-facebook-reason">
+<h2>Use Facebook Reason<a class="headerlink" href="#use-facebook-reason" title="Permalink to this headline">¶</a></h2>
+<p>Facebook Reason is gaining its momentum and becoming a popular choice of developing web applications. Because Reason is basically a wrapper of OCaml, it is very straightforward to use Owl library in Reason to develop advanced numerical applications.</p>
+<p>In this example, I demonstrate how to use reason code to manipulate multi-dimensional arrays, which is the core data structure in Owl. First, please save the following code into a reason file <cite>demo.re</cite>. Note the the suffix is <em>.re</em> now.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="nc">Javascript</span> <span class="n">example</span><span class="o">:</span> <span class="nc">Ndarray</span> <span class="ow">and</span> <span class="nc">Maths</span> <span class="o">*/</span>
+
+<span class="k">open</span><span class="o">!</span> <span class="nc">Owl_base</span><span class="o">;</span>
+
+<span class="o">/*</span> <span class="n">calculate</span> <span class="n">math</span> <span class="n">functions</span> <span class="o">*/</span>
+<span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Owl_base_maths</span><span class="p">.</span><span class="n">sin</span><span class="o">(</span><span class="mi">5</span><span class="o">.);</span>
+<span class="nn">Owl_log</span><span class="p">.</span><span class="n">info</span><span class="o">(</span><span class="s2">&quot;Result is %f&quot;</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
+
+<span class="o">/*</span> <span class="n">create</span> <span class="n">random</span> <span class="n">ndarray</span> <span class="k">then</span> <span class="n">print</span> <span class="o">*/</span>
+<span class="k">let</span> <span class="n">y</span> <span class="o">=</span> <span class="nn">Owl_base_dense_ndarray</span><span class="p">.</span><span class="nn">D</span><span class="p">.</span><span class="n">uniform</span><span class="o">([|</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">|]);</span>
+<span class="nn">Owl_base_dense_ndarray</span><span class="p">.</span><span class="nn">D</span><span class="p">.</span><span class="n">set</span><span class="o">(</span><span class="n">y</span><span class="o">,[|</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">1</span><span class="o">|],</span><span class="mi">1</span><span class="o">.);</span>
+<span class="nn">Owl_base_dense_ndarray</span><span class="p">.</span><span class="nn">D</span><span class="p">.</span><span class="n">print</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
+
+<span class="o">/*</span> <span class="n">take</span> <span class="n">a</span> <span class="n">slice</span> <span class="o">*/</span>
+<span class="k">let</span> <span class="n">z</span> <span class="o">=</span> <span class="nn">Owl_base_dense_ndarray</span><span class="p">.</span><span class="nn">D</span><span class="p">.</span><span class="n">get_slice</span><span class="o">([</span><span class="bp">[]</span><span class="o">,</span><span class="bp">[]</span><span class="o">,[</span><span class="mi">0</span><span class="o">,</span><span class="mi">3</span><span class="o">]],</span><span class="n">y</span><span class="o">);</span>
+<span class="nn">Owl_base_dense_ndarray</span><span class="p">.</span><span class="nn">D</span><span class="p">.</span><span class="n">print</span><span class="o">(</span><span class="n">z</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>The code above is simple, just creates a random ndarray, takes a slice, then prints them out. Now let’s look at the <cite>jbuild</cite> file, which turns out to be exactly the same as that in the previous example.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>jbuild_version <span class="m">1</span><span class="o">)</span>
+
+<span class="o">(</span>executables
+ <span class="o">((</span>libraries <span class="o">(</span>owl_base<span class="o">))</span>
+  <span class="o">(</span>names <span class="o">(</span>demo<span class="o">))))</span>
+
+  <span class="o">(</span>rule
+   <span class="o">((</span>targets <span class="o">(</span>demo.js<span class="o">))</span>
+    <span class="o">(</span>action
+      <span class="o">(</span>run <span class="si">${</span><span class="nv">bin</span><span class="p">:</span><span class="nv">js_of_ocaml</span><span class="si">}</span>
+        --noruntime <span class="si">${</span><span class="nv">lib</span><span class="p">:</span><span class="nv">js_of_ocaml</span><span class="p">-compiler:</span><span class="nv">runtime</span><span class="p">.js</span><span class="si">}</span>
+        --source-map <span class="si">${</span><span class="nv">path</span><span class="p">:</span><span class="nv">demo</span><span class="p">.bc</span><span class="si">}</span> -o <span class="si">${</span><span class="p">@</span><span class="si">}</span> --pretty
+      <span class="o">))))</span>
+</pre></div>
+</div>
+<p>Similarly, you can then compile and run the code with following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jbuilder build demo.js
+node _build/default/demo.js
+</pre></div>
+</div>
+<p>As you can see, except the code is written in different languages, the rest of the steps are identical in both example thanks to the excellent jbuilder.</p>
+</div>
+<div class="section" id="future-plan">
+<h2>Future Plan<a class="headerlink" href="#future-plan" title="Permalink to this headline">¶</a></h2>
+<p>I only presented two simple examples in this Chapter. It is worth noting that Owl_base contains a large amount of advanced functions to allow you write complicated analytical functions including deep neural networks. However, the code above can serve as a template for you to try out different functions.</p>
+<p>The javascript code converted by <code class="docutils literal notranslate"><span class="pre">js_of_ocaml</span></code> is not readable. On the contrary, BuckleScript is able to compile OCaml code into readable javascript. I am personally very interested in seeing how the complicated numerical functions will look like after BuckleScript converts it into javascript. I will give it a try soon on BuckleScript.</p>
+<p>Moreover, I also find it very fascinated by the fact that these advanced analytical apps can be compiled into small, self-contained, cross-platform code and deployed directly in browser. This will be another story about our Zoo System (refer to <a class="reference internal" href="zoo.html"><span class="doc">Scripting and Zoo System</span></a>) which I will tell in near future.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/chapter/javascript.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
