@@ -1,0 +1,1190 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Stats &#8212; Owl Numerical Library 0.3 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Maths_root" href="owl_maths_root.html" />
+    <link rel="prev" title="Maths" href="owl_maths.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Stats</a><ul>
+<li><a class="reference internal" href="#randomisation-functions">Randomisation functions</a></li>
+<li><a class="reference internal" href="#basic-statistical-functions">Basic statistical functions</a></li>
+<li><a class="reference internal" href="#mcmc-markov-chain-monte-carlo">MCMC: Markov Chain Monte Carlo</a></li>
+<li><a class="reference internal" href="#hypothesis-tests">Hypothesis tests</a></li>
+<li><a class="reference internal" href="#discrete-random-variables">Discrete random variables</a></li>
+<li><a class="reference internal" href="#continuous-random-variables">Continuous random variables</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Owl’s API Reference</a><ul>
+      <li>Previous: <a href="owl_maths.html" title="previous chapter">Maths</a></li>
+      <li>Next: <a href="owl_maths_root.html" title="next chapter">Maths_root</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="stats">
+<h1>Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h1>
+<p>This document is auto-generated for Owl’s APIs.
+#232 entries have been extracted.
+timestamp: 2018-04-16 14:04:07</p>
+<p>Github:
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli">{Signature}</a>
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.ml">{Implementation}</a></p>
+<div class="section" id="randomisation-functions">
+<h2>Randomisation functions<a class="headerlink" href="#randomisation-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shuffle</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">shuffle</span> <span class="pre">x</span></code> return a new array of the shuffled <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L14">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">choose</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">choose</span> <span class="pre">x</span> <span class="pre">n</span></code> draw <code class="docutils literal notranslate"><span class="pre">n</span></code> samples from <code class="docutils literal notranslate"><span class="pre">x</span></code> without replecement.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L20">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sample</span> <span class="pre">x</span> <span class="pre">n</span></code> draw <code class="docutils literal notranslate"><span class="pre">n</span></code> samples from <code class="docutils literal notranslate"><span class="pre">x</span></code> with replacement.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L27">source code</a></p>
+</div>
+<div class="section" id="basic-statistical-functions">
+<h2>Basic statistical functions<a class="headerlink" href="#basic-statistical-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sum</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sum</span> <span class="pre">x</span></code> returns the summation of the elements in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L35">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mean</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mean</span> <span class="pre">x</span></code> returns the mean of the elements in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">var</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">x</span></code> returns the variance of elements in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L47">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">std</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">std</span> <span class="pre">x</span></code> calculates the standard deviation of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L50">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sem</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sem</span> <span class="pre">x</span></code> calculates the standard error of <code class="docutils literal notranslate"><span class="pre">x</span></code>, also referred to as
+standard error of the mean.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L53">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">absdev</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">absdev</span> <span class="pre">x</span></code> calculates the average absolute deviation of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L59">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">skew</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sd</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">skew</span> <span class="pre">x</span></code> calculates the skewness (the third standardized moment) of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L62">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">kurtosis</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sd</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">kurtosis</span> <span class="pre">x</span></code> calculates the Pearson’s kurtosis of <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. the fourth
+standardized moment of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L71">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">central_moment</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">central_moment</span> <span class="pre">n</span> <span class="pre">x</span></code> calcuates the <code class="docutils literal notranslate"><span class="pre">n</span></code> th central moment of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L81">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cov</span> <span class="o">:</span> <span class="o">?</span><span class="n">m0</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">m1</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cov</span> <span class="pre">x0</span> <span class="pre">x1</span></code> calculates the covariance of <code class="docutils literal notranslate"><span class="pre">x0</span></code> and <code class="docutils literal notranslate"><span class="pre">x1</span></code>, the mean of
+<code class="docutils literal notranslate"><span class="pre">x0</span></code> and <code class="docutils literal notranslate"><span class="pre">x1</span></code> can be specified by <code class="docutils literal notranslate"><span class="pre">m0</span></code> and <code class="docutils literal notranslate"><span class="pre">m1</span></code> respectively.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L136">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">concordant</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L143">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">discordant</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L146">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">corrcoef</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">corrcoef</span> <span class="pre">x</span> <span class="pre">y</span></code> calculates the Pearson correlation of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. Namely,
+<code class="docutils literal notranslate"><span class="pre">corrcoef</span> <span class="pre">x</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">cov(x,</span> <span class="pre">y)</span> <span class="pre">/</span> <span class="pre">(sigma_x</span> <span class="pre">*</span> <span class="pre">sigma_y)</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L84">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">kendall_tau</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">kendall_tau</span> <span class="pre">x</span> <span class="pre">y</span></code> calcuates the Kendall Tau correlation between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L149">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">spearman_rho</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">spearman_rho</span> <span class="pre">x</span> <span class="pre">y</span></code> calcuates the Spearman Rho correlation between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L152">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">autocorrelation</span> <span class="o">:</span> <span class="o">?</span><span class="n">lag</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">autocorrelation</span> <span class="pre">~lag</span> <span class="pre">x</span></code> calcuates the autocorrelation of <code class="docutils literal notranslate"><span class="pre">x</span></code> with the given <code class="docutils literal notranslate"><span class="pre">lag</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L122">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">percentile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">percentile</span> <span class="pre">x</span> <span class="pre">p</span></code> returns the <code class="docutils literal notranslate"><span class="pre">p</span></code> percentile of the data <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">p</span></code> is between
+0. and 100. <code class="docutils literal notranslate"><span class="pre">x</span></code> does not need to be sorted beforehand.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L207">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">quantile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">quantile</span> <span class="pre">x</span> <span class="pre">p</span></code> returns the <code class="docutils literal notranslate"><span class="pre">p</span></code> quantile of the data <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">p</span></code> is between
+0. and 1. <code class="docutils literal notranslate"><span class="pre">x</span></code> does not need to be sorted beforehand.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L202">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">first_quartile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">first_quartile</span> <span class="pre">x</span></code> returns the first quartile of <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. 25 percentiles.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L213">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">third_quartile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">third_quartile</span> <span class="pre">x</span></code> returns the third quartile of <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. 75 percentiles.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L216">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">median</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">median</span> <span class="pre">x</span></code> returns the median of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L210">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">min</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">x</span></code> returns the minimum element in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L169">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">x</span></code> returns the maximum element in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">minmax</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">minmax</span> <span class="pre">x</span></code> returns both <code class="docutils literal notranslate"><span class="pre">(minimum,</span> <span class="pre">maximum)</span></code> elements in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L175">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">min_i</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">min_i</span> <span class="pre">x</span></code> returns the index of the minimum in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L163">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_i</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">max_i</span> <span class="pre">x</span></code> returns the index of the maximum in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L166">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">minmax_i</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">minmax_i</span> <span class="pre">x</span></code> returns the indices of both minimum and maximum in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L160">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sort</span> <span class="o">:</span> <span class="o">?</span><span class="n">inc</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">x</span></code> sorts the elements in the <code class="docutils literal notranslate"><span class="pre">x</span></code> in increasing order if
+<code class="docutils literal notranslate"><span class="pre">inc</span> <span class="pre">=</span> <span class="pre">true</span></code>, otherwise in decreasing order if <code class="docutils literal notranslate"><span class="pre">inc=false</span></code>. By default,
+<code class="docutils literal notranslate"><span class="pre">inc</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>. Note a copy is returned, the original data is not modified.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L90">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">argsort</span> <span class="o">:</span> <span class="o">?</span><span class="n">inc</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">argsort</span> <span class="pre">x</span></code> sorts the elements in <code class="docutils literal notranslate"><span class="pre">x</span></code> and returns the indices mapping of
+the elements in the current array to their original position in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>The sorting is in increasing order if <code class="docutils literal notranslate"><span class="pre">inc</span> <span class="pre">=</span> <span class="pre">true</span></code>, otherwise in decreasing
+order if <code class="docutils literal notranslate"><span class="pre">inc=false</span></code>. By default, <code class="docutils literal notranslate"><span class="pre">inc</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L93">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rank</span> <span class="o">:</span> <span class="o">?</span><span class="n">ties_strategy</span><span class="o">:[</span> <span class="o">`</span><span class="nc">Average</span> <span class="o">|</span> <span class="o">`</span><span class="nc">Min</span> <span class="o">|</span> <span class="o">`</span><span class="nc">Max</span> <span class="o">]</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>Computes sample’s ranks.</p>
+<p>The ranking order is from the smallest one to the largest. For example
+<code class="docutils literal notranslate"><span class="pre">rank</span> <span class="pre">[|54.;</span> <span class="pre">74.;</span> <span class="pre">55.;</span> <span class="pre">86.;</span> <span class="pre">56.|]</span></code> returns <code class="docutils literal notranslate"><span class="pre">[|1.;</span> <span class="pre">4.;</span> <span class="pre">2.;</span> <span class="pre">5.;</span> <span class="pre">3.|]</span></code>.
+Note that the ranking starts with one!</p>
+<p><code class="docutils literal notranslate"><span class="pre">ties_strategy</span></code> controls which ranks are assigned to equal values:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Average</span></code> the mean of ranks should be assigned to each value.
+{b Default}.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Min</span></code> the minimum of ranks is assigned to each value.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Max</span></code> the maximum of ranks is assigned to each value.</li>
+</ul>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L102">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">histogram</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">histogram</span> <span class="pre">x</span> <span class="pre">n</span></code> creates a histogram of <code class="docutils literal notranslate"><span class="pre">n</span></code> buckets for <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L178">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ecdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">*</span> <span class="kt">float</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ecdf</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">(x',f)</span></code> which are the empirical cumulative distribution
+function <code class="docutils literal notranslate"><span class="pre">f</span></code> of <code class="docutils literal notranslate"><span class="pre">x</span></code> at points <code class="docutils literal notranslate"><span class="pre">x'</span></code>. <code class="docutils literal notranslate"><span class="pre">x'</span></code> is just <code class="docutils literal notranslate"><span class="pre">x</span></code> sorted in increasing
+order with duplicates removed.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L181">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">z_score</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">z_score</span> <span class="pre">x</span></code> calcuates the z score of a given array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L219">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_score</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">t_score</span> <span class="pre">x</span></code> calcuates the t score of a given array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L222">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normlise_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L228">source code</a></p>
+</div>
+<div class="section" id="mcmc-markov-chain-monte-carlo">
+<h2>MCMC: Markov Chain Monte Carlo<a class="headerlink" href="#mcmc-markov-chain-monte-carlo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">metropolis_hastings</span> <span class="o">:</span> <span class="o">(</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>TODO: <code class="docutils literal notranslate"><span class="pre">metropolis_hastings</span> <span class="pre">f</span> <span class="pre">p</span> <span class="pre">n</span></code> is Metropolis-Hastings MCMC algorithm.
+f is pdf of the p</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L711">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gibbs_sampling</span> <span class="o">:</span> <span class="o">(</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>TODO: <code class="docutils literal notranslate"><span class="pre">gibbs_sampling</span> <span class="pre">f</span> <span class="pre">p</span> <span class="pre">n</span></code> is Gibbs sampler. f is a sampler based on the full
+conditional function of all variables</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L727">source code</a></p>
+</div>
+<div class="section" id="hypothesis-tests">
+<h2>Hypothesis tests<a class="headerlink" href="#hypothesis-tests" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">hypothesis</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="n">reject</span>  <span class="o">:</span> <span class="kt">bool</span><span class="o">;</span>    <span class="c">(* reject null hypothesis if ``true`` *)</span>
+  <span class="n">p_value</span> <span class="o">:</span> <span class="kt">float</span><span class="o">;</span>   <span class="c">(* p-value of the hypothesis test *)</span>
+  <span class="n">score</span>   <span class="o">:</span> <span class="kt">float</span><span class="o">;</span>   <span class="c">(* score has different meaning in different tests *)</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Record type contains the result of a hypothesis test.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">tail</span> <span class="o">=</span> <span class="nc">BothSide</span> <span class="o">|</span> <span class="nc">RightSide</span> <span class="o">|</span> <span class="nc">LeftSide</span>
+</pre></div>
+</div>
+<p>Types of alternative hypothesis tests: one-side, left-side, or right-side.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">z_test</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">z_test</span> <span class="pre">~mu</span> <span class="pre">~sigma</span> <span class="pre">~alpha</span> <span class="pre">~side</span> <span class="pre">x</span></code> returns a test decision for the null
+hypothesis that the data <code class="docutils literal notranslate"><span class="pre">x</span></code> comes from a normal distribution with mean <code class="docutils literal notranslate"><span class="pre">mu</span></code>
+and a standard deviation <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, using the z-test of <code class="docutils literal notranslate"><span class="pre">alpha</span></code> significance
+level. The alternative hypothesis is that the mean is not <code class="docutils literal notranslate"><span class="pre">mu</span></code>.</p>
+<p>The result <code class="docutils literal notranslate"><span class="pre">(h,p,z)</span></code> : <code class="docutils literal notranslate"><span class="pre">h</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> if the test rejects the null hypothesis at
+the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> significance level, and <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise. <code class="docutils literal notranslate"><span class="pre">p</span></code> is the p-value and
+<code class="docutils literal notranslate"><span class="pre">z</span></code> is the z-score.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L259">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_test</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">t_test</span> <span class="pre">~mu</span> <span class="pre">~alpha</span> <span class="pre">~side</span> <span class="pre">x</span></code> returns a test decision of one-sample t-test
+which is a parametric test of the location parameter when the population
+standard deviation is unknown. <code class="docutils literal notranslate"><span class="pre">mu</span></code> is population mean, <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is the
+significance level.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L274">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_test_paired</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">t_test_paired</span> <span class="pre">~alpha</span> <span class="pre">~side</span> <span class="pre">x</span> <span class="pre">y</span></code> returns a test decision for the null
+hypothesis that the data in <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">–</span> <span class="pre">y</span></code> comes from a normal distribution with
+mean equal to zero and unknown variance, using the paired-sample t-test.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L290">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_test_unpaired</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">equal_var</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">t_test_unpaired</span> <span class="pre">~alpha</span> <span class="pre">~side</span> <span class="pre">~equal_var</span> <span class="pre">x</span> <span class="pre">y</span></code> returns a test decision for
+the null hypothesis that the data in vectors <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> comes from
+independent random samples from normal distributions with equal means and
+equal but unknown variances, using the two-sample t-test. The alternative
+hypothesis is that the data in <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> comes from populations with
+unequal means.</p>
+<p><code class="docutils literal notranslate"><span class="pre">equal_var</span></code> indicates whether two samples have the same variance. If the
+two variances are not the same, the test is referred to as Welche’s t-test.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L354">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ks_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ks_test</span> <span class="pre">~alpha</span> <span class="pre">x</span> <span class="pre">f</span></code> returns a test decision for the null
+hypothesis that the data in vector <code class="docutils literal notranslate"><span class="pre">x</span></code> comes from independent
+random samples of the distribution with CDF f. The alternative
+hypothesis is that the data in <code class="docutils literal notranslate"><span class="pre">x</span></code> comes from a different
+distribution.</p>
+<p>The result <code class="docutils literal notranslate"><span class="pre">(h,p,d)</span></code> : <code class="docutils literal notranslate"><span class="pre">h</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> if the test rejects the null
+hypothesis at the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> significance level, and <code class="docutils literal notranslate"><span class="pre">false</span></code>
+otherwise. <code class="docutils literal notranslate"><span class="pre">p</span></code> is the p-value and <code class="docutils literal notranslate"><span class="pre">d</span></code> is the Kolmogorov-Smirnov
+test statistic.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L414">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ks2_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ks2_test</span> <span class="pre">~alpha</span> <span class="pre">x</span> <span class="pre">y</span></code> returns a test decision for the null
+hypothesis that the data in vectors <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> come from
+independent random samples of the same distribution. The
+alternative hypothesis is that the data in <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are sampled
+from different distributions.</p>
+<p>The result <code class="docutils literal notranslate"><span class="pre">(h,p,d)</span></code>: <code class="docutils literal notranslate"><span class="pre">h</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> if the test rejects the null
+hypothesis at the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> significance level, and <code class="docutils literal notranslate"><span class="pre">false</span></code>
+otherwise. <code class="docutils literal notranslate"><span class="pre">p</span></code> is the p-value and <code class="docutils literal notranslate"><span class="pre">d</span></code> is the Kolmogorov-Smirnov
+test statistic.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L464">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">var_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="n">variance</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">var_test</span> <span class="pre">~alpha</span> <span class="pre">~side</span> <span class="pre">~variance</span> <span class="pre">x</span></code> returns a test decision for the null
+hypothesis that the data in <code class="docutils literal notranslate"><span class="pre">x</span></code> comes from a normal distribution with input
+<code class="docutils literal notranslate"><span class="pre">variance</span></code>, using the chi-square variance test. The alternative hypothesis
+is that <code class="docutils literal notranslate"><span class="pre">x</span></code> comes from a normal distribution with a different variance.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L503">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jb_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">jb_test</span> <span class="pre">~alpha</span> <span class="pre">x</span></code> returns a test decision for the null hypothesis that the
+data <code class="docutils literal notranslate"><span class="pre">x</span></code> comes from a normal distribution with an unknown mean and variance,
+using the Jarque-Bera test.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L492">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fisher_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fisher_test</span> <span class="pre">~alpha</span> <span class="pre">~side</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">d</span></code> fisher’s exact test for contingency table
+| <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> |
+| <code class="docutils literal notranslate"><span class="pre">c</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code> |</p>
+<p>The result <code class="docutils literal notranslate"><span class="pre">(h,p,z)</span></code> : <code class="docutils literal notranslate"><span class="pre">h</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> if the test rejects the null hypothesis at
+the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> significance level, and <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise. <code class="docutils literal notranslate"><span class="pre">p</span></code> is the p-value and
+<code class="docutils literal notranslate"><span class="pre">z</span></code> is prior odds ratio.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L518">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">runs_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">v</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">runs_test</span> <span class="pre">~alpha</span> <span class="pre">~v</span> <span class="pre">x</span></code> returns a test decision for the null hypothesis that
+the data <code class="docutils literal notranslate"><span class="pre">x</span></code> comes in random order, against the alternative that they do not,
+by runnign Wald–Wolfowitz runs test. The test is based on the number of runs
+of consecutive values above or below the mean of <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">~v</span></code> is the reference
+value, the default value is the median of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L671">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mannwhitneyu</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mannwhitneyu</span> <span class="pre">~alpha</span> <span class="pre">~side</span> <span class="pre">x</span> <span class="pre">y</span></code> Computes the Mann-Whitney rank test on
+samples x and y. If length of each sample less than 10 and no ties, then
+using exact test (see paper Ying Kuen Cheung and Jerome H. Klotz (1997)
+The Mann Whitney Wilcoxon distribution using linked list
+Statistica Sinica 7 805-813), else usning asymptotic normal distribution.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L562">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">wilcoxon</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L614">source code</a></p>
+</div>
+<div class="section" id="discrete-random-variables">
+<h2>Discrete random variables<a class="headerlink" href="#discrete-random-variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform_int_rvs</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">uniform_rvs</span> <span class="pre">~a</span> <span class="pre">~b</span></code> returns a random uniformly distributed integer
+between <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, inclusive.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">binomial_rvs</span> <span class="o">:</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">binomial_rvs</span> <span class="pre">p</span> <span class="pre">n</span></code> returns a random integer representing the number of
+successes in <code class="docutils literal notranslate"><span class="pre">n</span></code> trials with probability of success <code class="docutils literal notranslate"><span class="pre">p</span></code> on each trial.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">binomial_pdf</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">binomial_pdf</span> <span class="pre">k</span> <span class="pre">~p</span> <span class="pre">~n</span></code> returns the binomially distributed probability
+of <code class="docutils literal notranslate"><span class="pre">k</span></code> successes in <code class="docutils literal notranslate"><span class="pre">n</span></code> trials with probability <code class="docutils literal notranslate"><span class="pre">p</span></code> of success on
+each trial.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">binomial_logpdf</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">binomial_logpdf</span> <span class="pre">k</span> <span class="pre">~p</span> <span class="pre">~n</span></code> returns the log-binomially distributed probability
+of <code class="docutils literal notranslate"><span class="pre">k</span></code> successes in <code class="docutils literal notranslate"><span class="pre">n</span></code> trials with probability <code class="docutils literal notranslate"><span class="pre">p</span></code> of success on
+each trial.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">binomial_cdf</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">binomial_cdf</span> <span class="pre">k</span> <span class="pre">~p</span> <span class="pre">~n</span></code> returns the binomially distributed cumulative
+probability of less than or equal to <code class="docutils literal notranslate"><span class="pre">k</span></code> successes in <code class="docutils literal notranslate"><span class="pre">n</span></code> trials,
+with probability <code class="docutils literal notranslate"><span class="pre">p</span></code> on each trial.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">binomial_logcdf</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">binomial_logcdf</span> <span class="pre">k</span> <span class="pre">~p</span> <span class="pre">~n</span></code> returns the log-binomially distributed cumulative
+probability of less than or equal to <code class="docutils literal notranslate"><span class="pre">k</span></code> successes in <code class="docutils literal notranslate"><span class="pre">n</span></code> trials,
+with probability <code class="docutils literal notranslate"><span class="pre">p</span></code> on each trial.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">binomial_sf</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">binomial_sf</span> <span class="pre">k</span> <span class="pre">~p</span> <span class="pre">~n</span></code> is the binomial survival function, i.e.
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">(binomial_cdf</span> <span class="pre">k</span> <span class="pre">~p</span> <span class="pre">~n)</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">binomial_logsf</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">binomial_loggf</span> <span class="pre">k</span> <span class="pre">~p</span> <span class="pre">~n</span></code> is the logbinomial survival function, i.e.
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">(binomial_logcdf</span> <span class="pre">k</span> <span class="pre">~p</span> <span class="pre">~n)</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hypergeometric_rvs</span> <span class="o">:</span> <span class="n">good</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">bad</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">sample</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">hypergeometric_rvs</span> <span class="pre">~good</span> <span class="pre">~bad</span> <span class="pre">~sample</span></code> returns a random hypergeometrically
+distributed integer representing the number of successes in a sample (without
+replacement) of size <code class="docutils literal notranslate"><span class="pre">~sample</span></code> from a population with <code class="docutils literal notranslate"><span class="pre">~good</span></code> successful
+elements and <code class="docutils literal notranslate"><span class="pre">~bad</span></code> unsuccessful elements.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hypergeometric_pdf</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">good</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">bad</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">sample</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">hypergeometric_pdf</span> <span class="pre">k</span> <span class="pre">~good</span> <span class="pre">~bad</span> <span class="pre">~sample</span></code> returns the hypergeometrically
+distributed probability of <code class="docutils literal notranslate"><span class="pre">k</span></code> successes in a sample (without replacement) of
+<code class="docutils literal notranslate"><span class="pre">~sample</span></code> elements from a population containing <code class="docutils literal notranslate"><span class="pre">~good</span></code> successful elements
+and <code class="docutils literal notranslate"><span class="pre">~bad</span></code> unsuccessful ones.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hypergeometric_logpdf</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">good</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">bad</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">sample</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">hypergeometric_logpdf</span> <span class="pre">k</span> <span class="pre">~good</span> <span class="pre">~bad</span> <span class="pre">~sample</span></code> returns a value equivalent to a
+log-transformed result from <code class="docutils literal notranslate"><span class="pre">hypergeometric_pdf</span></code>.</p>
+</div>
+<div class="section" id="continuous-random-variables">
+<h2>Continuous random variables<a class="headerlink" href="#continuous-random-variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">std_uniform_rvs</span> <span class="o">:</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform_rvs</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_rvs</span> <span class="o">:</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_rvs</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gamma_rvs</span> <span class="o">:</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gamma_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gamma_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gamma_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gamma_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gamma_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gamma_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gamma_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gamma_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">beta_rvs</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">beta_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">beta_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">beta_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">beta_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">beta_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">beta_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">beta_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">beta_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chi2_rvs</span> <span class="o">:</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chi2_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chi2_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chi2_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chi2_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chi2_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chi2_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chi2_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chi2_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">f_rvs</span> <span class="o">:</span> <span class="n">dfnum</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfden</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">f_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfnum</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfden</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">f_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfnum</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfden</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">f_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfnum</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfden</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">f_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfnum</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfden</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">f_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfnum</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfden</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">f_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfnum</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfden</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">f_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfnum</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfden</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">f_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfnum</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dfden</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cauchy_rvs</span> <span class="o">:</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cauchy_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cauchy_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cauchy_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cauchy_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cauchy_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cauchy_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cauchy_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cauchy_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_rvs</span> <span class="o">:</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">vonmises_rvs</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">kappa</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">vonmises_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">kappa</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">vonmises_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">kappa</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">vonmises_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">kappa</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">vonmises_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">kappa</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">vonmises_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">kappa</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">vonmises_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">kappa</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lomax_rvs</span> <span class="o">:</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lomax_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lomax_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lomax_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lomax_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lomax_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lomax_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lomax_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lomax_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">weibull_rvs</span> <span class="o">:</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">weibull_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">weibull_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">weibull_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">weibull_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">weibull_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">weibull_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">weibull_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">weibull_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplace_rvs</span> <span class="o">:</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplace_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplace_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplace_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplace_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplace_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplace_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplace_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplace_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel1_rvs</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel1_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel1_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel1_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel1_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel1_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel1_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel1_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel1_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel2_rvs</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel2_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel2_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel2_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel2_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel2_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel2_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel2_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel2_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logistic_rvs</span> <span class="o">:</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logistic_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logistic_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logistic_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logistic_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logistic_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logistic_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logistic_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logistic_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lognormal_rvs</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lognormal_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lognormal_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lognormal_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lognormal_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lognormal_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lognormal_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lognormal_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lognormal_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rayleigh_rvs</span> <span class="o">:</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rayleigh_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rayleigh_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rayleigh_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rayleigh_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rayleigh_ppf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rayleigh_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rayleigh_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rayleigh_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/apidoc/owl_stats.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

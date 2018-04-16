@@ -1,0 +1,175 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Installation &#8212; Owl Numerical Library 0.3 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Architecture" href="arch.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#option-1-install-from-opam">Option 1: Install from OPAM</a></li>
+<li><a class="reference internal" href="#option-2-pull-from-docker-hub">Option 2: Pull from Docker Hub</a></li>
+<li><a class="reference internal" href="#option-3-pin-the-dev-repo">Option 3: Pin the Dev-Repo</a></li>
+<li><a class="reference internal" href="#option-4-compile-from-source">Option 4: Compile from Source</a></li>
+<li><a class="reference internal" href="#cblas-lapacke-dependency">CBLAS/LAPACKE Dependency</a></li>
+<li><a class="reference internal" href="#integration-to-toplevel">Integration to Toplevel</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Owl’s Tutorial Book</a><ul>
+      <li>Previous: <a href="intro.html" title="previous chapter">Introduction</a></li>
+      <li>Next: <a href="arch.html" title="next chapter">Architecture</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Owl requires OCaml <code class="docutils literal notranslate"><span class="pre">&gt;=4.06.0</span></code>. Please make sure you have a working OCaml environment before you start installing Owl. Here is a guide on <a class="reference external" href="https://ocaml.org/docs/install.html">[Install OCaml]</a>.</p>
+<p>Owl’s installation is rather trivial. There are four possible ways as shown below, from the most straightforward one to the least one.</p>
+<div class="section" id="option-1-install-from-opam">
+<h2>Option 1: Install from OPAM<a class="headerlink" href="#option-1-install-from-opam" title="Permalink to this headline">¶</a></h2>
+<p>Thanks to the folks in <a class="reference external" href="http://ocamllabs.io/">OCaml Labs</a>, OPAM makes package management in OCaml much easier than before. You can simply type the following in the command line to start.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>opam install owl
+</pre></div>
+</div>
+<p>However, Owl’s current version on OPAM is <code class="docutils literal notranslate"><span class="pre">0.3.0</span></code>, and it lags way behind the development in master branch and misses many new features.</p>
+<p>On the other hand, this document is tightly synchronised with the master branch. This means that you may not be able to try out the stuff I teach here. If you want to try the newest features, I recommend the other ways to install Owl, as below.</p>
+</div>
+<div class="section" id="option-2-pull-from-docker-hub">
+<h2>Option 2: Pull from Docker Hub<a class="headerlink" href="#option-2-pull-from-docker-hub" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://hub.docker.com/r/ryanrhymes/owl/">Owl’s docker image</a> is perfectly synced with master branch. The image is always automatically built whenever there are new commits. You can check the building history on <a class="reference external" href="https://hub.docker.com/r/ryanrhymes/owl/builds/">[Docker Hub]</a>.</p>
+<p>You only need to pull the image then start a container.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull ryanrhymes/owl
+docker run -t -i ryanrhymes/owl
+</pre></div>
+</div>
+<p>Besides the complete Owl system, the docker image also contains an enhanced OCaml toplevel - <code class="docutils literal notranslate"><span class="pre">utop</span></code>. You can start <code class="docutils literal notranslate"><span class="pre">utop</span></code> in the container and try out some examples.</p>
+<p>The source code of Owl is stored in <cite>/root/owl</cite> directory. You can modify the source code and rebuild the system directly in the started container.</p>
+</div>
+<div class="section" id="option-3-pin-the-dev-repo">
+<h2>Option 3: Pin the Dev-Repo<a class="headerlink" href="#option-3-pin-the-dev-repo" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">pin</span></code> allows you to pin the local code to Owl’s development repository on Github. The first command <code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">depext</span></code> installs all the dependencies Owl needs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>opam depext owl
+opam pin add owl --dev-repo
+</pre></div>
+</div>
+</div>
+<div class="section" id="option-4-compile-from-source">
+<h2>Option 4: Compile from Source<a class="headerlink" href="#option-4-compile-from-source" title="Permalink to this headline">¶</a></h2>
+<p>This is my favourite option. First, you need to clone the repository.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:ryanrhymes/owl.git
+</pre></div>
+</div>
+<p>Second, you need to figure out the missing dependencies and install them.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jbuilder external-lib-deps --missing @install
+</pre></div>
+</div>
+<p>Last, this is perhaps the most classic step.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make <span class="o">&amp;&amp;</span> make install
+</pre></div>
+</div>
+<p>If your OPAM is older than <code class="docutils literal notranslate"><span class="pre">V2</span> <span class="pre">beta4</span></code>, you need one extra steps. This is due to a bug in OPAM which copies the compiled library into <code class="docutils literal notranslate"><span class="pre">/.opam/4.06.0/lib/stubslibs</span></code> rather than <code class="docutils literal notranslate"><span class="pre">/.opam/4.06.0/lib/stublibs</span></code>. If you don’t upgrade OPAM, then you need to manually move <code class="docutils literal notranslate"><span class="pre">dllowl_stubs.so</span></code> file from <code class="docutils literal notranslate"><span class="pre">stubslib</span></code> to <code class="docutils literal notranslate"><span class="pre">stublib</span></code> folder, then everything should work.</p>
+</div>
+<div class="section" id="cblas-lapacke-dependency">
+<h2>CBLAS/LAPACKE Dependency<a class="headerlink" href="#cblas-lapacke-dependency" title="Permalink to this headline">¶</a></h2>
+<p>The most important dependency is <a class="reference external" href="https://github.com/xianyi/OpenBLAS">OpenBLAS</a>. Linking to the correct OpenBLAS is the key to achieve the best performance. Depending on the specific platform, you can use <code class="docutils literal notranslate"><span class="pre">yum</span></code>, <code class="docutils literal notranslate"><span class="pre">apt-get</span></code>, <code class="docutils literal notranslate"><span class="pre">brew</span></code> to install the binary format. For example on my Mac OSX, the installation looks like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install homebrew/science/openblas
+</pre></div>
+</div>
+<p>However, installing from OpenBLAS source code leads to way better performance in my own experiment. OpenBLAS already contains an implementation of LAPACKE, as long as you have a Fortran complier installed on your computer, the LAPACKE will be compiled and included in the installation automatically.</p>
+<p>Another benefit of installing from OpenBLAS source is: some systems’ native package management tool installs very old version of OpenBLAS which misses some functions Owl requires.</p>
+</div>
+<div class="section" id="integration-to-toplevel">
+<h2>Integration to Toplevel<a class="headerlink" href="#integration-to-toplevel" title="Permalink to this headline">¶</a></h2>
+<p>Owl is well integrated with <code class="docutils literal notranslate"><span class="pre">utop</span></code>. You can use <code class="docutils literal notranslate"><span class="pre">utop</span></code> to try out the experiments in our tutorials. If you want <code class="docutils literal notranslate"><span class="pre">utop</span></code> to automatically load Owl for you, you can also edit <code class="docutils literal notranslate"><span class="pre">.ocamlinit</span></code> file in your home folder by adding the following lines. (Note that the library name is <code class="docutils literal notranslate"><span class="pre">owl</span></code> with lowercase <code class="docutils literal notranslate"><span class="pre">o</span></code>.)</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">#</span><span class="n">require</span> <span class="s2">&quot;owl_top&quot;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">owl_top</span></code> is the toplevel library of Owl, it automatically loads <code class="docutils literal notranslate"><span class="pre">owl</span></code> core library and installs the corresponding pretty printers of various data types.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/chapter/install.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
