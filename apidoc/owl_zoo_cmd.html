@@ -126,7 +126,7 @@
 </div>
 <div class="section" id="execute-gists">
 <h2>Execute gists<a class="headerlink" href="#execute-gists" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load_file</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load_file</span> <span class="o">:</span> <span class="o">?</span><span class="n">gist</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Load a zoo file with the given gist name and file name, the file path is relative to the gist/version folder.</p>
@@ -145,12 +145,12 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">args</span> <span class="pre">script</span></code> executes the zoo script with the given arguments.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L118">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L121">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">run_gist</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">run_gist</span> <span class="pre">gist-id</span></code> runs a zoo gist with the given <code class="docutils literal notranslate"><span class="pre">gist-id</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L125">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L128">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -158,12 +158,12 @@
 </pre></div>
 </div>
 <p>Print out help information of <code class="docutils literal notranslate"><span class="pre">owl</span></code> command line.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L132">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L135">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">start_toplevel</span> <span class="o">:</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Start the toplevel system tailored for Owl’s zoo system.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L149">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L152">source code</a></p>
 </div>
 </div>
 

@@ -2,7 +2,7 @@ Dense.Ndarray.Generic
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#420 entries have been extracted.
+#421 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/dense/owl_dense_ndarray_generic.mli>`_ 
@@ -882,7 +882,7 @@ sorting, please use `sort_` instead.
 with replacement. ``axis`` is set to zero by default. The return is a tuple
 of both samples and the indices of the selected samples.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3547>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3569>`__
 
 
 
@@ -1837,6 +1837,16 @@ Unary math operators
 ``sum' x`` returns the sumtion of all elements in ``x``.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L2626>`__
+
+
+
+.. code-block:: ocaml
+
+  val sum_reduce : ?axis:int array -> ('a, 'b) t -> ('a, 'b) t
+
+``sum_reduce ~axis x`` sums the elements in ``x`` along multiple axes specified in the ``axis`` array.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3550>`__
 
 
 
@@ -3100,7 +3110,7 @@ contraction) on ``x``. ``index_pairs`` is an array of contracted indices.
 Caveat: Not well tested yet, use with care! Also, consider to use TTGT in
 future for better perfomance.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3563>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3585>`__
 
 
 
@@ -3116,7 +3126,7 @@ of ``y``.
 Caveat: Not well tested yet, use with care! Also, consider to use TTGT in
 future for better perfomance.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3603>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3625>`__
 
 
 

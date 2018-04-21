@@ -82,7 +82,7 @@ Execute gists
 
 .. code-block:: ocaml
 
-  val load_file : string -> string -> string
+  val load_file : ?gist:string -> string -> string
 
 Load a zoo file with the given gist name and file name, the file path is relative to the gist/version folder.
 
@@ -116,7 +116,7 @@ Preprocess the zoo scripts, inject the necessary directives, functions, and modu
 
 ``run args script`` executes the zoo script with the given arguments.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L118>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L121>`__
 
 
 
@@ -126,7 +126,7 @@ Preprocess the zoo scripts, inject the necessary directives, functions, and modu
 
 ``run_gist gist-id`` runs a zoo gist with the given ``gist-id``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L125>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L128>`__
 
 
 
@@ -141,7 +141,7 @@ Helper functions
 
 Print out help information of ``owl`` command line.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L132>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L135>`__
 
 
 
@@ -151,7 +151,7 @@ Print out help information of ``owl`` command line.
 
 Start the toplevel system tailored for Owl's zoo system.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L149>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L152>`__
 
 
 
