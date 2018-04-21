@@ -99,7 +99,7 @@
   <div class="section" id="dense-ndarray-generic">
 <h1>Dense.Ndarray.Generic<a class="headerlink" href="#dense-ndarray-generic" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#420 entries have been extracted.</p>
+#421 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/dense/owl_dense_ndarray_generic.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/dense/owl_dense_ndarray_generic.ml">{Implementation}</a></p>
@@ -608,7 +608,7 @@ sorting, please use <cite>sort_</cite> instead.</p>
 <p><code class="docutils literal notranslate"><span class="pre">draw</span> <span class="pre">~axis</span> <span class="pre">x</span> <span class="pre">n</span></code> draws <code class="docutils literal notranslate"><span class="pre">n</span></code> samples from <code class="docutils literal notranslate"><span class="pre">x</span></code> along the specified <code class="docutils literal notranslate"><span class="pre">axis</span></code>,
 with replacement. <code class="docutils literal notranslate"><span class="pre">axis</span></code> is set to zero by default. The return is a tuple
 of both samples and the indices of the selected samples.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3547">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3569">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mmap</span> <span class="o">:</span> <span class="nn">Unix</span><span class="p">.</span><span class="n">file_descr</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">pos</span><span class="o">:</span><span class="n">int64</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -1137,6 +1137,11 @@ It is necesssary to specify the type of the ndarray with paramater <code class="
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">sum'</span> <span class="pre">x</span></code> returns the sumtion of all elements in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L2626">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sum_reduce</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sum_reduce</span> <span class="pre">~axis</span> <span class="pre">x</span></code> sums the elements in <code class="docutils literal notranslate"><span class="pre">x</span></code> along multiple axes specified in the <code class="docutils literal notranslate"><span class="pre">axis</span></code> array.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3550">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">prod</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -1840,7 +1845,7 @@ elements greater than <code class="docutils literal notranslate"><span class="pr
 contraction) on <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">index_pairs</span></code> is an array of contracted indices.</p>
 <p>Caveat: Not well tested yet, use with care! Also, consider to use TTGT in
 future for better perfomance.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3563">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3585">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">contract2</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span><span class="o">)</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -1850,7 +1855,7 @@ contracted indices, the first element is the index of <code class="docutils lite
 of <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 <p>Caveat: Not well tested yet, use with care! Also, consider to use TTGT in
 future for better perfomance.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3603">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3625">source code</a></p>
 </div>
 <div class="section" id="cast-functions">
 <h2>Cast functions<a class="headerlink" href="#cast-functions" title="Permalink to this headline">¶</a></h2>
