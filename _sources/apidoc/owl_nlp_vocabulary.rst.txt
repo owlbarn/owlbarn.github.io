@@ -2,7 +2,7 @@ NLP.Vocabulary
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#28 entries have been extracted.
+#34 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/nlp/owl_nlp_vocabulary.mli>`_ 
@@ -33,7 +33,7 @@ Query vocabulary
 
 ``get_w2i v`` returns word -> index mapping of ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L17>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L19>`__
 
 
 
@@ -43,7 +43,7 @@ Query vocabulary
 
 ``get_i2w v`` returns index -> word mapping of ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L19>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L22>`__
 
 
 
@@ -53,7 +53,7 @@ Query vocabulary
 
 ``exits_w v w`` returns ``true`` if word ``w`` exists in the vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L21>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L25>`__
 
 
 
@@ -63,7 +63,7 @@ Query vocabulary
 
 ``exits_i i w`` returns ``true`` if index ``i`` exists in the vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L23>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L28>`__
 
 
 
@@ -73,7 +73,7 @@ Query vocabulary
 
 ``word2index v w`` converts word ``w`` to its index using vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L25>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L31>`__
 
 
 
@@ -83,7 +83,7 @@ Query vocabulary
 
 ``index2word v i`` converts index ``i`` to its corresponding word using vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L27>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L34>`__
 
 
 
@@ -98,7 +98,7 @@ Obtain properties
 
 ``length v`` returns the size of vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L29>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L37>`__
 
 
 
@@ -108,7 +108,7 @@ Obtain properties
 
 ``freq_i v i`` returns the frequency of word of index ``i``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L31>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L40>`__
 
 
 
@@ -118,7 +118,7 @@ Obtain properties
 
 ``freq_w v w`` returns the frequency of word ``w`` in the vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L33>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L43>`__
 
 
 
@@ -129,7 +129,7 @@ Obtain properties
 ``sort_freq v`` returns the vocabulary as a ``(index, freq) array`` in
 increasing or decreasing frequency specified by parameter ``inc``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L162>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L228>`__
 
 
 
@@ -139,7 +139,7 @@ increasing or decreasing frequency specified by parameter ``inc``.
 
 ``top v k`` returns the top ``k`` words in vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L177>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L244>`__
 
 
 
@@ -149,7 +149,7 @@ increasing or decreasing frequency specified by parameter ``inc``.
 
 ``bottom v k`` returns the bottom ``k`` words in vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L183>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L252>`__
 
 
 
@@ -159,7 +159,7 @@ increasing or decreasing frequency specified by parameter ``inc``.
 
 ``re_index v`` re-indexes the indices of words in vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L44>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L55>`__
 
 
 
@@ -170,17 +170,31 @@ Core functions
 
 .. code-block:: ocaml
 
-  val build : ?lo:float -> ?hi:float -> ?stopwords:(string, 'a) Hashtbl.t -> string -> t
+  val build : ?lo:float -> ?hi:float -> ?alphabet:bool -> ?stopwords:(string, 'a) Hashtbl.t -> string -> t
 
-``build ~lo ~hi ~stopwords fname`` builds a vocabulary from a corpus file of
-name ``fname``.
+``build ~lo ~hi ~stopwords fname`` builds a vocabulary from a text corpus file
+of name ``fname``. If ``alphabet=false`` then tokens are the words separated by
+white spaces; if ``alphabet=true`` then tokens are the characters and a
+vocabulary of alphabets is returned.
 
 Parameters:
   * ``lo``: percentage of lower bound of word frequency.
   * ``hi``: percentage of higher bound of word frequency.
-  * ``fname``: file name of the corpus, each line contains a doc.
+  * ``alphabet`` : build vocabulary for alphabets or words.
+  * ``fname``: file name of the text corpus, each line contains a doc.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L125>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L167>`__
+
+
+
+.. code-block:: ocaml
+
+  val build_from_string : ?lo:float -> ?hi:float -> ?alphabet:bool -> ?stopwords:(string, 'a) Hashtbl.t -> string -> t
+
+``build_from_string`` is similar to ``build`` but builds the vocabulary from an
+input string rather than a file.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L198>`__
 
 
 
@@ -195,7 +209,7 @@ Parameters:
   * ``lo``: the percentage of lower bound.
   * ``hi``: the percentage of higher bound.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L82>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L95>`__
 
 
 
@@ -210,7 +224,7 @@ Parameters:
   * ``lo``: the lower bound of number of occurrence.
   * ``hi``: the higher bound of number of occurrence.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L100>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L115>`__
 
 
 
@@ -220,17 +234,7 @@ Parameters:
 
 ``remove_stopwords stopwords v`` removes the stopwords defined in a hashtbl from vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L113>`__
-
-
-
-.. code-block:: ocaml
-
-  val w2i_to_tuples : t -> (string * int) list
-
-``w2w2i_to_tuples v`` converts vocabulary ``v`` to a list of ``(word, index)`` tuples.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L189>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L129>`__
 
 
 
@@ -240,7 +244,47 @@ Parameters:
 
 ``copy v`` makes a copy of vocabulary ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L37>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L47>`__
+
+
+
+.. code-block:: ocaml
+
+  val tokenise : t -> string -> int array
+
+``tokenise v s`` tokenises the string ``s`` according to the vocabulary ``v``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L263>`__
+
+
+
+.. code-block:: ocaml
+
+  val w2i_to_tuples : t -> (string * int) list
+
+``w2w2i_to_tuples v`` converts vocabulary ``v`` to a list of ``(word, index)`` tuples.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L259>`__
+
+
+
+.. code-block:: ocaml
+
+  val to_array : t -> (int * string) array
+
+``to_array v`` converts a vocabulary to a (word, index) array.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L303>`__
+
+
+
+.. code-block:: ocaml
+
+  val of_array : (int * string) array -> t
+
+``of_array v`` converts a (word, index) array to a vocabulary.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L309>`__
 
 
 
@@ -255,7 +299,7 @@ I/O functions
 
 ``save v fname`` serialises the vocabulary and saves it to a file of name ``s``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L194>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L272>`__
 
 
 
@@ -265,7 +309,7 @@ I/O functions
 
 ``load fname`` loads the serialised vocabulary from a file of name ``fname``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L196>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L275>`__
 
 
 
@@ -275,7 +319,27 @@ I/O functions
 
 ``save_txt v fname`` saves the vocabulary in the text format to a file of name ``s``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L198>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L278>`__
+
+
+
+.. code-block:: ocaml
+
+  val to_string : t -> string
+
+``to_string v`` returns the summary information of a vocabulary.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L289>`__
+
+
+
+.. code-block:: ocaml
+
+  val pp_vocab : Format.formatter -> t -> unit
+
+Pretty printer for vocabulary type.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L297>`__
 
 
 
