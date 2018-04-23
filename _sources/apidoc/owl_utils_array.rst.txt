@@ -2,7 +2,7 @@ Utils.Array
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#52 entries have been extracted.
+#54 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli>`_ 
@@ -246,7 +246,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val filteri_v : (int -> 'a -> bool * 'b) -> 'a array -> 'b array
+  val remove : 'a array -> int -> 'a array
 
 TODO
 
@@ -256,11 +256,31 @@ TODO
 
 .. code-block:: ocaml
 
+  val replace : int -> int -> 'a array -> 'a array -> 'a array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L51>`__
+
+
+
+.. code-block:: ocaml
+
+  val filteri_v : (int -> 'a -> bool * 'b) -> 'a array -> 'b array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L60>`__
+
+
+
+.. code-block:: ocaml
+
   val filter_v : ('a -> bool * 'b) -> 'a array -> 'b array
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L52>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L70>`__
 
 
 
@@ -270,7 +290,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L56>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L74>`__
 
 
 
@@ -280,7 +300,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L68>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L86>`__
 
 
 
@@ -290,7 +310,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L71>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L89>`__
 
 
 
@@ -300,7 +320,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L81>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L99>`__
 
 
 
@@ -310,7 +330,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L86>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L104>`__
 
 
 
@@ -320,7 +340,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L93>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L111>`__
 
 
 
@@ -330,7 +350,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L100>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L118>`__
 
 
 
@@ -340,7 +360,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L106>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L124>`__
 
 
 
@@ -350,7 +370,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L123>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L141>`__
 
 
 
@@ -360,7 +380,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L133>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L151>`__
 
 
 
@@ -370,7 +390,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L147>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L165>`__
 
 
 
@@ -380,7 +400,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L154>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L172>`__
 
 
 
@@ -390,7 +410,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L160>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L178>`__
 
 
 
@@ -400,7 +420,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L170>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L188>`__
 
 
 

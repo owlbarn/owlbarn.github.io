@@ -2,7 +2,7 @@ Zoo System
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#16 entries have been extracted.
+#17 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/zoo/owl_zoo_cmd.mli>`_ 
@@ -82,16 +82,6 @@ Execute gists
 
 .. code-block:: ocaml
 
-  val load_file : ?gist:string -> string -> string
-
-Load a zoo file with the given gist name and file name, the file path is relative to the gist/version folder.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L112>`__
-
-
-
-.. code-block:: ocaml
-
   val eval : string -> unit
 
 Evaluate an OCaml expression in toplevel.
@@ -116,7 +106,7 @@ Preprocess the zoo scripts, inject the necessary directives, functions, and modu
 
 ``run args script`` executes the zoo script with the given arguments.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L121>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L125>`__
 
 
 
@@ -126,7 +116,7 @@ Preprocess the zoo scripts, inject the necessary directives, functions, and modu
 
 ``run_gist gist-id`` runs a zoo gist with the given ``gist-id``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L128>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L132>`__
 
 
 
@@ -141,7 +131,7 @@ Helper functions
 
 Print out help information of ``owl`` command line.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L135>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L139>`__
 
 
 
@@ -151,7 +141,27 @@ Print out help information of ``owl`` command line.
 
 Start the toplevel system tailored for Owl's zoo system.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L152>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L156>`__
+
+
+
+.. code-block:: ocaml
+
+  val query_path : string -> string
+
+``query_path gist`` returns the absolute path of a given gist.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L111>`__
+
+
+
+.. code-block:: ocaml
+
+  val load_file : ?gist:string -> string -> string
+
+Load a zoo file with the given gist name and file name, the file path is relative to the gist/version folder.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L120>`__
 
 
 
