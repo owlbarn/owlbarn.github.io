@@ -2,7 +2,7 @@ Dense.Matrix.Generic
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#418 entries have been extracted.
+#419 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/dense/owl_dense_matrix_generic.mli>`_ 
@@ -782,6 +782,14 @@ one to the greatest one.
 ``sort x`` performs quicksort of the elelments in ``x``. A new copy is returned
 as result, the original ``x`` remains intact. If you want to perform in-place
 sorting, please use `sort_` instead.
+
+.. code-block:: ocaml
+
+  val argsort : ('a, 'b) t -> (int64, int64_elt) t
+
+`argsort x`` returns the indices with which the elements in ``x`` are sorted in
+increasing order. Note that the returned index ndarray has the same shape as
+that of ``x``, and the indices are 1D indices.
 
 Iteration functions
 -------------------------------------------------------------------------------

@@ -96,7 +96,7 @@
   <div class="section" id="dense-matrix-generic">
 <h1>Dense.Matrix.Generic<a class="headerlink" href="#dense-matrix-generic" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#418 entries have been extracted.</p>
+#419 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/dense/owl_dense_matrix_generic.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/dense/owl_dense_matrix_generic.ml">{Implementation}</a></p>
@@ -587,6 +587,12 @@ one to the greatest one.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">x</span></code> performs quicksort of the elelments in <code class="docutils literal notranslate"><span class="pre">x</span></code>. A new copy is returned
 as result, the original <code class="docutils literal notranslate"><span class="pre">x</span></code> remains intact. If you want to perform in-place
 sorting, please use <cite>sort_</cite> instead.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">argsort</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">int64</span><span class="o">,</span> <span class="n">int64_elt</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><cite>argsort x`</cite> returns the indices with which the elements in <code class="docutils literal notranslate"><span class="pre">x</span></code> are sorted in
+increasing order. Note that the returned index ndarray has the same shape as
+that of <code class="docutils literal notranslate"><span class="pre">x</span></code>, and the indices are 1D indices.</p>
 </div>
 <div class="section" id="iteration-functions">
 <h2>Iteration functions<a class="headerlink" href="#iteration-functions" title="Permalink to this headline">¶</a></h2>
