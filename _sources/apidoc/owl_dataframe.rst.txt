@@ -1,0 +1,360 @@
+Dataframe
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#41 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_dataframe.mli>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_dataframe.ml>`_
+
+
+
+Type definition
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type t
+    
+
+TODO
+
+.. code-block:: ocaml
+
+  type series
+    
+
+TODO
+
+.. code-block:: ocaml
+
+  type elt =
+    | Int'    of int
+    | Float'  of float
+    | String' of string
+    | Any'
+    
+
+TODO
+
+Pakcking & unpacking functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val pack_int_series : int array -> series
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L41>`__
+
+
+
+.. code-block:: ocaml
+
+  val pack_float_series : float array -> series
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L43>`__
+
+
+
+.. code-block:: ocaml
+
+  val pack_string_series : string array -> series
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L45>`__
+
+
+
+.. code-block:: ocaml
+
+  val unpack_int_series : series -> int array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L35>`__
+
+
+
+.. code-block:: ocaml
+
+  val unpack_float_series : series -> float array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L37>`__
+
+
+
+.. code-block:: ocaml
+
+  val unpack_string_series : series -> string array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L39>`__
+
+
+
+Obtain properties
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val row_num : t -> int
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L189>`__
+
+
+
+.. code-block:: ocaml
+
+  val col_num : t -> int
+
+TODO
+
+.. code-block:: ocaml
+
+  val numel : t -> int
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L192>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_heads : t -> string array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L119>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_heads : t -> string array -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L123>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_head : t -> int -> string
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L133>`__
+
+
+
+Basic get and set functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val get : t -> int -> int -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L161>`__
+
+
+
+.. code-block:: ocaml
+
+  val set : t -> int -> int -> elt -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L169>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_by_name : t -> int -> string -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L177>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_by_name : t -> int -> string -> elt -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L181>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_row : t -> int -> elt array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L136>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_col : t -> int -> series
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L139>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_rows : t -> int array -> elt array array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L147>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_cols : t -> int array -> series array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L150>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_col_by_name : t -> string -> series
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L153>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_cols_by_name : t -> string array -> series array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L158>`__
+
+
+
+Core operations
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val make : string array -> t
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L48>`__
+
+
+
+.. code-block:: ocaml
+
+  val copy : t -> t
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L201>`__
+
+
+
+.. code-block:: ocaml
+
+  val append : t -> elt array -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L102>`__
+
+
+
+Math operators
+-------------------------------------------------------------------------------
+
+
+
+Iteration functions
+-------------------------------------------------------------------------------
+
+
+
+Extended indexing operators
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val ( .%( ) ) : t -> int * string -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val ( .%( )<- ) : t -> int * string -> elt -> unit
+
+TODO
+
+IO functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val to_cols : t -> series array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L195>`__
+
+
+
+.. code-block:: ocaml
+
+  val load : ?sep:char -> string array -> string -> t
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L227>`__
+
+
+
