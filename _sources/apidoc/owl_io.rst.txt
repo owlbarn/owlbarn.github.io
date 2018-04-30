@@ -1,0 +1,147 @@
+IO
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#15 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_io.mli>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_io.ml>`_
+
+
+
+Read and write operations
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val read_file : ?trim:bool -> string -> string array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L10>`__
+
+
+
+.. code-block:: ocaml
+
+  val read_file_string : string -> string
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L26>`__
+
+
+
+.. code-block:: ocaml
+
+  val write_file : string -> string -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L36>`__
+
+
+
+.. code-block:: ocaml
+
+  val marshal_from_file : string -> 'a
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L121>`__
+
+
+
+.. code-block:: ocaml
+
+  val marshal_to_file : 'a -> string -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L113>`__
+
+
+
+.. code-block:: ocaml
+
+  val read_csv : ?sep:char -> string -> string array array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L140>`__
+
+
+
+Iteration functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val iteri_lines_of_file : ?verbose:bool -> (int -> string -> unit) -> string -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L45>`__
+
+
+
+.. code-block:: ocaml
+
+  val mapi_lines_of_file : (int -> string -> 'a) -> string -> 'a array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L69>`__
+
+
+
+.. code-block:: ocaml
+
+  val iteri_lines_of_marshal : ?verbose:bool -> (int -> 'a -> 'b) -> string -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L78>`__
+
+
+
+.. code-block:: ocaml
+
+  val mapi_lines_of_marshal : (int -> 'a -> 'b) -> string -> 'b array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L104>`__
+
+
+
+.. code-block:: ocaml
+
+  val iteri_csv : ?sep:char -> (int -> string array -> unit) -> string -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L154>`__
+
+
+
+Helper functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val head : int -> string -> string array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L127>`__
+
+
+
