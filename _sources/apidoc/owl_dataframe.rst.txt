@@ -2,7 +2,7 @@ Dataframe
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#41 entries have been extracted.
+#56 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_dataframe.mli>`_ 
@@ -47,7 +47,7 @@ Pakcking & unpacking functions
 
 .. code-block:: ocaml
 
-  val pack_int_series : int array -> series
+  val pack_int : int -> elt
 
 TODO
 
@@ -57,7 +57,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val pack_float_series : float array -> series
+  val pack_float : float -> elt
 
 TODO
 
@@ -67,11 +67,71 @@ TODO
 
 .. code-block:: ocaml
 
-  val pack_string_series : string array -> series
+  val pack_string : string -> elt
 
 TODO
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L45>`__
+
+
+
+.. code-block:: ocaml
+
+  val unpack_int : elt -> int
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L29>`__
+
+
+
+.. code-block:: ocaml
+
+  val unpack_float : elt -> float
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L31>`__
+
+
+
+.. code-block:: ocaml
+
+  val unpack_string : elt -> string
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L33>`__
+
+
+
+.. code-block:: ocaml
+
+  val pack_int_series : int array -> series
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L47>`__
+
+
+
+.. code-block:: ocaml
+
+  val pack_float_series : float array -> series
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L49>`__
+
+
+
+.. code-block:: ocaml
+
+  val pack_string_series : string array -> series
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L51>`__
 
 
 
@@ -116,7 +176,7 @@ Obtain properties
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L189>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L218>`__
 
 
 
@@ -128,11 +188,21 @@ TODO
 
 .. code-block:: ocaml
 
+  val shape : t -> int * int
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L221>`__
+
+
+
+.. code-block:: ocaml
+
   val numel : t -> int
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L192>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L224>`__
 
 
 
@@ -142,7 +212,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L119>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L146>`__
 
 
 
@@ -152,7 +222,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L123>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L152>`__
 
 
 
@@ -162,7 +232,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L133>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L162>`__
 
 
 
@@ -177,7 +247,7 @@ Basic get and set functions
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L161>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L190>`__
 
 
 
@@ -187,7 +257,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L169>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L198>`__
 
 
 
@@ -197,7 +267,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L177>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L206>`__
 
 
 
@@ -207,7 +277,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L181>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L210>`__
 
 
 
@@ -217,7 +287,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L136>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L165>`__
 
 
 
@@ -227,7 +297,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L139>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L168>`__
 
 
 
@@ -237,7 +307,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L147>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L176>`__
 
 
 
@@ -247,7 +317,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L150>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L179>`__
 
 
 
@@ -257,7 +327,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L153>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L182>`__
 
 
 
@@ -267,7 +337,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L158>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L187>`__
 
 
 
@@ -278,11 +348,11 @@ Core operations
 
 .. code-block:: ocaml
 
-  val make : string array -> t
+  val make : ?data:series array -> string array -> t
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L48>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L54>`__
 
 
 
@@ -292,17 +362,37 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L201>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L233>`__
 
 
 
 .. code-block:: ocaml
 
-  val append : t -> elt array -> unit
+  val append_row : t -> elt array -> unit
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L102>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L125>`__
+
+
+
+.. code-block:: ocaml
+
+  val concat_horizontal : t -> t -> t
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L246>`__
+
+
+
+.. code-block:: ocaml
+
+  val concat_vertical : t -> t -> t
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L258>`__
 
 
 
@@ -313,6 +403,46 @@ Math operators
 
 Iteration functions
 -------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val iteri_row : (int -> elt array -> unit) -> t -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L269>`__
+
+
+
+.. code-block:: ocaml
+
+  val iter_row :  (elt array -> unit) -> t -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L276>`__
+
+
+
+.. code-block:: ocaml
+
+  val filteri : (int -> elt array -> bool) -> t -> t
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L279>`__
+
+
+
+.. code-block:: ocaml
+
+  val filter : (elt array -> bool) -> t -> t
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L291>`__
 
 
 
@@ -333,8 +463,28 @@ TODO
 
 TODO
 
-IO functions
+IO & helper functions
 -------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val of_csv : ?sep:char -> ?head:string array -> string array -> string -> t
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L294>`__
+
+
+
+.. code-block:: ocaml
+
+  val to_csv : ?sep:char -> t -> string -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L314>`__
 
 
 
@@ -344,17 +494,17 @@ IO functions
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L195>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L227>`__
 
 
 
 .. code-block:: ocaml
 
-  val load : ?sep:char -> string array -> string -> t
+  val elt_to_str : elt -> string
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L227>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L111>`__
 
 
 

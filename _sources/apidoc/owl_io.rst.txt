@@ -2,7 +2,7 @@ IO
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#15 entries have been extracted.
+#18 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_io.mli>`_ 
@@ -71,7 +71,37 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L140>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L144>`__
+
+
+
+.. code-block:: ocaml
+
+  val write_csv : ?sep:char -> string array array -> string -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L155>`__
+
+
+
+.. code-block:: ocaml
+
+  val read_csv_proc : ?sep:char -> (int -> string array -> unit) -> string -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L167>`__
+
+
+
+.. code-block:: ocaml
+
+  val write_csv_proc : ?sep:char -> 'a array array -> ('a -> string) -> string -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L176>`__
 
 
 
@@ -120,16 +150,6 @@ TODO
 
 
 
-.. code-block:: ocaml
-
-  val iteri_csv : ?sep:char -> (int -> string array -> unit) -> string -> unit
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L154>`__
-
-
-
 Helper functions
 -------------------------------------------------------------------------------
 
@@ -142,6 +162,16 @@ Helper functions
 TODO
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L127>`__
+
+
+
+.. code-block:: ocaml
+
+  val csv_head : ?sep:char -> int -> string -> string array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_io.ml#L188>`__
 
 
 

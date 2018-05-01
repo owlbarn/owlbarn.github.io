@@ -2,7 +2,7 @@ Utils.Array
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#56 entries have been extracted.
+#62 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli>`_ 
@@ -266,46 +266,6 @@ TODO
 
 .. code-block:: ocaml
 
-  val filteri_v : (int -> 'a -> bool * 'b) -> 'a array -> 'b array
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L60>`__
-
-
-
-.. code-block:: ocaml
-
-  val filter_v : ('a -> bool * 'b) -> 'a array -> 'b array
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L70>`__
-
-
-
-.. code-block:: ocaml
-
-  val filteri : (int -> 'a -> bool) -> 'a array -> 'a array
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L74>`__
-
-
-
-.. code-block:: ocaml
-
-  val filter : ('a -> bool) -> 'a array -> 'a array
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L86>`__
-
-
-
-.. code-block:: ocaml
-
   val mapi : (int -> 'a -> 'b) -> 'a array -> 'b array
 
 TODO
@@ -386,11 +346,107 @@ TODO
 
 .. code-block:: ocaml
 
-  val pad : [ `Left | `Right ] -> 'a array -> 'a -> int -> 'a array
+  val filteri_v : (int -> 'a -> bool * 'b) -> 'a array -> 'b array
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L155>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L60>`__
+
+
+
+.. code-block:: ocaml
+
+  val filter_v : ('a -> bool * 'b) -> 'a array -> 'b array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L70>`__
+
+
+
+.. code-block:: ocaml
+
+  val filteri : (int -> 'a -> bool) -> 'a array -> 'a array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L74>`__
+
+
+
+.. code-block:: ocaml
+
+  val filter : ('a -> bool) -> 'a array -> 'a array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L86>`__
+
+
+
+.. code-block:: ocaml
+
+  val filter2i : (int -> 'a -> 'b -> bool) -> 'a array -> 'b array -> ('a * 'b) array
+
+``filter2i f x y`` filters the elements in ``x`` and ``y`` using passed in
+function ``f``. Both arrays must have same length.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L154>`__
+
+
+
+.. code-block:: ocaml
+
+  val filter2 : ('a -> 'b -> bool) -> 'a array -> 'b array -> ('a * 'b) array
+
+``filter2 f x y`` is similar to ``filter2i`` but without passing index of
+the elements to function ``f``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L168>`__
+
+
+
+.. code-block:: ocaml
+
+  val filter2i_i : (int -> 'a -> 'b -> bool) -> 'a array -> 'b array -> int array
+
+``filter2i_i f x y`` filters the elements in ``x`` and ``y`` using passed in
+function ``f``. Both arrays must have same length. Note that the indices of
+those satisfying the predicate ``f`` are returned in an array.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L171>`__
+
+
+
+.. code-block:: ocaml
+
+  val filter2_i : ('a -> 'b -> bool) -> 'a array -> 'b array -> int array
+
+``filter2_i f x y`` is similar to ``filter2i_i`` but without passing index of
+the elements to function ``f``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L185>`__
+
+
+
+.. code-block:: ocaml
+
+  val pad : [ `Left | `Right ] -> 'a -> int -> 'a array -> 'a array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L189>`__
+
+
+
+.. code-block:: ocaml
+
+  val align : [ `Left | `Right ] -> 'a -> 'a array -> 'a array -> 'a array * 'a array
+
+``align side v x y`` aligns two arrays ``x`` and ``y`` along the specified side
+with value ``v``. The copies of two arrays are returned.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L198>`__
 
 
 
@@ -400,7 +456,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L165>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L210>`__
 
 
 
@@ -410,7 +466,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L179>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L224>`__
 
 
 
@@ -420,7 +476,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L186>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L231>`__
 
 
 
@@ -430,7 +486,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L192>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L237>`__
 
 
 
@@ -440,7 +496,17 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L202>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L247>`__
+
+
+
+.. code-block:: ocaml
+
+  val to_string : ?prefix:string -> ?suffix:string -> ?sep:string -> ('a -> string) -> 'a array -> string
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L257>`__
 
 
 

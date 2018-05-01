@@ -2,7 +2,7 @@ Pretty
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#3 entries have been extracted.
+#8 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_pretty.mli>`_ 
@@ -10,7 +10,7 @@ Github:
 
 
 
-Basic functions
+Ndarray pretty printer
 -------------------------------------------------------------------------------
 
 
@@ -19,22 +19,67 @@ Basic functions
 
   val pp_dsnda : Format.formatter -> ('a, 'b, 'c) Bigarray.Genarray.t -> unit
 
-[pp_dsnda] is the pretty printer for n-dimensional arrays.
+``pp_dsnda`` is the pretty printer for n-dimensional arrays.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_pretty.ml#L152>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_pretty.ml#L168>`__
 
 
 
 .. code-block:: ocaml
 
-  val print : ?header:bool -> ?max_row:int -> ?max_col:int -> ?elt_to_str_fun:('a -> string) -> ?formatter:Format.formatter -> ('a, 'b, Bigarray.c_layout) Bigarray.Genarray.t -> unit
+  val dsnda_to_string :  ?header:bool -> ?max_row:int -> ?max_col:int -> ?elt_to_str_fun:('a -> string) -> ('a, 'b, Bigarray.c_layout) Bigarray.Genarray.t -> string
 
-[print] provides the better control of pretty printing function of owl's
+``dsnda_to_string x`` converts ``x`` into a string for pretty printing
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_pretty.ml#L134>`__
+
+
+
+.. code-block:: ocaml
+
+  val print_dsnda : ?header:bool -> ?max_row:int -> ?max_col:int -> ?elt_to_str_fun:('a -> string) -> ?formatter:Format.formatter -> ('a, 'b, Bigarray.c_layout) Bigarray.Genarray.t -> unit
+
+``print_dsnda`` provides the better control of pretty printing function of owl's
 n-dimensional array. [max_row] and [max_col] specify the maximum number of
 rows and columns to display. [header] specifies whether or not to print out
 the headers. [fmt] is the function to format every element into string.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_pretty.ml#L155>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_pretty.ml#L171>`__
+
+
+
+Dataframe pretty printer
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val pp_dataframe : Format.formatter -> Owl_dataframe.t -> unit
+
+``pp_dataframe`` is the pretty printer for dataframe.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_pretty.ml#L214>`__
+
+
+
+.. code-block:: ocaml
+
+  val dataframe_to_string : ?header:bool -> ?names:string array -> ?max_row:int -> ?max_col:int -> ?elt_to_str_fun:(Owl_dataframe.elt -> string) -> Owl_dataframe.t -> string
+
+``dataframe_to_string x`` converts ``x`` into a string for pretty printing
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_pretty.ml#L177>`__
+
+
+
+.. code-block:: ocaml
+
+  val print_dataframe : ?header:bool -> ?names:string array -> ?max_row:int -> ?max_col:int -> ?elt_to_str_fun:(Owl_dataframe.elt -> string) -> Format.formatter -> Owl_dataframe.t -> unit
+
+``print_dataframe x`` converts ``x`` into a string for pretty printing
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_pretty.ml#L207>`__
 
 
 

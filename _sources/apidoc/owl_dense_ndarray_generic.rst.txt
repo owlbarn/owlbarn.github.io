@@ -894,7 +894,7 @@ that of ``x``, and the indices are 1D indices.
 with replacement. ``axis`` is set to zero by default. The return is a tuple
 of both samples and the indices of the selected samples.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3731>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3714>`__
 
 
 
@@ -1861,7 +1861,7 @@ same shape.
 ``sum_reduce ~axis x`` sums the elements in ``x`` along multiple axes specified
 in the ``axis`` array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3686>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3669>`__
 
 
 
@@ -2799,8 +2799,8 @@ Binary math operators
 
   val add : ('a, 'b) t -> ('a, 'b) t -> ('a, 'b) t
 
-``add x y`` adds all the elements in ``x`` and ``y`` elementwise, and returns the
-result in a new ndarray.
+``add x y`` adds all the elements in ``x`` and ``y`` elementwise, and returns
+the result in a new ndarray.
 
 General broadcast operation is automatically applied to add/sub/mul/div, etc.
 The function compares the dimension element-wise from the highest to the
@@ -2815,8 +2815,8 @@ lowest with the following broadcast rules (same as numpy):
 
   val sub : ('a, 'b) t -> ('a, 'b) t -> ('a, 'b) t
 
-``sub x y`` subtracts all the elements in ``x`` and ``y`` elementwise, and returns
-the result in a new ndarray.
+``sub x y`` subtracts all the elements in ``x`` and ``y`` elementwise, and
+returns the result in a new ndarray.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L418>`__
 
@@ -2837,8 +2837,8 @@ returns the result in a new ndarray.
 
   val div : ('a, 'b) t -> ('a, 'b) t -> ('a, 'b) t
 
-``div x y`` divides all the elements in ``x`` and ``y`` elementwise, and returns
-the result in a new ndarray.
+``div x y`` divides all the elements in ``x`` and ``y`` elementwise, and
+returns the result in a new ndarray.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L436>`__
 
@@ -3128,7 +3128,7 @@ contraction) on ``x``. ``index_pairs`` is an array of contracted indices.
 Caveat: Not well tested yet, use with care! Also, consider to use TTGT in
 future for better perfomance.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3747>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3730>`__
 
 
 
@@ -3144,7 +3144,7 @@ of ``y``.
 Caveat: Not well tested yet, use with care! Also, consider to use TTGT in
 future for better perfomance.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3787>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3770>`__
 
 
 
@@ -3556,6 +3556,10 @@ More specifically, if ``idx`` is of shape ``[|a;b;c|]``, the return is of shape
 shape ``[|4;5|]``. Currently, the operation is done using ``gemm``, it is fast
 but consumes more memory.
 
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3644>`__
+
+
+
 .. code-block:: ocaml
 
   val slide : ?axis:int -> ?ofs:int -> ?step:int -> window:int -> ('a, 'b) t -> ('a, 'b) t
@@ -3571,7 +3575,7 @@ Parameters:
   * ``step`` is the step size, the default is 1.
   * ``window`` is the size of the sliding window.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3705>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L3688>`__
 
 
 
