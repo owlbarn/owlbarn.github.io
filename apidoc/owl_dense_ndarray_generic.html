@@ -417,12 +417,13 @@ the lowest dimensionality of <code class="docutils literal notranslate"><span cl
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">resize</span> <span class="pre">~head</span> <span class="pre">x</span> <span class="pre">d</span></code> resizes the ndarray <code class="docutils literal notranslate"><span class="pre">x</span></code>. If there are less number of
 elelments in the new shape than the old one, the new ndarray shares part of
-the memeory with the old <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">head</span></code> indicates the alignment between the new
-and old data, either from head or from tail. Note the data is flattened
+the memeory with the old <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">head</span></code> indicates the alignment between the
+new and old data, either from head or from tail. Note the data is flattened
 before the operation.</p>
 <p>If there are more elements in the new shape <code class="docutils literal notranslate"><span class="pre">d</span></code>. Then new memeory space will
-be allocated and the content of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be copied to the new memory. The rest
-of the allocated space will be filled with zeros.</p>
+be allocated and the content of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be copied to the new memory. The
+rest of the allocated space will be filled with zeros. The default value of
+<code class="docutils literal notranslate"><span class="pre">head</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.ml#L296">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reshape</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
@@ -508,7 +509,7 @@ highest dimension.</p>
 E.g. In <code class="docutils literal notranslate"><span class="pre">[|</span> <span class="pre">[|a;</span> <span class="pre">b;</span> <span class="pre">c|];</span> <span class="pre">[|d;</span> <span class="pre">e;</span> <span class="pre">f|];</span> <span class="pre">[|g;</span> <span class="pre">h;</span> <span class="pre">i|]</span> <span class="pre">|]</span></code>, wherein <cite>a, b, c … i</cite>
 are matrices of different shapes. They will be concatenated into a big matrix
 as follows.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix}
   a &amp; b &amp; c \\
   d &amp; e &amp; f \\
@@ -1593,7 +1594,7 @@ hence it always returns a float number.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">vecnorm</span> <span class="pre">~axis</span> <span class="pre">~p</span> <span class="pre">x</span></code> calculates the generalised vector p-norm along the
 specified <code class="docutils literal notranslate"><span class="pre">axis</span></code>. The generalised p-norm is defined as below.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[||v||_p = \Big[ \sum_{k=0}^{N-1} |v_k|^p \Big]^{1/p}\]</div>
 <dl class="docutils">
 <dt>Parameters:</dt>
@@ -1605,8 +1606,8 @@ specified <code class="docutils literal notranslate"><span class="pre">axis</spa
 </dd>
 <dt>Returns:</dt>
 <dd><ul class="first last simple">
-<li>If <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">infinity</span></code>, then returns <span class="math notranslate">\(||v||_{\infty} = \max_i(|v(i)|)\)</span>.</li>
-<li>If <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">-infinity</span></code>, then returns <span class="math notranslate">\(||v||_{-\infty} = \min_i(|v(i)|)\)</span>.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">infinity</span></code>, then returns <span class="math notranslate nohighlight">\(||v||_{\infty} = \max_i(|v(i)|)\)</span>.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">-infinity</span></code>, then returns <span class="math notranslate nohighlight">\(||v||_{-\infty} = \min_i(|v(i)|)\)</span>.</li>
 <li>Otherwise returns generalised vector p-norm defined above.</li>
 </ul>
 </dd>

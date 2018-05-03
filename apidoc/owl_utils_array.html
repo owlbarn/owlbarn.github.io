@@ -86,7 +86,7 @@
   <div class="section" id="utils-array">
 <h1>Utils.Array<a class="headerlink" href="#utils-array" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#62 entries have been extracted.</p>
+#63 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.ml">{Implementation}</a></p>
@@ -331,47 +331,54 @@ those satisfying the predicate <code class="docutils literal notranslate"><span 
 <p><code class="docutils literal notranslate"><span class="pre">filter2_i</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">y</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">filter2i_i</span></code> but without passing index of
 the elements to function <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L185">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">resize</span> <span class="o">:</span> <span class="o">?</span><span class="n">head</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">resize</span> <span class="pre">~head</span> <span class="pre">v</span> <span class="pre">n</span> <span class="pre">x</span></code> resizes <code class="docutils literal notranslate"><span class="pre">x</span></code> of length <code class="docutils literal notranslate"><span class="pre">m</span></code> to length <code class="docutils literal notranslate"><span class="pre">n</span></code>. If
+<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">&lt;=</span> <span class="pre">n</span></code>, a copy of <code class="docutils literal notranslate"><span class="pre">x</span></code> subarray is returned. If <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">&gt;</span> <span class="pre">n</span></code>, then <code class="docutils literal notranslate"><span class="pre">x</span></code> is
+extended, the extra space is filled with value <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L188">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pad</span> <span class="o">:</span> <span class="o">[</span> <span class="o">`</span><span class="nc">Left</span> <span class="o">|</span> <span class="o">`</span><span class="nc">Right</span> <span class="o">]</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L189">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L203">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">align</span> <span class="o">:</span> <span class="o">[</span> <span class="o">`</span><span class="nc">Left</span> <span class="o">|</span> <span class="o">`</span><span class="nc">Right</span> <span class="o">]</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">*</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">align</span> <span class="pre">side</span> <span class="pre">v</span> <span class="pre">x</span> <span class="pre">y</span></code> aligns two arrays <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> along the specified side
 with value <code class="docutils literal notranslate"><span class="pre">v</span></code>. The copies of two arrays are returned.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L198">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L212">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">greater_eqaul</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L210">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L224">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">swap</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L224">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L238">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">permute</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L231">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L245">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">of_tuples</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">*</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L237">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L251">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">complement</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L247">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L261">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_string</span> <span class="o">:</span> <span class="o">?</span><span class="n">prefix</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">suffix</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sep</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">string</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L257">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L271">source code</a></p>
 </div>
 </div>
 

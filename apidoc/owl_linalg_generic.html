@@ -169,7 +169,7 @@ where <code class="docutils literal notranslate"><span class="pre">eps</span> <s
 <code class="docutils literal notranslate"><span class="pre">x</span></code> is a martrix, it will be flatten to a vector first. Different from the
 function of the same name in <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a>, this function
 assumes the input is either 1d vector or 2d matrix.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[||v||_p = \Big[ \sum_{k=0}^{N-1} |v_k|^p \Big]^{1/p}\]</div>
 <dl class="docutils">
 <dt>Parameters:</dt>
@@ -180,8 +180,8 @@ assumes the input is either 1d vector or 2d matrix.</p>
 </dd>
 <dt>Returns:</dt>
 <dd><ul class="first last simple">
-<li>If <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">infinity</span></code>, then returns <span class="math notranslate">\(||v||_{\infty} = \max_i(|v(i)|)\)</span>.</li>
-<li>If <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">-infinity</span></code>, then returns <span class="math notranslate">\(||v||_{-\infty} = \min_i(|v(i)|)\)</span>.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">infinity</span></code>, then returns <span class="math notranslate nohighlight">\(||v||_{\infty} = \max_i(|v(i)|)\)</span>.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">-infinity</span></code>, then returns <span class="math notranslate nohighlight">\(||v||_{-\infty} = \min_i(|v(i)|)\)</span>.</li>
 <li>If <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> is a matrix, then returns Frobenius norm of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</li>
 <li>Otherwise returns generalised vector p-norm defined above.</li>
 </ul>
@@ -334,7 +334,7 @@ values of the generalised singular value decomposition of <code class="docutils 
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">schur</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">(t,</span> <span class="pre">z,</span> <span class="pre">w)</span></code> calculates Schur factorisation of <code class="docutils literal notranslate"><span class="pre">x</span></code> in the
 following form.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[X = Z T Z^H\]</div>
 <dl class="docutils">
 <dt>Parameters:</dt>
@@ -367,7 +367,7 @@ if you use S, D, C, Z module, then you do not need to worry about <code class="d
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ordschur</span> <span class="pre">~select</span> <span class="pre">t</span> <span class="pre">z</span> <span class="pre">-&gt;</span> <span class="pre">(r,</span> <span class="pre">p)</span></code> reorders <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code> returned by Schur
 factorization <code class="docutils literal notranslate"><span class="pre">schur</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">(t,</span> <span class="pre">z)</span></code> according <code class="docutils literal notranslate"><span class="pre">select</span></code> such that</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[X = P R P^H\]</div>
 <dl class="docutils">
 <dt>Parameters:</dt>
@@ -391,7 +391,7 @@ factorization <code class="docutils literal notranslate"><span class="pre">schur
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">qz</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">(s,</span> <span class="pre">t,</span> <span class="pre">q,</span> <span class="pre">z,</span> <span class="pre">w)</span></code> calculates generalised Schur factorisation of <code class="docutils literal notranslate"><span class="pre">x</span></code>
 in the following form. It is also known as QZ decomposition.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[X = Q S Z^H
 Y = Z T Z^H\]</div>
 <dl class="docutils">
@@ -432,7 +432,7 @@ generalised eigen values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">hess</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">(h,</span> <span class="pre">q)</span></code> calculates the Hessenberg form of a given matrix <code class="docutils literal notranslate"><span class="pre">x</span></code>.
 Both Hessenberg matrix <code class="docutils literal notranslate"><span class="pre">h</span></code> and unitary matrix <code class="docutils literal notranslate"><span class="pre">q</span></code> is returned, such that
 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">q</span> <span class="pre">*&#64;</span> <span class="pre">h</span> <span class="pre">*&#64;</span> <span class="pre">(transpose</span> <span class="pre">q)</span></code>.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[X = Q H Q^T\]</div>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L511">source code</a></p>
 </div>
@@ -464,7 +464,7 @@ an arbitrary square matrix <code class="docutils literal notranslate"><span clas
 obtained from the singular value decomposition. Namely, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*&#64;</span> <span class="pre">x</span></code> has
 negligible elements, <code class="docutils literal notranslate"><span class="pre">M.col_num</span> <span class="pre">x</span></code> is the nullity of <code class="docutils literal notranslate"><span class="pre">a</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">transpose</span> <span class="pre">x</span> <span class="pre">*&#64;</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">I</span></code>. Namely,</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[X^T X = I\]</div>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L645">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">linsolve</span> <span class="o">:</span> <span class="o">?</span><span class="n">trans</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
@@ -474,12 +474,12 @@ negligible elements, <code class="docutils literal notranslate"><span class="pre
 following form. The function uses LU factorisation with partial pivoting when
 <code class="docutils literal notranslate"><span class="pre">a</span></code> is square and QR factorisation with column pivoting otherwise. The number
 of rows of <code class="docutils literal notranslate"><span class="pre">a</span></code> must equal the number of rows of <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[AX = B\]</div>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">trans</span> <span class="pre">=</span> <span class="pre">false</span></code> indicates no transpose. If <code class="docutils literal notranslate"><span class="pre">trans</span> <span class="pre">=</span> <span class="pre">true</span></code>, then
 function will solve <code class="docutils literal notranslate"><span class="pre">A^T</span> <span class="pre">*</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</span></code> for real matrices; <code class="docutils literal notranslate"><span class="pre">A^H</span> <span class="pre">*</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">b</span></code> for
 complex matrices.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[A^H X = B\]</div>
 <p>The associated operator is <code class="docutils literal notranslate"><span class="pre">/&#64;</span></code>, so you can simply use <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">/&#64;</span> <span class="pre">b</span></code> to solve
 the linear equation system to get <code class="docutils literal notranslate"><span class="pre">x</span></code>. Please refer to <a class="reference internal" href="owl_operator.html"><span class="doc">Operator Functor</span></a>.</p>
@@ -488,7 +488,7 @@ the linear equation system to get <code class="docutils literal notranslate"><sp
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">linreg</span> <span class="pre">x</span> <span class="pre">y</span> <span class="pre">-&gt;</span> <span class="pre">(a,</span> <span class="pre">b)</span></code> solves <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b*x</span></code> using Ordinary Least Squares.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[Y = A + BX\]</div>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L697">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sylvester</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
@@ -496,7 +496,7 @@ the linear equation system to get <code class="docutils literal notranslate"><sp
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">sylvester</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">c</span></code> solves a Sylvester equation in the following form. The
 function calls LAPACKE function <code class="docutils literal notranslate"><span class="pre">trsyl</span></code> solve the system.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[AX + XB = C\]</div>
 <dl class="docutils">
 <dt>Parameters:</dt>
@@ -519,7 +519,7 @@ function calls LAPACKE function <code class="docutils literal notranslate"><span
 <p><code class="docutils literal notranslate"><span class="pre">lyapunov</span> <span class="pre">a</span> <span class="pre">q</span></code> solves a continuous Lyapunov equation in the following form.
 The function calls LAPACKE function <code class="docutils literal notranslate"><span class="pre">trsyl</span></code> solve the system. In Matlab, the
 same function is called <code class="docutils literal notranslate"><span class="pre">lyap</span></code>.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[AX + XA^H = Q\]</div>
 <dl class="docutils">
 <dt>Parameters:</dt>
@@ -540,7 +540,7 @@ same function is called <code class="docutils literal notranslate"><span class="
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">care</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">q</span> <span class="pre">r</span></code> solves the continuous-time algebraic Riccati equation system
 in the following form. The algorithm is based on <a class="reference internal" href="../chapter/reference.html#laub1979schur" id="id1">[Lau79]</a>.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[A^T X + X A − X B R^{-1} B^T X + Q = 0\]</div>
 <dl class="docutils">
 <dt>Parameters:</dt>
@@ -563,7 +563,7 @@ in the following form. The algorithm is based on <a class="reference internal" h
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">dare</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">q</span> <span class="pre">r</span></code> solves the discrete-time algebraic Riccati equation system
 in the following form. The algorithm is based on <a class="reference internal" href="../chapter/reference.html#laub1979schur" id="id2">[Lau79]</a>.</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[A^T X A - X - (A^T X B) (B^T X B + R)^{-1} (B^T X A) + Q = 0\]</div>
 <dl class="docutils">
 <dt>Parameters:</dt>
@@ -629,7 +629,7 @@ and warnings in documentation for <code class="docutils literal notranslate"><sp
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">expm</span> <span class="pre">x</span></code> computes the matrix exponential of <code class="docutils literal notranslate"><span class="pre">x</span></code> defined by</p>
-<div class="math notranslate">
+<div class="math notranslate nohighlight">
 \[e^x = \sum_{k=0}^{\infty} \frac{1}{k!} x^k\]</div>
 <p>The function implements the scaling and squaring algorithm which uses Padé
 approximation to compute the matrix exponential <a class="reference internal" href="../chapter/reference.html#al2009new" id="id3">[AMH09]</a>.</p>
@@ -689,10 +689,10 @@ uses <code class="docutils literal notranslate"><span class="pre">expm</span></c
 <p><code class="docutils literal notranslate"><span class="pre">select_ev</span> <span class="pre">keyword</span> <span class="pre">ev</span></code> generates a logical vector (of same shape as <code class="docutils literal notranslate"><span class="pre">ev</span></code>)
 from eigen values <code class="docutils literal notranslate"><span class="pre">ev</span></code> according to the passed in keywards.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">LHP</span></code>: Left-half plane <span class="math notranslate">\((real(e) &lt; 0)\)</span>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">RHP</span></code>: Left-half plane <span class="math notranslate">\((real(e) \ge 0)\)</span>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">UDI</span></code>: Left-half plane <span class="math notranslate">\((abs(e) &lt; 1)\)</span>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">UDO</span></code>: Left-half plane <span class="math notranslate">\((abs(e) \ge 0)\)</span>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">LHP</span></code>: Left-half plane <span class="math notranslate nohighlight">\((real(e) &lt; 0)\)</span>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">RHP</span></code>: Left-half plane <span class="math notranslate nohighlight">\((real(e) \ge 0)\)</span>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">UDI</span></code>: Left-half plane <span class="math notranslate nohighlight">\((abs(e) &lt; 1)\)</span>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">UDO</span></code>: Left-half plane <span class="math notranslate nohighlight">\((abs(e) \ge 0)\)</span>.</li>
 </ul>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L35">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">peakflops</span> <span class="o">:</span> <span class="o">?</span><span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="kt">float</span>
