@@ -2,7 +2,7 @@ Dataframe
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#66 entries have been extracted.
+#74 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_dataframe.mli>`_ 
@@ -20,25 +20,26 @@ Type definition
   type t
     
 
-TODO
+Abstract dataframe type.
 
 .. code-block:: ocaml
 
   type series
     
 
-TODO
+Abstract series type.
 
 .. code-block:: ocaml
 
   type elt =
+    | Bool   of bool
     | Int    of int
     | Float  of float
     | String of string
     | Any
     
 
-TODO
+Type of the elements in a series.
 
 Pakcking & unpacking element
 -------------------------------------------------------------------------------
@@ -47,11 +48,21 @@ Pakcking & unpacking element
 
 .. code-block:: ocaml
 
+  val pack_bool : bool -> elt
+
+Pack the boolean value to ``elt`` type.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L49>`__
+
+
+
+.. code-block:: ocaml
+
   val pack_int : int -> elt
 
-TODO
+Pack the int value to ``elt`` type.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L41>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L51>`__
 
 
 
@@ -59,9 +70,9 @@ TODO
 
   val pack_float : float -> elt
 
-TODO
+Pack the float value to ``elt`` type.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L43>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L53>`__
 
 
 
@@ -69,9 +80,19 @@ TODO
 
   val pack_string : string -> elt
 
-TODO
+Pack the string value to ``elt`` type.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L45>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L55>`__
+
+
+
+.. code-block:: ocaml
+
+  val unpack_bool : elt -> bool
+
+Unpack ``elt`` type to boolean value.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L33>`__
 
 
 
@@ -79,9 +100,9 @@ TODO
 
   val unpack_int : elt -> int
 
-TODO
+Unpack ``elt`` type to int value.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L29>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L35>`__
 
 
 
@@ -89,9 +110,9 @@ TODO
 
   val unpack_float : elt -> float
 
-TODO
+Unpack ``elt`` type to float value.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L31>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L37>`__
 
 
 
@@ -99,9 +120,9 @@ TODO
 
   val unpack_string : elt -> string
 
-TODO
+Unpack ``elt`` type to string value.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L33>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L39>`__
 
 
 
@@ -112,11 +133,21 @@ Pakcking & unpacking series
 
 .. code-block:: ocaml
 
+  val pack_bool_series : bool array -> series
+
+Pack boolean array to ``series`` type.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L57>`__
+
+
+
+.. code-block:: ocaml
+
   val pack_int_series : int array -> series
 
-TODO
+Pack int array to ``series`` type.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L47>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L59>`__
 
 
 
@@ -124,9 +155,9 @@ TODO
 
   val pack_float_series : float array -> series
 
-TODO
+Pack float array to ``series`` type.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L49>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L61>`__
 
 
 
@@ -134,9 +165,19 @@ TODO
 
   val pack_string_series : string array -> series
 
-TODO
+Pack string array to ``series`` type.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L51>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L63>`__
+
+
+
+.. code-block:: ocaml
+
+  val unpack_bool_series : series -> bool array
+
+Unpack ``series`` type to boolean array.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L41>`__
 
 
 
@@ -144,9 +185,9 @@ TODO
 
   val unpack_int_series : series -> int array
 
-TODO
+Unpack ``series`` type to int array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L35>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L43>`__
 
 
 
@@ -154,9 +195,9 @@ TODO
 
   val unpack_float_series : series -> float array
 
-TODO
+Unpack ``series`` type to float array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L37>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L45>`__
 
 
 
@@ -164,9 +205,9 @@ TODO
 
   val unpack_string_series : series -> string array
 
-TODO
+Unpack ``series`` type to string array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L39>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L47>`__
 
 
 
@@ -179,9 +220,9 @@ Obtain properties
 
   val row_num : t -> int
 
-TODO
+``row_num x`` returns the number of rows in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L135>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L171>`__
 
 
 
@@ -189,15 +230,15 @@ TODO
 
   val col_num : t -> int
 
-TODO
+``col_num x`` returns the number of columns in ``x``.
 
 .. code-block:: ocaml
 
   val shape : t -> int * int
 
-TODO
+``shape x`` returns the shape of ``x``, i.e. ``(row numnber, column number)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L138>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L174>`__
 
 
 
@@ -205,9 +246,9 @@ TODO
 
   val numel : t -> int
 
-TODO
+``numel x`` returns the number of elements in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L141>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L177>`__
 
 
 
@@ -215,9 +256,9 @@ TODO
 
   val get_heads : t -> string array
 
-TODO
+``get_heads x`` returns the column names of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L170>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L206>`__
 
 
 
@@ -225,9 +266,9 @@ TODO
 
   val set_heads : t -> string array -> unit
 
-TODO
+``set_heads x head_names`` sets ``head_names`` as the column names of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L176>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L212>`__
 
 
 
@@ -235,9 +276,9 @@ TODO
 
   val id_to_head : t -> int -> string
 
-TODO
+``id_to_head head_name`` converts head name to its corresponding column index.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L186>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L222>`__
 
 
 
@@ -245,9 +286,9 @@ TODO
 
   val head_to_id : t -> string -> int
 
-TODO
+``head_to_id i`` converts column index ``i`` to its corresponding head name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L189>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L225>`__
 
 
 
@@ -260,9 +301,9 @@ Basic get and set functions
 
   val get : t -> int -> int -> elt
 
-TODO
+``get x i j`` returns the element at ``(i,j)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L221>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L258>`__
 
 
 
@@ -270,9 +311,9 @@ TODO
 
   val set : t -> int -> int -> elt -> unit
 
-TODO
+``set x i j v`` sets the value of element at ``(i,j)`` to ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L229>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L267>`__
 
 
 
@@ -280,9 +321,9 @@ TODO
 
   val get_by_name : t -> int -> string -> elt
 
-TODO
+``get_by_name x i head_name`` is similar to ``get`` but uses column name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L237>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L276>`__
 
 
 
@@ -290,9 +331,9 @@ TODO
 
   val set_by_name : t -> int -> string -> elt -> unit
 
-TODO
+``set_by_name x i head_name`` is similar to ``set`` but uses column name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L241>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L280>`__
 
 
 
@@ -300,9 +341,9 @@ TODO
 
   val get_row : t -> int -> elt array
 
-TODO
+``get_row x i`` returns the ith row in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L192>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L228>`__
 
 
 
@@ -310,9 +351,9 @@ TODO
 
   val get_col : t -> int -> series
 
-TODO
+``get_col x i`` returns the ith column in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L195>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L231>`__
 
 
 
@@ -320,9 +361,9 @@ TODO
 
   val get_rows : t -> int array -> elt array array
 
-TODO
+``get_rows x a`` returns the rows of ``x`` specified in ``a``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L203>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L240>`__
 
 
 
@@ -330,9 +371,9 @@ TODO
 
   val get_cols : t -> int array -> series array
 
-TODO
+``get_cols x a`` returns the columns of ``x`` specified in ``a``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L206>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L243>`__
 
 
 
@@ -340,9 +381,9 @@ TODO
 
   val get_col_by_name : t -> string -> series
 
-TODO
+``get_col_by_name`` is similar to ``get_col`` but uses column name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L213>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L250>`__
 
 
 
@@ -350,9 +391,46 @@ TODO
 
   val get_cols_by_name : t -> string array -> series array
 
-TODO
+``get_cols_by_name`` is similar to ``get_cols`` but uses column names.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L218>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L255>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_slice : int list list -> t -> t
+
+``get_slice s x`` returns a slice of ``x`` defined by ``s``. For more details,
+please refer to :doc:`owl_dense_ndarray_generic`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L401>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_slice_by_name : int list * string list -> t -> t
+
+``get_slice_by_name`` is similar to ``get_slice`` but uses column name.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L418>`__
+
+
+
+.. code-block:: ocaml
+
+  val head : int -> t -> t
+
+``head n x`` returns top ``n`` rows of ``x``.
+
+.. code-block:: ocaml
+
+  val tail : int -> t -> t
+
+``tail n x`` returns bottom ``n`` rows of ``x``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L441>`__
 
 
 
@@ -365,9 +443,11 @@ Core operations
 
   val make : ?data:series array -> string array -> t
 
-TODO
+``create ~data head_names`` creates a dataframe with an array of series data
+and corresponding column names. If data is not passed in, the function will
+return an empty dataframe.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L54>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L66>`__
 
 
 
@@ -375,9 +455,9 @@ TODO
 
   val copy : t -> t
 
-TODO
+``copy x`` returns a copy of dataframe ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L258>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L297>`__
 
 
 
@@ -385,9 +465,9 @@ TODO
 
   val append_row : t -> elt array -> unit
 
-TODO
+``append_row x row`` appends a row to the dataframe ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L144>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L180>`__
 
 
 
@@ -395,9 +475,9 @@ TODO
 
   val append_col : t -> series -> string -> unit
 
-TODO
+``append_col x col`` appends a column to the dataframe ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L162>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L198>`__
 
 
 
@@ -405,9 +485,11 @@ TODO
 
   val concat_horizontal : t -> t -> t
 
-TODO
+``concat_horizontal x y`` merges two dataframes ``x`` and ``y``. Note that
+``x`` and ``y`` must have the same number of rows, and each column name should
+be unique.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L271>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L311>`__
 
 
 
@@ -415,14 +497,11 @@ TODO
 
   val concat_vertical : t -> t -> t
 
-TODO
+``concat_vertical x y`` concatenates two dataframes by appending ``y`` to
+``x``. The two dataframes ``x`` and ``y`` must have the same number of columns
+and the same column names.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L283>`__
-
-
-
-Math operators
--------------------------------------------------------------------------------
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L332>`__
 
 
 
@@ -435,9 +514,9 @@ Iteration functions
 
   val iteri_row : (int -> elt array -> unit) -> t -> unit
 
-TODO
+``iteri_row f x`` iterates the rows of ``x`` and applies ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L294>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L346>`__
 
 
 
@@ -445,9 +524,9 @@ TODO
 
   val iter_row :  (elt array -> unit) -> t -> unit
 
-TODO
+``iter_row`` is simiar to ``iteri_row`` without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L301>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L353>`__
 
 
 
@@ -455,9 +534,12 @@ TODO
 
   val mapi_row : (int -> elt array -> elt array) -> t -> t
 
-TODO
+``mapi_row f x`` transforms current dataframe ``x`` to a new dataframe by
+applying function ``f``. Note that the returned value of ``f`` must be
+consistent with ``x`` w.r.t to its length and type, otherwise runtime error
+will occur.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L304>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L356>`__
 
 
 
@@ -465,9 +547,9 @@ TODO
 
   val map_row : (elt array -> elt array) -> t -> t
 
-TODO
+``map_row`` is simiar to ``mapi_row`` but without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L314>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L366>`__
 
 
 
@@ -475,9 +557,10 @@ TODO
 
   val filteri_row : (int -> elt array -> bool) -> t -> t
 
-TODO
+``filteri_row`` creates a new dataframe from ``x`` by filtering out those rows
+which satisfy the condition ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L317>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L369>`__
 
 
 
@@ -485,9 +568,9 @@ TODO
 
   val filter_row : (elt array -> bool) -> t -> t
 
-TODO
+``filter_row`` is similar to ``filteri_row`` without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L329>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L381>`__
 
 
 
@@ -495,9 +578,11 @@ TODO
 
   val filter_mapi_row : (int -> elt array -> elt array option) -> t -> t
 
-TODO
+``filter_map_row f x`` creates a new dataframe from ``x`` by applying ``f`` to
+each row. If ``f`` returns ``None`` then the row is excluded in the returned
+dataframe; if ``f`` returns ``Some row`` then the row is included.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L332>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L384>`__
 
 
 
@@ -505,9 +590,9 @@ TODO
 
   val filter_map_row : (elt array -> elt array option) -> t -> t
 
-TODO
+``filter_map_row`` is similar to ``filter_mapi_row`` without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L346>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L398>`__
 
 
 
@@ -520,25 +605,34 @@ Extended indexing operators
 
   val ( .%( ) ) : t -> int * string -> elt
 
-TODO
+Extended indexing operator associated with ``get_by_name`` function.
 
 .. code-block:: ocaml
 
   val ( .%( )<- ) : t -> int * string -> elt -> unit
 
-TODO
+Extended indexing operator associated with ``set_by_name`` function.
 
 .. code-block:: ocaml
 
   val ( .?( ) ) : t -> (elt array -> bool) -> t
 
-TODO
+Extended indexing operator associated with ``filter_row`` function.
 
 .. code-block:: ocaml
 
   val ( .?( )<- ) : t -> (elt array -> bool) -> (elt array -> elt array) -> t
 
-TODO
+Extended indexing operator associated with ``filter_map_row`` function.
+Given a dataframe ``x``, ``f`` is used for filtering and ``g`` is used for
+transforming. In other words, ``x.?(f) <- g`` means that if ``f row`` is
+``true`` then ``g row`` is included in the returned dataframe.
+
+.. code-block:: ocaml
+
+  val ( .$( ) ) : t -> int list * string list -> t
+
+Extended indexing operator associated with ``get_slice_by_name`` function.
 
 IO & helper functions
 -------------------------------------------------------------------------------
@@ -549,9 +643,16 @@ IO & helper functions
 
   val of_csv : ?sep:char -> ?head:string array -> ?types:string array -> string -> t
 
-TODO
+``of_csv ~sep ~head ~types fname`` creates a dataframe by reading the data in
+a CSV file with the name ``fname``. Currently, the function supports four data
+types: ``b`` for boolean; ``i`` for int; ``f`` for float; ``s`` for string.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L357>`__
+Parameters:
+  * ``sep``: delimiter, the default one is tab.
+  * ``head``: column names, if not passed in, the first line of CSV file will be used.
+  * ``types``: data type of each column, must be consistent with head.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L447>`__
 
 
 
@@ -559,9 +660,10 @@ TODO
 
   val to_csv : ?sep:char -> t -> string -> unit
 
-TODO
+``to_csv ~sep x fname`` converts a dataframe to CSV file of name ``fname``. The
+delimiter is specified by ``sep``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L381>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L471>`__
 
 
 
@@ -569,9 +671,9 @@ TODO
 
   val to_rows : t -> elt array array
 
-TODO
+``to_rows x`` returns an array of rows in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L249>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L288>`__
 
 
 
@@ -579,9 +681,9 @@ TODO
 
   val to_cols : t -> series array
 
-TODO
+``to_cols x`` returns an arrays of columns in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L246>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L285>`__
 
 
 
@@ -589,9 +691,9 @@ TODO
 
   val elt_to_str : elt -> string
 
-TODO
+``elt_to_str x`` converts element ``x`` to its string representation.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L118>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L152>`__
 
 
 

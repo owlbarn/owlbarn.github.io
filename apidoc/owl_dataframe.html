@@ -55,7 +55,6 @@
 <li><a class="reference internal" href="#obtain-properties">Obtain properties</a></li>
 <li><a class="reference internal" href="#basic-get-and-set-functions">Basic get and set functions</a></li>
 <li><a class="reference internal" href="#core-operations">Core operations</a></li>
-<li><a class="reference internal" href="#math-operators">Math operators</a></li>
 <li><a class="reference internal" href="#iteration-functions">Iteration functions</a></li>
 <li><a class="reference internal" href="#extended-indexing-operators">Extended indexing operators</a></li>
 <li><a class="reference internal" href="#io-helper-functions">IO &amp; helper functions</a></li>
@@ -94,7 +93,7 @@
   <div class="section" id="dataframe">
 <h1>Dataframe<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#66 entries have been extracted.</p>
+#74 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_dataframe.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_dataframe.ml">{Implementation}</a></p>
@@ -103,306 +102,375 @@
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
+<p>Abstract dataframe type.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">series</span>
 </pre></div>
 </div>
-<p>TODO</p>
+<p>Abstract series type.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">elt</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">Bool</span>   <span class="k">of</span> <span class="kt">bool</span>
   <span class="o">|</span> <span class="nc">Int</span>    <span class="k">of</span> <span class="kt">int</span>
   <span class="o">|</span> <span class="nc">Float</span>  <span class="k">of</span> <span class="kt">float</span>
   <span class="o">|</span> <span class="nc">String</span> <span class="k">of</span> <span class="kt">string</span>
   <span class="o">|</span> <span class="nc">Any</span>
 </pre></div>
 </div>
-<p>TODO</p>
+<p>Type of the elements in a series.</p>
 </div>
 <div class="section" id="pakcking-unpacking-element">
 <h2>Pakcking &amp; unpacking element<a class="headerlink" href="#pakcking-unpacking-element" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_bool</span> <span class="o">:</span> <span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>Pack the boolean value to <code class="docutils literal notranslate"><span class="pre">elt</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L49">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_int</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L41">source code</a></p>
+<p>Pack the int value to <code class="docutils literal notranslate"><span class="pre">elt</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L51">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_float</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">elt</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L43">source code</a></p>
+<p>Pack the float value to <code class="docutils literal notranslate"><span class="pre">elt</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L53">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_string</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">elt</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L45">source code</a></p>
+<p>Pack the string value to <code class="docutils literal notranslate"><span class="pre">elt</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L55">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_bool</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+</pre></div>
+</div>
+<p>Unpack <code class="docutils literal notranslate"><span class="pre">elt</span></code> type to boolean value.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L33">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_int</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L29">source code</a></p>
+<p>Unpack <code class="docutils literal notranslate"><span class="pre">elt</span></code> type to int value.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L35">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_float</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L31">source code</a></p>
+<p>Unpack <code class="docutils literal notranslate"><span class="pre">elt</span></code> type to float value.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L37">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_string</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L33">source code</a></p>
+<p>Unpack <code class="docutils literal notranslate"><span class="pre">elt</span></code> type to string value.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L39">source code</a></p>
 </div>
 <div class="section" id="pakcking-unpacking-series">
 <h2>Pakcking &amp; unpacking series<a class="headerlink" href="#pakcking-unpacking-series" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_bool_series</span> <span class="o">:</span> <span class="kt">bool</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">series</span>
+</pre></div>
+</div>
+<p>Pack boolean array to <code class="docutils literal notranslate"><span class="pre">series</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L57">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_int_series</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">series</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L47">source code</a></p>
+<p>Pack int array to <code class="docutils literal notranslate"><span class="pre">series</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L59">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_float_series</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">series</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L49">source code</a></p>
+<p>Pack float array to <code class="docutils literal notranslate"><span class="pre">series</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L61">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_string_series</span> <span class="o">:</span> <span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">series</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L51">source code</a></p>
+<p>Pack string array to <code class="docutils literal notranslate"><span class="pre">series</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L63">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_bool_series</span> <span class="o">:</span> <span class="n">series</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>Unpack <code class="docutils literal notranslate"><span class="pre">series</span></code> type to boolean array.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L41">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_int_series</span> <span class="o">:</span> <span class="n">series</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L35">source code</a></p>
+<p>Unpack <code class="docutils literal notranslate"><span class="pre">series</span></code> type to int array.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L43">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_float_series</span> <span class="o">:</span> <span class="n">series</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L37">source code</a></p>
+<p>Unpack <code class="docutils literal notranslate"><span class="pre">series</span></code> type to float array.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L45">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_string_series</span> <span class="o">:</span> <span class="n">series</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L39">source code</a></p>
+<p>Unpack <code class="docutils literal notranslate"><span class="pre">series</span></code> type to string array.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L47">source code</a></p>
 </div>
 <div class="section" id="obtain-properties">
 <h2>Obtain properties<a class="headerlink" href="#obtain-properties" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">row_num</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L135">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">row_num</span> <span class="pre">x</span></code> returns the number of rows in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L171">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">col_num</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
-<p>TODO</p>
+<p><code class="docutils literal notranslate"><span class="pre">col_num</span> <span class="pre">x</span></code> returns the number of columns in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shape</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L138">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">x</span></code> returns the shape of <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">(row</span> <span class="pre">numnber,</span> <span class="pre">column</span> <span class="pre">number)</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L174">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">numel</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L141">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">numel</span> <span class="pre">x</span></code> returns the number of elements in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L177">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_heads</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L170">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">get_heads</span> <span class="pre">x</span></code> returns the column names of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L206">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_heads</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L176">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">set_heads</span> <span class="pre">x</span> <span class="pre">head_names</span></code> sets <code class="docutils literal notranslate"><span class="pre">head_names</span></code> as the column names of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L212">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">id_to_head</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L186">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">id_to_head</span> <span class="pre">head_name</span></code> converts head name to its corresponding column index.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L222">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">head_to_id</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L189">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">head_to_id</span> <span class="pre">i</span></code> converts column index <code class="docutils literal notranslate"><span class="pre">i</span></code> to its corresponding head name.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L225">source code</a></p>
 </div>
 <div class="section" id="basic-get-and-set-functions">
 <h2>Basic get and set functions<a class="headerlink" href="#basic-get-and-set-functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L221">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">get</span> <span class="pre">x</span> <span class="pre">i</span> <span class="pre">j</span></code> returns the element at <code class="docutils literal notranslate"><span class="pre">(i,j)</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L258">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L229">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">x</span> <span class="pre">i</span> <span class="pre">j</span> <span class="pre">v</span></code> sets the value of element at <code class="docutils literal notranslate"><span class="pre">(i,j)</span></code> to <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L267">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_by_name</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">elt</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L237">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">get_by_name</span> <span class="pre">x</span> <span class="pre">i</span> <span class="pre">head_name</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">get</span></code> but uses column name.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L276">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_by_name</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L241">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">set_by_name</span> <span class="pre">x</span> <span class="pre">i</span> <span class="pre">head_name</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">set</span></code> but uses column name.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L280">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_row</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L192">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">get_row</span> <span class="pre">x</span> <span class="pre">i</span></code> returns the ith row in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L228">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_col</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">series</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L195">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">get_col</span> <span class="pre">x</span> <span class="pre">i</span></code> returns the ith column in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L231">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_rows</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L203">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">get_rows</span> <span class="pre">x</span> <span class="pre">a</span></code> returns the rows of <code class="docutils literal notranslate"><span class="pre">x</span></code> specified in <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L240">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_cols</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">series</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L206">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">get_cols</span> <span class="pre">x</span> <span class="pre">a</span></code> returns the columns of <code class="docutils literal notranslate"><span class="pre">x</span></code> specified in <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L243">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_col_by_name</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">series</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L213">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">get_col_by_name</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">get_col</span></code> but uses column name.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L250">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_cols_by_name</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">series</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L218">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">get_cols_by_name</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">get_cols</span></code> but uses column names.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L255">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_slice</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">list</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">get_slice</span> <span class="pre">s</span> <span class="pre">x</span></code> returns a slice of <code class="docutils literal notranslate"><span class="pre">x</span></code> defined by <code class="docutils literal notranslate"><span class="pre">s</span></code>. For more details,
+please refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L401">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_slice_by_name</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">list</span> <span class="o">*</span> <span class="kt">string</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">get_slice_by_name</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">get_slice</span></code> but uses column name.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L418">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">head</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">n</span> <span class="pre">x</span></code> returns top <code class="docutils literal notranslate"><span class="pre">n</span></code> rows of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tail</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">n</span> <span class="pre">x</span></code> returns bottom <code class="docutils literal notranslate"><span class="pre">n</span></code> rows of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L441">source code</a></p>
 </div>
 <div class="section" id="core-operations">
 <h2>Core operations<a class="headerlink" href="#core-operations" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="o">?</span><span class="n">data</span><span class="o">:</span><span class="n">series</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L54">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">create</span> <span class="pre">~data</span> <span class="pre">head_names</span></code> creates a dataframe with an array of series data
+and corresponding column names. If data is not passed in, the function will
+return an empty dataframe.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L66">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L258">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">x</span></code> returns a copy of dataframe <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L297">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">append_row</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L144">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">append_row</span> <span class="pre">x</span> <span class="pre">row</span></code> appends a row to the dataframe <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L180">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">append_col</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">series</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L162">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">append_col</span> <span class="pre">x</span> <span class="pre">col</span></code> appends a column to the dataframe <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L198">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">concat_horizontal</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L271">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">concat_horizontal</span> <span class="pre">x</span> <span class="pre">y</span></code> merges two dataframes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. Note that
+<code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must have the same number of rows, and each column name should
+be unique.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L311">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">concat_vertical</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L283">source code</a></p>
-</div>
-<div class="section" id="math-operators">
-<h2>Math operators<a class="headerlink" href="#math-operators" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">concat_vertical</span> <span class="pre">x</span> <span class="pre">y</span></code> concatenates two dataframes by appending <code class="docutils literal notranslate"><span class="pre">y</span></code> to
+<code class="docutils literal notranslate"><span class="pre">x</span></code>. The two dataframes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must have the same number of columns
+and the same column names.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L332">source code</a></p>
 </div>
 <div class="section" id="iteration-functions">
 <h2>Iteration functions<a class="headerlink" href="#iteration-functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iteri_row</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L294">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">iteri_row</span> <span class="pre">f</span> <span class="pre">x</span></code> iterates the rows of <code class="docutils literal notranslate"><span class="pre">x</span></code> and applies <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L346">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iter_row</span> <span class="o">:</span>  <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L301">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">iter_row</span></code> is simiar to <code class="docutils literal notranslate"><span class="pre">iteri_row</span></code> without passing in row indices.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L353">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mapi_row</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L304">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">mapi_row</span> <span class="pre">f</span> <span class="pre">x</span></code> transforms current dataframe <code class="docutils literal notranslate"><span class="pre">x</span></code> to a new dataframe by
+applying function <code class="docutils literal notranslate"><span class="pre">f</span></code>. Note that the returned value of <code class="docutils literal notranslate"><span class="pre">f</span></code> must be
+consistent with <code class="docutils literal notranslate"><span class="pre">x</span></code> w.r.t to its length and type, otherwise runtime error
+will occur.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L356">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">map_row</span> <span class="o">:</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L314">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">map_row</span></code> is simiar to <code class="docutils literal notranslate"><span class="pre">mapi_row</span></code> but without passing in row indices.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L366">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">filteri_row</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L317">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">filteri_row</span></code> creates a new dataframe from <code class="docutils literal notranslate"><span class="pre">x</span></code> by filtering out those rows
+which satisfy the condition <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L369">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">filter_row</span> <span class="o">:</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L329">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">filter_row</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">filteri_row</span></code> without passing in row indices.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L381">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">filter_mapi_row</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="n">option</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L332">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">filter_map_row</span> <span class="pre">f</span> <span class="pre">x</span></code> creates a new dataframe from <code class="docutils literal notranslate"><span class="pre">x</span></code> by applying <code class="docutils literal notranslate"><span class="pre">f</span></code> to
+each row. If <code class="docutils literal notranslate"><span class="pre">f</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code> then the row is excluded in the returned
+dataframe; if <code class="docutils literal notranslate"><span class="pre">f</span></code> returns <code class="docutils literal notranslate"><span class="pre">Some</span> <span class="pre">row</span></code> then the row is included.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L384">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">filter_map_row</span> <span class="o">:</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="n">option</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L346">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">filter_map_row</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">filter_mapi_row</span></code> without passing in row indices.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L398">source code</a></p>
 </div>
 <div class="section" id="extended-indexing-operators">
 <h2>Extended indexing operators<a class="headerlink" href="#extended-indexing-operators" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">.%(</span> <span class="o">)</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">elt</span>
 </pre></div>
 </div>
-<p>TODO</p>
+<p>Extended indexing operator associated with <code class="docutils literal notranslate"><span class="pre">get_by_name</span></code> function.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">.%(</span> <span class="o">)&lt;-</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>TODO</p>
+<p>Extended indexing operator associated with <code class="docutils literal notranslate"><span class="pre">set_by_name</span></code> function.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">.?(</span> <span class="o">)</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
+<p>Extended indexing operator associated with <code class="docutils literal notranslate"><span class="pre">filter_row</span></code> function.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">.?(</span> <span class="o">)&lt;-</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
+<p>Extended indexing operator associated with <code class="docutils literal notranslate"><span class="pre">filter_map_row</span></code> function.
+Given a dataframe <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code> is used for filtering and <code class="docutils literal notranslate"><span class="pre">g</span></code> is used for
+transforming. In other words, <code class="docutils literal notranslate"><span class="pre">x.?(f)</span> <span class="pre">&lt;-</span> <span class="pre">g</span></code> means that if <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">row</span></code> is
+<code class="docutils literal notranslate"><span class="pre">true</span></code> then <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">row</span></code> is included in the returned dataframe.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">.$(</span> <span class="o">)</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">list</span> <span class="o">*</span> <span class="kt">string</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Extended indexing operator associated with <code class="docutils literal notranslate"><span class="pre">get_slice_by_name</span></code> function.</p>
 </div>
 <div class="section" id="io-helper-functions">
 <h2>IO &amp; helper functions<a class="headerlink" href="#io-helper-functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">of_csv</span> <span class="o">:</span> <span class="o">?</span><span class="n">sep</span><span class="o">:</span><span class="kt">char</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">head</span><span class="o">:</span><span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">types</span><span class="o">:</span><span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L357">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">of_csv</span> <span class="pre">~sep</span> <span class="pre">~head</span> <span class="pre">~types</span> <span class="pre">fname</span></code> creates a dataframe by reading the data in
+a CSV file with the name <code class="docutils literal notranslate"><span class="pre">fname</span></code>. Currently, the function supports four data
+types: <code class="docutils literal notranslate"><span class="pre">b</span></code> for boolean; <code class="docutils literal notranslate"><span class="pre">i</span></code> for int; <code class="docutils literal notranslate"><span class="pre">f</span></code> for float; <code class="docutils literal notranslate"><span class="pre">s</span></code> for string.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">sep</span></code>: delimiter, the default one is tab.</li>
+<li><code class="docutils literal notranslate"><span class="pre">head</span></code>: column names, if not passed in, the first line of CSV file will be used.</li>
+<li><code class="docutils literal notranslate"><span class="pre">types</span></code>: data type of each column, must be consistent with head.</li>
+</ul>
+</dd>
+</dl>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L447">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_csv</span> <span class="o">:</span> <span class="o">?</span><span class="n">sep</span><span class="o">:</span><span class="kt">char</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L381">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">to_csv</span> <span class="pre">~sep</span> <span class="pre">x</span> <span class="pre">fname</span></code> converts a dataframe to CSV file of name <code class="docutils literal notranslate"><span class="pre">fname</span></code>. The
+delimiter is specified by <code class="docutils literal notranslate"><span class="pre">sep</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L471">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_rows</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L249">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">to_rows</span> <span class="pre">x</span></code> returns an array of rows in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L288">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_cols</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">series</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L246">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">to_cols</span> <span class="pre">x</span></code> returns an arrays of columns in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L285">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_to_str</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L118">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">elt_to_str</span> <span class="pre">x</span></code> converts element <code class="docutils literal notranslate"><span class="pre">x</span></code> to its string representation.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L152">source code</a></p>
 </div>
 </div>
 

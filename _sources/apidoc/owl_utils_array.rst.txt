@@ -2,7 +2,7 @@ Utils.Array
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#63 entries have been extracted.
+#65 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli>`_ 
@@ -198,9 +198,33 @@ Extended functions
 
   val ( @ ) : 'a array -> 'a array -> 'a array
 
-TODO
+Operator of array concatenation.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L13>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_slice : int array -> 'a array -> 'a array
+
+``get_slice slice x`` returns a copy of slice of ``x`` defined by ``slice``.
+The ``slice`` definition must have ``[|start;stop;step|]`` format. The value
+of start, stop, and step can be negative, and the boundary is inclusive.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L250>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_slice : int array -> 'a array -> 'a array -> unit
+
+``set_slice slice x y`` sets the elements in ``x`` to the corresponding value
+of the elements in ``y`` based on the slice definition ``slice``. Please refer
+to ``get_slice`` function for the information on the format of slice definiton.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L268>`__
 
 
 
@@ -498,7 +522,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L251>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L285>`__
 
 
 
@@ -508,7 +532,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L261>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L295>`__
 
 
 
@@ -518,7 +542,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L271>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L305>`__
 
 
 
