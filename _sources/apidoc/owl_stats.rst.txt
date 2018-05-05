@@ -2,7 +2,7 @@ Stats
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#232 entries have been extracted.
+#235 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli>`_ 
@@ -660,7 +660,7 @@ between ``a`` and ``b``, inclusive.
 
   val binomial_rvs : p:float -> n:int -> int
 
-``binomial_rvs p n`` returns a random integer representing the number of 
+``binomial_rvs p n`` returns a random integer representing the number of
 successes in ``n`` trials with probability of success ``p`` on each trial.
 
 .. code-block:: ocaml
@@ -668,7 +668,7 @@ successes in ``n`` trials with probability of success ``p`` on each trial.
   val binomial_pdf : int -> p:float -> n:int -> float
 
 ``binomial_pdf k ~p ~n`` returns the binomially distributed probability
-of ``k`` successes in ``n`` trials with probability ``p`` of success on 
+of ``k`` successes in ``n`` trials with probability ``p`` of success on
 each trial.
 
 .. code-block:: ocaml
@@ -676,14 +676,14 @@ each trial.
   val binomial_logpdf : int -> p:float -> n:int -> float
 
 ``binomial_logpdf k ~p ~n`` returns the log-binomially distributed probability
-of ``k`` successes in ``n`` trials with probability ``p`` of success on 
+of ``k`` successes in ``n`` trials with probability ``p`` of success on
 each trial.
 
 .. code-block:: ocaml
 
   val binomial_cdf : int -> p:float -> n:int -> float
 
-``binomial_cdf k ~p ~n`` returns the binomially distributed cumulative 
+``binomial_cdf k ~p ~n`` returns the binomially distributed cumulative
 probability of less than or equal to ``k`` successes in ``n`` trials,
 with probability ``p`` on each trial.
 
@@ -691,30 +691,30 @@ with probability ``p`` on each trial.
 
   val binomial_logcdf : int -> p:float -> n:int -> float
 
-``binomial_logcdf k ~p ~n`` returns the log-binomially distributed cumulative 
-probability of less than or equal to ``k`` successes in ``n`` trials, 
+``binomial_logcdf k ~p ~n`` returns the log-binomially distributed cumulative
+probability of less than or equal to ``k`` successes in ``n`` trials,
 with probability ``p`` on each trial.
 
 .. code-block:: ocaml
 
   val binomial_sf : int -> p:float -> n:int -> float
 
-``binomial_sf k ~p ~n`` is the binomial survival function, i.e. 
+``binomial_sf k ~p ~n`` is the binomial survival function, i.e.
 ``1 - (binomial_cdf k ~p ~n)``.
 
 .. code-block:: ocaml
 
   val binomial_logsf : int -> p:float -> n:int -> float
 
-``binomial_loggf k ~p ~n`` is the logbinomial survival function, i.e. 
+``binomial_loggf k ~p ~n`` is the logbinomial survival function, i.e.
 ``1 - (binomial_logcdf k ~p ~n)``.
 
 .. code-block:: ocaml
 
   val hypergeometric_rvs : good:int -> bad:int -> sample:int -> int
 
-``hypergeometric_rvs ~good ~bad ~sample`` returns a random hypergeometrically 
-distributed integer representing the number of successes in a sample (without 
+``hypergeometric_rvs ~good ~bad ~sample`` returns a random hypergeometrically
+distributed integer representing the number of successes in a sample (without
 replacement) of size ``~sample`` from a population with ``~good`` successful
 elements and ``~bad`` unsuccessful elements.
 
@@ -722,9 +722,9 @@ elements and ``~bad`` unsuccessful elements.
 
   val hypergeometric_pdf : int -> good:int -> bad:int -> sample:int -> float
 
-``hypergeometric_pdf k ~good ~bad ~sample`` returns the hypergeometrically 
+``hypergeometric_pdf k ~good ~bad ~sample`` returns the hypergeometrically
 distributed probability of ``k`` successes in a sample (without replacement) of
-``~sample`` elements from a population containing ``~good`` successful elements 
+``~sample`` elements from a population containing ``~good`` successful elements
 and ``~bad`` unsuccessful ones.
 
 .. code-block:: ocaml
@@ -733,6 +733,34 @@ and ``~bad`` unsuccessful ones.
 
 ``hypergeometric_logpdf k ~good ~bad ~sample`` returns a value equivalent to a
 log-transformed result from ``hypergeometric_pdf``.
+
+.. code-block:: ocaml
+
+  val multinomial_rvs : int -> p:float array -> int array
+
+``multinomial_rvs n ~p`` generates random numbers of multinomial distribution
+from ``n`` trials. The probabilty mass function is as follows.
+
+.. math::
+  P(x) = \frac{n!}{{x_1}! \cdot\cdot\cdot {x_k}!} p_{1}^{x_1} \cdot\cdot\cdot p_{k}^{x_k}
+
+``p`` is the probabilty mass of ``k`` categories. If the elements in ``p`` do
+not sum to 1, the last element of the ``p`` array is not used and is replaced
+with the remaining probability left over from the earlier elements.
+
+.. code-block:: ocaml
+
+  val multinomial_pdf : int array -> p:float array -> float
+
+``multinomial_rvs x ~p`` return the probabilty of ``x`` given the probabilty
+mass of a multinomial distribution.
+
+.. code-block:: ocaml
+
+  val multinomial_logpdf : int array -> p:float array -> float
+
+``multinomial_rvs x ~p`` return the logarithm probabilty of ``x`` given the
+probabilty mass of a multinomial distribution.
 
 Continuous random variables
 -------------------------------------------------------------------------------

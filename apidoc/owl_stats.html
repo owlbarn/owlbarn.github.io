@@ -90,7 +90,7 @@
   <div class="section" id="stats">
 <h1>Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#232 entries have been extracted.</p>
+#235 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.ml">{Implementation}</a></p>
@@ -518,6 +518,26 @@ and <code class="docutils literal notranslate"><span class="pre">~bad</span></co
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">hypergeometric_logpdf</span> <span class="pre">k</span> <span class="pre">~good</span> <span class="pre">~bad</span> <span class="pre">~sample</span></code> returns a value equivalent to a
 log-transformed result from <code class="docutils literal notranslate"><span class="pre">hypergeometric_pdf</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">multinomial_rvs</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">multinomial_rvs</span> <span class="pre">n</span> <span class="pre">~p</span></code> generates random numbers of multinomial distribution
+from <code class="docutils literal notranslate"><span class="pre">n</span></code> trials. The probabilty mass function is as follows.</p>
+<div class="math notranslate nohighlight">
+\[P(x) = \frac{n!}{{x_1}! \cdot\cdot\cdot {x_k}!} p_{1}^{x_1} \cdot\cdot\cdot p_{k}^{x_k}\]</div>
+<p><code class="docutils literal notranslate"><span class="pre">p</span></code> is the probabilty mass of <code class="docutils literal notranslate"><span class="pre">k</span></code> categories. If the elements in <code class="docutils literal notranslate"><span class="pre">p</span></code> do
+not sum to 1, the last element of the <code class="docutils literal notranslate"><span class="pre">p</span></code> array is not used and is replaced
+with the remaining probability left over from the earlier elements.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">multinomial_pdf</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">multinomial_rvs</span> <span class="pre">x</span> <span class="pre">~p</span></code> return the probabilty of <code class="docutils literal notranslate"><span class="pre">x</span></code> given the probabilty
+mass of a multinomial distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">multinomial_logpdf</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">multinomial_rvs</span> <span class="pre">x</span> <span class="pre">~p</span></code> return the logarithm probabilty of <code class="docutils literal notranslate"><span class="pre">x</span></code> given the
+probabilty mass of a multinomial distribution.</p>
 </div>
 <div class="section" id="continuous-random-variables">
 <h2>Continuous random variables<a class="headerlink" href="#continuous-random-variables" title="Permalink to this headline">¶</a></h2>

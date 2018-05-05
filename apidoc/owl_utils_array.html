@@ -86,7 +86,7 @@
   <div class="section" id="utils-array">
 <h1>Utils.Array<a class="headerlink" href="#utils-array" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#65 entries have been extracted.</p>
+#66 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.ml">{Implementation}</a></p>
@@ -388,6 +388,13 @@ with value <code class="docutils literal notranslate"><span class="pre">v</span>
 </div>
 <p>TODO</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L295">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">balance_last</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">balance_last</span> <span class="pre">mass</span> <span class="pre">x</span></code> performs the following function. Let <code class="docutils literal notranslate"><span class="pre">k</span></code> be the
+length of <code class="docutils literal notranslate"><span class="pre">x</span></code>, if <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">l</span> <span class="pre">-</span> <span class="pre">1</span></code>, then <code class="docutils literal notranslate"><span class="pre">x.(i)</span> <span class="pre">=</span> <span class="pre">x.(i)</span></code>, otherwise
+<code class="docutils literal notranslate"><span class="pre">x.(l</span> <span class="pre">-</span> <span class="pre">1)</span> <span class="pre">=</span> <span class="pre">mass</span> <span class="pre">-</span> <span class="pre">\sum</span> <span class="pre">x.(i)</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L310">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_string</span> <span class="o">:</span> <span class="o">?</span><span class="n">prefix</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">suffix</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sep</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">string</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>

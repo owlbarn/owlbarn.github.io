@@ -322,7 +322,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1593>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1592>`__
 
 
 
@@ -376,7 +376,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 .. code-block:: ocaml
 
-  val softmax : t -> t
+  val softmax : ?axis:int -> t -> t
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
@@ -486,7 +486,7 @@ of the same type, i.e. ``g : scalar -> scalar``.
 Keep calling this function will give you higher-order derivatives of ``f``, i.e.
 ``f |> diff |> diff |> diff |> ...``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1447>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1446>`__
 
 
 
@@ -496,7 +496,7 @@ Keep calling this function will give you higher-order derivatives of ``f``, i.e.
 
 similar to ``diff``, but return ``(f x, diff f x)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1441>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1440>`__
 
 
 
@@ -506,7 +506,7 @@ similar to ``diff``, but return ``(f x, diff f x)``.
 
 gradient of ``f`` : (vector -> scalar) at ``x``, reverse ad.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1458>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1457>`__
 
 
 
@@ -516,7 +516,7 @@ gradient of ``f`` : (vector -> scalar) at ``x``, reverse ad.
 
 similar to ``grad``, but return ``(f x, grad f x)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1450>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1449>`__
 
 
 
@@ -526,7 +526,7 @@ similar to ``grad``, but return ``(f x, grad f x)``.
 
 jacobian of ``f`` : (vector -> vector) at ``x``, both ``x`` and ``y`` are row vectors.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1517>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1516>`__
 
 
 
@@ -536,7 +536,7 @@ jacobian of ``f`` : (vector -> vector) at ``x``, both ``x`` and ``y`` are row ve
 
 similar to ``jacobian``, but return ``(f x, jacobian f x)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1481>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1480>`__
 
 
 
@@ -547,7 +547,7 @@ similar to ``jacobian``, but return ``(f x, jacobian f x)``
 jacobian vector product of ``f`` : (vector -> vector) at ``x`` along ``v``,
 forward ad. Namely, it calcultes ``(jacobian x) v``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1467>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1466>`__
 
 
 
@@ -557,7 +557,7 @@ forward ad. Namely, it calcultes ``(jacobian x) v``
 
 similar to ``jacobianv'``, but return ``(f x, jacobianv f x v)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1461>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1460>`__
 
 
 
@@ -568,7 +568,7 @@ similar to ``jacobianv'``, but return ``(f x, jacobianv f x v)``
 transposed jacobian vector product of ``f : (vector -> vector)`` at ``x``
 along ``v``, backward ad. Namely, it calculates ``transpose ((jacobianv f x v))``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1478>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1477>`__
 
 
 
@@ -578,7 +578,7 @@ along ``v``, backward ad. Namely, it calculates ``transpose ((jacobianv f x v))`
 
 similar to ``jacobianTv``, but return ``(f x, transpose (jacobianv f x v))``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1470>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1469>`__
 
 
 
@@ -588,7 +588,7 @@ similar to ``jacobianTv``, but return ``(f x, transpose (jacobianv f x v))``
 
 hessian of ``f`` : (scalar -> scalar) at ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1528>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1527>`__
 
 
 
@@ -598,7 +598,7 @@ hessian of ``f`` : (scalar -> scalar) at ``x``.
 
 simiarl to ``hessian``, but return ``(f x, hessian f x)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1531>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1530>`__
 
 
 
@@ -609,7 +609,7 @@ simiarl to ``hessian``, but return ``(f x, hessian f x)``
 hessian vector product of ``f`` : (scalar -> scalar) at ``x`` along ``v``.
 Namely, it calculates ``(hessian x) v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1549>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1548>`__
 
 
 
@@ -619,7 +619,7 @@ Namely, it calculates ``(hessian x) v``.
 
 similar to ``hessianv``, but return ``(f x, hessianv f x v)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1544>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1543>`__
 
 
 
@@ -629,7 +629,7 @@ similar to ``hessianv``, but return ``(f x, hessianv f x v)``.
 
 laplacian of ``f : (scalar -> scalar)`` at ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1554>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1553>`__
 
 
 
@@ -639,7 +639,7 @@ laplacian of ``f : (scalar -> scalar)`` at ``x``.
 
 simiar to ``laplacian``, but return ``(f x, laplacian f x)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1556>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1555>`__
 
 
 
@@ -649,7 +649,7 @@ simiar to ``laplacian``, but return ``(f x, laplacian f x)``.
 
 return ``(grad f x, hessian f x)``, ``f : (scalar -> scalar)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1520>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1519>`__
 
 
 
@@ -659,7 +659,7 @@ return ``(grad f x, hessian f x)``, ``f : (scalar -> scalar)``
 
 return ``(f x, grad f x, hessian f x)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1523>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1522>`__
 
 
 
@@ -669,7 +669,7 @@ return ``(f x, grad f x, hessian f x)``
 
 return ``(grad f x v, hessian f x v)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1539>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1538>`__
 
 
 
@@ -679,7 +679,7 @@ return ``(grad f x v, hessian f x v)``
 
 return ``(f x, grad f x v, hessian f x v)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1534>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1533>`__
 
 
 
@@ -790,7 +790,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1436>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1435>`__
 
 
 
@@ -800,7 +800,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1438>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1437>`__
 
 
 
@@ -810,7 +810,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1429>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1428>`__
 
 
 
@@ -852,7 +852,7 @@ Helper functions
 ``to_trace [t0; t1; ...]`` outputs the trace of computation graph on the
 terminal in a human-readable format.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1812>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1811>`__
 
 
 
@@ -864,7 +864,7 @@ terminal in a human-readable format.
 file format which you can use other tools further visualisation, such as
 Graphviz.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1815>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1814>`__
 
 
 
@@ -874,7 +874,7 @@ Graphviz.
 
 ``pp_num t`` pretty prints the abstract number used in ``Algodiff``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1821>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1820>`__
 
 
 

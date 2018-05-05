@@ -440,6 +440,8 @@ transforming. In other words, <code class="docutils literal notranslate"><span c
 <p><code class="docutils literal notranslate"><span class="pre">of_csv</span> <span class="pre">~sep</span> <span class="pre">~head</span> <span class="pre">~types</span> <span class="pre">fname</span></code> creates a dataframe by reading the data in
 a CSV file with the name <code class="docutils literal notranslate"><span class="pre">fname</span></code>. Currently, the function supports four data
 types: <code class="docutils literal notranslate"><span class="pre">b</span></code> for boolean; <code class="docutils literal notranslate"><span class="pre">i</span></code> for int; <code class="docutils literal notranslate"><span class="pre">f</span></code> for float; <code class="docutils literal notranslate"><span class="pre">s</span></code> for string.</p>
+<p>Note if <code class="docutils literal notranslate"><span class="pre">types</span></code> parameter is ignored, then all the elements will be parsed
+as string element by default.</p>
 <dl class="docutils">
 <dt>Parameters:</dt>
 <dd><ul class="first last simple">
