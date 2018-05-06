@@ -91,7 +91,7 @@
   <div class="section" id="constants">
 <h1>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#440 entries have been extracted.</p>
+#441 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_const.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_const.ml">{Implementation}</a></p>
@@ -177,6 +177,11 @@
 </div>
 <p>pi_4 = 0.785398163397448309615660845819875721</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L41">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">eps</span>  <span class="o">:</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>eps = 1e-15</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L43">source code</a></p>
 </div>
 <div class="section" id="constants-depending-on-bigarray-kind">
 <h2>Constants depending on Bigarray kind<a class="headerlink" href="#constants-depending-on-bigarray-kind" title="Permalink to this headline">¶</a></h2>
@@ -184,27 +189,27 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">zero</span> <span class="pre">kind</span></code> returns value zero of the given number type <code class="docutils literal notranslate"><span class="pre">kind</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L46">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L48">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">one</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="nn">Bigarray</span><span class="p">.</span><span class="n">kind</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">one</span> <span class="pre">kind</span></code> returns value one of the given number type <code class="docutils literal notranslate"><span class="pre">kind</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L62">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L64">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">neg_one</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="nn">Bigarray</span><span class="p">.</span><span class="n">kind</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">neg_one</span> <span class="pre">kind</span></code> returns negative one of the given number type <code class="docutils literal notranslate"><span class="pre">kind</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L78">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L80">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pos_inf</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="nn">Bigarray</span><span class="p">.</span><span class="n">kind</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pos_inf</span> <span class="pre">kind</span></code> returns positive infinity of the given number type <code class="docutils literal notranslate"><span class="pre">kind</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L94">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L96">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">neg_inf</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="nn">Bigarray</span><span class="p">.</span><span class="n">kind</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">neg_inf</span> <span class="pre">kind</span></code> returns negative infinity of the given number type <code class="docutils literal notranslate"><span class="pre">kind</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L102">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L104">source code</a></p>
 </div>
 <div class="section" id="unit-prefixes">
 <h2>Unit prefixes<a class="headerlink" href="#unit-prefixes" title="Permalink to this headline">¶</a></h2>
@@ -212,112 +217,112 @@
 </pre></div>
 </div>
 <p>fine_structure = 7.297352533e-3</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L114">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L116">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avogadro</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>avogadro = 6.02214199e23</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L116">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L118">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">yotta</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>yotta = 1e24</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L118">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L120">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">zetta</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>zetta = 1e21</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L120">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L122">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exa</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>exa = 1e18</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L122">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L124">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">peta</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>peta = 1e15</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L124">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L126">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tera</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>tera = 1e12</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L126">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L128">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">giga</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>giga = 1e9</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L128">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L130">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mega</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>mega = 1e6</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L130">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L132">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">kilo</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>kilo = 1e3</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L132">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L134">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hecto</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>hecto = 1e2</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L134">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L136">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">deca</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>deca = 1e1</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L136">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L138">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">deci</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>deci = 1e-1</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L138">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L140">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">centi</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>centi = 1e-2</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L140">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L142">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">milli</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>milli = 1e-3</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L142">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L144">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">micro</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>micro = 1e-6</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L144">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L146">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nano</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>nano = 1e-9</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L146">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L148">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pico</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>pico = 1e-12</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L148">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L150">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">femto</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>femto = 1e-15</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L150">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L152">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atto</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>atto = 1e-18</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L152">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L154">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">zepto</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>zepto = 1e-21</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L154">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L156">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">yocto</span> <span class="o">:</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>yocto = 1e-24</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L156">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_const.ml#L158">source code</a></p>
 </div>
 <div class="section" id="si-international-system-of-units">
 <h2>SI: International System of Units<a class="headerlink" href="#si-international-system-of-units" title="Permalink to this headline">¶</a></h2>

@@ -2,7 +2,7 @@ Exception
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#17 entries have been extracted.
+#18 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_exception.mli>`_ 
@@ -121,6 +121,13 @@ Number of iteration exceeds the threshold.
     
 
 Exception of singular matrix.
+
+.. code-block:: ocaml
+
+  exception NOT_SIMPLEX
+    
+
+Exception of not being simplex.
 
 .. code-block:: ocaml
 

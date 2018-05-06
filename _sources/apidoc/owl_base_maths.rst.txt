@@ -2,7 +2,7 @@ Base.Maths
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#41 entries have been extracted.
+#42 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_maths.mli>`_ 
@@ -409,6 +409,17 @@ otherwise it returns ``false``. Positive and negative zeros are special cases
 and always returns ``true``.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L96>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_simplex : float array -> bool
+
+``is_simplex x`` checks whether ``x`` is simplex. In other words,
+:math:`\sum_i^K x_i = 1` and :math:`x_i \ge 0, \forall x_i \in [1,K]`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L101>`__
 
 
 

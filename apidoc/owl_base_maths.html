@@ -86,7 +86,7 @@
   <div class="section" id="base-maths">
 <h1>Base.Maths<a class="headerlink" href="#base-maths" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#41 entries have been extracted.</p>
+#42 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_maths.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_maths.ml">{Implementation}</a></p>
@@ -292,6 +292,12 @@
 otherwise it returns <code class="docutils literal notranslate"><span class="pre">false</span></code>. Positive and negative zeros are special cases
 and always returns <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L96">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_simplex</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">is_simplex</span> <span class="pre">x</span></code> checks whether <code class="docutils literal notranslate"><span class="pre">x</span></code> is simplex. In other words,
+<span class="math notranslate nohighlight">\(\sum_i^K x_i = 1\)</span> and <span class="math notranslate nohighlight">\(x_i \ge 0, \forall x_i \in [1,K]\)</span>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L101">source code</a></p>
 </div>
 </div>
 
