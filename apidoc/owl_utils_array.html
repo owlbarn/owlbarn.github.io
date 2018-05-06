@@ -86,7 +86,7 @@
   <div class="section" id="utils-array">
 <h1>Utils.Array<a class="headerlink" href="#utils-array" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#66 entries have been extracted.</p>
+#67 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.ml">{Implementation}</a></p>
@@ -395,6 +395,11 @@ with value <code class="docutils literal notranslate"><span class="pre">v</span>
 length of <code class="docutils literal notranslate"><span class="pre">x</span></code>, if <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">l</span> <span class="pre">-</span> <span class="pre">1</span></code>, then <code class="docutils literal notranslate"><span class="pre">x.(i)</span> <span class="pre">=</span> <span class="pre">x.(i)</span></code>, otherwise
 <code class="docutils literal notranslate"><span class="pre">x.(l</span> <span class="pre">-</span> <span class="pre">1)</span> <span class="pre">=</span> <span class="pre">mass</span> <span class="pre">-</span> <span class="pre">\sum</span> <span class="pre">x.(i)</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L310">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">index_of</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">index_of</span> <span class="pre">x</span> <span class="pre">a</span></code> returns the index of first occurrence of <code class="docutils literal notranslate"><span class="pre">a</span></code> in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L323">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_string</span> <span class="o">:</span> <span class="o">?</span><span class="n">prefix</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">suffix</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sep</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">string</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>

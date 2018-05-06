@@ -2,7 +2,7 @@ Utils.Array
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#66 entries have been extracted.
+#67 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli>`_ 
@@ -545,6 +545,16 @@ length of ``x``, if ``i < l - 1``, then ``x.(i) = x.(i)``, otherwise
 ``x.(l - 1) = mass - \sum x.(i)``.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L310>`__
+
+
+
+.. code-block:: ocaml
+
+  val index_of : 'a array -> 'a -> int
+
+``index_of x a`` returns the index of first occurrence of ``a`` in ``x``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L323>`__
 
 
 

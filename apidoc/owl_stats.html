@@ -90,7 +90,7 @@
   <div class="section" id="stats">
 <h1>Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#235 entries have been extracted.</p>
+#236 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.ml">{Implementation}</a></p>
@@ -536,8 +536,14 @@ mass of a multinomial distribution.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">multinomial_logpdf</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">multinomial_rvs</span> <span class="pre">x</span> <span class="pre">~p</span></code> return the logarithm probabilty of <code class="docutils literal notranslate"><span class="pre">x</span></code> given the
+<p><code class="docutils literal notranslate"><span class="pre">multinomial_rvs</span> <span class="pre">x</span> <span class="pre">~p</span></code> returns the logarithm probabilty of <code class="docutils literal notranslate"><span class="pre">x</span></code> given the
 probabilty mass of a multinomial distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">categorical_rvs</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">categorical_rvs</span> <span class="pre">p</span></code> returns the value of a random variable which follows the
+categorical distribution. This is equavalent to only one trial from
+<code class="docutils literal notranslate"><span class="pre">multinomial_rvs</span></code> function, so it is just a simple wrapping.</p>
 </div>
 <div class="section" id="continuous-random-variables">
 <h2>Continuous random variables<a class="headerlink" href="#continuous-random-variables" title="Permalink to this headline">¶</a></h2>
