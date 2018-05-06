@@ -528,6 +528,7 @@ from <code class="docutils literal notranslate"><span class="pre">n</span></code
 <p><code class="docutils literal notranslate"><span class="pre">p</span></code> is the probabilty mass of <code class="docutils literal notranslate"><span class="pre">k</span></code> categories. If the elements in <code class="docutils literal notranslate"><span class="pre">p</span></code> do
 not sum to 1, the last element of the <code class="docutils literal notranslate"><span class="pre">p</span></code> array is not used and is replaced
 with the remaining probability left over from the earlier elements.</p>
+<p>For implemantation, refer to <a class="reference internal" href="../chapter/reference.html#davis1993computer" id="id1">[Dav93]</a>.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">multinomial_pdf</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
