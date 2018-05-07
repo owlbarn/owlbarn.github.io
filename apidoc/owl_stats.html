@@ -90,7 +90,7 @@
   <div class="section" id="stats">
 <h1>Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#239 entries have been extracted.</p>
+#246 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.ml">{Implementation}</a></p>
@@ -621,6 +621,35 @@ categorical distribution. This is equavalent to only one trial from
 </div>
 <p>TODO</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_isf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponpow_rvs</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[p(x) dx = (1/(2 a Gamma(1+1/b))) * exp(-|x/a|^b) dx\]</div>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponpow_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponpow_logpdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponpow_cdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponpow_logcdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponpow_sf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponpow_logsf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>TODO</p>

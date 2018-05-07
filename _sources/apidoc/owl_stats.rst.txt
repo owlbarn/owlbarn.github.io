@@ -2,7 +2,7 @@ Stats
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#239 entries have been extracted.
+#246 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli>`_ 
@@ -888,6 +888,49 @@ TODO
 .. code-block:: ocaml
 
   val exponential_isf : float -> lambda:float -> float
+
+TODO
+
+.. code-block:: ocaml
+
+  val exponpow_rvs : a:float -> b:float -> float
+
+.. math::
+  p(x) dx = (1/(2 a Gamma(1+1/b))) * exp(-|x/a|^b) dx
+
+.. code-block:: ocaml
+
+  val exponpow_pdf : float -> a:float -> b:float -> float
+
+TODO
+
+.. code-block:: ocaml
+
+  val exponpow_logpdf : float -> a:float -> b:float -> float
+
+TODO
+
+.. code-block:: ocaml
+
+  val exponpow_cdf : float -> a:float -> b:float -> float
+
+TODO
+
+.. code-block:: ocaml
+
+  val exponpow_logcdf : float -> a:float -> b:float -> float
+
+TODO
+
+.. code-block:: ocaml
+
+  val exponpow_sf : float -> a:float -> b:float -> float
+
+TODO
+
+.. code-block:: ocaml
+
+  val exponpow_logsf : float -> a:float -> b:float -> float
 
 TODO
 
