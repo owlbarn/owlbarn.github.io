@@ -1,0 +1,390 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Low-level CBLAS API &#8212; Owl Numerical Library 0.3 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="High-level CBLAS API" href="owl_cblas.html" />
+    <link rel="prev" title="FFT" href="owl_fft_generic.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Low-level CBLAS API</a><ul>
+<li><a class="reference internal" href="#type-definition">Type definition</a></li>
+<li><a class="reference internal" href="#level-1-blas-vector-vector-operations">Level-1 BLAS: vector-vector operations</a></li>
+<li><a class="reference internal" href="#level-2-blas-matrix-vector-operations">Level-2 BLAS: matrix-vector operations</a></li>
+<li><a class="reference internal" href="#level-3-blas-matrix-matrix-operations">Level-3 BLAS: matrix-matrix operations</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Owl’s API Reference</a><ul>
+      <li>Previous: <a href="owl_fft_generic.html" title="previous chapter">FFT</a></li>
+      <li>Next: <a href="owl_cblas.html" title="next chapter">High-level CBLAS API</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="low-level-cblas-api">
+<h1>Low-level CBLAS API<a class="headerlink" href="#low-level-cblas-api" title="Permalink to this headline">¶</a></h1>
+<p>This document is auto-generated for Owl’s APIs.
+#57 entries have been extracted.</p>
+<p>Github:
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/cblas/owl_cblas_basic.mli">{Signature}</a>
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/cblas/owl_cblas_basic.ml">{Implementation}</a></p>
+<div class="section" id="type-definition">
+<h2>Type definition<a class="headerlink" href="#type-definition" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">=</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">,</span> <span class="nn">Bigarray</span><span class="p">.</span><span class="n">c_layout</span><span class="o">)</span> <span class="nn">Bigarray</span><span class="p">.</span><span class="nn">Array1</span><span class="p">.</span><span class="n">t</span>
+</pre></div>
+</div>
+<p>The default type is Bigarray’s <code class="docutils literal notranslate"><span class="pre">Array1.t</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">cblas_layout</span> <span class="o">=</span> <span class="nc">CblasRowMajor</span> <span class="o">|</span> <span class="nc">CblasColMajor</span>
+</pre></div>
+</div>
+<p>Layout type, Row-major or Column-major.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">cblas_transpose</span> <span class="o">=</span> <span class="nc">CblasNoTrans</span> <span class="o">|</span> <span class="nc">CblasTrans</span> <span class="o">|</span> <span class="nc">CblasConjTrans</span>
+</pre></div>
+</div>
+<p>Transpose type, no transpose, transpose, or conjugate transpose.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">cblas_uplo</span> <span class="o">=</span> <span class="nc">CblasUpper</span> <span class="o">|</span> <span class="nc">CblasLower</span>
+</pre></div>
+</div>
+<p>Upper or lower triangular matrix.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">cblas_diag</span> <span class="o">=</span> <span class="nc">CblasNonUnit</span> <span class="o">|</span> <span class="nc">CblasUnit</span>
+</pre></div>
+</div>
+<p>Diag type</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">cblas_side</span> <span class="o">=</span> <span class="nc">CblasLeft</span> <span class="o">|</span> <span class="nc">CblasRight</span>
+</pre></div>
+</div>
+<p>Side type</p>
+</div>
+<div class="section" id="level-1-blas-vector-vector-operations">
+<h2>Level-1 BLAS: vector-vector operations<a class="headerlink" href="#level-1-blas-vector-vector-operations" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rotg</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>Computes the parameters for a Givens rotation.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L38">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rotmg</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Computes the parameters for a modified Givens rotation.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L49">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rot</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs rotation of points in the plane.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L91">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rotm</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs modified Givens rotation of points in the plane</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L76">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">swap</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Swaps a vector with another vector.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L105">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scal</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes the product of a vector and a scalar.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L121">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cszd_scal</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes the product of a complex vector and a float number.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L133">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Copies vector to another vector.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L145">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">axpy</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a vector-scalar product and adds the result to a vector.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L161">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dot</span> <span class="o">:</span> <span class="o">?</span><span class="n">conj</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Computes a vector-vector dot product. [conj] is for complex numbers, [true]</dt>
+<dd>indicates conjugated, [false] indicates unconjugated.</dd>
+</dl>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L177">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sdsdot</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="n">float32_elt</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="n">float32_elt</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>Computes a vector-vector dot product extended precision accumulation.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L202">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dsdot</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="n">float32_elt</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="n">float32_elt</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>Computes a vector-vector dot product extended precision accumulation.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L207">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nrm2</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>Computes the Euclidean norm of a vector.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L215">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">asum</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>Computes the sum of magnitudes of the vector elements.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L229">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">amax</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p>Finds the index of the element with maximum absolute value.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L243">source code</a></p>
+</div>
+<div class="section" id="level-2-blas-matrix-vector-operations">
+<h2>Level-2 BLAS: matrix-vector operations<a class="headerlink" href="#level-2-blas-matrix-vector-operations" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gemv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product using a general matrix</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L262">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gbmv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product using a general band matrix</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L280">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">trmv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="n">cblas_diag</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product using a triangular matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L298">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tbmv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="n">cblas_diag</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product using a triangular band matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L317">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tpmv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="n">cblas_diag</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product using a triangular packed matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L336">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">trsv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="n">cblas_diag</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Solves a system of linear equations whose coefficients are in a triangular matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L355">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tbsv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="n">cblas_diag</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Solves a system of linear equations whose coefficients are in a triangular band matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L374">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tpsv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="n">cblas_diag</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Solves a system of linear equations whose coefficients are in a triangular packed matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L393">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">symv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product for a symmetric matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L412">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sbmv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product using a symmetric band matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L427">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">spmv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product using a symmetric packed matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L442">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ger</span> <span class="o">:</span> <span class="o">?</span><span class="n">conj</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a rank-1 update of a general matrix. [conj] is for complex numbers,
+[true] indicates conjugated, [false] indicates unconjugated.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L457">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">syr</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a rank-1 update of a symmetric matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L478">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">spr</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a rank-1 update of a symmetric packed matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L492">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">syr2</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a rank-2 update of symmetric matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L506">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">spr2</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a rank-2 update of a symmetric packed matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L521">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hemv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product using a Hermitian matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L536">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hbmv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product using a Hermitian band matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L553">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hpmv</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-vector product using a Hermitian packed matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L570">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">her</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a rank-1 update of a Hermitian matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L587">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hpr</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a rank-1 update of a Hermitian packed matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L601">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">her2</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a rank-2 update of a Hermitian matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L615">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hpr2</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a rank-2 update of a Hermitian packed matrix.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L631">source code</a></p>
+</div>
+<div class="section" id="level-3-blas-matrix-matrix-operations">
+<h2>Level-3 BLAS: matrix-matrix operations<a class="headerlink" href="#level-3-blas-matrix-matrix-operations" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gemm</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-matrix product with general matrices.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L650">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">symm</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_side</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-matrix product where one input matrix is symmetric.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L669">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">syrk</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a symmetric rank-k update.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L688">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">syr2k</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a symmetric rank-2k update.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L706">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">trmm</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_side</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="n">cblas_diag</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-matrix product where one input matrix is triangular.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L725">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">trsm</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_side</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="n">cblas_diag</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Solves a triangular matrix equation.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L745">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hemm</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_side</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Computes a matrix-matrix product where one input matrix is Hermitian.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L765">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">herk</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a Hermitian rank-k update.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L781">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">her2k</span> <span class="o">:</span> <span class="n">cblas_layout</span> <span class="o">-&gt;</span> <span class="n">cblas_uplo</span> <span class="o">-&gt;</span> <span class="n">cblas_transpose</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Complex</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Performs a Hermitian rank-2k update.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/cblas/owl_cblas_basic.ml#L796">source code</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/apidoc/owl_cblas_basic.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
