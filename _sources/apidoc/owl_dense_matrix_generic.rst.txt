@@ -167,7 +167,7 @@ follow a Gaussian distribution with specified sigma. By default ``sigma = 1``.
 
 `` semidef n `` returns an random ``n`` by ``n`` positive semi-definite matrix.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L591>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L596>`__
 
 
 
@@ -202,7 +202,7 @@ Matlab. It returns two matrices ``x`` and ``y`` where the row vectors in ``x`` a
 linearly spaced between ``[a1,b1]`` by ``n1`` whilst the column vectors in ``y``
 are linearly spaced between ``(a2,b2)`` by ``n2``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L615>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L620>`__
 
 
 
@@ -212,7 +212,7 @@ are linearly spaced between ``(a2,b2)`` by ``n2``.
 
 ``meshup x y`` creates mesh grids by using two row vectors ``x`` and ``y``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L622>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L627>`__
 
 
 
@@ -346,7 +346,7 @@ length, the return will be an rectangular matrix.
 we have ``H'*H = n*I``. Currrently, this function handles only the cases where
 ``n``, ``n/12``, or ``n/20`` is a power of 2.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L675>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L680>`__
 
 
 
@@ -360,7 +360,7 @@ we have ``H'*H = n*I``. Currrently, this function handles only the cases where
 There are three different algorithms to deal with ``n`` is odd, singly even,
 and doubly even respectively.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L737>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L742>`__
 
 
 
@@ -1579,7 +1579,7 @@ also returned in an int array along with the selected columns. The parameter
 
 ``shuffle_rows x`` shuffles all the rows in matrix ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L596>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L601>`__
 
 
 
@@ -1589,7 +1589,7 @@ also returned in an int array along with the selected columns. The parameter
 
 ``shuffle_cols x`` shuffles all the columns in matrix ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L604>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L609>`__
 
 
 
@@ -1659,11 +1659,14 @@ by using ``save`` function.
 
 .. code-block:: ocaml
 
-  val save_txt : ?sep:string -> ('a, 'b) t -> string -> unit
+  val save_txt : ?sep:string -> ?append:bool -> ('a, 'b) t -> string -> unit
 
-``save_txt ~sep x f`` save the matrix ``x`` into a tab-delimited text file ``f``
-delimited by the specified string ``sep``. Note that the operation can be very
-time consuming.
+``save_txt ~sep ~append x f`` saves the matrix ``x`` into a text file ``f`` 
+delimited by the specified string ``sep`` (default: tab).  If ``append`` is
+``false`` (it is by default), an existing file will be truncated and overwritten.
+If ``append`` is ``true`` and the file exists, new rows will be appended to it.
+Files are created, if necessary, with the AND of 0o644 and the user's umask value.
+Note that the operation can be very time consuming.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L561>`__
 
@@ -1676,7 +1679,7 @@ time consuming.
 ``load_txt ~sep k f`` load a text file ``f`` into a matrix of type ``k``. The
 delimitor is specified by ``sep`` which can be a regular expression.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L571>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L576>`__
 
 
 
@@ -2338,7 +2341,7 @@ Refer to :doc:`owl_dense_ndarray_generic`.
 
 Refer to :doc:`owl_dense_ndarray_generic`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L833>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L838>`__
 
 
 
@@ -2348,7 +2351,7 @@ Refer to :doc:`owl_dense_ndarray_generic`.
 
 Refer to :doc:`owl_dense_ndarray_generic`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L842>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L847>`__
 
 
 
@@ -2412,7 +2415,7 @@ Return:
 The elements in ``x`` are clipped by ``amin`` and ``amax``, and they will be between
 ``0.`` and ``1.`` after conversion to represents the intensity.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L878>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L883>`__
 
 
 
@@ -2647,7 +2650,7 @@ it is normalised by ``1``.
 first then returns a ``2 x 2`` matrix, so two must have the same number of
 elements.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L851>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L856>`__
 
 
 

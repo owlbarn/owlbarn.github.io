@@ -388,13 +388,13 @@ number of batches per epoch and the number of epochs in total.</p>
 <p>This function is specifically designed for minimising the weights in a neural
 network of graph structure. In Owl’s earlier versions, the functions in the
 regression module were actually implemented using this function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L568">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L570">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">minimise_fun</span> <span class="o">:</span> <span class="o">?</span><span class="n">state</span><span class="o">:</span><span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span> <span class="o">-&gt;</span> <span class="nn">Params</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>This function minimises <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">y</span></code> w.r.t <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code> is an ndarray; and <code class="docutils literal notranslate"><span class="pre">y</span></code> is an scalar value.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L666">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L669">source code</a></p>
 </div>
 </div>
 

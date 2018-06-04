@@ -191,7 +191,7 @@ follow a Gaussian distribution with specified sigma. By default <code class="doc
 </pre></div>
 </div>
 <p>`` semidef n `` returns an random <code class="docutils literal notranslate"><span class="pre">n</span></code> by <code class="docutils literal notranslate"><span class="pre">n</span></code> positive semi-definite matrix.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L591">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L596">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">linspace</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -211,12 +211,12 @@ row vector <code class="docutils literal notranslate"><span class="pre">[0;1;2;3
 Matlab. It returns two matrices <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> where the row vectors in <code class="docutils literal notranslate"><span class="pre">x</span></code> are
 linearly spaced between <code class="docutils literal notranslate"><span class="pre">[a1,b1]</span></code> by <code class="docutils literal notranslate"><span class="pre">n1</span></code> whilst the column vectors in <code class="docutils literal notranslate"><span class="pre">y</span></code>
 are linearly spaced between <code class="docutils literal notranslate"><span class="pre">(a2,b2)</span></code> by <code class="docutils literal notranslate"><span class="pre">n2</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L615">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L620">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">meshup</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">meshup</span> <span class="pre">x</span> <span class="pre">y</span></code> creates mesh grids by using two row vectors <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L622">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L627">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bernoulli</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -297,7 +297,7 @@ length, the return will be an rectangular matrix.</p>
 <p><code class="docutils literal notranslate"><span class="pre">hadamard</span> <span class="pre">k</span> <span class="pre">n</span></code> constructs a hadamard matrix of order <code class="docutils literal notranslate"><span class="pre">n</span></code>. For a hadamard <code class="docutils literal notranslate"><span class="pre">H</span></code>,
 we have <code class="docutils literal notranslate"><span class="pre">H'*H</span> <span class="pre">=</span> <span class="pre">n*I</span></code>. Currrently, this function handles only the cases where
 <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">n/12</span></code>, or <code class="docutils literal notranslate"><span class="pre">n/20</span></code> is a power of 2.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L675">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L680">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">magic</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -305,7 +305,7 @@ we have <code class="docutils literal notranslate"><span class="pre">H'*H</span>
 <code class="docutils literal notranslate"><span class="pre">x</span></code> are consecutive numbers increasing from <code class="docutils literal notranslate"><span class="pre">1</span></code> to <code class="docutils literal notranslate"><span class="pre">n^2</span></code>. <code class="docutils literal notranslate"><span class="pre">n</span></code> must <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">&gt;=</span> <span class="pre">3</span></code>.</p>
 <p>There are three different algorithms to deal with <code class="docutils literal notranslate"><span class="pre">n</span></code> is odd, singly even,
 and doubly even respectively.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L737">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L742">source code</a></p>
 </div>
 <div class="section" id="obtain-basic-properties">
 <h2>Obtain basic properties<a class="headerlink" href="#obtain-basic-properties" title="Permalink to this headline">¶</a></h2>
@@ -1101,12 +1101,12 @@ also returned in an int array along with the selected columns. The parameter
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">shuffle_rows</span> <span class="pre">x</span></code> shuffles all the rows in matrix <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L596">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L601">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shuffle_cols</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">shuffle_cols</span> <span class="pre">x</span></code> shuffles all the columns in matrix <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L604">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L609">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shuffle</span><span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -1150,19 +1150,22 @@ is binary by using <code class="docutils literal notranslate"><span class="pre">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">f</span></code> loads a matrix from file <code class="docutils literal notranslate"><span class="pre">f</span></code>. The file must be previously saved
 by using <code class="docutils literal notranslate"><span class="pre">save</span></code> function.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">save_txt</span> <span class="o">:</span> <span class="o">?</span><span class="n">sep</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">save_txt</span> <span class="o">:</span> <span class="o">?</span><span class="n">sep</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">append</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">save_txt</span> <span class="pre">~sep</span> <span class="pre">x</span> <span class="pre">f</span></code> save the matrix <code class="docutils literal notranslate"><span class="pre">x</span></code> into a tab-delimited text file <code class="docutils literal notranslate"><span class="pre">f</span></code>
-delimited by the specified string <code class="docutils literal notranslate"><span class="pre">sep</span></code>. Note that the operation can be very
-time consuming.</p>
+<p><code class="docutils literal notranslate"><span class="pre">save_txt</span> <span class="pre">~sep</span> <span class="pre">~append</span> <span class="pre">x</span> <span class="pre">f</span></code> saves the matrix <code class="docutils literal notranslate"><span class="pre">x</span></code> into a text file <code class="docutils literal notranslate"><span class="pre">f</span></code>
+delimited by the specified string <code class="docutils literal notranslate"><span class="pre">sep</span></code> (default: tab).  If <code class="docutils literal notranslate"><span class="pre">append</span></code> is
+<code class="docutils literal notranslate"><span class="pre">false</span></code> (it is by default), an existing file will be truncated and overwritten.
+If <code class="docutils literal notranslate"><span class="pre">append</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> and the file exists, new rows will be appended to it.
+Files are created, if necessary, with the AND of 0o644 and the user’s umask value.
+Note that the operation can be very time consuming.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L561">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load_txt</span> <span class="o">:</span> <span class="o">?</span><span class="n">sep</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">load_txt</span> <span class="pre">~sep</span> <span class="pre">k</span> <span class="pre">f</span></code> load a text file <code class="docutils literal notranslate"><span class="pre">f</span></code> into a matrix of type <code class="docutils literal notranslate"><span class="pre">k</span></code>. The
 delimitor is specified by <code class="docutils literal notranslate"><span class="pre">sep</span></code> which can be a regular expression.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L571">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L576">source code</a></p>
 </div>
 <div class="section" id="unary-math-operators">
 <h2>Unary math operators<a class="headerlink" href="#unary-math-operators" title="Permalink to this headline">¶</a></h2>
@@ -1612,12 +1615,12 @@ hence it always returns a float number.</p>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L833">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L838">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L842">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L847">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cumsum</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -1668,7 +1671,7 @@ along specified axis.</li>
 <p><code class="docutils literal notranslate"><span class="pre">mat2gray</span> <span class="pre">~amin</span> <span class="pre">~amax</span> <span class="pre">x</span></code> converts the matrix <code class="docutils literal notranslate"><span class="pre">x</span></code> to the intensity image.
 The elements in <code class="docutils literal notranslate"><span class="pre">x</span></code> are clipped by <code class="docutils literal notranslate"><span class="pre">amin</span></code> and <code class="docutils literal notranslate"><span class="pre">amax</span></code>, and they will be between
 <code class="docutils literal notranslate"><span class="pre">0.</span></code> and <code class="docutils literal notranslate"><span class="pre">1.</span></code> after conversion to represents the intensity.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L878">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L883">source code</a></p>
 </div>
 <div class="section" id="binary-math-operators">
 <h2>Binary math operators<a class="headerlink" href="#binary-math-operators" title="Permalink to this headline">¶</a></h2>
@@ -1830,7 +1833,7 @@ it is normalised by <code class="docutils literal notranslate"><span class="pre"
 <p><code class="docutils literal notranslate"><span class="pre">cov</span> <span class="pre">~a</span> <span class="pre">~b</span></code> takes two matrices as inputs. The functions flatten <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>
 first then returns a <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">x</span> <span class="pre">2</span></code> matrix, so two must have the same number of
 elements.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L851">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L856">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">kron</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
