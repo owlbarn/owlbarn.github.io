@@ -2,11 +2,11 @@ Lazy Functor
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#152 entries have been extracted.
+#238 entries have been extracted.
 
 Github:
-`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_lazy.mli>`_ 
-`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_lazy.ml>`_
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_lazy.mli>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_lazy.ml>`_
 
 
 
@@ -17,1489 +17,1424 @@ Type definition
 
 .. code-block:: ocaml
 
-  type t
+  type arr
     
 
-``t`` is an abstract type to represent an expression, it is also an alias
-for type ``node``. Type ``node`` is only for internal use in the module.
+TODO
 
-Core functions
+.. code-block:: ocaml
+
+  type elt
+    
+
+TODO
+
+.. code-block:: ocaml
+
+  type value
+    
+
+TODO
+
+.. code-block:: ocaml
+
+  type attr
+    
+
+TODO
+
+.. code-block:: ocaml
+
+  type op
+    
+
+TODO
+
+.. code-block:: ocaml
+
+  type graph
+    
+
+TODO
+
+Type conversion and utility functions
 -------------------------------------------------------------------------------
 
 
 
 .. code-block:: ocaml
 
-  val variable : ?name:string -> unit -> t
+  val arr_to_value : A.arr -> value
 
-``variable ()`` creates a placeholder for the variable in the graph.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L76>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val assign_arr : t -> A.arr -> unit
+  val value_to_arr : value -> A.arr
 
-``assign_arr x a`` assigns value ``a`` to ``x``. ``x`` is the variable created by
-``variable ()`` function before. Note that assignment will invalidate all the
-nodes in the subgraph depending on ``x``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L84>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val assign_elt : t -> A.elt -> unit
+  val elt_to_value : A.elt -> value
 
-``assign_elt x a`` assigns value ``a`` to ``x``, simiar to ``assign_arr``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L86>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val to_arr : t -> A.arr
+  val value_to_elt : value -> A.elt
 
-``to_arr x`` unpacks an ndarray from ``x`` of type ``t``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L88>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val to_elt : t -> A.elt
+  val value_to_float : value -> float
 
-``to_elt x`` unpacks an element from ``x`` of type ``t``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L90>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val of_arr : ?name:string -> A.arr -> t
+  val node_to_arr : attr node -> arr
 
-``of_arr x`` creates a constant value from ``x`` in the computation graph. The
-constant value cannot be re-assigned by ``assign_arr`` or ``assign_elt`` later.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L92>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val of_elt : ?name:string -> A.elt -> t
+  val arr_to_node : arr -> attr node
 
-``of_elt x`` is similar to ``of_arr`` but used for the value of type ``elt``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L94>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val eval : t -> unit
+  val node_to_elt : attr node -> elt
 
-``eval x`` evaluates the experssion represented by ``x``. Note only the
-subgraph that ``x`` depends on will be evaluated rather than the whole graph.
+TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L304>`__
+.. code-block:: ocaml
 
+  val elt_to_node : elt -> attr node
 
+TODO
 
-Printing functions
+.. code-block:: ocaml
+
+  val pack_arr : A.arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val unpack_arr : arr -> A.arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val pack_elt : A.elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val unpack_elt : elt -> A.elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val arr_to_var : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val float_to_elt : float -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_to_float : elt -> float
+
+TODO
+
+.. code-block:: ocaml
+
+  val refnum : attr node -> int
+
+TODO
+
+.. code-block:: ocaml
+
+  val infer_shape : op -> attr node array -> int array option array
+
+TODO
+
+.. code-block:: ocaml
+
+  val infer_shape_graph : attr node array -> unit
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_shape_unkown : attr node -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val shape_to_str : int array option array -> string
+
+TODO
+
+.. code-block:: ocaml
+
+  val node_to_str : attr node -> string
+
+TODO
+
+.. code-block:: ocaml
+
+  val op_to_str : op -> string
+
+TODO
+
+.. code-block:: ocaml
+
+  val shape_or_value : attr node -> string
+
+TODO
+
+.. code-block:: ocaml
+
+  val nodes_to_dot : attr node array -> string
+
+TODO
+
+.. code-block:: ocaml
+
+  val to_trace : 'a -> string
+
+TODO
+
+properties of computation node
 -------------------------------------------------------------------------------
 
 
 
 .. code-block:: ocaml
 
-  val pp_lazy : Format.formatter -> t -> unit
+  val set_value : attr node -> value array -> unit
 
-``pp_lazy x`` pretty prints ``x``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L128>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val to_trace : t list -> string
+  val get_value : attr node -> value array
 
-``to_trace x`` returns the trace string that can be printed on the terminal
-for a list of given expressions. The trace shows the structure of the graph.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L133>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val to_dot : t list -> string
+  val set_operator : attr node -> op -> unit
 
-``to_dot x`` converts a list of experssions into graph using dot-formatted
-string. The returned string can be used for visualising the computation
-graph with third-party tool such as graphviz.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L138>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val copy : t array -> t array
+  val get_operator : attr node -> op
 
-``copy x``
+TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L146>`__
+.. code-block:: ocaml
 
+  val set_reuse : attr node -> bool -> unit
 
+TODO
 
-Properties and manipulations
+.. code-block:: ocaml
+
+  val get_reuse : attr node -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_var : attr node -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_const : attr node -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_arr : attr node -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_elt : attr node -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_assigned : attr node -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val check_assigned : attr node -> unit
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_valid : attr node -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val validate : attr node -> unit
+
+TODO
+
+.. code-block:: ocaml
+
+  val invalidate : attr node -> unit
+
+TODO
+
+.. code-block:: ocaml
+
+  val invalidate_graph : attr node -> unit
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_freeze : attr node -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val freeze : attr node -> unit
+
+TODO
+
+.. code-block:: ocaml
+
+  val freeze_descendants : attr node array -> unit
+
+TODO
+
+.. code-block:: ocaml
+
+  val freeze_ancestors : attr node array -> unit
+
+TODO
+
+Create variable placeholder
 -------------------------------------------------------------------------------
 
 
 
 .. code-block:: ocaml
 
-  val is_var : t -> bool
+  val var_arr : ?shape:int array -> string -> arr
 
-``is_var x`` returns ``true`` if ``x`` is a variable created by ``variable``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L59>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val is_const : t -> bool
+  val var_elt : string -> elt
 
-``is_const x`` returns ``true`` if ``x`` is a const created by ``of_arr`` or ``of_elt``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L61>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val refnum : t -> int
+  val const_arr : string -> A.arr -> arr
 
-``refnum x`` returns the number of ``x``'s parents in the computation graph.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L49>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val map : ?name:string -> (t array -> t) -> t array -> t
+  val const_elt : string -> A.elt -> elt
 
-``map f x`` is a general mechanism that allows you to plug in any functions
-into a compuation graph as a computation node in case the unary and binary
-math operators defined in this functor are not sufficient. Also because of
-``map``, we do not really need the control flow node in Owl as that in
-TensorFlow since ``map`` is more general can be used to implement arbitrary
-operations (almost).
-
-``f : t array -> t`` takes an array of ``t`` as inputs and outputs a constant
-value of ``t``. This means the output must be wrapped up using either ``of_arr``
-or ``of_elt`` function before returning the result.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L315>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val tile : t -> int array -> t
+  val assign_arr : arr -> A.arr -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L317>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val repeat : ?axis:int -> t -> int -> t
+  val assign_elt : elt -> A.elt -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L319>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val concatenate : ?axis:int -> t array -> t
+  val unsafe_assign_arr : arr -> A.arr -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
+TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L321>`__
-
-
-
-Unary operators
+Maths funcitons
 -------------------------------------------------------------------------------
 
 
 
 .. code-block:: ocaml
 
-  val abs : t -> t
+  val noop : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L376>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val neg : t -> t
+  val empty : int array -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L378>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val conj : t -> t
+  val zeros : int array -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L380>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val reci : t -> t
+  val ones : int array -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L382>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val signum : t -> t
+  val create : int array -> elt -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L384>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val sqr : t -> t
+  val sequential : ?a:'a -> ?step:'b -> int array -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L386>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val sqrt : t -> t
+  val uniform : ?a:elt -> ?b:elt -> int array -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L388>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val cbrt : t -> t
+  val gaussian : ?mu:'a -> ?sigma:'b -> int array -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L390>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val exp : t -> t
+  val bernoulli : ?p:float -> int array -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L392>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val exp2 : t -> t
+  val init : int array -> (int -> elt) -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L394>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val exp10 : t -> t
+  val shape : arr -> int array
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L396>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val expm1 : t -> t
+  val numel : arr -> int
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L398>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val log : t -> t
+  val get : arr -> int array -> elt
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L400>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val log2 : t -> t
+  val set : arr -> int array -> elt -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L402>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val log10 : t -> t
+  val get_slice : int list list -> arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L404>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val log1p : t -> t
+  val set_slice : int list list -> arr -> arr -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L406>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val sin : t -> t
+  val copy : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L408>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val cos : t -> t
+  val copy_to : 'a -> 'b -> 'c
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L410>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val tan : t -> t
+  val reset : arr -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L412>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val asin : t -> t
+  val reshape : arr -> int array -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L414>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val acos : t -> t
+  val reverse : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L416>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val atan : t -> t
+  val tile : arr -> int array -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L418>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val sinh : t -> t
+  val repeat : ?axis:int -> arr -> int -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L420>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val cosh : t -> t
+  val concatenate : ?axis:int -> arr array -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L422>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val tanh : t -> t
+  val split : ?axis:int -> int array -> arr -> arr array
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L424>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val asinh : t -> t
+  val draw : ?axis:int -> arr -> int -> arr * 'a array
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L426>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val acosh : t -> t
+  val map : (elt -> elt) -> arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L428>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val atanh : t -> t
+  val fold : ?axis:int -> (elt -> elt -> elt) -> elt -> arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L430>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val floor : t -> t
+  val scan : ?axis:int -> (elt -> elt -> elt) -> arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L432>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val ceil : t -> t
+  val one_hot : int -> arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L434>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val round : t -> t
+  val print : ?max_row:'a -> ?max_col:'b -> ?header:'c -> ?fmt:'d -> 'e -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L436>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val trunc : t -> t
+  val abs : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L438>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val fix : t -> t
+  val neg : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L440>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val erf : t -> t
+  val floor : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L442>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val erfc : t -> t
+  val ceil : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L444>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val relu : t -> t
+  val round : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L446>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val softplus : t -> t
+  val sqr : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L448>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val softsign : t -> t
+  val sqrt : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L450>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val softmax : ?axis:int -> t -> t
+  val log : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L452>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val sigmoid : t -> t
+  val log2 : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L454>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val sum : ?axis:int -> t -> t
+  val log10 : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L456>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val prod : ?axis:int -> t -> t
+  val exp : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L458>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val min : ?axis:int -> t -> t
+  val sin : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L460>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val max : ?axis:int -> t -> t
+  val cos : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L462>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val mean : ?axis:int -> t -> t
+  val tan : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L464>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val var : ?axis:int -> t -> t
+  val sinh : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L466>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val std : ?axis:int -> t -> t
+  val cosh : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L468>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val l1norm : ?axis:int -> t -> t
+  val tanh : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L470>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val l2norm : ?axis:int -> t -> t
+  val asin : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L472>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val cumsum : ?axis:int -> t -> t
+  val acos : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L474>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val cumprod : ?axis:int -> t -> t
+  val atan : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L476>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val cummin : ?axis:int -> t -> t
+  val asinh : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L478>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val cummax : ?axis:int -> t -> t
+  val acosh : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L480>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val sum' : t -> t
+  val atanh : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L523>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val prod' : t -> t
+  val min : ?axis:int -> arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L525>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val min' : t -> t
+  val max : ?axis:int -> arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L527>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val max' : t -> t
+  val sum : ?axis:int -> arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L529>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val mean' : t -> t
+  val sum_reduce : ?axis:int array -> arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L531>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val var' : t -> t
+  val signum : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L533>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val std' : t -> t
+  val sigmoid : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L535>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val l1norm' : t -> t
+  val relu : arr -> arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L537>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val l2norm' : t -> t
+  val min' : arr -> elt
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L539>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val l2norm_sqr' : t -> t
+  val max' : arr -> elt
 
-Refer to :doc:`owl_dense_ndarray_generic`.
+TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L541>`__
+.. code-block:: ocaml
 
+  val sum' : arr -> elt
 
+TODO
 
-Binary operators
+.. code-block:: ocaml
+
+  val l1norm' : arr -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val l2norm' : arr -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val l2norm_sqr' : arr -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val clip_by_value : ?amin:elt -> ?amax:elt -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val clip_by_l2norm : 'a -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val pow : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val scalar_pow : elt -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val pow_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val atan2 : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val scalar_atan2 : elt -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val atan2_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val hypot : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val min2 : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val max2 : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val add : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val sub : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val mul : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val div : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val add_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val sub_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val mul_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val div_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val scalar_add : elt -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val scalar_sub : elt -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val scalar_mul : elt -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val scalar_div : elt -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val fma : arr -> arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_zero : 'a -> 'b
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_positive : 'a -> 'b
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_negative : 'a -> 'b
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_nonpositive : 'a -> 'b
+
+TODO
+
+.. code-block:: ocaml
+
+  val is_nonnegative : 'a -> 'b
+
+TODO
+
+.. code-block:: ocaml
+
+  val equal : 'a -> 'b -> 'c
+
+TODO
+
+.. code-block:: ocaml
+
+  val not_equal : 'a -> 'b -> 'c
+
+TODO
+
+.. code-block:: ocaml
+
+  val less : 'a -> 'b -> 'c
+
+TODO
+
+.. code-block:: ocaml
+
+  val greater : 'a -> 'b -> 'c
+
+TODO
+
+.. code-block:: ocaml
+
+  val less_equal : 'a -> 'b -> 'c
+
+TODO
+
+.. code-block:: ocaml
+
+  val greater_equal : 'a -> 'b -> 'c
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_equal : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_not_equal : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_less : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_greater : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_less_equal : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_greater_equal : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_equal_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_not_equal_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_less_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_greater_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_less_equal_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val elt_greater_equal_scalar : arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val approx_equal : ?eps:float -> arr -> arr -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val approx_equal_scalar : ?eps:float -> arr -> elt -> bool
+
+TODO
+
+.. code-block:: ocaml
+
+  val approx_elt_equal : ?eps:float -> arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val approx_elt_equal_scalar : ?eps:float -> arr -> elt -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val conv1d : ?padding:padding -> arr -> arr -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val conv2d : ?padding:padding -> arr -> arr -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val conv3d : ?padding:padding -> arr -> arr -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val transpose_conv2d : ?padding:padding -> arr -> arr -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val max_pool1d : ?padding:padding -> arr -> int array -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val max_pool2d : ?padding:padding -> arr -> int array -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val max_pool3d : ?padding:padding -> arr -> int array -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val avg_pool1d : ?padding:padding -> arr -> int array -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val avg_pool2d : ?padding:padding -> arr -> int array -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val avg_pool3d : ?padding:padding -> arr -> int array -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val conv1d_backward_input : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val conv1d_backward_kernel : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val conv2d_backward_input : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val conv2d_backward_kernel : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val conv3d_backward_input : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val conv3d_backward_kernel : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val transpose_conv2d_backward_input : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val transpose_conv2d_backward_kernel : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val max_pool1d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val max_pool2d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val max_pool3d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val avg_pool1d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val avg_pool2d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val avg_pool3d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val row_num : arr -> int
+
+TODO
+
+.. code-block:: ocaml
+
+  val col_num : arr -> int
+
+TODO
+
+.. code-block:: ocaml
+
+  val row : arr -> 'a -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val rows : arr -> int array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val copy_row_to : arr -> 'a -> 'b -> unit
+
+TODO
+
+.. code-block:: ocaml
+
+  val copy_col_to : arr -> 'a -> 'b -> unit
+
+TODO
+
+.. code-block:: ocaml
+
+  val inv : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val trace : arr -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val dot : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val transpose : ?axis:int array -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val to_rows : arr -> 'a array
+
+TODO
+
+.. code-block:: ocaml
+
+  val of_rows : arr array -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val of_array : 'a -> 'b -> 'c
+
+TODO
+
+.. code-block:: ocaml
+
+  val of_arrays : 'a -> 'b
+
+TODO
+
+Evaluation functions
 -------------------------------------------------------------------------------
 
 
 
 .. code-block:: ocaml
 
-  val add : t -> t -> t
+  val make_graph : input:attr node array -> output:attr node array -> string -> graph
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L326>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val sub : t -> t -> t
+  val get_inputs : graph -> attr node array
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L328>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val mul : t -> t -> t
+  val get_outputs : graph -> attr node array
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L330>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val div : t -> t -> t
+  val get_node_arr_val : attr node -> A.arr
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L332>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val pow : t -> t -> t
+  val get_node_elt_val : attr node -> A.elt
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L334>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val dot : t -> t -> t
+  val set_node_arr_val : attr node -> value -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L346>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val atan2 : t -> t -> t
+  val set_node_elt_val : attr node -> value -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L336>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val hypot : t -> t -> t
+  val is_iopair_safe : 'a node -> 'a node -> bool
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L338>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val fmod : t -> t -> t
+  val make_iopair : graph -> attr node array -> attr node array -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L340>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val min2 : t -> t -> t
+  val update_iopair : graph -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L342>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val max2 : t -> t -> t
+  val remove_unused_iopair : 'a node array -> 'b array -> 'a node array * 'b array
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L344>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val add_scalar : t -> t -> t
+  val init_inputs : (attr node -> value) -> graph -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L348>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val sub_scalar : t -> t -> t
+  val optimise : graph -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L350>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val mul_scalar : t -> t -> t
+  val graph_to_dot : graph -> string
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L352>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val div_scalar : t -> t -> t
+  val eval_elt : elt array -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L354>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val pow_scalar : t -> t -> t
+  val eval_arr : arr array -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L356>`__
-
-
+TODO
 
 .. code-block:: ocaml
 
-  val atan2_scalar : t -> t -> t
+  val eval_graph : graph -> unit
 
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L358>`__
-
-
-
-.. code-block:: ocaml
-
-  val fmod_scalar : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L360>`__
-
-
-
-.. code-block:: ocaml
-
-  val scalar_add : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L362>`__
-
-
-
-.. code-block:: ocaml
-
-  val scalar_sub : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L364>`__
-
-
-
-.. code-block:: ocaml
-
-  val scalar_mul : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L366>`__
-
-
-
-.. code-block:: ocaml
-
-  val scalar_div : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L368>`__
-
-
-
-.. code-block:: ocaml
-
-  val scalar_pow : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L370>`__
-
-
-
-.. code-block:: ocaml
-
-  val scalar_atan2 : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L372>`__
-
-
-
-.. code-block:: ocaml
-
-  val scalar_fmod : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L374>`__
-
-
-
-.. code-block:: ocaml
-
-  val conv1d : ?padding:padding -> t -> t -> int array -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L482>`__
-
-
-
-.. code-block:: ocaml
-
-  val conv2d : ?padding:padding -> t -> t -> int array -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L484>`__
-
-
-
-.. code-block:: ocaml
-
-  val conv3d : ?padding:padding -> t -> t -> int array -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L486>`__
-
-
-
-.. code-block:: ocaml
-
-  val max_pool1d : ?padding:padding -> t -> int array -> int array -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L488>`__
-
-
-
-.. code-block:: ocaml
-
-  val max_pool2d : ?padding:padding -> t -> int array -> int array -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L490>`__
-
-
-
-.. code-block:: ocaml
-
-  val max_pool3d : ?padding:padding -> t -> int array -> int array -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L492>`__
-
-
-
-.. code-block:: ocaml
-
-  val avg_pool1d : ?padding:padding -> t -> int array -> int array -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L494>`__
-
-
-
-.. code-block:: ocaml
-
-  val avg_pool2d : ?padding:padding -> t -> int array -> int array -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L496>`__
-
-
-
-.. code-block:: ocaml
-
-  val avg_pool3d : ?padding:padding -> t -> int array -> int array -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L498>`__
-
-
-
-.. code-block:: ocaml
-
-  val conv1d_backward_input : t -> t -> int array -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L500>`__
-
-
-
-.. code-block:: ocaml
-
-  val conv1d_backward_kernel : t -> t -> int array -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L502>`__
-
-
-
-.. code-block:: ocaml
-
-  val conv2d_backward_input : t -> t -> int array -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L504>`__
-
-
-
-.. code-block:: ocaml
-
-  val conv2d_backward_kernel : t -> t -> int array -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L506>`__
-
-
-
-.. code-block:: ocaml
-
-  val conv3d_backward_input : t -> t -> int array -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L508>`__
-
-
-
-.. code-block:: ocaml
-
-  val conv3d_backward_kernel : t -> t -> int array -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L510>`__
-
-
-
-.. code-block:: ocaml
-
-  val max_pool1d_backward : padding -> t -> int array -> int array -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L512>`__
-
-
-
-.. code-block:: ocaml
-
-  val max_pool2d_backward : padding -> t -> int array -> int array -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L514>`__
-
-
-
-.. code-block:: ocaml
-
-  val avg_pool1d_backward : padding -> t -> int array -> int array -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L516>`__
-
-
-
-.. code-block:: ocaml
-
-  val avg_pool2d_backward : padding -> t -> int array -> int array -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L518>`__
-
-
-
-Comparion functions
--------------------------------------------------------------------------------
-
-
-
-.. code-block:: ocaml
-
-  val elt_equal : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L546>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_not_equal : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L548>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_less : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L550>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_greater : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L552>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_less_equal : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L554>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_greater_equal : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L556>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_equal_scalar : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L558>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_not_equal_scalar : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L560>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_less_scalar : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L562>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_greater_scalar : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L564>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_less_equal_scalar : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L566>`__
-
-
-
-.. code-block:: ocaml
-
-  val elt_greater_equal_scalar : t -> t -> t
-
-Refer to :doc:`owl_dense_ndarray_generic`.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L568>`__
-
-
-
-Advanced operations
--------------------------------------------------------------------------------
-
-
-
-.. code-block:: ocaml
-
-  val invalidate : t -> unit
-
-``invalidate x`` set the status of ``x`` to ``Invalid``. Therefore the value of
-``x`` will be re-computed when in the future evaluation.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L69>`__
-
-
-
-.. code-block:: ocaml
-
-  val id : t -> int
-
-``id x`` retrieves the id number of ``x``.
-
-.. code-block:: ocaml
-
-  val name : t -> string
-
-``name x`` retrieves the name of ``x``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L98>`__
-
-
-
-.. code-block:: ocaml
-
-  val get_by_id : t -> int -> t
-
-``get_by_id x id`` retrieves the node with the given ``id`` in the subgraph of
-``x``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L100>`__
-
-
-
-.. code-block:: ocaml
-
-  val get_by_name : t -> string -> t array
-
-``get_by_name x name`` retrieves the node with the given ``name`` in the
-subgraph of ``x``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_lazy.ml#L102>`__
-
-
+TODO
 

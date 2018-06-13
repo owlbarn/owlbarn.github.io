@@ -89,7 +89,7 @@
   <div class="section" id="algodiff-generic-functor">
 <h1>Algodiff.Generic Functor<a class="headerlink" href="#algodiff-generic-functor" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#120 entries have been extracted.</p>
+#122 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/optimise/owl_algodiff_generic_sig.ml">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/optimise/owl_algodiff_generic.ml">{Implementation}</a></p>
@@ -108,7 +108,7 @@
 </div>
 <p>Trace type</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
-  <span class="o">|</span> <span class="nc">F</span>   <span class="k">of</span> <span class="kt">float</span>                                  <span class="c">(* constructor of float numbers *)</span>
+  <span class="o">|</span> <span class="nc">F</span>   <span class="k">of</span> <span class="n">elt</span>                                    <span class="c">(* constructor of float numbers *)</span>
   <span class="o">|</span> <span class="nc">Arr</span> <span class="k">of</span> <span class="n">arr</span>                                    <span class="c">(* constructor of ndarrays *)</span>
   <span class="o">|</span> <span class="nc">DF</span>  <span class="k">of</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="kt">int</span>                            <span class="c">(* primal, tangent, tag *)</span>
   <span class="o">|</span> <span class="nc">DR</span>  <span class="k">of</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="n">ref</span> <span class="o">*</span> <span class="n">trace_op</span> <span class="o">*</span> <span class="kt">int</span> <span class="n">ref</span> <span class="o">*</span> <span class="kt">int</span>   <span class="c">(* primal, adjoint, op, fanout, tag *)</span>
@@ -298,7 +298,7 @@
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1718">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1729">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -418,138 +418,148 @@ at point <code class="docutils literal notranslate"><span class="pre">x</span></
 of the same type, i.e. <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">:</span> <span class="pre">scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar</span></code>.</p>
 <p>Keep calling this function will give you higher-order derivatives of <code class="docutils literal notranslate"><span class="pre">f</span></code>, i.e.
 <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">|&gt;</span> <span class="pre">diff</span> <span class="pre">|&gt;</span> <span class="pre">diff</span> <span class="pre">|&gt;</span> <span class="pre">diff</span> <span class="pre">|&gt;</span> <span class="pre">...</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1572">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1583">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diff&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>similar to <code class="docutils literal notranslate"><span class="pre">diff</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">diff</span> <span class="pre">f</span> <span class="pre">x)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1566">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1577">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">grad</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>gradient of <code class="docutils literal notranslate"><span class="pre">f</span></code> : (vector -&gt; scalar) at <code class="docutils literal notranslate"><span class="pre">x</span></code>, reverse ad.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1583">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1594">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">grad&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>similar to <code class="docutils literal notranslate"><span class="pre">grad</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">grad</span> <span class="pre">f</span> <span class="pre">x)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1575">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1586">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobian</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>jacobian of <code class="docutils literal notranslate"><span class="pre">f</span></code> : (vector -&gt; vector) at <code class="docutils literal notranslate"><span class="pre">x</span></code>, both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are row vectors.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1642">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1653">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobian&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>similar to <code class="docutils literal notranslate"><span class="pre">jacobian</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">jacobian</span> <span class="pre">f</span> <span class="pre">x)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1606">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1617">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>jacobian vector product of <code class="docutils literal notranslate"><span class="pre">f</span></code> : (vector -&gt; vector) at <code class="docutils literal notranslate"><span class="pre">x</span></code> along <code class="docutils literal notranslate"><span class="pre">v</span></code>,
 forward ad. Namely, it calcultes <code class="docutils literal notranslate"><span class="pre">(jacobian</span> <span class="pre">x)</span> <span class="pre">v</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1592">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1603">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianv&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>similar to <code class="docutils literal notranslate"><span class="pre">jacobianv'</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">jacobianv</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1586">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1597">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianTv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>transposed jacobian vector product of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">(vector</span> <span class="pre">-&gt;</span> <span class="pre">vector)</span></code> at <code class="docutils literal notranslate"><span class="pre">x</span></code>
 along <code class="docutils literal notranslate"><span class="pre">v</span></code>, backward ad. Namely, it calculates <code class="docutils literal notranslate"><span class="pre">transpose</span> <span class="pre">((jacobianv</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v))</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1603">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1614">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianTv&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>similar to <code class="docutils literal notranslate"><span class="pre">jacobianTv</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">transpose</span> <span class="pre">(jacobianv</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v))</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1595">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1606">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hessian</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>hessian of <code class="docutils literal notranslate"><span class="pre">f</span></code> : (scalar -&gt; scalar) at <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1653">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1664">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hessian&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>simiarl to <code class="docutils literal notranslate"><span class="pre">hessian</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1656">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1667">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hessianv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>hessian vector product of <code class="docutils literal notranslate"><span class="pre">f</span></code> : (scalar -&gt; scalar) at <code class="docutils literal notranslate"><span class="pre">x</span></code> along <code class="docutils literal notranslate"><span class="pre">v</span></code>.
 Namely, it calculates <code class="docutils literal notranslate"><span class="pre">(hessian</span> <span class="pre">x)</span> <span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1674">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1685">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hessianv&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>similar to <code class="docutils literal notranslate"><span class="pre">hessianv</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">hessianv</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1669">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1680">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplacian</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>laplacian of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">(scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar)</span></code> at <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1679">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1690">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplacian&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>simiar to <code class="docutils literal notranslate"><span class="pre">laplacian</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">laplacian</span> <span class="pre">f</span> <span class="pre">x)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1681">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1692">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gradhessian</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>return <code class="docutils literal notranslate"><span class="pre">(grad</span> <span class="pre">f</span> <span class="pre">x,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x)</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">(scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1645">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1656">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gradhessian&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">grad</span> <span class="pre">f</span> <span class="pre">x,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1648">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1659">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gradhessianv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>return <code class="docutils literal notranslate"><span class="pre">(grad</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1664">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1675">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gradhessianv&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">grad</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1659">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1670">source code</a></p>
 </div>
 <div class="section" id="low-level-functions">
 <h2>Low-level functions<a class="headerlink" href="#low-level-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_flt</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">t</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_elt</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L237">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_flt</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+<p>convert from <code class="docutils literal notranslate"><span class="pre">elt</span></code> type to <code class="docutils literal notranslate"><span class="pre">t</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L231">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_elt</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">elt</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L239">source code</a></p>
+<p>convert from <code class="docutils literal notranslate"><span class="pre">t</span></code> type to <code class="docutils literal notranslate"><span class="pre">elt</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L233">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_flt</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>convert from <code class="docutils literal notranslate"><span class="pre">float</span></code> type to <code class="docutils literal notranslate"><span class="pre">t</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L238">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_flt</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p>convert from <code class="docutils literal notranslate"><span class="pre">t</span></code> type to <code class="docutils literal notranslate"><span class="pre">float</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L242">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_arr</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L230">source code</a></p>
+<p>convert from <code class="docutils literal notranslate"><span class="pre">arr</span></code> type to <code class="docutils literal notranslate"><span class="pre">t</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L247">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_arr</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L232">source code</a></p>
+<p>convert from <code class="docutils literal notranslate"><span class="pre">t</span></code> type to <code class="docutils literal notranslate"><span class="pre">arr</span></code> type.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L249">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tag</span> <span class="o">:</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L130">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L131">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">primal</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L145">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L146">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">primal&#39;</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -558,37 +568,37 @@ Namely, it calculates <code class="docutils literal notranslate"><span class="pr
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L171">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L172">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">adjref</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="n">ref</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L166">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L167">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tangent</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L161">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L162">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make_forward</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1561">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1572">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make_reverse</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1563">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1574">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reverse_prop</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1554">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1565">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">type_info</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L251">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L262">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shape</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
@@ -597,7 +607,7 @@ Namely, it calculates <code class="docutils literal notranslate"><span class="pr
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L200">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L201">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -606,19 +616,19 @@ Namely, it calculates <code class="docutils literal notranslate"><span class="pr
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">to_trace</span> <span class="pre">[t0;</span> <span class="pre">t1;</span> <span class="pre">...]</span></code> outputs the trace of computation graph on the
 terminal in a human-readable format.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1946">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1957">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_dot</span> <span class="o">:</span> <span class="n">t</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">to_dot</span> <span class="pre">[t0;</span> <span class="pre">t1;</span> <span class="pre">...]</span></code> outputs the trace of computation graph in the dot
 file format which you can use other tools further visualisation, such as
 Graphviz.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1949">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1960">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_num</span> <span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pp_num</span> <span class="pre">t</span></code> pretty prints the abstract number used in <code class="docutils literal notranslate"><span class="pre">Algodiff</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1955">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_algodiff_generic.ml#L1966">source code</a></p>
 </div>
 </div>
 

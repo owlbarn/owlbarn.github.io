@@ -90,7 +90,7 @@
   <div class="section" id="stats">
 <h1>Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#246 entries have been extracted.</p>
+#249 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.ml">{Implementation}</a></p>
@@ -114,6 +114,11 @@
 </div>
 <div class="section" id="basic-statistical-functions">
 <h2>Basic statistical functions<a class="headerlink" href="#basic-statistical-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">histogram</span> <span class="o">=</span> <span class="nn">Owl_base_stats</span><span class="p">.</span><span class="n">histogram</span>
+</pre></div>
+</div>
+<p>Type for computed histograms, with optional weighted counts and normalized
+counts.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sum</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -158,7 +163,7 @@ standardized moment of <code class="docutils literal notranslate"><span class="p
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">central_moment</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">central_moment</span> <span class="pre">n</span> <span class="pre">x</span></code> calcuates the <code class="docutils literal notranslate"><span class="pre">n</span></code> th central moment of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">central_moment</span> <span class="pre">n</span> <span class="pre">x</span></code> calculates the <code class="docutils literal notranslate"><span class="pre">n</span></code> th central moment of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L81">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cov</span> <span class="o">:</span> <span class="o">?</span><span class="n">m0</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">m1</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
@@ -185,45 +190,45 @@ standardized moment of <code class="docutils literal notranslate"><span class="p
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">kendall_tau</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">kendall_tau</span> <span class="pre">x</span> <span class="pre">y</span></code> calcuates the Kendall Tau correlation between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">kendall_tau</span> <span class="pre">x</span> <span class="pre">y</span></code> calculates the Kendall Tau correlation between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L149">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">spearman_rho</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">spearman_rho</span> <span class="pre">x</span> <span class="pre">y</span></code> calcuates the Spearman Rho correlation between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">spearman_rho</span> <span class="pre">x</span> <span class="pre">y</span></code> calculates the Spearman Rho correlation between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L152">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">autocorrelation</span> <span class="o">:</span> <span class="o">?</span><span class="n">lag</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">autocorrelation</span> <span class="pre">~lag</span> <span class="pre">x</span></code> calcuates the autocorrelation of <code class="docutils literal notranslate"><span class="pre">x</span></code> with the given <code class="docutils literal notranslate"><span class="pre">lag</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">autocorrelation</span> <span class="pre">~lag</span> <span class="pre">x</span></code> calculates the autocorrelation of <code class="docutils literal notranslate"><span class="pre">x</span></code> with the given <code class="docutils literal notranslate"><span class="pre">lag</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L122">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">percentile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">percentile</span> <span class="pre">x</span> <span class="pre">p</span></code> returns the <code class="docutils literal notranslate"><span class="pre">p</span></code> percentile of the data <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">p</span></code> is between
 0. and 100. <code class="docutils literal notranslate"><span class="pre">x</span></code> does not need to be sorted beforehand.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L207">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L222">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">quantile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">quantile</span> <span class="pre">x</span> <span class="pre">p</span></code> returns the <code class="docutils literal notranslate"><span class="pre">p</span></code> quantile of the data <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">p</span></code> is between
 0. and 1. <code class="docutils literal notranslate"><span class="pre">x</span></code> does not need to be sorted beforehand.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L202">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L217">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">first_quartile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">first_quartile</span> <span class="pre">x</span></code> returns the first quartile of <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. 25 percentiles.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L213">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L228">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">third_quartile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">third_quartile</span> <span class="pre">x</span></code> returns the third quartile of <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. 75 percentiles.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L216">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L231">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">median</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">median</span> <span class="pre">x</span></code> returns the median of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L210">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L225">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">min</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -283,33 +288,50 @@ Note that the ranking starts with one!</p>
 <li><code class="docutils literal notranslate"><span class="pre">Max</span></code> the maximum of ranks is assigned to each value.</li>
 </ul>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L102">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">histogram</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normalise</span> <span class="o">:</span> <span class="n">histogram</span> <span class="o">-&gt;</span> <span class="n">histogram</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">histogram</span> <span class="pre">x</span> <span class="pre">n</span></code> creates a histogram of <code class="docutils literal notranslate"><span class="pre">n</span></code> buckets for <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L178">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">normalize</span> <span class="pre">hist</span></code> calculates a probability mass function using
+<code class="docutils literal notranslate"><span class="pre">hist.weighted_counts</span></code> if present, otherwise using <code class="docutils literal notranslate"><span class="pre">hist.counts</span></code>. The
+result is stored in the <code class="docutils literal notranslate"><span class="pre">normalised_counts</span></code> field and sums to one.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L187">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normalise_density</span> <span class="o">:</span> <span class="n">histogram</span> <span class="o">-&gt;</span> <span class="n">histogram</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">normalize_density</span> <span class="pre">hist</span></code> calculates a probability density function using
+<code class="docutils literal notranslate"><span class="pre">hist.weighted_counts</span></code> if present, otherwise using <code class="docutils literal notranslate"><span class="pre">hist.counts</span></code>. The
+result is normalized as a density that is piecewise constant over the bin
+intervals. That is, the sum over density times corresponding bin width is
+one. If bins are infinitely wide, their density is 0 and the sum over width
+times density of all finite bins is the total weight in the finite bins. The
+result is stored in the <code class="docutils literal notranslate"><span class="pre">density</span></code> field.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L190">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_hist</span><span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="n">histogram</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Pretty-print summary information on a histogram record</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ecdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">*</span> <span class="kt">float</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ecdf</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">(x',f)</span></code> which are the empirical cumulative distribution
 function <code class="docutils literal notranslate"><span class="pre">f</span></code> of <code class="docutils literal notranslate"><span class="pre">x</span></code> at points <code class="docutils literal notranslate"><span class="pre">x'</span></code>. <code class="docutils literal notranslate"><span class="pre">x'</span></code> is just <code class="docutils literal notranslate"><span class="pre">x</span></code> sorted in increasing
 order with duplicates removed.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L181">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L196">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">z_score</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">z_score</span> <span class="pre">x</span></code> calcuates the z score of a given array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L219">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">z_score</span> <span class="pre">x</span></code> calculates the z score of a given array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L234">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_score</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">t_score</span> <span class="pre">x</span></code> calcuates the t score of a given array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L222">source code</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">t_score</span> <span class="pre">x</span></code> calculates the t score of a given array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L237">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normlise_pdf</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L228">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L243">source code</a></p>
 </div>
 <div class="section" id="mcmc-markov-chain-monte-carlo">
 <h2>MCMC: Markov Chain Monte Carlo<a class="headerlink" href="#mcmc-markov-chain-monte-carlo" title="Permalink to this headline">¶</a></h2>
@@ -318,13 +340,13 @@ order with duplicates removed.</p>
 </div>
 <p>TODO: <code class="docutils literal notranslate"><span class="pre">metropolis_hastings</span> <span class="pre">f</span> <span class="pre">p</span> <span class="pre">n</span></code> is Metropolis-Hastings MCMC algorithm.
 f is pdf of the p</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L711">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L733">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gibbs_sampling</span> <span class="o">:</span> <span class="o">(</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>TODO: <code class="docutils literal notranslate"><span class="pre">gibbs_sampling</span> <span class="pre">f</span> <span class="pre">p</span> <span class="pre">n</span></code> is Gibbs sampler. f is a sampler based on the full
 conditional function of all variables</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L727">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L749">source code</a></p>
 </div>
 <div class="section" id="hypothesis-tests">
 <h2>Hypothesis tests<a class="headerlink" href="#hypothesis-tests" title="Permalink to this headline">¶</a></h2>
@@ -350,7 +372,7 @@ level. The alternative hypothesis is that the mean is not <code class="docutils 
 <p>The result <code class="docutils literal notranslate"><span class="pre">(h,p,z)</span></code> : <code class="docutils literal notranslate"><span class="pre">h</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> if the test rejects the null hypothesis at
 the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> significance level, and <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise. <code class="docutils literal notranslate"><span class="pre">p</span></code> is the p-value and
 <code class="docutils literal notranslate"><span class="pre">z</span></code> is the z-score.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L259">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L276">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_test</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
@@ -358,14 +380,14 @@ the <code class="docutils literal notranslate"><span class="pre">alpha</span></c
 which is a parametric test of the location parameter when the population
 standard deviation is unknown. <code class="docutils literal notranslate"><span class="pre">mu</span></code> is population mean, <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is the
 significance level.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L274">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L291">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_test_paired</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">t_test_paired</span> <span class="pre">~alpha</span> <span class="pre">~side</span> <span class="pre">x</span> <span class="pre">y</span></code> returns a test decision for the null
 hypothesis that the data in <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">–</span> <span class="pre">y</span></code> comes from a normal distribution with
 mean equal to zero and unknown variance, using the paired-sample t-test.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L290">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L307">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">t_test_unpaired</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">equal_var</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
@@ -377,7 +399,7 @@ hypothesis is that the data in <code class="docutils literal notranslate"><span 
 unequal means.</p>
 <p><code class="docutils literal notranslate"><span class="pre">equal_var</span></code> indicates whether two samples have the same variance. If the
 two variances are not the same, the test is referred to as Welche’s t-test.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L354">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L371">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ks_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
@@ -390,7 +412,7 @@ distribution.</p>
 hypothesis at the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> significance level, and <code class="docutils literal notranslate"><span class="pre">false</span></code>
 otherwise. <code class="docutils literal notranslate"><span class="pre">p</span></code> is the p-value and <code class="docutils literal notranslate"><span class="pre">d</span></code> is the Kolmogorov-Smirnov
 test statistic.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L414">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L433">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ks2_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
@@ -403,7 +425,7 @@ from different distributions.</p>
 hypothesis at the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> significance level, and <code class="docutils literal notranslate"><span class="pre">false</span></code>
 otherwise. <code class="docutils literal notranslate"><span class="pre">p</span></code> is the p-value and <code class="docutils literal notranslate"><span class="pre">d</span></code> is the Kolmogorov-Smirnov
 test statistic.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L464">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L485">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">var_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="n">variance</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
@@ -411,14 +433,14 @@ test statistic.</p>
 hypothesis that the data in <code class="docutils literal notranslate"><span class="pre">x</span></code> comes from a normal distribution with input
 <code class="docutils literal notranslate"><span class="pre">variance</span></code>, using the chi-square variance test. The alternative hypothesis
 is that <code class="docutils literal notranslate"><span class="pre">x</span></code> comes from a normal distribution with a different variance.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L503">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L525">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jb_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">jb_test</span> <span class="pre">~alpha</span> <span class="pre">x</span></code> returns a test decision for the null hypothesis that the
 data <code class="docutils literal notranslate"><span class="pre">x</span></code> comes from a normal distribution with an unknown mean and variance,
 using the Jarque-Bera test.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L492">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L514">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fisher_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
@@ -428,7 +450,7 @@ using the Jarque-Bera test.</p>
 <p>The result <code class="docutils literal notranslate"><span class="pre">(h,p,z)</span></code> : <code class="docutils literal notranslate"><span class="pre">h</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> if the test rejects the null hypothesis at
 the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> significance level, and <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise. <code class="docutils literal notranslate"><span class="pre">p</span></code> is the p-value and
 <code class="docutils literal notranslate"><span class="pre">z</span></code> is prior odds ratio.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L518">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L540">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">runs_test</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">v</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
@@ -437,7 +459,7 @@ the data <code class="docutils literal notranslate"><span class="pre">x</span></
 by runnign Wald–Wolfowitz runs test. The test is based on the number of runs
 of consecutive values above or below the mean of <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">~v</span></code> is the reference
 value, the default value is the median of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L671">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L693">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mannwhitneyu</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
@@ -446,12 +468,12 @@ samples x and y. If length of each sample less than 10 and no ties, then
 using exact test (see paper Ying Kuen Cheung and Jerome H. Klotz (1997)
 The Mann Whitney Wilcoxon distribution using linked list
 Statistica Sinica 7 805-813), else usning asymptotic normal distribution.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L562">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L584">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">wilcoxon</span> <span class="o">:</span> <span class="o">?</span><span class="n">alpha</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">side</span><span class="o">:</span><span class="n">tail</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">hypothesis</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L614">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L636">source code</a></p>
 </div>
 <div class="section" id="discrete-random-variables">
 <h2>Discrete random variables<a class="headerlink" href="#discrete-random-variables" title="Permalink to this headline">¶</a></h2>

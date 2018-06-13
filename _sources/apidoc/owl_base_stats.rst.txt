@@ -2,7 +2,7 @@ Base.Stats
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#38 entries have been extracted.
+#41 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/stats/owl_base_stats.mli>`_ 
@@ -49,6 +49,19 @@ Basic statistical functions
 -------------------------------------------------------------------------------
 
 
+
+.. code-block:: ocaml
+
+  type histogram = {
+    bins              : float array;
+    counts            : int array;
+    weighted_counts   : float array option;
+    normalised_counts : float array option;
+    density           : float array option
+    }
+    
+
+Refer to :doc:`owl_stats`.
 
 .. code-block:: ocaml
 
@@ -272,13 +285,29 @@ Refer to :doc:`owl_stats`.
 
 .. code-block:: ocaml
 
-  val histogram : float array -> int -> int array
+  val normalise : histogram -> histogram
 
 Refer to :doc:`owl_stats`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L322>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L509>`__
 
 
+
+.. code-block:: ocaml
+
+  val normalise_density : histogram -> histogram
+
+Refer to :doc:`owl_stats`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L519>`__
+
+
+
+.. code-block:: ocaml
+
+  val pp_hist: Format.formatter -> histogram -> unit
+
+Refer to :doc:`owl_stats`.
 
 Random variables
 -------------------------------------------------------------------------------

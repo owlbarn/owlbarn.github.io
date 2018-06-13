@@ -87,7 +87,7 @@
   <div class="section" id="opencl-dense-ndarray">
 <h1>OpenCL Dense Ndarray<a class="headerlink" href="#opencl-dense-ndarray" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#65 entries have been extracted.</p>
+#73 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/opencl/owl_opencl_dense_ndarray.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/opencl/owl_opencl_dense_ndarray.ml">{Implementation}</a></p>
@@ -97,12 +97,12 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">of_ndarray</span> <span class="pre">x</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L145">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L161">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_ndarray</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="nn">Bigarray</span><span class="p">.</span><span class="n">kind</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="nn">Owl_dense_ndarray_generic</span><span class="p">.</span><span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">to_ndarray</span> <span class="pre">otyp</span> <span class="pre">x</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L137">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L153">source code</a></p>
 </div>
 <div class="section" id="unary-math-functions">
 <h2>Unary math functions<a class="headerlink" href="#unary-math-functions" title="Permalink to this headline">¶</a></h2>
@@ -409,6 +409,46 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">atan2pi_scalar</span> <span class="pre">x</span> <span class="pre">a</span></code></p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L132">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_add</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">scalar_add</span> <span class="pre">a</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L134">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_sub</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">scalar_sub</span> <span class="pre">a</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L136">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_mul</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">scalar_mul</span> <span class="pre">a</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L138">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_div</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">scalar_div</span> <span class="pre">a</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L140">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_pow</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">scalar_pow</span> <span class="pre">a</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L142">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_fmod</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">scalar_fmod</span> <span class="pre">a</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L144">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_atan2</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">scalar_atan2</span> <span class="pre">a</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L146">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_atan2pi</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">scalar_atan2pi</span> <span class="pre">a</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L148">source code</a></p>
 </div>
 </div>
 

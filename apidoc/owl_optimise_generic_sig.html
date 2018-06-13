@@ -96,7 +96,7 @@
   <div class="section" id="optimise-generic-functor">
 <h1>Optimise.Generic Functor<a class="headerlink" href="#optimise-generic-functor" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#60 entries have been extracted.</p>
+#61 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/optimise/owl_optimise_generic_sig.ml">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/optimise/owl_optimise_generic.ml">{Implementation}</a></p>
@@ -106,20 +106,20 @@
 </pre></div>
 </div>
 <p>Return the total number of samples in passed in ndarray.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L31">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L28">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">draw_samples</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">draw_samples</span> <span class="pre">x</span> <span class="pre">y</span></code> draws samples from both <code class="docutils literal notranslate"><span class="pre">x</span></code> (observations) and <code class="docutils literal notranslate"><span class="pre">y</span></code>
 (labels). The samples will be drew along axis 0, so <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must agree
 along axis 0.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L36">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L33">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_chunk</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">get_chunk</span> <span class="pre">x</span> <span class="pre">y</span> <span class="pre">i</span> <span class="pre">c</span></code> gets a continuous chunk of <code class="docutils literal notranslate"><span class="pre">c</span></code> samples from position
 <code class="docutils literal notranslate"><span class="pre">i</span></code> from  <code class="docutils literal notranslate"><span class="pre">x</span></code> (observations) and <code class="docutils literal notranslate"><span class="pre">y</span></code> (labels).</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L45">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L42">source code</a></p>
 </div>
 <div class="section" id="learning-rate-module">
 <h2>Learning_Rate module<a class="headerlink" href="#learning-rate-module" title="Permalink to this headline">¶</a></h2>
@@ -146,7 +146,7 @@ along axis 0.</p>
 </pre></div>
 </div>
 <p>Update the cache of gradients.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L93">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L101">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_string</span> <span class="o">:</span> <span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
@@ -314,22 +314,22 @@ along axis 0.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">init_state</span> <span class="pre">batches_per_epoch</span> <span class="pre">epochs</span></code> initialises a state by specifying the
 number of batches per epoch and the number of epochs in total.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L346">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L354">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">default_checkpoint_fun</span> <span class="o">:</span> <span class="o">(</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p>This function is used for saving intermediate files during optimisation.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L362">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L370">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">print_state_info</span> <span class="o">:</span> <span class="n">state</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Print out the detail information of current <code class="docutils literal notranslate"><span class="pre">state</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L369">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L377">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">print_summary</span> <span class="o">:</span> <span class="n">state</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Print out the summary of current <code class="docutils literal notranslate"><span class="pre">state</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L382">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L390">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">run</span> <span class="o">:</span> <span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">state</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -365,7 +365,7 @@ number of batches per epoch and the number of epochs in total.</p>
 </pre></div>
 </div>
 <p>This function creates a parameter object with many configurations.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L441">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L449">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_string</span> <span class="o">:</span> <span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
@@ -381,20 +381,25 @@ number of batches per epoch and the number of epochs in total.</p>
 <li><code class="docutils literal notranslate"><span class="pre">f</span></code> is a function <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">w</span> <span class="pre">-&gt;</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">y</span></code>.</li>
 <li><code class="docutils literal notranslate"><span class="pre">w</span></code> is a row vector but <code class="docutils literal notranslate"><span class="pre">y</span></code> can have any shape.</li>
 </ul>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L482">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L490">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">minimise_network</span> <span class="o">:</span> <span class="o">?</span><span class="n">state</span><span class="o">:</span><span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span> <span class="o">-&gt;</span> <span class="nn">Params</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span> <span class="o">*</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span>
 </pre></div>
 </div>
 <p>This function is specifically designed for minimising the weights in a neural
 network of graph structure. In Owl’s earlier versions, the functions in the
 regression module were actually implemented using this function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L570">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L578">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">minimise_fun</span> <span class="o">:</span> <span class="o">?</span><span class="n">state</span><span class="o">:</span><span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span> <span class="o">-&gt;</span> <span class="nn">Params</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>This function minimises <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">y</span></code> w.r.t <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code> is an ndarray; and <code class="docutils literal notranslate"><span class="pre">y</span></code> is an scalar value.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L669">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L677">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">minimise_compiled_network</span> <span class="o">:</span> <span class="o">?</span><span class="n">state</span><span class="o">:</span><span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span> <span class="o">-&gt;</span> <span class="nn">Params</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">unit</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L757">source code</a></p>
 </div>
 </div>
 

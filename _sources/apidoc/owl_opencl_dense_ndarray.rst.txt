@@ -2,7 +2,7 @@ OpenCL Dense Ndarray
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#65 entries have been extracted.
+#73 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/opencl/owl_opencl_dense_ndarray.mli>`_ 
@@ -21,7 +21,7 @@ Core functions
 
 ``of_ndarray x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L145>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L161>`__
 
 
 
@@ -31,7 +31,7 @@ Core functions
 
 ``to_ndarray otyp x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L137>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L153>`__
 
 
 
@@ -642,6 +642,86 @@ Binary math functions
 ``atan2pi_scalar x a``
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L132>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_add : t -> t -> t
+
+``scalar_add a x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L134>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_sub : t -> t -> t
+
+``scalar_sub a x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L136>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_mul : t -> t -> t
+
+``scalar_mul a x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L138>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_div : t -> t -> t
+
+``scalar_div a x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L140>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_pow : t -> t -> t
+
+``scalar_pow a x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L142>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_fmod : t -> t -> t
+
+``scalar_fmod a x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L144>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_atan2 : t -> t -> t
+
+``scalar_atan2 a x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L146>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_atan2pi : t -> t -> t
+
+``scalar_atan2pi a x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_dense_ndarray.ml#L148>`__
 
 
 
