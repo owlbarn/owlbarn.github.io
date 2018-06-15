@@ -2,7 +2,7 @@ Base.Dense.Ndarray.Generic
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#203 entries have been extracted.
+#212 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/dense/owl_base_dense_ndarray_generic.mli>`_ 
@@ -356,7 +356,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 TODO: not implemented
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2874>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3165>`__
 
 
 
@@ -891,7 +891,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2851>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3142>`__
 
 
 
@@ -1504,6 +1504,36 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 .. code-block:: ocaml
 
+  val dilated_conv1d : ?padding:padding -> ?stride:int array -> (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t
+
+Refer to :doc:`owl_dense_ndarray_generic`
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2827>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv2d : ?padding:padding -> ?stride:int array -> (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t
+
+Refer to :doc:`owl_dense_ndarray_generic`
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2702>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv3d : ?padding:padding -> ?stride:int array -> (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t
+
+Refer to :doc:`owl_dense_ndarray_generic`
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2800>`__
+
+
+
+.. code-block:: ocaml
+
   val transpose_conv1d : ?padding:padding -> (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t
 
 Refer to :doc:`owl_dense_ndarray_generic`
@@ -1654,6 +1684,66 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 .. code-block:: ocaml
 
+  val dilated_conv1d_backward_input : ?stride:int array -> (float, 'a) t -> (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t
+
+Refer to :doc:`owl_dense_ndarray_generic`
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2855>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv1d_backward_kernel : ?stride:int array -> (float, 'a) t -> (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t
+
+Refer to :doc:`owl_dense_ndarray_generic`
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2891>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv2d_backward_input : ?stride:int array -> (float, 'a) t -> (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t
+
+Refer to :doc:`owl_dense_ndarray_generic`
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2709>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv2d_backward_kernel : ?stride:int array -> (float, 'a) t -> (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t
+
+Refer to :doc:`owl_dense_ndarray_generic`
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2716>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv3d_backward_input : ?stride:int array -> (float, 'a) t -> (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t
+
+Refer to :doc:`owl_dense_ndarray_generic`
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2807>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv3d_backward_kernel : ?stride:int array -> (float, 'a) t -> (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t
+
+Refer to :doc:`owl_dense_ndarray_generic`
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2814>`__
+
+
+
+.. code-block:: ocaml
+
   val transpose_conv1d_backward_input : (float, 'a) t -> (float, 'a) t -> int array -> (float, 'a) t -> (float, 'a) t
 
 Refer to :doc:`owl_dense_ndarray_generic`
@@ -1798,7 +1888,7 @@ Matrix functions
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2652>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2943>`__
 
 
 
@@ -1808,7 +1898,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2657>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2948>`__
 
 
 
@@ -1818,7 +1908,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2663>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2954>`__
 
 
 
@@ -1828,7 +1918,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2668>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2959>`__
 
 
 
@@ -1838,7 +1928,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2684>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2975>`__
 
 
 
@@ -1848,7 +1938,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2690>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2981>`__
 
 
 
@@ -1858,7 +1948,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2711>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3002>`__
 
 
 
@@ -1868,7 +1958,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2805>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3096>`__
 
 
 
@@ -1878,7 +1968,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2736>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3027>`__
 
 
 
@@ -1888,7 +1978,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2753>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3044>`__
 
 
 
@@ -1898,7 +1988,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2760>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3051>`__
 
 
 
@@ -1908,7 +1998,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2773>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3064>`__
 
 
 
@@ -1918,7 +2008,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2787>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3078>`__
 
 
 
@@ -1928,7 +2018,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2794>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3085>`__
 
 
 
@@ -1943,7 +2033,7 @@ Helper functions
 
 Identity function to deal with the type conversion required by other functors.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2879>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3170>`__
 
 
 
@@ -1953,7 +2043,7 @@ Identity function to deal with the type conversion required by other functors.
 
 Identity function to deal with the type conversion required by other functors.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L2881>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L3172>`__
 
 
 

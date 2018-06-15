@@ -2,7 +2,7 @@ Neural.Neuron Functor
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#426 entries have been extracted.
+#471 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_neuron_sig.ml>`_ 
@@ -799,105 +799,6 @@ Convert the neuron to its string representation. The string is often a summary o
 
 Return the name of the neuron.
 
-TransposeConv1D neuron
--------------------------------------------------------------------------------
-
-
-
-.. code-block:: ocaml
-
-  type neuron_typ = {
-    mutable w : t;
-    mutable b : t;
-    mutable kernel : int array;
-    mutable stride : int array;
-    mutable padding : Owl_types.padding;
-    mutable init_typ : Init.typ;
-    mutable in_shape : int array;
-    mutable out_shape : int array;
-    }
-    
-
-Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
-
-Create the neuron.
-
-.. code-block:: ocaml
-
-  val connect : int array -> neuron_typ -> unit
-
-Connect this neuron to others in a neural network.
-
-.. code-block:: ocaml
-
-  val init : neuron_typ -> unit
-
-Initialise the neuron and its parameters.
-
-.. code-block:: ocaml
-
-  val reset : neuron_typ -> unit
-
-Reset the parameters in a neuron.
-
-.. code-block:: ocaml
-
-  val mktag : int -> neuron_typ -> unit
-
-Tag the neuron, used by ``Algodiff`` module.
-
-.. code-block:: ocaml
-
-  val mkpar : neuron_typ -> t array
-
-Assemble all the parameters in an array, used by ``Optimise`` module.
-
-.. code-block:: ocaml
-
-  val mkpri : neuron_typ -> t array
-
-Assemble all the primial values in an array, used by ``Optimise`` module.
-
-.. code-block:: ocaml
-
-  val mkadj : neuron_typ -> t array
-
-Assemble all the adjacent values in an array, used by ``Optimise`` module.
-
-.. code-block:: ocaml
-
-  val update : neuron_typ -> t array -> unit
-
-Update parameters in a neuron, used by ``Optimise`` module.
-
-.. code-block:: ocaml
-
-  val copy : neuron_typ -> neuron_typ
-
-Make a deep copy of the neuron and its parameters.
-
-.. code-block:: ocaml
-
-  val run : t -> neuron_typ -> t
-
-Execute the computation in this neuron.
-
-.. code-block:: ocaml
-
-  val to_string : neuron_typ -> string
-
-Convert the neuron to its string representation. The string is often a summary of the parameters defined in the neuron.
-
-.. code-block:: ocaml
-
-  val to_name : unit -> string
-
-Return the name of the neuron.
-
 Conv2D neuron
 -------------------------------------------------------------------------------
 
@@ -997,7 +898,7 @@ Convert the neuron to its string representation. The string is often a summary o
 
 Return the name of the neuron.
 
-TransposeConv2D neuron
+Conv3D neuron
 -------------------------------------------------------------------------------
 
 
@@ -1096,7 +997,406 @@ Convert the neuron to its string representation. The string is often a summary o
 
 Return the name of the neuron.
 
-Conv3D neuron
+DilatedConv1D neuron
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type neuron_typ = {
+    mutable w         : t;
+    mutable b         : t;
+    mutable kernel    : int array;
+    mutable stride    : int array;
+    mutable rate      : int array;
+    mutable padding   : Owl_types.padding;
+    mutable init_typ  : Init.typ;
+    mutable in_shape  : int array;
+    mutable out_shape : int array;
+    }
+    
+
+Neuron type definition.
+
+.. code-block:: ocaml
+
+  val create : ?inputs:int array -> ?stride:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
+
+Create the neuron.
+
+.. code-block:: ocaml
+
+  val connect : int array -> neuron_typ -> unit
+
+Connect this neuron to others in a neural network.
+
+.. code-block:: ocaml
+
+  val init : neuron_typ -> unit
+
+Initialise the neuron and its parameters.
+
+.. code-block:: ocaml
+
+  val reset : neuron_typ -> unit
+
+Reset the parameters in a neuron.
+
+.. code-block:: ocaml
+
+  val mktag : int -> neuron_typ -> unit
+
+Tag the neuron, used by ``Algodiff`` module.
+
+.. code-block:: ocaml
+
+  val mkpar : neuron_typ -> t array
+
+Assemble all the parameters in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val mkpri : neuron_typ -> t array
+
+Assemble all the primial values in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val mkadj : neuron_typ -> t array
+
+Assemble all the adjacent values in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val update : neuron_typ -> t array -> unit
+
+Update parameters in a neuron, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val copy : neuron_typ -> neuron_typ
+
+Make a deep copy of the neuron and its parameters.
+
+.. code-block:: ocaml
+
+  val run : t -> neuron_typ -> t
+
+Execute the computation in this neuron.
+
+.. code-block:: ocaml
+
+  val to_string : neuron_typ -> string
+
+Convert the neuron to its string representation. The string is often a summary of the parameters defined in the neuron.
+
+.. code-block:: ocaml
+
+  val to_name : unit -> string
+
+Return the name of the neuron.
+
+DilatedConv2D neuron
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type neuron_typ = {
+    mutable w         : t;
+    mutable b         : t;
+    mutable kernel    : int array;
+    mutable stride    : int array;
+    mutable rate      : int array;
+    mutable padding   : Owl_types.padding;
+    mutable init_typ  : Init.typ;
+    mutable in_shape  : int array;
+    mutable out_shape : int array;
+    }
+    
+
+Neuron type definition.
+
+.. code-block:: ocaml
+
+  val create : ?inputs:int array -> ?stride:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
+
+Create the neuron.
+
+.. code-block:: ocaml
+
+  val connect : int array -> neuron_typ -> unit
+
+Connect this neuron to others in a neural network.
+
+.. code-block:: ocaml
+
+  val init : neuron_typ -> unit
+
+Initialise the neuron and its parameters.
+
+.. code-block:: ocaml
+
+  val reset : neuron_typ -> unit
+
+Reset the parameters in a neuron.
+
+.. code-block:: ocaml
+
+  val mktag : int -> neuron_typ -> unit
+
+Tag the neuron, used by ``Algodiff`` module.
+
+.. code-block:: ocaml
+
+  val mkpar : neuron_typ -> t array
+
+Assemble all the parameters in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val mkpri : neuron_typ -> t array
+
+Assemble all the primial values in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val mkadj : neuron_typ -> t array
+
+Assemble all the adjacent values in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val update : neuron_typ -> t array -> unit
+
+Update parameters in a neuron, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val copy : neuron_typ -> neuron_typ
+
+Make a deep copy of the neuron and its parameters.
+
+.. code-block:: ocaml
+
+  val run : t -> neuron_typ -> t
+
+Execute the computation in this neuron.
+
+.. code-block:: ocaml
+
+  val to_string : neuron_typ -> string
+
+Convert the neuron to its string representation. The string is often a summary of the parameters defined in the neuron.
+
+.. code-block:: ocaml
+
+  val to_name : unit -> string
+
+Return the name of the neuron.
+
+DilatedConv3D neuron
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type neuron_typ = {
+    mutable w         : t;
+    mutable b         : t;
+    mutable kernel    : int array;
+    mutable stride    : int array;
+    mutable rate      : int array;
+    mutable padding   : Owl_types.padding;
+    mutable init_typ  : Init.typ;
+    mutable in_shape  : int array;
+    mutable out_shape : int array;
+    }
+    
+
+Neuron type definition.
+
+.. code-block:: ocaml
+
+  val create : ?inputs:int array -> ?stride:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
+
+Create the neuron.
+
+.. code-block:: ocaml
+
+  val connect : int array -> neuron_typ -> unit
+
+Connect this neuron to others in a neural network.
+
+.. code-block:: ocaml
+
+  val init : neuron_typ -> unit
+
+Initialise the neuron and its parameters.
+
+.. code-block:: ocaml
+
+  val reset : neuron_typ -> unit
+
+Reset the parameters in a neuron.
+
+.. code-block:: ocaml
+
+  val mktag : int -> neuron_typ -> unit
+
+Tag the neuron, used by ``Algodiff`` module.
+
+.. code-block:: ocaml
+
+  val mkpar : neuron_typ -> t array
+
+Assemble all the parameters in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val mkpri : neuron_typ -> t array
+
+Assemble all the primial values in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val mkadj : neuron_typ -> t array
+
+Assemble all the adjacent values in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val update : neuron_typ -> t array -> unit
+
+Update parameters in a neuron, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val copy : neuron_typ -> neuron_typ
+
+Make a deep copy of the neuron and its parameters.
+
+.. code-block:: ocaml
+
+  val run : t -> neuron_typ -> t
+
+Execute the computation in this neuron.
+
+.. code-block:: ocaml
+
+  val to_string : neuron_typ -> string
+
+Convert the neuron to its string representation. The string is often a summary of the parameters defined in the neuron.
+
+.. code-block:: ocaml
+
+  val to_name : unit -> string
+
+Return the name of the neuron.
+
+TransposeConv1D neuron
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type neuron_typ = {
+    mutable w : t;
+    mutable b : t;
+    mutable kernel : int array;
+    mutable stride : int array;
+    mutable padding : Owl_types.padding;
+    mutable init_typ : Init.typ;
+    mutable in_shape : int array;
+    mutable out_shape : int array;
+    }
+    
+
+Neuron type definition.
+
+.. code-block:: ocaml
+
+  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
+
+Create the neuron.
+
+.. code-block:: ocaml
+
+  val connect : int array -> neuron_typ -> unit
+
+Connect this neuron to others in a neural network.
+
+.. code-block:: ocaml
+
+  val init : neuron_typ -> unit
+
+Initialise the neuron and its parameters.
+
+.. code-block:: ocaml
+
+  val reset : neuron_typ -> unit
+
+Reset the parameters in a neuron.
+
+.. code-block:: ocaml
+
+  val mktag : int -> neuron_typ -> unit
+
+Tag the neuron, used by ``Algodiff`` module.
+
+.. code-block:: ocaml
+
+  val mkpar : neuron_typ -> t array
+
+Assemble all the parameters in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val mkpri : neuron_typ -> t array
+
+Assemble all the primial values in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val mkadj : neuron_typ -> t array
+
+Assemble all the adjacent values in an array, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val update : neuron_typ -> t array -> unit
+
+Update parameters in a neuron, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val copy : neuron_typ -> neuron_typ
+
+Make a deep copy of the neuron and its parameters.
+
+.. code-block:: ocaml
+
+  val run : t -> neuron_typ -> t
+
+Execute the computation in this neuron.
+
+.. code-block:: ocaml
+
+  val to_string : neuron_typ -> string
+
+Convert the neuron to its string representation. The string is often a summary of the parameters defined in the neuron.
+
+.. code-block:: ocaml
+
+  val to_name : unit -> string
+
+Return the name of the neuron.
+
+TransposeConv2D neuron
 -------------------------------------------------------------------------------
 
 
@@ -2728,6 +3028,9 @@ Core functions
     | Conv1D          of Conv1D.neuron_typ
     | Conv2D          of Conv2D.neuron_typ
     | Conv3D          of Conv3D.neuron_typ
+    | DilatedConv1D   of DilatedConv1D.neuron_typ
+    | DilatedConv2D   of DilatedConv2D.neuron_typ
+    | DilatedConv3D   of DilatedConv3D.neuron_typ
     | TransposeConv1D of TransposeConv1D.neuron_typ
     | TransposeConv2D of TransposeConv2D.neuron_typ
     | TransposeConv3D of TransposeConv3D.neuron_typ
@@ -2765,7 +3068,7 @@ Types of neuron.
 
 Get both input and output shapes of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2603>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2906>`__
 
 
 
@@ -2775,7 +3078,7 @@ Get both input and output shapes of a neuron.
 
 Get the input shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2643>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2949>`__
 
 
 
@@ -2785,7 +3088,7 @@ Get the input shape of a neuron.
 
 Get the output shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2646>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2952>`__
 
 
 
