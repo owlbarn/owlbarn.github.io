@@ -1021,7 +1021,7 @@ Neuron type definition.
 
 .. code-block:: ocaml
 
-  val create : ?inputs:int array -> ?stride:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
+  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> int array -> Init.typ -> neuron_typ
 
 Create the neuron.
 
@@ -1121,7 +1121,7 @@ Neuron type definition.
 
 .. code-block:: ocaml
 
-  val create : ?inputs:int array -> ?stride:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
+  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> int array -> Init.typ -> neuron_typ
 
 Create the neuron.
 
@@ -1221,7 +1221,7 @@ Neuron type definition.
 
 .. code-block:: ocaml
 
-  val create : ?inputs:int array -> ?stride:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
+  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> int array -> Init.typ -> neuron_typ
 
 Create the neuron.
 
@@ -3068,7 +3068,7 @@ Types of neuron.
 
 Get both input and output shapes of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2906>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2894>`__
 
 
 
@@ -3078,7 +3078,7 @@ Get both input and output shapes of a neuron.
 
 Get the input shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2949>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2937>`__
 
 
 
@@ -3088,7 +3088,7 @@ Get the input shape of a neuron.
 
 Get the output shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2952>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2940>`__
 
 
 
