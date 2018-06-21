@@ -92,7 +92,7 @@
   <div class="section" id="high-level-opencl-api">
 <h1>High-level OpenCL API<a class="headerlink" href="#high-level-opencl-api" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#67 entries have been extracted.</p>
+#68 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/opencl/owl_opencl_base.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/opencl/owl_opencl_base.ml">{Implementation}</a></p>
@@ -409,30 +409,35 @@
 </pre></div>
 </div>
 <p>Get the string representation of a given object, often contains the object’s basic information.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">flags</span><span class="o">:</span><span class="kt">int</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_context</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="nn">Owl_dense_ndarray_generic</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">flags</span><span class="o">:</span><span class="kt">int</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_context</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="nn">Ctypes</span><span class="p">.</span><span class="n">ptr</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span>
 </pre></div>
 </div>
-<p>Create an object with the passed in parameters.</p>
+<p>Create an object with the passed in void pointer.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create_bigarray</span> <span class="o">:</span> <span class="o">?</span><span class="n">flags</span><span class="o">:</span><span class="kt">int</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_context</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="nn">Owl_dense_ndarray_generic</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span>
+</pre></div>
+</div>
+<p>Create an object with the passed in bigarray. Refer to <code class="docutils literal notranslate"><span class="pre">create</span></code> for a more general function.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L685">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">enqueue_read</span> <span class="o">:</span> <span class="o">?</span><span class="n">blocking</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="nn">Ctypes</span><span class="p">.</span><span class="n">ptr</span> <span class="o">-&gt;</span> <span class="n">cl_event</span>
 </pre></div>
 </div>
 <p>Enqueue a read operation on the given memory object to a command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L699">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L709">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">enqueue_write</span> <span class="o">:</span> <span class="o">?</span><span class="n">blocking</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="nn">Ctypes</span><span class="p">.</span><span class="n">ptr</span> <span class="o">-&gt;</span> <span class="n">cl_event</span>
 </pre></div>
 </div>
 <p>Enqueue a write operation on the given memory object to a command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L719">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L729">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">enqueue_map</span> <span class="o">:</span> <span class="o">?</span><span class="n">blocking</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="nn">Owl_opencl_generated</span><span class="p">.</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">flags</span><span class="o">:</span><span class="kt">int</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">cl_event</span> <span class="o">*</span> <span class="kt">unit</span> <span class="nn">Ctypes</span><span class="p">.</span><span class="n">ptr</span>
 </pre></div>
 </div>
 <p>Enqueue a map operation on the given memory object to a command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L739">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L749">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">enqueue_unmap</span> <span class="o">:</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="nn">Ctypes</span><span class="p">.</span><span class="n">ptr</span> <span class="o">-&gt;</span> <span class="n">cl_event</span>
 </pre></div>
 </div>
 <p>Enqueue a unmap operation on the given memory object to a command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L762">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L772">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">retain</span> <span class="o">:</span> <span class="n">cl_mem</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>

@@ -2,7 +2,7 @@ High-level OpenCL API
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#67 entries have been extracted.
+#68 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/opencl/owl_opencl_base.mli>`_ 
@@ -496,9 +496,19 @@ Get the string representation of a given object, often contains the object's bas
 
 .. code-block:: ocaml
 
-  val create : ?flags:int list -> cl_context -> ('a, 'b) Owl_dense_ndarray_generic.t -> cl_mem
+  val create : ?flags:int list -> cl_context -> int -> unit Ctypes.ptr -> cl_mem
 
-Create an object with the passed in parameters.
+Create an object with the passed in void pointer.
+
+.. code-block:: ocaml
+
+  val create_bigarray : ?flags:int list -> cl_context -> ('a, 'b) Owl_dense_ndarray_generic.t -> cl_mem
+
+Create an object with the passed in bigarray. Refer to ``create`` for a more general function.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L685>`__
+
+
 
 .. code-block:: ocaml
 
@@ -506,7 +516,7 @@ Create an object with the passed in parameters.
 
 Enqueue a read operation on the given memory object to a command queue.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L699>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L709>`__
 
 
 
@@ -516,7 +526,7 @@ Enqueue a read operation on the given memory object to a command queue.
 
 Enqueue a write operation on the given memory object to a command queue.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L719>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L729>`__
 
 
 
@@ -526,7 +536,7 @@ Enqueue a write operation on the given memory object to a command queue.
 
 Enqueue a map operation on the given memory object to a command queue.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L739>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L749>`__
 
 
 
@@ -536,7 +546,7 @@ Enqueue a map operation on the given memory object to a command queue.
 
 Enqueue a unmap operation on the given memory object to a command queue.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L762>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L772>`__
 
 
 
