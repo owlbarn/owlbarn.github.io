@@ -321,7 +321,7 @@
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">conv1d</span> <span class="pre">kernels</span> <span class="pre">strides</span> <span class="pre">node</span></code> adds a 1D convolution node (e.g. temporal
+<p><code class="docutils literal notranslate"><span class="pre">conv1d</span> <span class="pre">kernel</span> <span class="pre">stride</span> <span class="pre">node</span></code> adds a 1D convolution node (e.g. temporal
 convolution) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
@@ -335,7 +335,7 @@ convolution) on previous <code class="docutils literal notranslate"><span class=
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">conv2d</span> <span class="pre">kernels</span> <span class="pre">strides</span> <span class="pre">node</span></code> adds a 2D convolution node (e.g. spatial convolution over images) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">conv2d</span> <span class="pre">kernel</span> <span class="pre">stride</span> <span class="pre">node</span></code> adds a 2D convolution node (e.g. spatial convolution over images) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
@@ -348,7 +348,7 @@ convolution) on previous <code class="docutils literal notranslate"><span class=
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">conv3d</span> <span class="pre">kernels</span> <span class="pre">strides</span> <span class="pre">node</span></code> adds a 3D convolution node (e.g. spatial
+<p><code class="docutils literal notranslate"><span class="pre">conv3d</span> <span class="pre">kernel</span> <span class="pre">stride</span> <span class="pre">node</span></code> adds a 3D convolution node (e.g. spatial
 convolution over volumes) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
@@ -362,7 +362,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">dilated_conv1d</span> <span class="pre">kernels</span> <span class="pre">strides</span> <span class="pre">rates</span> <span class="pre">node</span></code> adds a 1D dilated convolution node (e.g. temporal convolution) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">dilated_conv1d</span> <span class="pre">kernel</span> <span class="pre">stride</span> <span class="pre">rate</span> <span class="pre">node</span></code> adds a 1D dilated convolution node (e.g. temporal convolution) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
@@ -376,13 +376,13 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">dilated_conv2d</span> <span class="pre">kernels</span> <span class="pre">strides</span> <span class="pre">rates</span> <span class="pre">node</span></code> adds a 2D dilated convolution node (e.g. spatial convolution over images) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">dilated_conv2d</span> <span class="pre">kernel</span> <span class="pre">stride</span> <span class="pre">rate</span> <span class="pre">node</span></code> adds a 2D dilated convolution node (e.g. spatial convolution over images) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
 <li><code class="docutils literal notranslate"><span class="pre">kernel`:</span> <span class="pre">int</span> <span class="pre">array</span> <span class="pre">consists</span> <span class="pre">of</span> <span class="pre">``w,</span> <span class="pre">h,</span> <span class="pre">i,</span> <span class="pre">o</span></code>. <code class="docutils literal notranslate"><span class="pre">w</span></code> and <code class="docutils literal notranslate"><span class="pre">h</span></code> specify the width and height of the 2D convolution window. <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">o</span></code> are the dimensionality of the input and output space.</li>
-<li><code class="docutils literal notranslate"><span class="pre">strides</span></code>: int array of 2 integers.</li>
-<li><code class="docutils literal notranslate"><span class="pre">rates</span></code>: int array of 2 integers.</li>
+<li><code class="docutils literal notranslate"><span class="pre">stride</span></code>: int array of 2 integers.</li>
+<li><code class="docutils literal notranslate"><span class="pre">rate</span></code>: int array of 2 integers.</li>
 </ul>
 </dd>
 </dl>
@@ -390,7 +390,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">dilated_conv3d</span> <span class="pre">kernels</span> <span class="pre">strides</span> <span class="pre">rates</span> <span class="pre">node</span></code> adds a 3D dilated convolution node (e.g. spatial convolution over volumes) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">dilated_conv3d</span> <span class="pre">kernel</span> <span class="pre">stride</span> <span class="pre">rate</span> <span class="pre">node</span></code> adds a 3D dilated convolution node (e.g. spatial convolution over volumes) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
@@ -404,7 +404,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">transpose_conv1d</span> <span class="pre">kernels</span> <span class="pre">strides</span> <span class="pre">node</span></code> adds a 1D transpose convolution node (e.g. temporal convolution) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">transpose_conv1d</span> <span class="pre">kernel</span> <span class="pre">stride</span> <span class="pre">node</span></code> adds a 1D transpose convolution node (e.g. temporal convolution) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
@@ -417,7 +417,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">transpose_conv2d</span> <span class="pre">kernels</span> <span class="pre">strides</span> <span class="pre">node</span></code> adds a 2D transpose convolution node on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">transpose_conv2d</span> <span class="pre">kernel</span> <span class="pre">stride</span> <span class="pre">node</span></code> adds a 2D transpose convolution node on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
@@ -430,7 +430,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">transpose_conv3d</span> <span class="pre">kernels</span> <span class="pre">strides</span> <span class="pre">node</span></code> adds a 3D transpose convolution node (e.g. spatial convolution over volumes) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">transpose_conv3d</span> <span class="pre">kernel</span> <span class="pre">stride</span> <span class="pre">node</span></code> adds a 3D transpose convolution node (e.g. spatial convolution over volumes) on previous <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
@@ -455,13 +455,13 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">max_pool1d</span> <span class="pre">~padding</span> <span class="pre">~act_typ</span> <span class="pre">pool_size</span> <span class="pre">strides</span> <span class="pre">node</span></code> adds a max pooling
+<p><code class="docutils literal notranslate"><span class="pre">max_pool1d</span> <span class="pre">~padding</span> <span class="pre">~act_typ</span> <span class="pre">pool_size</span> <span class="pre">stride</span> <span class="pre">node</span></code> adds a max pooling
 operation for temporal data to <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
 <li><code class="docutils literal notranslate"><span class="pre">pool_size</span></code>: Array of one integer, size of the max pooling windows.</li>
-<li><code class="docutils literal notranslate"><span class="pre">strides</span></code>: Array of one integer, factor by which to downscale.</li>
+<li><code class="docutils literal notranslate"><span class="pre">stride</span></code>: Array of one integer, factor by which to downscale.</li>
 </ul>
 </dd>
 </dl>
@@ -469,13 +469,13 @@ operation for temporal data to <code class="docutils literal notranslate"><span 
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">max_pool2d</span> <span class="pre">~padding</span> <span class="pre">~act_typ</span> <span class="pre">pool_size</span> <span class="pre">strides</span> <span class="pre">node</span></code> adds a max pooling
+<p><code class="docutils literal notranslate"><span class="pre">max_pool2d</span> <span class="pre">~padding</span> <span class="pre">~act_typ</span> <span class="pre">pool_size</span> <span class="pre">stride</span> <span class="pre">node</span></code> adds a max pooling
 operation for spatial data to <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
 <li><code class="docutils literal notranslate"><span class="pre">pool_size</span></code>: Array of 2 integers, size of the max pooling windows.</li>
-<li><code class="docutils literal notranslate"><span class="pre">strides</span></code>: Array of 2 integers, factor by which to downscale.</li>
+<li><code class="docutils literal notranslate"><span class="pre">stride</span></code>: Array of 2 integers, factor by which to downscale.</li>
 </ul>
 </dd>
 </dl>
@@ -483,13 +483,13 @@ operation for spatial data to <code class="docutils literal notranslate"><span c
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">avg_pool1d</span> <span class="pre">~padding</span> <span class="pre">~act_typ</span> <span class="pre">pool_size</span> <span class="pre">strides</span> <span class="pre">node</span></code> adds a average pooling
+<p><code class="docutils literal notranslate"><span class="pre">avg_pool1d</span> <span class="pre">~padding</span> <span class="pre">~act_typ</span> <span class="pre">pool_size</span> <span class="pre">stride</span> <span class="pre">node</span></code> adds a average pooling
 operation for temporal data to <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
 <li><code class="docutils literal notranslate"><span class="pre">pool_size</span></code>: Array of one integer, size of the max pooling windows.</li>
-<li><code class="docutils literal notranslate"><span class="pre">strides</span></code>: Array of one integer, factor by which to downscale.</li>
+<li><code class="docutils literal notranslate"><span class="pre">stride</span></code>: Array of one integer, factor by which to downscale.</li>
 </ul>
 </dd>
 </dl>
@@ -497,12 +497,12 @@ operation for temporal data to <code class="docutils literal notranslate"><span 
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">avg_pool2d</span> <span class="pre">~padding</span> <span class="pre">~act_typ</span> <span class="pre">pool_size</span> <span class="pre">strides</span> <span class="pre">node</span></code> adds a average pooling operation for spatial data to <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">avg_pool2d</span> <span class="pre">~padding</span> <span class="pre">~act_typ</span> <span class="pre">pool_size</span> <span class="pre">stride</span> <span class="pre">node</span></code> adds a average pooling operation for spatial data to <code class="docutils literal notranslate"><span class="pre">node</span></code>.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><ul class="first last simple">
 <li><code class="docutils literal notranslate"><span class="pre">pool_size</span></code>: Array of 2 integers, size of the max pooling windows.</li>
-<li><code class="docutils literal notranslate"><span class="pre">strides</span></code>: Array of 2 integers, factor by which to downscale.</li>
+<li><code class="docutils literal notranslate"><span class="pre">stride</span></code>: Array of 2 integers, factor by which to downscale.</li>
 </ul>
 </dd>
 </dl>

@@ -252,7 +252,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 .. code-block:: ocaml
 
-  val copy_to : ('a, 'b) t -> ('a, 'b) t -> unit
+  val copy_ : out:('a, 'b) t -> ('a, 'b) t -> unit
 
 Refer to :doc:`owl_dense_ndarray_generic`
 

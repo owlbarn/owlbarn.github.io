@@ -90,7 +90,7 @@
   <div class="section" id="lazy-functor">
 <h1>Lazy Functor<a class="headerlink" href="#lazy-functor" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#238 entries have been extracted.</p>
+#223 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_lazy.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_lazy.ml">{Implementation}</a></p>
@@ -364,7 +364,7 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sequential</span> <span class="o">:</span> <span class="o">?</span><span class="n">a</span><span class="o">:</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">step</span><span class="o">:</span><span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sequential</span> <span class="o">:</span> <span class="o">?</span><span class="n">a</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">step</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>TODO</p>
@@ -372,7 +372,7 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian</span> <span class="o">:</span> <span class="o">?</span><span class="n">mu</span><span class="o">:</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sigma</span><span class="o">:</span><span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian</span> <span class="o">:</span> <span class="o">?</span><span class="n">mu</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sigma</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>TODO</p>
@@ -412,7 +412,7 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy_to</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">c</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy_</span> <span class="o">:</span> <span class="n">out</span><span class="o">:</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>TODO</p>
@@ -708,50 +708,6 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_zero</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_positive</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_negative</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_nonpositive</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_nonnegative</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">equal</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">c</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">not_equal</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">c</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">less</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">c</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">greater</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">c</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">less_equal</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">c</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">greater_equal</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">c</span>
-</pre></div>
-</div>
-<p>TODO</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_equal</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
@@ -797,22 +753,6 @@
 </div>
 <p>TODO</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_greater_equal_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">approx_equal</span> <span class="o">:</span> <span class="o">?</span><span class="n">eps</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">approx_equal_scalar</span> <span class="o">:</span> <span class="o">?</span><span class="n">eps</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">approx_elt_equal</span> <span class="o">:</span> <span class="o">?</span><span class="n">eps</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">approx_elt_equal_scalar</span> <span class="o">:</span> <span class="o">?</span><span class="n">eps</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>TODO</p>

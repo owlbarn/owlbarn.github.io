@@ -2,7 +2,7 @@ Lazy Functor
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#238 entries have been extracted.
+#223 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_lazy.mli>`_ 
@@ -427,7 +427,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val sequential : ?a:'a -> ?step:'b -> int array -> arr
+  val sequential : ?a:elt -> ?step:elt -> int array -> arr
 
 TODO
 
@@ -439,7 +439,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val gaussian : ?mu:'a -> ?sigma:'b -> int array -> arr
+  val gaussian : ?mu:elt -> ?sigma:elt -> int array -> arr
 
 TODO
 
@@ -499,7 +499,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val copy_to : 'a -> 'b -> 'c
+  val copy_ : out:arr -> arr -> unit
 
 TODO
 
@@ -943,72 +943,6 @@ TODO
 
 .. code-block:: ocaml
 
-  val is_zero : 'a -> 'b
-
-TODO
-
-.. code-block:: ocaml
-
-  val is_positive : 'a -> 'b
-
-TODO
-
-.. code-block:: ocaml
-
-  val is_negative : 'a -> 'b
-
-TODO
-
-.. code-block:: ocaml
-
-  val is_nonpositive : 'a -> 'b
-
-TODO
-
-.. code-block:: ocaml
-
-  val is_nonnegative : 'a -> 'b
-
-TODO
-
-.. code-block:: ocaml
-
-  val equal : 'a -> 'b -> 'c
-
-TODO
-
-.. code-block:: ocaml
-
-  val not_equal : 'a -> 'b -> 'c
-
-TODO
-
-.. code-block:: ocaml
-
-  val less : 'a -> 'b -> 'c
-
-TODO
-
-.. code-block:: ocaml
-
-  val greater : 'a -> 'b -> 'c
-
-TODO
-
-.. code-block:: ocaml
-
-  val less_equal : 'a -> 'b -> 'c
-
-TODO
-
-.. code-block:: ocaml
-
-  val greater_equal : 'a -> 'b -> 'c
-
-TODO
-
-.. code-block:: ocaml
-
   val elt_equal : arr -> arr -> arr
 
 TODO
@@ -1076,30 +1010,6 @@ TODO
 .. code-block:: ocaml
 
   val elt_greater_equal_scalar : arr -> elt -> arr
-
-TODO
-
-.. code-block:: ocaml
-
-  val approx_equal : ?eps:float -> arr -> arr -> bool
-
-TODO
-
-.. code-block:: ocaml
-
-  val approx_equal_scalar : ?eps:float -> arr -> elt -> bool
-
-TODO
-
-.. code-block:: ocaml
-
-  val approx_elt_equal : ?eps:float -> arr -> arr -> arr
-
-TODO
-
-.. code-block:: ocaml
-
-  val approx_elt_equal_scalar : ?eps:float -> arr -> elt -> arr
 
 TODO
 
