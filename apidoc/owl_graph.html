@@ -200,20 +200,21 @@ in <code class="docutils literal notranslate"><span class="pre">next</span></cod
 <p><code class="docutils literal notranslate"><span class="pre">connect</span> <span class="pre">parents</span> <span class="pre">children</span></code> connects a set of parents to a set of children.
 The created links are the Cartesian product of parents and children. In other
 words, they are bidirectional links between parents and children.</p>
+<p>NOTE: this function does not eliminate any duplicates in the array.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L70">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect_descendants</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">connect_descendants</span> <span class="pre">parents</span> <span class="pre">children</span></code> connects parents to their children.
-In other words, this function creates unidirectional links from parents to
-children.</p>
+This function creates unidirectional links from parents to children. In other
+words, this function save <code class="docutils literal notranslate"><span class="pre">children</span></code> to <code class="docutils literal notranslate"><span class="pre">parent.next</span></code> field.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L79">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect_ancestors</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">connect_ancestors</span> <span class="pre">parents</span> <span class="pre">children</span></code> connects children to their parents.
-In other words, this function creates unidirectional links from children to
-parents.</p>
+This function creates unidirectional links from children to parents. In other
+words, this function save <code class="docutils literal notranslate"><span class="pre">parents</span></code> to <code class="docutils literal notranslate"><span class="pre">child.prev</span></code> field.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L85">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">remove_node</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
@@ -233,12 +234,16 @@ will be removed. Note that it does not remove [dst -&gt; src] if there exists on
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">replace_child</span> <span class="pre">x</span> <span class="pre">y</span></code> replaces <code class="docutils literal notranslate"><span class="pre">x</span></code> with <code class="docutils literal notranslate"><span class="pre">y</span></code> in <code class="docutils literal notranslate"><span class="pre">x</span></code> parents. Namely, <code class="docutils literal notranslate"><span class="pre">x</span></code>
 parents now make link to <code class="docutils literal notranslate"><span class="pre">y</span></code> rather than <code class="docutils literal notranslate"><span class="pre">x</span></code> in <code class="docutils literal notranslate"><span class="pre">next</span></code> field.</p>
+<p>NOTE: The function does NOT make link from <code class="docutils literal notranslate"><span class="pre">y</span></code> to <code class="docutils literal notranslate"><span class="pre">x</span></code> parents. Namely,
+the <code class="docutils literal notranslate"><span class="pre">prev</span></code> field of <code class="docutils literal notranslate"><span class="pre">y</span></code> remains intact.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L106">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">replace_parent</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">replace_parent</span> <span class="pre">x</span> <span class="pre">y</span></code> replaces <code class="docutils literal notranslate"><span class="pre">x</span></code> with <code class="docutils literal notranslate"><span class="pre">y</span></code> in <code class="docutils literal notranslate"><span class="pre">x</span></code> children. Namely,
 <code class="docutils literal notranslate"><span class="pre">x</span></code> children now make link to <code class="docutils literal notranslate"><span class="pre">y</span></code> rather than <code class="docutils literal notranslate"><span class="pre">x</span></code> in <code class="docutils literal notranslate"><span class="pre">prev</span></code> field.</p>
+<p>NOTE: The function does NOT make link from <code class="docutils literal notranslate"><span class="pre">y</span></code> to <code class="docutils literal notranslate"><span class="pre">x</span></code> children. Namely,
+the <code class="docutils literal notranslate"><span class="pre">next</span></code> field of <code class="docutils literal notranslate"><span class="pre">y</span></code> remains intact.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L116">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="o">?</span><span class="n">dir</span><span class="o">:</span><span class="n">dir</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span>
 </pre></div>

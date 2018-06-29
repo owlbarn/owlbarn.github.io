@@ -2,7 +2,7 @@ Utils.Array
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#76 entries have been extracted.
+#79 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli>`_ 
@@ -86,6 +86,10 @@ Refer to OCaml native array.
   val fill : 'a array -> int -> int -> 'a -> unit
 
 Refer to OCaml native array.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L444>`__
+
+
 
 .. code-block:: ocaml
 
@@ -176,6 +180,19 @@ Refer to OCaml native array.
   val fast_sort : ('a -> 'a -> int) -> 'a array -> unit
 
 Refer to OCaml native array.
+
+.. code-block:: ocaml
+
+  val sort_fill : ?min:int -> ?max:int -> ?fill:int -> int array -> int array
+
+``sort_fill ~min ~max ~fill x`` first sorts ``x``, then expands it to an array
+of length ``max - min + 1``, and fills the holes with ``fill``. E.g.,
+``sort_fill ~min:1 ~max:5 ~fill:0 [|4;2|] x`` returns a new array as follows:
+``[|1; 0; 2; 0; 4; 5|]``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L437>`__
+
+
 
 .. code-block:: ocaml
 
@@ -275,6 +292,26 @@ TODO
 TODO
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L50>`__
+
+
+
+.. code-block:: ocaml
+
+  val unique : 'a array -> 'a array
+
+``unique x`` removes the duplicates in the array ``x``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L423>`__
+
+
+
+.. code-block:: ocaml
+
+  val merge : 'a array -> 'a array -> 'a array
+
+``merge x y`` merges two arrays and removes the duplicates.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L433>`__
 
 
 
