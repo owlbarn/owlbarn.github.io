@@ -1,0 +1,1646 @@
+Computation.Operator
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#190 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_operator_sig.ml>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_operator.ml>`_
+
+
+
+Vectorised functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val noop : arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L28>`__
+
+
+
+.. code-block:: ocaml
+
+  val empty : int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L31>`__
+
+
+
+.. code-block:: ocaml
+
+  val zeros : int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L34>`__
+
+
+
+.. code-block:: ocaml
+
+  val ones : int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L37>`__
+
+
+
+.. code-block:: ocaml
+
+  val create : int array -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L40>`__
+
+
+
+.. code-block:: ocaml
+
+  val sequential : ?a:elt -> ?step:elt -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L43>`__
+
+
+
+.. code-block:: ocaml
+
+  val uniform : ?a:elt -> ?b:elt -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L55>`__
+
+
+
+.. code-block:: ocaml
+
+  val gaussian : ?mu:elt -> ?sigma:elt -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L67>`__
+
+
+
+.. code-block:: ocaml
+
+  val bernoulli : ?p:float -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L79>`__
+
+
+
+.. code-block:: ocaml
+
+  val init : int array -> (int -> elt) -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L82>`__
+
+
+
+.. code-block:: ocaml
+
+  val shape : arr -> int array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L85>`__
+
+
+
+.. code-block:: ocaml
+
+  val numel : arr -> int
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L87>`__
+
+
+
+.. code-block:: ocaml
+
+  val get : arr -> int array -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L89>`__
+
+
+
+.. code-block:: ocaml
+
+  val set : arr -> int array -> elt -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L92>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_slice : int list list -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L95>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_slice : int list list -> arr -> arr -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L98>`__
+
+
+
+.. code-block:: ocaml
+
+  val copy : arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L101>`__
+
+
+
+.. code-block:: ocaml
+
+  val copy_ : out:'a -> 'b -> 'c
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L104>`__
+
+
+
+.. code-block:: ocaml
+
+  val reset : arr -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L106>`__
+
+
+
+.. code-block:: ocaml
+
+  val reshape : arr -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L109>`__
+
+
+
+.. code-block:: ocaml
+
+  val reverse : arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L115>`__
+
+
+
+.. code-block:: ocaml
+
+  val tile : arr -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L118>`__
+
+
+
+.. code-block:: ocaml
+
+  val repeat : arr -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L121>`__
+
+
+
+.. code-block:: ocaml
+
+  val concatenate : ?axis:int -> arr array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L124>`__
+
+
+
+.. code-block:: ocaml
+
+  val split : ?axis:int -> 'a -> 'b -> 'c
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L127>`__
+
+
+
+.. code-block:: ocaml
+
+  val draw : ?axis:int -> arr -> int -> arr * 'a array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L129>`__
+
+
+
+.. code-block:: ocaml
+
+  val map : (elt -> elt) -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L133>`__
+
+
+
+.. code-block:: ocaml
+
+  val fold : ?axis:int -> (elt -> elt -> elt) -> elt -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L136>`__
+
+
+
+.. code-block:: ocaml
+
+  val scan : ?axis:int -> (elt -> elt -> elt) -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L139>`__
+
+
+
+.. code-block:: ocaml
+
+  val one_hot : int -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L142>`__
+
+
+
+.. code-block:: ocaml
+
+  val print : ?max_row:'a -> ?max_col:'b -> ?header:'c -> ?fmt:'d -> 'e -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L145>`__
+
+
+
+.. code-block:: ocaml
+
+  val abs : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val neg : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val floor : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val ceil : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val round : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val sqr : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val sqrt : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val log : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val log2 : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val log10 : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val exp : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val sin : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val cos : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val tan : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val sinh : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val cosh : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val tanh : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val asin : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val acos : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val atan : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val asinh : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val acosh : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val atanh : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val min : ?axis:int -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L194>`__
+
+
+
+.. code-block:: ocaml
+
+  val max : ?axis:int -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L196>`__
+
+
+
+.. code-block:: ocaml
+
+  val sum : ?axis:int -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L198>`__
+
+
+
+.. code-block:: ocaml
+
+  val sum_reduce : ?axis:int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L200>`__
+
+
+
+.. code-block:: ocaml
+
+  val signum : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val sigmoid : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val relu : arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val min' : arr -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L208>`__
+
+
+
+.. code-block:: ocaml
+
+  val max' : arr -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L210>`__
+
+
+
+.. code-block:: ocaml
+
+  val sum' : arr -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L212>`__
+
+
+
+.. code-block:: ocaml
+
+  val l1norm' : arr -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L214>`__
+
+
+
+.. code-block:: ocaml
+
+  val l2norm' : arr -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L216>`__
+
+
+
+.. code-block:: ocaml
+
+  val l2norm_sqr' : arr -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L218>`__
+
+
+
+.. code-block:: ocaml
+
+  val clip_by_value : ?amin:elt -> ?amax:elt -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L220>`__
+
+
+
+.. code-block:: ocaml
+
+  val clip_by_l2norm : elt -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L231>`__
+
+
+
+.. code-block:: ocaml
+
+  val pow : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val scalar_pow : elt -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L236>`__
+
+
+
+.. code-block:: ocaml
+
+  val pow_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L238>`__
+
+
+
+.. code-block:: ocaml
+
+  val atan2 : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val scalar_atan2 : elt -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L242>`__
+
+
+
+.. code-block:: ocaml
+
+  val atan2_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L244>`__
+
+
+
+.. code-block:: ocaml
+
+  val hypot : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L246>`__
+
+
+
+.. code-block:: ocaml
+
+  val min2 : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L248>`__
+
+
+
+.. code-block:: ocaml
+
+  val max2 : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L250>`__
+
+
+
+.. code-block:: ocaml
+
+  val add : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val sub : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val mul : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val div : arr -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val add_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L260>`__
+
+
+
+.. code-block:: ocaml
+
+  val sub_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L262>`__
+
+
+
+.. code-block:: ocaml
+
+  val mul_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L264>`__
+
+
+
+.. code-block:: ocaml
+
+  val div_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L266>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_add : elt -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L268>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_sub : elt -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L270>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_mul : elt -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L272>`__
+
+
+
+.. code-block:: ocaml
+
+  val scalar_div : elt -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L274>`__
+
+
+
+.. code-block:: ocaml
+
+  val fma : arr -> arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L276>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_equal : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L278>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_not_equal : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L280>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_less : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L282>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_greater : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L284>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_less_equal : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L286>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_greater_equal : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L288>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_equal_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L290>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_not_equal_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L292>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_less_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L294>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_greater_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L296>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_less_equal_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L298>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_greater_equal_scalar : arr -> elt -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L300>`__
+
+
+
+.. code-block:: ocaml
+
+  val conv1d : ?padding:Owl_types.padding -> arr -> arr -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L302>`__
+
+
+
+.. code-block:: ocaml
+
+  val conv2d : ?padding:Owl_types.padding -> arr -> arr -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L305>`__
+
+
+
+.. code-block:: ocaml
+
+  val conv3d : ?padding:Owl_types.padding -> arr -> arr -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L308>`__
+
+
+
+.. code-block:: ocaml
+
+  val transpose_conv1d : ?padding:Owl_types.padding -> arr -> arr -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L311>`__
+
+
+
+.. code-block:: ocaml
+
+  val transpose_conv2d : ?padding:Owl_types.padding -> arr -> arr -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L314>`__
+
+
+
+.. code-block:: ocaml
+
+  val transpose_conv3d : ?padding:Owl_types.padding -> arr -> arr -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L317>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv1d : ?padding:Owl_types.padding -> arr -> arr -> int array -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L320>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv2d : ?padding:Owl_types.padding -> arr -> arr -> int array -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L323>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv3d : ?padding:Owl_types.padding -> arr -> arr -> int array -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L326>`__
+
+
+
+.. code-block:: ocaml
+
+  val max_pool1d : ?padding:Owl_types.padding -> arr -> int array -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L329>`__
+
+
+
+.. code-block:: ocaml
+
+  val max_pool2d : ?padding:Owl_types.padding -> arr -> int array -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L332>`__
+
+
+
+.. code-block:: ocaml
+
+  val max_pool3d : ?padding:Owl_types.padding -> arr -> int array -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L335>`__
+
+
+
+.. code-block:: ocaml
+
+  val avg_pool1d : ?padding:Owl_types.padding -> arr -> int array -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L338>`__
+
+
+
+.. code-block:: ocaml
+
+  val avg_pool2d : ?padding:Owl_types.padding -> arr -> int array -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L341>`__
+
+
+
+.. code-block:: ocaml
+
+  val avg_pool3d : ?padding:Owl_types.padding -> arr -> int array -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L344>`__
+
+
+
+.. code-block:: ocaml
+
+  val conv1d_backward_input : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L347>`__
+
+
+
+.. code-block:: ocaml
+
+  val conv1d_backward_kernel : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L350>`__
+
+
+
+.. code-block:: ocaml
+
+  val conv2d_backward_input : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L353>`__
+
+
+
+.. code-block:: ocaml
+
+  val conv2d_backward_kernel : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L356>`__
+
+
+
+.. code-block:: ocaml
+
+  val conv3d_backward_input : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L359>`__
+
+
+
+.. code-block:: ocaml
+
+  val conv3d_backward_kernel : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L362>`__
+
+
+
+.. code-block:: ocaml
+
+  val transpose_conv1d_backward_input : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L365>`__
+
+
+
+.. code-block:: ocaml
+
+  val transpose_conv1d_backward_kernel : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L368>`__
+
+
+
+.. code-block:: ocaml
+
+  val transpose_conv2d_backward_input : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L371>`__
+
+
+
+.. code-block:: ocaml
+
+  val transpose_conv2d_backward_kernel : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L374>`__
+
+
+
+.. code-block:: ocaml
+
+  val transpose_conv3d_backward_input : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L377>`__
+
+
+
+.. code-block:: ocaml
+
+  val transpose_conv3d_backward_kernel : arr -> arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L380>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv1d_backward_input : arr -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L383>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv1d_backward_kernel : arr -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L386>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv2d_backward_input : arr -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L389>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv2d_backward_kernel : arr -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L392>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv3d_backward_input : arr -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L395>`__
+
+
+
+.. code-block:: ocaml
+
+  val dilated_conv3d_backward_kernel : arr -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L398>`__
+
+
+
+.. code-block:: ocaml
+
+  val max_pool1d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L401>`__
+
+
+
+.. code-block:: ocaml
+
+  val max_pool2d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L404>`__
+
+
+
+.. code-block:: ocaml
+
+  val max_pool3d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L407>`__
+
+
+
+.. code-block:: ocaml
+
+  val avg_pool1d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L410>`__
+
+
+
+.. code-block:: ocaml
+
+  val avg_pool2d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L413>`__
+
+
+
+.. code-block:: ocaml
+
+  val avg_pool3d_backward : padding -> arr -> int array -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L416>`__
+
+
+
+.. code-block:: ocaml
+
+  val row_num : arr -> int
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L419>`__
+
+
+
+.. code-block:: ocaml
+
+  val col_num : arr -> int
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L424>`__
+
+
+
+.. code-block:: ocaml
+
+  val row : arr -> 'a -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L429>`__
+
+
+
+.. code-block:: ocaml
+
+  val rows : arr -> int array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L431>`__
+
+
+
+.. code-block:: ocaml
+
+  val copy_row_to : arr -> 'a -> 'b -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L433>`__
+
+
+
+.. code-block:: ocaml
+
+  val copy_col_to : arr -> 'a -> 'b -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L435>`__
+
+
+
+.. code-block:: ocaml
+
+  val inv : arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L437>`__
+
+
+
+.. code-block:: ocaml
+
+  val trace : arr -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L439>`__
+
+
+
+.. code-block:: ocaml
+
+  val dot : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L441>`__
+
+
+
+.. code-block:: ocaml
+
+  val transpose : ?axis:int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L449>`__
+
+
+
+.. code-block:: ocaml
+
+  val to_rows : arr -> 'a array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L457>`__
+
+
+
+.. code-block:: ocaml
+
+  val of_rows : arr array -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L462>`__
+
+
+
+.. code-block:: ocaml
+
+  val of_array : 'a -> 'b -> 'c
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L464>`__
+
+
+
+.. code-block:: ocaml
+
+  val of_arrays : 'a -> 'b
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L466>`__
+
+
+
+Scalar functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val add : elt -> elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val sub : elt -> elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val mul : elt -> elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val div : elt -> elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val pow : elt -> elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val atan2 : elt -> elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val abs : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val neg : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val sqr : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val sqrt : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val exp : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val log : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val log2 : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val log10 : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val signum : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val floor : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val ceil : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val round : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val sin : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val cos : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val tan : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val sinh : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val cosh : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val tanh : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val asin : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val acos : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val atan : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val asinh : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val acosh : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val atanh : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val relu : elt -> elt
+
+TODO
+
+.. code-block:: ocaml
+
+  val sigmoid : elt -> elt
+
+TODO
+

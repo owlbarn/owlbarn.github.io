@@ -1,0 +1,523 @@
+Computation.Symbol
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#52 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_symbol_sig.ml>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_symbol.ml>`_
+
+
+
+Core functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val op_to_str : op -> string
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L28>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_random_variable : op -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L219>`__
+
+
+
+.. code-block:: ocaml
+
+  val refnum : 'a Owl_graph.node -> int
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L226>`__
+
+
+
+.. code-block:: ocaml
+
+  val node_shape : attr Owl_graph.node -> int array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L229>`__
+
+
+
+.. code-block:: ocaml
+
+  val node_numel : attr Owl_graph.node -> int
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L237>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_shape_unkown : attr Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L240>`__
+
+
+
+.. code-block:: ocaml
+
+  val infer_shape_graph : attr Owl_graph.node array -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L247>`__
+
+
+
+.. code-block:: ocaml
+
+  val shape_to_str : int array option array -> string
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L257>`__
+
+
+
+.. code-block:: ocaml
+
+  val node_to_str : attr Owl_graph.node -> string
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L266>`__
+
+
+
+.. code-block:: ocaml
+
+  val node_to_arr : t -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L276>`__
+
+
+
+.. code-block:: ocaml
+
+  val arr_to_node : arr -> t
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L279>`__
+
+
+
+.. code-block:: ocaml
+
+  val node_to_elt : t -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L282>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_to_node : elt -> t
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L285>`__
+
+
+
+.. code-block:: ocaml
+
+  val make_node : ?name:string -> ?value:value array -> ?shape:int array option array -> ?freeze:bool -> ?reuse:bool -> ?state:state -> op -> attr Owl_graph.node
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L288>`__
+
+
+
+.. code-block:: ocaml
+
+  val make_then_connect : ?shape:int array option array -> op -> attr Owl_graph.node array -> attr Owl_graph.node
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L298>`__
+
+
+
+.. code-block:: ocaml
+
+  val var_arr : ?shape:int array -> string -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L315>`__
+
+
+
+.. code-block:: ocaml
+
+  val var_elt : string -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L320>`__
+
+
+
+.. code-block:: ocaml
+
+  val const_arr : string -> A.arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L325>`__
+
+
+
+.. code-block:: ocaml
+
+  val const_elt : string -> A.elt -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L332>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_value : attr Owl_graph.node -> value array -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L339>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_value : attr Owl_graph.node -> value array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L342>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_operator : attr Owl_graph.node -> op -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L345>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_operator : attr Owl_graph.node -> op
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L348>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_reuse : attr Owl_graph.node -> bool -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L351>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_reuse : attr Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L359>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_vnode : attr Owl_graph.node -> t array -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L362>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_vnode : attr Owl_graph.node -> t array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L365>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_inherited : attr Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L368>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_var : attr Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L371>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_const : attr Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L374>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_arr : attr Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L377>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_elt : attr Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L384>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_assigned : attr Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L391>`__
+
+
+
+.. code-block:: ocaml
+
+  val check_assigned : attr Owl_graph.node -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L397>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_valid : attr Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L406>`__
+
+
+
+.. code-block:: ocaml
+
+  val validate : attr Owl_graph.node -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L409>`__
+
+
+
+.. code-block:: ocaml
+
+  val invalidate : attr Owl_graph.node -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L412>`__
+
+
+
+.. code-block:: ocaml
+
+  val invalidate_graph : attr Owl_graph.node -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L415>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_freeze : attr Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L418>`__
+
+
+
+.. code-block:: ocaml
+
+  val freeze : attr Owl_graph.node -> unit
+
+TODO
+
+.. code-block:: ocaml
+
+  val freeze_descendants : attr Owl_graph.node array -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L424>`__
+
+
+
+.. code-block:: ocaml
+
+  val freeze_ancestors : attr Owl_graph.node array -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L427>`__
+
+
+
+.. code-block:: ocaml
+
+  val pack_arr : A.arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L430>`__
+
+
+
+.. code-block:: ocaml
+
+  val unpack_arr : arr -> A.arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L433>`__
+
+
+
+.. code-block:: ocaml
+
+  val pack_elt : A.elt -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L443>`__
+
+
+
+.. code-block:: ocaml
+
+  val unpack_elt : elt -> A.elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L446>`__
+
+
+
+.. code-block:: ocaml
+
+  val unsafe_assign_arr : arr -> A.arr -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L456>`__
+
+
+
+.. code-block:: ocaml
+
+  val assign_arr : arr -> A.arr -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L472>`__
+
+
+
+.. code-block:: ocaml
+
+  val assign_elt : elt -> A.elt -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L494>`__
+
+
+
+.. code-block:: ocaml
+
+  val float_to_elt : float -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L506>`__
+
+
+
+.. code-block:: ocaml
+
+  val elt_to_float : elt -> float
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_symbol.ml#L509>`__
+
+
+

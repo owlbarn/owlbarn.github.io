@@ -1,0 +1,116 @@
+Regression.Generic Functor
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#12 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/optimise/owl_regression_generic_sig.ml>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/owl/optimise/owl_regression_generic.ml>`_
+
+
+
+Type definition
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type arr = A.arr
+    
+
+Type of ndarray values.
+
+.. code-block:: ocaml
+
+  type elt = A.elt
+    
+
+Type of scalar values.
+
+Regression models
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val ols : ?i:bool -> arr -> arr -> arr array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/optimise/owl_regression_generic.ml#L44>`__
+
+
+
+.. code-block:: ocaml
+
+  val ridge : ?i:bool -> ?alpha:float -> arr -> arr -> arr array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/optimise/owl_regression_generic.ml#L53>`__
+
+
+
+.. code-block:: ocaml
+
+  val lasso : ?i:bool -> ?alpha:float -> arr -> arr -> arr array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/optimise/owl_regression_generic.ml#L62>`__
+
+
+
+.. code-block:: ocaml
+
+  val elastic_net : ?i:bool -> ?alpha:float -> ?l1_ratio:float -> arr -> arr -> arr array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/optimise/owl_regression_generic.ml#L71>`__
+
+
+
+.. code-block:: ocaml
+
+  val svm : ?i:bool -> ?a:float -> arr -> arr -> arr array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/optimise/owl_regression_generic.ml#L82>`__
+
+
+
+.. code-block:: ocaml
+
+  val logistic : ?i:bool -> arr -> arr -> arr array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/optimise/owl_regression_generic.ml#L91>`__
+
+
+
+.. code-block:: ocaml
+
+  val exponential : ?i:bool -> arr -> arr -> elt * elt * elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/optimise/owl_regression_generic.ml#L100>`__
+
+
+
+.. code-block:: ocaml
+
+  val poly : arr -> arr -> int -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/optimise/owl_regression_generic.ml#L124>`__
+
+
+

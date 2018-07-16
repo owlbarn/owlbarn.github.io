@@ -1,0 +1,229 @@
+Computation.Graph
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#23 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_graph_sig.ml>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_graph.ml>`_
+
+
+
+Type definition
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type graph
+    
+
+TODO
+
+Core functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val shape_or_value : t -> string
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L43>`__
+
+
+
+.. code-block:: ocaml
+
+  val graph_to_dot : graph -> string
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L59>`__
+
+
+
+.. code-block:: ocaml
+
+  val graph_to_trace : graph -> string
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L73>`__
+
+
+
+.. code-block:: ocaml
+
+  val save_graph : 'a -> string -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L89>`__
+
+
+
+.. code-block:: ocaml
+
+  val load_graph : string -> 'a * 'b
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L94>`__
+
+
+
+.. code-block:: ocaml
+
+  val collect_rvs : attr Owl_graph.node array -> attr Owl_graph.node array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L102>`__
+
+
+
+.. code-block:: ocaml
+
+  val invalidate_rvs : graph -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L112>`__
+
+
+
+.. code-block:: ocaml
+
+  val make_graph : input:attr Owl_graph.node array -> output:attr Owl_graph.node array -> string -> graph
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L118>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_inputs : graph -> attr Owl_graph.node array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L156>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_outputs : graph -> attr Owl_graph.node array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L159>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_node_arr_val : attr Owl_graph.node -> A.arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L164>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_node_elt_val : attr Owl_graph.node -> A.elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L170>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_node_arr_val : attr Owl_graph.node -> value -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L176>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_node_elt_val : attr Owl_graph.node -> value -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L179>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_iopair_safe : 'a Owl_graph.node -> 'a Owl_graph.node -> bool
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L182>`__
+
+
+
+.. code-block:: ocaml
+
+  val make_iopair : graph -> attr Owl_graph.node array -> attr Owl_graph.node array -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L197>`__
+
+
+
+.. code-block:: ocaml
+
+  val update_iopair : graph -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L205>`__
+
+
+
+.. code-block:: ocaml
+
+  val remove_unused_iopair : 'a Owl_graph.node array -> 'b array -> 'a Owl_graph.node array * 'b array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L224>`__
+
+
+
+.. code-block:: ocaml
+
+  val init_inputs : (attr Owl_graph.node -> value) -> graph -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L231>`__
+
+
+
+.. code-block:: ocaml
+
+  val optimise : graph -> unit
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_graph.ml#L235>`__
+
+
+
