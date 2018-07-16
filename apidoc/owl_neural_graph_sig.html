@@ -97,13 +97,13 @@
 <div class="section" id="type-definition">
 <h2>Type definition<a class="headerlink" href="#type-definition" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">node</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">name</span> <span class="o">:</span> <span class="kt">string</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">prev</span> <span class="o">:</span> <span class="n">node</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">next</span> <span class="o">:</span> <span class="n">node</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">neuron</span> <span class="o">:</span> <span class="n">neuron</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">output</span> <span class="o">:</span> <span class="n">t</span> <span class="n">option</span><span class="o">;</span>
+  <span class="k">mutable</span> <span class="n">name</span>    <span class="o">:</span> <span class="kt">string</span><span class="o">;</span>
+  <span class="k">mutable</span> <span class="n">prev</span>    <span class="o">:</span> <span class="n">node</span> <span class="kt">array</span><span class="o">;</span>
+  <span class="k">mutable</span> <span class="n">next</span>    <span class="o">:</span> <span class="n">node</span> <span class="kt">array</span><span class="o">;</span>
+  <span class="k">mutable</span> <span class="n">neuron</span>  <span class="o">:</span> <span class="n">neuron</span><span class="o">;</span>
+  <span class="k">mutable</span> <span class="n">output</span>  <span class="o">:</span> <span class="n">t</span> <span class="n">option</span><span class="o">;</span>
   <span class="k">mutable</span> <span class="n">network</span> <span class="o">:</span> <span class="n">network</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">train</span> <span class="o">:</span> <span class="kt">bool</span><span class="o">;</span>
+  <span class="k">mutable</span> <span class="n">train</span>   <span class="o">:</span> <span class="kt">bool</span><span class="o">;</span>
   <span class="o">}</span>
   <span class="ow">and</span> <span class="n">network</span> <span class="o">=</span> <span class="o">{</span>
   <span class="k">mutable</span> <span class="n">nnid</span> <span class="o">:</span> <span class="kt">string</span><span class="o">;</span>
@@ -121,52 +121,52 @@
 </pre></div>
 </div>
 <p>Create an empty neural network.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L44">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L46">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make_node</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">train</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="n">option</span> <span class="o">-&gt;</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Create a node in a neural network.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L52">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L54">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_root</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Get the root of the neural network.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L68">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L70">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_node</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Get a node in a network with the given name.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L74">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L76">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_network</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">network</span>
 </pre></div>
 </div>
 <p>Get the neural network of a given node associated with.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L80">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L82">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_network_name</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">get_network_name</span> <span class="pre">n</span></code> returns the name of the network <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L89">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L91">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_network_name</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_network_name</span> <span class="pre">n</span> <span class="pre">s</span></code> sets the name of the network <code class="docutils literal notranslate"><span class="pre">n</span></code> to <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L92">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L94">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">collect_output</span> <span class="o">:</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Collect the output values of given nodes.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L99">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L101">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect_pair</span> <span class="o">:</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Connect two nodes in a neural network.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L107">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L109">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect_to_parents</span> <span class="o">:</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Connect a node to a list of parents.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L114">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L116">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">add_node</span> <span class="o">:</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -175,7 +175,7 @@
 </pre></div>
 </div>
 <p>Get input shape of a network (without batch dimension), i.e. shape of input neruon.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L95">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L97">source code</a></p>
 </div>
 <div class="section" id="interface-to-optimisation-engine">
 <h2>Interface to optimisation engine<a class="headerlink" href="#interface-to-optimisation-engine" title="Permalink to this headline">¶</a></h2>
@@ -183,62 +183,62 @@
 </pre></div>
 </div>
 <p>Initialise the network.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L148">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L150">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reset</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Reset the network, i.e. all the paramters in the neurons.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L151">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L153">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mktag</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Tag the neurons, used by <code class="docutils literal notranslate"><span class="pre">Algodiff</span></code> module.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L154">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L156">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mkpar</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Collect the paramters of neurons, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L157">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L159">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mkpri</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Collect the primal values of neurons, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L160">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L162">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mkadj</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Collect the adjacent values of neurons, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L163">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L165">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">update</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Update the paramters of neurons, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L166">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L168">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">run</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>Execute the computations in all the neurons in a network with the given input.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L169">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L171">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">forward</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Run the forward pass of a network.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L185">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L187">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">backward</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span> <span class="o">*</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Run the backward pass of a network.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L188">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L190">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">network</span>
 </pre></div>
 </div>
 <p>Make a deep copy of the given network.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L191">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">model</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L193">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">model</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
 </pre></div>
 </div>
 <p>Make a deep copy of the given network, excluding the neurons marked with <code class="docutils literal notranslate"><span class="pre">training</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L231">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L233">source code</a></p>
 </div>
 <div class="section" id="create-neurons">
 <h2>Create Neurons<a class="headerlink" href="#create-neurons" title="Permalink to this headline">¶</a></h2>
@@ -264,7 +264,7 @@
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L253">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L255">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">linear</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -278,22 +278,22 @@
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L260">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L262">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">linear_nobias</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Similar to <code class="docutils literal notranslate"><span class="pre">linear</span></code>, but does not use the bias vector.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L267">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L269">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">embedding</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Create a node for embedding neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L274">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L276">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">recurrent</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Create a node for recurrent neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L281">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L283">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lstm</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -305,7 +305,7 @@
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L288">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L290">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gru</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -317,7 +317,7 @@
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L295">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L297">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -331,7 +331,7 @@ convolution) on previous <code class="docutils literal notranslate"><span class=
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L302">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L304">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -344,7 +344,7 @@ convolution) on previous <code class="docutils literal notranslate"><span class=
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L309">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L311">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -358,7 +358,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L316">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L318">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -372,7 +372,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L323">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L325">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -386,7 +386,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L330">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L332">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -400,7 +400,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L337">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L339">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -413,7 +413,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L344">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L346">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -426,7 +426,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L351">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L353">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -439,7 +439,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L358">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L360">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fully_connected</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_typ</span><span class="o">:</span><span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -451,7 +451,7 @@ convolution over volumes) on previous <code class="docutils literal notranslate"
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L365">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L367">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -465,7 +465,7 @@ operation for temporal data to <code class="docutils literal notranslate"><span 
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L372">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L374">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -479,7 +479,7 @@ operation for spatial data to <code class="docutils literal notranslate"><span c
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L379">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L381">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -493,7 +493,7 @@ operation for temporal data to <code class="docutils literal notranslate"><span 
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L386">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L388">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -506,27 +506,27 @@ operation for temporal data to <code class="docutils literal notranslate"><span 
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L393">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L395">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">global_max_pool1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">global_max_pool1d</span></code> adds global max pooling operation for temporal data.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L400">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L402">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">global_max_pool2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">global_max_poo2d</span></code> global max pooling operation for spatial data.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L407">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L409">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">global_avg_pool1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">global_avg_pool1d</span></code> adds global average pooling operation for temporal data.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L414">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L416">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">global_avg_pool2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">global_avg_poo2d</span></code> global average pooling operation for spatial data.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L421">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L423">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dropout</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -538,7 +538,7 @@ operation for temporal data to <code class="docutils literal notranslate"><span 
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L428">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L430">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_noise</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -550,7 +550,7 @@ operation for temporal data to <code class="docutils literal notranslate"><span 
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L435">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L437">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_dropout</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -563,7 +563,7 @@ Only active at training time.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L442">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L444">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">alpha_dropout</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -576,8 +576,8 @@ Only active at training time.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L449">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normalisation</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">training</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">decay</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">mu</span><span class="o">:</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">var</span><span class="o">:</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L451">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normalisation</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">training</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">decay</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">mu</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">var</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">normalisation</span> <span class="pre">axis</span> <span class="pre">node</span></code> normalise the activations of the previous node at
@@ -589,7 +589,7 @@ each batch.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L456">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L458">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reshape</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -601,12 +601,12 @@ each batch.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L463">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L465">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">flatten</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">flatten</span> <span class="pre">node</span></code> flattens the input. Does not affect the batch size.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L470">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L472">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lambda</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -618,38 +618,38 @@ each batch.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L477">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L479">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">add</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Node that adds a list of inputs.</p>
 <p>It takes as input an array of nodes, all of the same shape, and returns a
 single node (also of the same shape).</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L484">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L486">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mul</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Node that multiplies (element-wise) a list of inputs.</p>
 <p>It takes as input an array of nodes, all of the same shape, and returns a
 single node (also of the same shape).</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L491">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L493">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dot</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Node that computes a dot product between samples in two nodes.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L498">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L500">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Node that computes the maximum (element-wise) a list of inputs.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L505">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L507">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">average</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
 <p>Node that averages a list of inputs.</p>
 <p>It takes as input an array of nodes, all of the same shape, and returns a
 single node (also of the same shape).</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L512">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L514">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">concatenate</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
@@ -661,7 +661,7 @@ single node (also of the same shape).</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L519">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L521">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -669,39 +669,39 @@ single node (also of the same shape).</p>
 </pre></div>
 </div>
 <p>Convert a neural network to its string representation.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L529">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L531">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_network</span> <span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Pretty printing function a neural network.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L545">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L547">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">print</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Print the string representation of a neural network to the standard output.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L551">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L553">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">save</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Serialise a network and save it to the a file with the given name.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L554">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L556">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">network</span>
 </pre></div>
 </div>
 <p>Load the neural network from a file with the given name.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L557">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L559">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">save_weights</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Save all the weights in a neural network to a file. The weights and the name of
 their associated neurons are saved as key-value pairs in a hash table.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L560">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L562">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load_weights</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Load the weights from a file of the given name. Note that the weights and the
 name of their associated neurons are saved as key-value pairs in a hash table.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L569">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L571">source code</a></p>
 </div>
 <div class="section" id="train-networks">
 <h2>Train Networks<a class="headerlink" href="#train-networks" title="Permalink to this headline">¶</a></h2>
@@ -709,12 +709,12 @@ name of their associated neurons are saved as key-value pairs in a hash table.</
 </pre></div>
 </div>
 <p>Generic function of training a neural network.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L585">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">train</span> <span class="o">:</span> <span class="o">?</span><span class="n">state</span><span class="o">:</span><span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">params</span><span class="o">:</span><span class="nn">Params</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_model</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L587">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">train</span> <span class="o">:</span> <span class="o">?</span><span class="n">state</span><span class="o">:</span><span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">params</span><span class="o">:</span><span class="nn">Params</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">init_model</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">Checkpoint</span><span class="p">.</span><span class="n">state</span>
 </pre></div>
 </div>
 <p>Train a neural network with various configurations.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L598">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L600">source code</a></p>
 </div>
 </div>
 

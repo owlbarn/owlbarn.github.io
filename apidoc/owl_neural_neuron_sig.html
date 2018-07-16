@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Neural.Graph Functor" href="owl_neural_graph_sig.html" />
-    <link rel="prev" title="Regression.Generic Functor" href="owl_regression_generic.html" />
+    <link rel="prev" title="Regression.Generic Functor" href="owl_regression_generic_sig.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -106,7 +106,7 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">Owl’s API Reference</a><ul>
-      <li>Previous: <a href="owl_regression_generic.html" title="previous chapter">Regression.Generic Functor</a></li>
+      <li>Previous: <a href="owl_regression_generic_sig.html" title="previous chapter">Regression.Generic Functor</a></li>
       <li>Next: <a href="owl_neural_graph_sig.html" title="next chapter">Neural.Graph Functor</a></li>
   </ul></li>
   </ul></li>
@@ -155,7 +155,7 @@
 </pre></div>
 </div>
 <p>Calculate fan-in and fan-out of weights.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L33">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L37">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">run</span> <span class="o">:</span> <span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -238,7 +238,7 @@
 </pre></div>
 </div>
 <p>Run one specific activation function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L160">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L164">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
 </pre></div>
 </div>
@@ -251,7 +251,7 @@
 </pre></div>
 </div>
 <p>Return the name of a specific activation function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L180">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L184">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_string</span> <span class="o">:</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
@@ -1952,7 +1952,7 @@
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">training</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">decay</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">mu</span><span class="o">:</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">var</span><span class="o">:</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">training</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">decay</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">mu</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">var</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
 </pre></div>
 </div>
 <p>Create the neuron. Note that axis 0 is the batch axis.</p>
@@ -2228,17 +2228,17 @@
 </pre></div>
 </div>
 <p>Get both input and output shapes of a neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2894">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2898">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_in_shape</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Get the input shape of a neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2937">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2941">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_out_shape</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Get the output shape of a neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2940">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2944">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>

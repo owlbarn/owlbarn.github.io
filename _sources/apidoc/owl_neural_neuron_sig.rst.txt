@@ -36,7 +36,7 @@ Initialisation types
 
 Calculate fan-in and fan-out of weights.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L33>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L37>`__
 
 
 
@@ -157,7 +157,7 @@ Connect this neuron to others in a neural network.
 
 Run one specific activation function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L160>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L164>`__
 
 
 
@@ -179,7 +179,7 @@ Execute the computation in this neuron.
 
 Return the name of a specific activation function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L180>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L184>`__
 
 
 
@@ -2677,7 +2677,7 @@ Neuron type definition.
 
 .. code-block:: ocaml
 
-  val create : ?training:bool -> ?decay:float -> ?mu:arr -> ?var:arr -> int -> neuron_typ
+  val create : ?training:bool -> ?decay:float -> ?mu:A.arr -> ?var:A.arr -> int -> neuron_typ
 
 Create the neuron. Note that axis 0 is the batch axis.
 
@@ -3068,7 +3068,7 @@ Types of neuron.
 
 Get both input and output shapes of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2894>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2898>`__
 
 
 
@@ -3078,7 +3078,7 @@ Get both input and output shapes of a neuron.
 
 Get the input shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2937>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2941>`__
 
 
 
@@ -3088,7 +3088,7 @@ Get the input shape of a neuron.
 
 Get the output shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2940>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L2944>`__
 
 
 

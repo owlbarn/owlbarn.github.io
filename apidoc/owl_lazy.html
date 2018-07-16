@@ -50,9 +50,9 @@
   <ul>
 <li><a class="reference internal" href="#">Lazy Functor</a><ul>
 <li><a class="reference internal" href="#type-definition">Type definition</a></li>
-<li><a class="reference internal" href="#type-conversion-and-utility-functions">Type conversion and utility functions</a></li>
-<li><a class="reference internal" href="#properties-of-computation-node">properties of computation node</a></li>
-<li><a class="reference internal" href="#create-variable-placeholder">Create variable placeholder</a></li>
+<li><a class="reference internal" href="#type-conversion-functions">Type conversion functions</a></li>
+<li><a class="reference internal" href="#utility-functions">Utility functions</a></li>
+<li><a class="reference internal" href="#create-variables">Create variables</a></li>
 <li><a class="reference internal" href="#maths-funcitons">Maths funcitons</a></li>
 <li><a class="reference internal" href="#evaluation-functions">Evaluation functions</a></li>
 </ul>
@@ -90,7 +90,7 @@
   <div class="section" id="lazy-functor">
 <h1>Lazy Functor<a class="headerlink" href="#lazy-functor" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#223 entries have been extracted.</p>
+#185 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_lazy.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_lazy.ml">{Implementation}</a></p>
@@ -112,17 +112,13 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">op</span>
-</pre></div>
-</div>
-<p>TODO</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">graph</span>
 </pre></div>
 </div>
 <p>TODO</p>
 </div>
-<div class="section" id="type-conversion-and-utility-functions">
-<h2>Type conversion and utility functions<a class="headerlink" href="#type-conversion-and-utility-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="type-conversion-functions">
+<h2>Type conversion functions<a class="headerlink" href="#type-conversion-functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">arr_to_value</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="k">value</span>
 </pre></div>
 </div>
@@ -175,10 +171,6 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">arr_to_var</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
-</pre></div>
-</div>
-<p>TODO</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">float_to_elt</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">elt</span>
 </pre></div>
 </div>
@@ -187,132 +179,20 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">refnum</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</div>
+<div class="section" id="utility-functions">
+<h2>Utility functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">graph_to_dot</span> <span class="o">:</span> <span class="n">graph</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">infer_shape</span> <span class="o">:</span> <span class="n">op</span> <span class="o">-&gt;</span> <span class="n">attr</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="n">option</span> <span class="kt">array</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">infer_shape_graph</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_shape_unkown</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shape_to_str</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="n">option</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">node_to_str</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">string</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">op_to_str</span> <span class="o">:</span> <span class="n">op</span> <span class="o">-&gt;</span> <span class="kt">string</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shape_or_value</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">string</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nodes_to_dot</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nodes_to_trace</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">graph_to_trace</span> <span class="o">:</span> <span class="n">graph</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>TODO</p>
 </div>
-<div class="section" id="properties-of-computation-node">
-<h2>properties of computation node<a class="headerlink" href="#properties-of-computation-node" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_value</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">value</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_value</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">value</span> <span class="kt">array</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_operator</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">op</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_operator</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">op</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_reuse</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_reuse</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_var</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_const</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_arr</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_elt</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_assigned</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">check_assigned</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_valid</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">validate</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">invalidate</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">invalidate_graph</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_freeze</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">freeze</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">freeze_descendants</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">freeze_ancestors</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-</div>
-<div class="section" id="create-variable-placeholder">
-<h2>Create variable placeholder<a class="headerlink" href="#create-variable-placeholder" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-variables">
+<h2>Create variables<a class="headerlink" href="#create-variables" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">var_arr</span> <span class="o">:</span> <span class="o">?</span><span class="n">shape</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
@@ -412,10 +292,6 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy_</span> <span class="o">:</span> <span class="n">out</span><span class="o">:</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reset</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -432,7 +308,7 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">repeat</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">repeat</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>TODO</p>
@@ -616,7 +492,7 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">clip_by_l2norm</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">clip_by_l2norm</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>TODO</p>
@@ -923,26 +799,6 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_node_arr_val</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_node_elt_val</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_node_arr_val</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">value</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_node_elt_val</span> <span class="o">:</span> <span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">value</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_iopair_safe</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
-</pre></div>
-</div>
-<p>TODO</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make_iopair</span> <span class="o">:</span> <span class="n">graph</span> <span class="o">-&gt;</span> <span class="n">attr</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">attr</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -951,19 +807,11 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">remove_unused_iopair</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">*</span> <span class="k">&#39;</span><span class="n">b</span> <span class="kt">array</span>
-</pre></div>
-</div>
-<p>TODO</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">init_inputs</span> <span class="o">:</span> <span class="o">(</span><span class="n">attr</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">value</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">graph</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>TODO</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">optimise</span> <span class="o">:</span> <span class="n">graph</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">graph_to_dot</span> <span class="o">:</span> <span class="n">graph</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>TODO</p>

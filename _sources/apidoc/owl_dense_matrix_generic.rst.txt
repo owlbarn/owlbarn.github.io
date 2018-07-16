@@ -741,9 +741,9 @@ the main diagonal and ``k < 0`` means the below the main diagonal.
 
 .. code-block:: ocaml
 
-  val repeat : ?axis:int -> ('a, 'b) t -> int -> ('a, 'b) t
+  val repeat : ('a, 'b) t -> int array -> ('a, 'b) t
 
-``repeat ~axis x a`` repeats the elements along ``~axis`` for ``a`` times.
+``repeat x a`` repeats the elements ``x`` according the repetition specified by ``a``.
 
 .. code-block:: ocaml
 
