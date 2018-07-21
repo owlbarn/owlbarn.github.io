@@ -1,0 +1,242 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Computation Graph &#8212; Owl Numerical Library 0.3 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lazy Evaluation and Dataflow" href="lazy.html" />
+    <link rel="prev" title="Fast Fourier Transform" href="fft.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Computation Graph</a><ul>
+<li><a class="reference internal" href="#what-is-a-computation-graph">What Is A Computation Graph?</a></li>
+<li><a class="reference internal" href="#why-does-it-matter">Why Does It Matter?</a></li>
+<li><a class="reference internal" href="#how-is-it-implemented">How Is It Implemented?</a></li>
+<li><a class="reference internal" href="#what-to-do-with-gpu">What to Do with GPU?</a></li>
+<li><a class="reference internal" href="#jit-from-dynamic-to-static">JIT - From Dynamic to Static</a></li>
+<li><a class="reference internal" href="#what-is-next">What Is Next?</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Part II: Owl Numerical System</a><ul>
+      <li>Previous: <a href="fft.html" title="previous chapter">Fast Fourier Transform</a></li>
+      <li>Next: <a href="lazy.html" title="next chapter">Lazy Evaluation and Dataflow</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="computation-graph">
+<h1>Computation Graph<a class="headerlink" href="#computation-graph" title="Permalink to this headline">¶</a></h1>
+<p>This is not a tutorial on how to use the computation graph in Owl. Instead, what I will present is a bird’s-eye view on how the computation graph is fitted into Owl’s functor stack, and its implications on Owl’s architecture design.</p>
+<p>To motivate you to continue reading this article, you can try to run both <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/mnist_cnn.ml">mnist_cnn.ml</a> and <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/lazy_mnist.ml">lazy_mnist.ml</a> then compare their performance. Both Zoo scripts train the same convolutional neural network to recognise the handwritten digits in MNIST datasets in 60 iterations. On my laptop, <code class="docutils literal notranslate"><span class="pre">mnist_cnn.ml</span></code> takes about 30s to finish and consumes approximate 4GB memory, whilst <code class="docutils literal notranslate"><span class="pre">lazy_mnist.ml</span></code> only takes 5s and consumes about 0.75GB to finish the same job. <code class="docutils literal notranslate"><span class="pre">lazy_mnist.ml</span></code> achieves the state-of-the-art performance which you can obtain from TensorFlow (with its recent XLA optimisation), actually Owl runs even faster on 3 out of 4 machines we have tested.</p>
+<p>OK, if these numbers arouse your interest in knowing how the magic happens, let me unveil the underlying mechanism of Owl’s computation graph in the following sections.</p>
+<div class="section" id="what-is-a-computation-graph">
+<h2>What Is A Computation Graph?<a class="headerlink" href="#what-is-a-computation-graph" title="Permalink to this headline">¶</a></h2>
+<p>As a functional programmer, it is basic knowledge that a function takes an input then produces an output. The input of a function can be the output of another function which creates dependency. If we view a function as a node and its input and output as incoming and outgoing links respectively, as the computation continues, these functions are chained together to form a directed acyclic graph (DAG). Such a DAG is often referred to as a computation graph.</p>
+<p>Here is an example for calculating <code class="docutils literal notranslate"><span class="pre">sin</span> <span class="pre">(x</span> <span class="pre">*</span> <span class="pre">y)</span></code>.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/plot_cgraph_01.png"><img alt="computation graph" src="../_images/plot_cgraph_01.png" style="width: 258.0px; height: 367.5px;" /></a>
+</div>
+<p>The generated computation graph contains several pieces of information which are essential for debugging the applications. These includes node index, operation, reference counter, and shape information. In the figure above, we can see the row vector <code class="docutils literal notranslate"><span class="pre">x</span></code> of shape [1; 4] is broadcasted on the matrix <code class="docutils literal notranslate"><span class="pre">y</span></code> of shape [8; 4] in <code class="docutils literal notranslate"><span class="pre">Add</span></code> operation.</p>
+<p>The computation graph can be either implicitly constructed or explicitly declared in a software. Often, implicit construction is done by operator overloading while explicit declaration uses domain specific languages (DSL). The two methods lead to two different kinds of computation graphs – <em>dynamic</em> and <em>static graph</em>, each has its own pros and cons.</p>
+<p>Dynamic graph is constructed during the runtime. Due to operator overloading, its construction can be naturally blended with a language’s native constructs such as <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops. This renders greatest flexibility and expressive. On the other hand, a static graph needs to be declared using a specific DSL. Because the structure of a graph is already known during the compilation, there is a great space for optimisation. However, static graphs sometimes make it difficult to express conditions and loops when using with native code together.</p>
+<p>As we can see, the flexibility of a dynamic graph comes with the price of lower performance. Facebook’s Pytorch and Google’s TensorFlow are the typical examples of dynamic and static graph respectively. Interestingly, Owl does something slightly different in order to get the best parts of both world, we will detail this in the following.</p>
+</div>
+<div class="section" id="why-does-it-matter">
+<h2>Why Does It Matter?<a class="headerlink" href="#why-does-it-matter" title="Permalink to this headline">¶</a></h2>
+<p>Now that you know what is a computation graph, you may ask why it matters? Well, the computation graph makes many things a lot easier. Here is an incomplete list of potential benefits.</p>
+<ul class="simple">
+<li>Simulate lazy evaluation in a language with eager evaluation;</li>
+<li>Incremental computation (a.k.a Self-Adjusted Computation);</li>
+<li>Reduce computation complexity by optimising the structure of a graph;</li>
+<li>Reduce memory management overhead by pre-allocating the space;</li>
+<li>Reduce memory footprint by reusing allocated memory space;</li>
+<li>Natural support for parallel and distributed computing;</li>
+<li>Natural support for heterogeneous computing;</li>
+<li>Natural support for symbolic math;</li>
+</ul>
+<p>Some of the benefits are very obvious. Memory usage can certainly be optimised if the graph structure is fixed and the input shape is known. One optimisation is reusing previously allocated memory, which is especially useful for those applications involving large ndarray calculations. In fact, this optimisation can also be performed by a compiler by tracking the reference number of allocated memory, a technique referred to as linear types.</p>
+<p>Some may appear less obvious at the first glance. For example, we can decompose a computation graph into multiple independent subgraphs and each can be evaluated in parallel on different cores or even computers. Maintaining the graph structure also improves fault-tolerance, by providing natural support for rollback mechanisms.</p>
+<p>The computation graph provides a way to abstract the flow of computations, therefore it is able to bridge the high-level applications and low-level machinery of various hardware devices. This is why I say it has natural support for heterogeneous computing.</p>
+<p>The computation graph has more profound implications. Because the memory allocated for each node is mutable, Algodiff becomes more scalable to handle large and complex graphs. At the same time, mutable transformation is handled by Owl so programmers can still write safe functional code.</p>
+</div>
+<div class="section" id="how-is-it-implemented">
+<h2>How Is It Implemented?<a class="headerlink" href="#how-is-it-implemented" title="Permalink to this headline">¶</a></h2>
+<p>How is the computation graph is implemented? In the older versions, Algodiff module has partial support of computation graph in order to perform reverse mode algorithmic differentiation (AD). The full support was only introduced in Owl 0.4.0.</p>
+<p>Owl implements the computation graph in a very unique and interesting way. There are several principles I wrote down to follow before I started tackling the design challenges.</p>
+<ul class="simple">
+<li>Non-intrusive, the original functor stack should work as it was.</li>
+<li>Transparent to the programmers as much as possible.</li>
+<li>Support both eager and lazy evaluation.</li>
+<li>Flexible enough for future extension on other devices.</li>
+</ul>
+<p>In the end, I designed the computation graph in a very much self-contained stack, then devised a good way to “inject” it into Owl’s original functor stack. If it sounds too abstract, please have a look at the final product in the following figure.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/owl_cgraph_functor_stack.png"><img alt="computation graph functor stack" src="../_images/owl_cgraph_functor_stack.png" style="width: 696.5px; height: 560.0px;" /></a>
+</div>
+<p>The left figure shows part of Owl’s original functor stack, and the right one shows how the current one looks like after the computation graph is injected. We know the functor stack plays a central role in Owl’s architecture. In the old design, Ndarray implements a set of fundamental n-dimensional array operations, then Algodiff defines abstract mathematical operations for differentiation, finally Optimise engine glues low-level math with high-level deep neural network.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Ndarray</span></code>: provides number type abstraction and implements the fundamental numerical operations.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Algodiff</span></code>: implements algorithmic differentiation.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Optimise</span></code>: exploits the derivative information using AD to build an optimisation engine.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Neural_Neuron</span></code>: implements many kinds neuron function which can be optimised.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Neural_Graph</span></code>: connects neurons together to form a network so that we can train a useful model.</li>
+</ul>
+<p>The functor stack of computation graph is injected between <code class="docutils literal notranslate"><span class="pre">Ndarray</span></code> and <code class="docutils literal notranslate"><span class="pre">Algodiff</span></code>. The list below summarises the functionality of each functor. The order and naming of these functors can already give you a rough understand about how it is designed.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Device</span></code>: device abstraction contains device-dependent types and functions.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Type</span></code>: type definition of various (mathematical) operations.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Shape</span></code>: provides the shape inference function in the graph.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Symbol</span></code>: provides various functions to access and manipulate symbols.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Operator</span></code>: implements math operators (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, and etc.), decides how the symbols should connect each other to form a graph.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Optimiser</span></code>: optimises the structure of a given graph, remove redundant computation, fuse computation nodes, and etc.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Graph</span></code>: implements high-level graph functions, e.g. visualisation, connecting inputs and outputs.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Engine</span></code>: evaluates a computation graph on a specific device.</li>
+</ul>
+<p>Why the magic can happen? Simply put, the injected computation graph stack provides an layer of abstraction similar to symbolic maths. The original eager evaluation becomes symbolic operation (or graph construction) therefore they can be easily evaluated.</p>
+<p>The shape inference functionality allows Owl to calculate how much memory is required to evaluate the graph and pre-allocate the space. Owl can also track the reference number of each node and reuse the allocated memory as much as possible, this reduces both memory footprint but GC overhead, significantly improves the computation speed.</p>
+<p>The Optimiser functor searches for various structural patterns in a graph, removes unnecessary computations and fusing nodes if possible. All the patterns are defined in <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/src/base/compute/owl_computation_optimiser.ml">owl_computation_optimiser.ml</a>, and it is very straightforward to plug in more patterns to extend. Here are some example patterns.</p>
+<p><em>Constant folding</em> is a very basic pattern. Because the inputs which nodes <cite>#241</cite> depends on are all constants, so the value of <cite>#241</cite> is already decided. We can fold all the constants to node <cite>#241</cite> before evaluating the computation graph.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/owl_cgraph_opt_0.png"><img alt="computation graph optimiser" src="../_images/owl_cgraph_opt_0.png" style="width: 652.0px; height: 493.5px;" /></a>
+</div>
+<p><em>Fusing operations</em> can effectively reduce the round trips to the memory, which saves a lot of time on operating large ndarrys. In the figure below, nodes <cite>#421</cite>, <cite>#463</cite>, and <cite>#464</cite> are fused into <code class="docutils literal notranslate"><span class="pre">fma</span></code> (i.e. fused-multiply-add operation), this also improves numerical accuracy. Owl can also recognise quite complicated patterns, e.g. pattern formed by nodes <cite>#511</cite> – <cite>#515</cite> appears a lot in DNN training that uses Adagrad, the Optimiser is able to fuse all these operations into one-pass calculation.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/owl_cgraph_opt_1.png"><img alt="computation graph optimiser" src="../_images/owl_cgraph_opt_1.png" style="width: 642.5px; height: 405.0px;" /></a>
+</div>
+<p>In the next example, <em>Adding zero</em> pattern is firstly detected hence <cite>#164</cite> and <cite>#166</cite> are removed. Moreover, nodes <cite>#255</cite> for <code class="docutils literal notranslate"><span class="pre">repeat</span></code> operation is also removed because <code class="docutils literal notranslate"><span class="pre">add</span></code> operation already supports broadcasting operation. Removing <cite>#255</cite> can save us some memory in the evaluation.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/owl_cgraph_opt_2.png"><img alt="computation graph optimiser" src="../_images/owl_cgraph_opt_2.png" style="width: 592.5px; height: 348.5px;" /></a>
+</div>
+<p>Engine functor sits on top of the stack, this is where a computation graph finally gets executed. Engine functor contains two sub modules, one for initialising the graph and the other for evaluating graph.</p>
+<p>Before we finish this section, you can try the following snippet in <code class="docutils literal notranslate"><span class="pre">utop</span></code>. Both snippets generate a module for DNN applications. The difference is that the first one uses the old stack whereas the second one uses the new stack with computation graph.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="nc">M</span> <span class="o">=</span>
+  <span class="nn">Owl_neural_generic</span><span class="p">.</span><span class="nc">Flatten</span> <span class="o">(</span>
+    <span class="nn">Owl_neural_graph</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+      <span class="nn">Owl_neural_neuron</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+        <span class="nn">Owl_optimise_generic</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+          <span class="nn">Owl_algodiff_generic</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+            <span class="nn">Dense</span><span class="p">.</span><span class="nn">Ndarray</span><span class="p">.</span><span class="nc">S</span><span class="o">)))));;</span>
+</pre></div>
+</div>
+<p>For the new stack, we can see it is much deeper.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="nc">M</span> <span class="o">=</span>
+  <span class="nn">Owl_neural_generic</span><span class="p">.</span><span class="nc">Flatten</span> <span class="o">(</span>
+    <span class="nn">Owl_neural_graph</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+      <span class="nn">Owl_neural_neuron</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+        <span class="nn">Owl_optimise_generic</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+          <span class="nn">Owl_algodiff_generic</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+            <span class="nn">Owl_computation_engine</span><span class="p">.</span><span class="nc">Flatten</span> <span class="o">(</span>
+              <span class="nn">Owl_computation_cpu_engine</span><span class="p">.</span><span class="nc">Make_Nested</span> <span class="o">(</span>
+                <span class="nn">Owl_computation_graph</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+                  <span class="nn">Owl_computation_optimiser</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+                    <span class="nn">Owl_computation_operator</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+                      <span class="nn">Owl_computation_symbol</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+                        <span class="nn">Owl_computation_shape</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+                          <span class="nn">Owl_computation_type</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+                            <span class="nn">Owl_computation_cpu_device</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span>
+                              <span class="nn">Dense</span><span class="p">.</span><span class="nn">Ndarray</span><span class="p">.</span><span class="nc">S</span><span class="o">))))))))))))));;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-to-do-with-gpu">
+<h2>What to Do with GPU?<a class="headerlink" href="#what-to-do-with-gpu" title="Permalink to this headline">¶</a></h2>
+<p>Programming a GPU is very much like programming a computer cluster. The gains of parallel computing come with inevitable synchronisation and communication overhead. Therefore GPU computing only makes sense when the computation complexity is high enough to dwarf other overhead.</p>
+<p>When offloading the computation to a GPU, we should avoid transmitting data back and forth between the host and the device, so eager evaluation is not ideal in this context. Computation graph essentially fills the gap between Owl and GPU computing simply because the laziness can be simulated now.</p>
+<p>From development perspective, we only need to implement a new engine functor for GPU to evaluate graph, all others remain the same. I am currently working on the OpenCL engine. The amount of code for implementing OpenCL engine is very small (around 700 ~ 900 LOC). Comparing to the CPU engine, the OpenCL engine maintains the memory allocated on both host and device for each node, copying only happens whenever it is necessary and the allocated memory on the device is reused as much as possible.</p>
+</div>
+<div class="section" id="jit-from-dynamic-to-static">
+<h2>JIT - From Dynamic to Static<a class="headerlink" href="#jit-from-dynamic-to-static" title="Permalink to this headline">¶</a></h2>
+<p>Remember the tradeoff between dynamic and static graph I mentioned before, i.e. flexibility vs efficiency. Many need to make a decision between Google’s TensorFlow and Facebook’s Pytorch. Many programmers’ common practice is – “using Pytorch at home and using TensorFlow in the company”. But can’t we really get the best part of both worlds?</p>
+<p>It turns out, for a specific type of application like DNN, we can! Owl achieves this by converting a dynamic graph into static one in the runtime. The motivation is based on a very important observation – in many cases, a computation graph is continuously re-evaluated after its construction. This is especially true for those iterative optimisation algorithms.</p>
+<p>If we know the structure of the graph remains the same in every iteration, rather than re-constructing it all the time, we can convert it into a static graph before evaluation. This is exactly what Owl does. By so doing, the programmer can enjoy the flexibility offered by the dynamic graph construction with operator overloading, but still achieve the best performance from static graph.</p>
+<p>Comparing to TensorFlow, the time overhead is shifted to the runtime. You may worry about the performance, is it going to slow down my DNN application? The fact is, even for large and complex graphs, this Just-in-Time compilation (JIT) and optimisation are often quite cheap. In this <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/mnist_cnn.ml">lazy_lstm.ml</a> example, there are 15,105 nodes and 21,335 edges. Owl is able to compile the graph within 230ms and optimise within 210ms. The optimised graph contains only 8,224 nodes, 14,444 edges and runs much faster. For smaller networks, it often just takes several milliseconds.</p>
+<p>Technically, this is straightforward to implement. Given a deep neural network, Owl first runs both forward pass and backward pass. Because of the computation graph, the calculation becomes symbolic and we can obtain the complete computation graph to evaluation. The <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/src/base/neural/owl_neural_compiler.ml">Owl_neural_compiler</a> takes a computation engine as inputs then compiles the DNN into the device-dependent static graph.</p>
+</div>
+<div class="section" id="what-is-next">
+<h2>What Is Next?<a class="headerlink" href="#what-is-next" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/owlbarn/owl/tree/master/src/base/compute">complete functor stack</a> of the computation graph is already implemented, and it has been used in Owl internally to speed up many operations. However, to let other programmers take advantage of this power, I still need to do a lot of engineering work to wrap up a set of easy-to-use APIs.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/chapter/cgraph_intro.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
