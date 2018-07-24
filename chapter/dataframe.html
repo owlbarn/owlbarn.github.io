@@ -50,8 +50,12 @@
   <ul>
 <li><a class="reference internal" href="#">Dataframe for Tabular Data</a><ul>
 <li><a class="reference internal" href="#basic-concepts">Basic Concepts</a></li>
-<li><a class="reference internal" href="#core-functions">Core Functions</a></li>
-<li><a class="reference internal" href="#csv-files">CSV Files</a></li>
+<li><a class="reference internal" href="#create-frames">Create Frames</a></li>
+<li><a class="reference internal" href="#manipulate-frames">Manipulate Frames</a></li>
+<li><a class="reference internal" href="#query-frames">Query Frames</a></li>
+<li><a class="reference internal" href="#iterate-map-and-filter">Iterate, Map, and Filter</a></li>
+<li><a class="reference internal" href="#read-write-csv-files">Read/Write CSV Files</a></li>
+<li><a class="reference internal" href="#what-is-next">What Is Next</a></li>
 </ul>
 </li>
 </ul>
@@ -86,15 +90,289 @@
             
   <div class="section" id="dataframe-for-tabular-data">
 <h1>Dataframe for Tabular Data<a class="headerlink" href="#dataframe-for-tabular-data" title="Permalink to this headline">¶</a></h1>
-<p>Introduce Dataframe module …</p>
+<p>Dataframe is a popular way to manipulate data. It originates from R’s dataframe and is widely implemented in many mainstream libraries such as Pandas. Essentially, a dataframe is simple container of the data that can be represented as a table.</p>
+<p>Different from the matrices in numerical computing, data stored in a dataframe are not necessarily numbers but a mixture of different types. The flexibility of dataframe largely comes from the dynamic typing inherently offered in a language. Due to OCaml’s static type checking, this poses greatest challenges to Owl when I was trying to introduce the similar functionality.</p>
+<p>It becomes an art when balancing between flexibility and efficiency in designing the programming interface. This article covers the design of Dataframe module and its basic usage.</p>
 <div class="section" id="basic-concepts">
 <h2>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this headline">¶</a></h2>
+<p>The dataframe functionality is implemented in Owl’s <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/src/base/misc/owl_dataframe.mli">Dataframe</a> module. Owl views a dataframe as a collection of time series data, and each series corresponds to one column in the table. All series must have the same length and each has a unique column head. In the following, we use series and column interchangeably.</p>
+<p>Owl packs each series into a unified type called <cite>series</cite> and stores them in an array. As you can already see, dataframe is column-based so accessing columns is way more efficient than accessing rows. The Dataframe module only provides basic functionality to create, access, query, iterate the data in a frame. We need to combine dataframe with the numerical functions in <cite>Stats</cite> module to reach its full capability. Essentially, Pandas is a bundle of table manipulation and basic statistical functions.</p>
 </div>
-<div class="section" id="core-functions">
-<h2>Core Functions<a class="headerlink" href="#core-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-frames">
+<h2>Create Frames<a class="headerlink" href="#create-frames" title="Permalink to this headline">¶</a></h2>
+<p>Dataframes can be created in various ways. <code class="docutils literal notranslate"><span class="pre">Dataframe.make</span></code> is the core function if we can to create a frame dynamically. For example, the following code creates a frame consisting of three columns include “name”, “age”, and “salary” of four people.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">name</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">pack_string_series</span> <span class="o">[|</span><span class="s2">&quot;Alice&quot;</span><span class="o">;</span> <span class="s2">&quot;Bob&quot;</span><span class="o">;</span> <span class="s2">&quot;Carol&quot;</span><span class="o">;</span> <span class="s2">&quot;David&quot;</span><span class="o">|];;</span>
+<span class="k">let</span> <span class="n">age</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">pack_int_series</span> <span class="o">[|</span><span class="mi">20</span><span class="o">;</span> <span class="mi">25</span><span class="o">;</span> <span class="mi">30</span><span class="o">;</span> <span class="mi">35</span><span class="o">|];;</span>
+<span class="k">let</span> <span class="n">salary</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">pack_float_series</span> <span class="o">[|</span><span class="mi">2200</span><span class="o">.;</span> <span class="mi">2100</span><span class="o">.;</span> <span class="mi">2500</span><span class="o">.;</span> <span class="mi">2800</span><span class="o">.|];;</span>
+<span class="k">let</span> <span class="n">frame</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">make</span> <span class="o">[|</span><span class="s2">&quot;name&quot;</span><span class="o">;</span> <span class="s2">&quot;age&quot;</span><span class="o">;</span> <span class="s2">&quot;salary&quot;</span><span class="o">|]</span> <span class="o">~</span><span class="n">data</span><span class="o">:[|</span><span class="n">name</span><span class="o">;</span> <span class="n">age</span><span class="o">;</span> <span class="n">salary</span><span class="o">|];;</span>
+</pre></div>
 </div>
-<div class="section" id="csv-files">
-<h2>CSV Files<a class="headerlink" href="#csv-files" title="Permalink to this headline">¶</a></h2>
+<p>If you run the code in <cite>utop</cite>, Owl can pretty print out the dataframe in the following format. If the frame grows too long or too wide, Owl is smart enough to truncate them automatically and present the table nicely in the toplevel.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>val frame : Owl_dataframe.t =
+
+  +-----+---+------
+    name age salary
+  +-----+---+------
+R0 Alice  20  2200.
+R1   Bob  25  2100.
+R2 Carol  30  2500.
+R3 David  35  2800.
+</pre></div>
+</div>
+<p>In fact, you do not necessarily need to pass in the data when calling <code class="docutils literal notranslate"><span class="pre">make</span></code> function. You can make an empty frame by just passing in head names.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">empty_frame</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">make</span> <span class="o">[|</span><span class="s2">&quot;name&quot;</span><span class="o">;</span> <span class="s2">&quot;age&quot;</span><span class="o">;</span> <span class="s2">&quot;salary&quot;</span><span class="o">|];;</span>
+</pre></div>
+</div>
+<p>Try the code, you will see Owl prints out an empty table.</p>
+</div>
+<div class="section" id="manipulate-frames">
+<h2>Manipulate Frames<a class="headerlink" href="#manipulate-frames" title="Permalink to this headline">¶</a></h2>
+<p>There are a comprehensive set of table manipulation functions implemented in Dataframe module. I will go through them briefly in this section.</p>
+<p>Now that Owl allows us to create empty frames, it certainly provides functions to dynamically add new columns.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">job</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">pack_string_series</span> <span class="o">[|</span><span class="s2">&quot;Engineer&quot;</span><span class="o">;</span> <span class="s2">&quot;Driver&quot;</span><span class="o">;</span> <span class="s2">&quot;Lecturer&quot;</span><span class="o">;</span> <span class="s2">&quot;Manager&quot;</span><span class="o">|];;</span>
+<span class="nn">Dataframe</span><span class="p">.</span><span class="n">append_col</span> <span class="n">frame</span> <span class="n">job</span> <span class="s2">&quot;job&quot;</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>From the output, we can see that the “job” column has been appended to the end of the previously defined dataframe.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>val frame : Owl_dataframe.t =
+
+  +-----+---+------+--------
+    name age salary      job
+  +-----+---+------+--------
+R0 Alice  20  2200. Engineer
+R1   Bob  25  2100.   Driver
+R2 Carol  30  2500. Lecturer
+R3 David  35  2800.  Manager
+</pre></div>
+</div>
+<p>We can even concatenate two dataframes. Depending on concatenating direction, there are a couple of things worth our attention.</p>
+<ul class="simple">
+<li>When two dataframes are concatenated vertically, they must have the same number of columns and consistent column types. The head names of the first argument will be used in the new dataframe.</li>
+<li>When two dataframes are concatenated horizontally, they must have the same number of rows. All the columns of two dataframes must have unique names.</li>
+</ul>
+<p>For example, the following code add two new entries to the table by concatenating two dataframes vertically.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">name</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">pack_string_series</span> <span class="o">[|</span><span class="s2">&quot;Erin&quot;</span><span class="o">;</span> <span class="s2">&quot;Frank&quot;</span><span class="o">|];;</span>
+<span class="k">let</span> <span class="n">age</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">pack_int_series</span> <span class="o">[|</span><span class="mi">22</span><span class="o">;</span> <span class="mi">24</span><span class="o">|];;</span>
+<span class="k">let</span> <span class="n">salary</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">pack_float_series</span> <span class="o">[|</span><span class="mi">2300</span><span class="o">.;</span> <span class="mi">2300</span><span class="o">.;|];;</span>
+<span class="k">let</span> <span class="n">frame_1</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">make</span> <span class="o">[|</span><span class="s2">&quot;name&quot;</span><span class="o">;</span> <span class="s2">&quot;age&quot;</span><span class="o">;</span> <span class="s2">&quot;salary&quot;</span><span class="o">|]</span> <span class="o">~</span><span class="n">data</span><span class="o">:[|</span><span class="n">name</span><span class="o">;</span> <span class="n">age</span><span class="o">;</span> <span class="n">salary</span><span class="o">|];;</span>
+<span class="k">let</span> <span class="n">frame_2</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">concat_vertical</span> <span class="n">frame</span> <span class="n">frame_1</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>The new dataframe looks like the following.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>val frame_2 : Owl_dataframe.t =
+
+  +-----+---+------
+    name age salary
+  +-----+---+------
+R0 Alice  20  2200.
+R1   Bob  25  2100.
+R2 Carol  30  2500.
+R3 David  35  2800.
+R4  Erin  22  2300.
+R5 Frank  24  2300.
+</pre></div>
+</div>
+<p>However, if you just want to append one or two rows, the previous method seems a bit overkill. Instead, you can call <cite>Dataframe.append_row</cite> function.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">new_row</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="o">([|</span><span class="n">pack_string</span> <span class="s2">&quot;Erin&quot;</span><span class="o">;</span> <span class="n">pack_int</span> <span class="mi">22</span><span class="o">;</span> <span class="n">pack_float</span> <span class="mi">2300</span><span class="o">.|]);;</span>
+<span class="nn">Dataframe</span><span class="p">.</span><span class="n">append_row</span> <span class="n">frame</span> <span class="n">new_row</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>There are also functions allow you to retrieve the properties.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>          <span class="c">(* return the copy of a dataframe. *)</span>
+
+<span class="k">val</span> <span class="n">row_num</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span>     <span class="c">(* return the number of rows. *)</span>
+
+<span class="k">val</span> <span class="n">col_num</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span>     <span class="c">(* return the number of columns. *)</span>
+
+<span class="k">val</span> <span class="n">shape</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span> <span class="c">(* return the shape of a dataframe. *)</span>
+
+<span class="k">val</span> <span class="n">numel</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span>       <span class="c">(* return the number of elements. *)</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>The module applies several optimisation techniques to accelerate the operations on dataframes. Please refer to the API reference for the complete function list.</p>
+</div>
+<div class="section" id="query-frames">
+<h2>Query Frames<a class="headerlink" href="#query-frames" title="Permalink to this headline">¶</a></h2>
+<p>We can use various functions in the module to retrieve the information from a dataframe. The basic <code class="docutils literal notranslate"><span class="pre">get</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span></code> function treats the dataframe like a matrix. We need to specify the row and column index to retrieve the value of an element.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Dataframe</span><span class="p">.</span><span class="n">get</span> <span class="n">frame</span> <span class="mi">2</span> <span class="mi">1</span><span class="o">;;</span>
+<span class="c">(* return Carol&#39;s age, i.e. 30 *)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">get_row</span></code> and <code class="docutils literal notranslate"><span class="pre">get_col</span></code> (also <code class="docutils literal notranslate"><span class="pre">get_col_by_name</span></code>) are used to obtain a complete row or column. For multiple rows and columns, there are also corresponding <code class="docutils literal notranslate"><span class="pre">get_rows</span></code> and <code class="docutils literal notranslate"><span class="pre">get_cols_by_name</span></code>.</p>
+<p>Because each column has a name, we can also use head to retrieves information. However, we still need to pass in the row index because rows are not associated with names.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Dataframe</span><span class="p">.</span><span class="n">get_by_name</span> <span class="n">frame</span> <span class="mi">2</span> <span class="s2">&quot;salary&quot;</span><span class="o">;;</span>
+<span class="c">(* return Carol&#39;s salary, i.e. 2500. *)</span>
+</pre></div>
+</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code> functions to retrieve only the beginning or end of the dataframe. The results will be returned as a new dataframe. We can also use the more powerful functions like <code class="docutils literal notranslate"><span class="pre">get_slice</span></code> or <code class="docutils literal notranslate"><span class="pre">get_slice_by_name</span></code> if we are interested in the data within a dataframe. The slice definition used in these two functions are the same as that used in Owl’s Ndarray modules.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Dataframe</span><span class="p">.</span><span class="n">get_slice_by_name</span> <span class="o">([</span><span class="mi">1</span><span class="o">;</span><span class="mi">2</span><span class="o">],</span> <span class="o">[</span><span class="s2">&quot;name&quot;</span><span class="o">;</span> <span class="s2">&quot;age&quot;</span><span class="o">])</span> <span class="n">frame</span><span class="o">;;</span>
+<span class="c">(* return Bob&#39;s and Carol&#39;s name and age *)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iterate-map-and-filter">
+<h2>Iterate, Map, and Filter<a class="headerlink" href="#iterate-map-and-filter" title="Permalink to this headline">¶</a></h2>
+<p>How can we miss the classic iteration functions in the functional programming? Dataframe includes the following methods to traverse the rows in a dataframe. I did not include any method to traverse columns because they can be simply extracted out as series then processed separately.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iteri_row</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+
+<span class="k">val</span> <span class="n">iter_row</span> <span class="o">:</span>  <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+
+<span class="k">val</span> <span class="n">mapi_row</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">map_row</span> <span class="o">:</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">filteri_row</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">filter_row</span> <span class="o">:</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">filter_mapi_row</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="n">option</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">filter_map_row</span> <span class="o">:</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="n">option</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Applying these functions to a dataframe is rather straightforward. All the elements in a row are packed into <code class="docutils literal notranslate"><span class="pre">elt</span></code> type, it is a programmer’s responsibility to unpack them properly in the passed in function.</p>
+<p>The interesting thing worth mentioning here is that there are several functions are associated with extended indexing operators. This allows us to write quite concise code in our application.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">.%(</span> <span class="o">)</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+<span class="c">(* associated with ``get_by_name`` *)</span>
+
+<span class="k">val</span> <span class="o">(</span> <span class="o">.%(</span> <span class="o">)&lt;-</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+<span class="c">(* associated with ``set_by_name`` *)</span>
+
+<span class="k">val</span> <span class="o">(</span> <span class="o">.?(</span> <span class="o">)</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span>
+<span class="c">(* associated with ``filter_row`` *)</span>
+
+<span class="k">val</span> <span class="o">(</span> <span class="o">.?(</span> <span class="o">)&lt;-</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span>
+<span class="c">(* associated with ``filter_map_row`` *)</span>
+
+<span class="k">val</span> <span class="o">(</span> <span class="o">.$(</span> <span class="o">)</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">list</span> <span class="o">*</span> <span class="kt">string</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">t</span>
+<span class="c">(* associated with ``get_slice_by_name`` *)</span>
+</pre></div>
+</div>
+<p>Let me present several examples to demonstrate how to use them. We can first pass in row index and head name tuple in <code class="docutils literal notranslate"><span class="pre">%()</span></code> to access cells.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.%(</span><span class="mi">1</span><span class="o">,</span><span class="s2">&quot;age&quot;</span><span class="o">);;</span>
+<span class="c">(* return Bob&#39;s age. *)</span>
+
+<span class="n">frame</span><span class="o">.%(</span><span class="mi">2</span><span class="o">,</span><span class="s2">&quot;salary&quot;</span><span class="o">)</span> <span class="o">&lt;-</span> <span class="n">pack_float</span> <span class="mi">3000</span><span class="o">.;;</span>
+<span class="c">(* change Carol&#39;s salary to 3000. *)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">.?()</span></code> provides a shortcut to filter out the rows satisfying the passed-in predicate and returns the results in a new dataframe. For example, the following code filters out the people who are younger than 30.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.?(</span><span class="k">fun</span> <span class="n">r</span> <span class="o">-&gt;</span> <span class="n">unpack_int</span> <span class="n">r</span><span class="o">.(</span><span class="mi">1</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="o">);;</span>
+</pre></div>
+</div>
+<p>The output should look like this.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>val frame : Owl_dataframe.t =
+
+  +-----+---+------
+    name age salary
+  +-----+---+------
+R0 Alice  20  2200.
+R1   Bob  25  2100.
+R2  Erin  22  2300.
+R3  Erin  22  2300.
+</pre></div>
+</div>
+<p>The cool thing about <code class="docutils literal notranslate"><span class="pre">.?()</span></code> is that you can chain the filters up like below. The code first filters out the people younger than 30, then further filter out whose salary is higher than 2100.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.?(</span><span class="k">fun</span> <span class="n">r</span> <span class="o">-&gt;</span> <span class="n">unpack_int</span> <span class="n">r</span><span class="o">.(</span><span class="mi">1</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="o">)</span>
+     <span class="o">.?(</span><span class="k">fun</span> <span class="n">r</span> <span class="o">-&gt;</span> <span class="n">unpack_float</span> <span class="n">r</span><span class="o">.(</span><span class="mi">2</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">2100</span><span class="o">.);;</span>
+</pre></div>
+</div>
+<p>It is also possible to filter out some rows then make some modifications. For example, we want to filter out those people older than 25, then raise their salary by 5%. We can achieve this in two ways. First, we can use <code class="docutils literal notranslate"><span class="pre">filter_map_row</span></code> functions.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">predicate</span> <span class="n">x</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">age</span> <span class="o">=</span> <span class="n">unpack_int</span> <span class="n">x</span><span class="o">.(</span><span class="mi">1</span><span class="o">)</span> <span class="k">in</span>
+  <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">25</span> <span class="k">then</span> <span class="o">(</span>
+    <span class="k">let</span> <span class="n">old_salary</span> <span class="o">=</span> <span class="n">unpack_float</span> <span class="n">x</span><span class="o">.(</span><span class="mi">2</span><span class="o">)</span> <span class="k">in</span>
+    <span class="k">let</span> <span class="n">new_salary</span> <span class="o">=</span> <span class="n">pack_float</span> <span class="o">(</span><span class="n">old_salary</span> <span class="o">*.</span> <span class="mi">1</span><span class="o">.</span><span class="mi">1</span><span class="o">)</span> <span class="k">in</span>
+    <span class="n">x</span><span class="o">.(</span><span class="mi">2</span><span class="o">)</span> <span class="o">&lt;-</span> <span class="n">new_salary</span><span class="o">;</span>
+    <span class="nc">Some</span> <span class="n">x</span>
+  <span class="o">)</span>
+  <span class="k">else</span>
+    <span class="nc">None</span>
+<span class="o">;;</span>
+
+<span class="n">filter_map_row</span> <span class="n">predicate</span> <span class="n">frame</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>Alternatively, we can use <code class="docutils literal notranslate"><span class="pre">.?(</span> <span class="pre">)&lt;-</span></code> indexing operator. The difference is that we now need to define two functions - one (i.e. <code class="docutils literal notranslate"><span class="pre">check</span></code> function) for checking the predicate and one (i.e. <code class="docutils literal notranslate"><span class="pre">modify</span></code> function) for modifying the passed-in rows.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">check</span> <span class="n">x</span> <span class="o">=</span> <span class="n">unpack_int</span> <span class="n">x</span><span class="o">.(</span><span class="mi">1</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="o">;;</span>
+
+<span class="k">let</span> <span class="n">modify</span> <span class="n">x</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">old_salary</span> <span class="o">=</span> <span class="n">unpack_float</span> <span class="n">x</span><span class="o">.(</span><span class="mi">2</span><span class="o">)</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">new_salary</span> <span class="o">=</span> <span class="n">pack_float</span> <span class="o">(</span><span class="n">old_salary</span> <span class="o">*.</span> <span class="mi">1</span><span class="o">.</span><span class="mi">1</span><span class="o">)</span> <span class="k">in</span>
+  <span class="n">x</span><span class="o">.(</span><span class="mi">2</span><span class="o">)</span> <span class="o">&lt;-</span> <span class="n">new_salary</span><span class="o">;</span>
+  <span class="n">x</span><span class="o">;;</span>
+
+<span class="n">frame</span><span class="o">.?(</span><span class="n">check</span><span class="o">)</span> <span class="o">&lt;-</span> <span class="n">modify</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>Running the code will give you the same result as that of calling <code class="docutils literal notranslate"><span class="pre">filter_map_row</span></code> function, but the way of structuring code becomes slightly different.</p>
+<p>Finally, you can also use <code class="docutils literal notranslate"><span class="pre">$.()</span></code> operator to replace <code class="docutils literal notranslate"><span class="pre">get_slice_by_name</span></code> function to retrieve a slice of dataframe.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.$([</span><span class="mi">0</span><span class="o">;</span><span class="mi">2</span><span class="o">],</span> <span class="o">[</span><span class="s2">&quot;name&quot;</span><span class="o">;</span> <span class="s2">&quot;salary&quot;</span><span class="o">]);;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="read-write-csv-files">
+<h2>Read/Write CSV Files<a class="headerlink" href="#read-write-csv-files" title="Permalink to this headline">¶</a></h2>
+<p>CSV (Comma-Separated Values) is a common format to store tabular data. The module provides simple support to process CSV files. The two core functions are as follows.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">of_csv</span> <span class="o">:</span> <span class="o">?</span><span class="n">sep</span><span class="o">:</span><span class="kt">char</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">head</span><span class="o">:</span><span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">types</span><span class="o">:</span><span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">t</span>
+
+<span class="k">val</span> <span class="n">to_csv</span> <span class="o">:</span> <span class="o">?</span><span class="n">sep</span><span class="o">:</span><span class="kt">char</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">of_csv</span></code> function loads a CSV file into in-memory dataframe while <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> writes a dataframe into CSV file on the disk. In both functions, we can use <code class="docutils literal notranslate"><span class="pre">sep</span></code> to specify the separator, the default separator is <cite>tab</cite> in Owl.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">of_csv</span></code> function, you can pass in the head names using <code class="docutils literal notranslate"><span class="pre">head</span></code> argument, otherwise the first row of the CSV file will be used as head. <code class="docutils literal notranslate"><span class="pre">types</span></code> argument is used to specify the type of each column in a CSV file. If <code class="docutils literal notranslate"><span class="pre">types</span></code> is dropped, all the column will be treated as string series by default. Note the length of both <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">types</span></code> must match the actual number of columns in the CSV file.</p>
+<p>The mapping between <code class="docutils literal notranslate"><span class="pre">types</span></code> string and actual OCaml type is below.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">b</span></code>: boolean values;</li>
+<li><code class="docutils literal notranslate"><span class="pre">i</span></code>: integer values;</li>
+<li><code class="docutils literal notranslate"><span class="pre">f</span></code>: float values;</li>
+<li><code class="docutils literal notranslate"><span class="pre">s</span></code>: string values;</li>
+</ul>
+<p>In the following examples, we will use Zoo system to load <a class="reference external" href="http://gist.github.com/3de010940ab340e3d2bfb564ecd7d6ba">a gist</a> which contains several example CSV files. Please make sure you have Zoo system properly installed on your machine.</p>
+<p>The first example simply loads the <cite>funding.csv</cite> file into a dataframe, then pretty prints out the table.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">example_01</span> <span class="n">gist_path</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">gist_path</span> <span class="o">^</span> <span class="s2">&quot;funding.csv&quot;</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">types</span> <span class="o">=</span>  <span class="o">[|</span><span class="s2">&quot;s&quot;</span><span class="o">;</span><span class="s2">&quot;s&quot;</span><span class="o">;</span><span class="s2">&quot;f&quot;</span><span class="o">;</span><span class="s2">&quot;s&quot;</span><span class="o">;</span><span class="s2">&quot;s&quot;</span><span class="o">;</span><span class="s2">&quot;s&quot;</span><span class="o">;</span><span class="s2">&quot;s&quot;</span><span class="o">;</span><span class="s2">&quot;f&quot;</span><span class="o">;</span><span class="s2">&quot;s&quot;</span><span class="o">;</span><span class="s2">&quot;s&quot;</span><span class="o">|]</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">df</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">of_csv</span> <span class="o">~</span><span class="n">sep</span><span class="o">:</span><span class="sc">&#39;,&#39;</span> <span class="o">~</span><span class="n">types</span> <span class="n">fname</span> <span class="k">in</span>
+  <span class="nn">Owl_pretty</span><span class="p">.</span><span class="n">pp_dataframe</span> <span class="nn">Format</span><span class="p">.</span><span class="n">std_formatter</span> <span class="n">df</span>
+</pre></div>
+</div>
+<p>The result should look like this. I have truncated out some rows to save space here.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>     +-----------------+-----------------+-------+---------+-------------+-----+----------+----------+--------------+------------
+              permalink           company numEmps  category          city state fundedDate  raisedAmt raisedCurrency        round
+     +-----------------+-----------------+-------+---------+-------------+-----+----------+----------+--------------+------------
+   R0          lifelock          LifeLock     nan       web         Tempe    AZ   1-May-07   6850000.            USD            b
+   R1          lifelock          LifeLock     nan       web         Tempe    AZ   1-Oct-06   6000000.            USD            a
+   R2          lifelock          LifeLock     nan       web         Tempe    AZ   1-Jan-08  25000000.            USD            c
+   R3       mycityfaces       MyCityFaces      7.       web    Scottsdale    AZ   1-Jan-08     50000.            USD         seed
+   R4          flypaper          Flypaper     nan       web       Phoenix    AZ   1-Feb-08   3000000.            USD            a
+   R5      infusionsoft      Infusionsoft    105.  software       Gilbert    AZ   1-Oct-07   9000000.            USD            a
+                    ...               ...     ...       ...           ...   ...        ...        ...            ...          ...
+R1450              cozi              Cozi     26.  software       Seattle    WA   1-Jun-08   8000000.            USD            c
+R1451           trusera           Trusera     15.       web       Seattle    WA   1-Jun-07   2000000.            USD        angel
+R1452        alerts-com        Alerts.com     nan       web      Bellevue    WA   8-Jul-08   1200000.            USD            a
+R1453             myrio             Myrio     75.  software       Bothell    WA   1-Jan-01  20500000.            USD unattributed
+R1454     grid-networks     Grid Networks     nan       web       Seattle    WA  30-Oct-07   9500000.            USD            a
+R1455     grid-networks     Grid Networks     nan       web       Seattle    WA  20-May-08  10500000.            USD            b
+</pre></div>
+</div>
+<p>The second example is slightly more complicated. It loads <cite>estate.csv</cite> file then filters out the some rows with two predicates. You can see how the two predicates are chained up with <code class="docutils literal notranslate"><span class="pre">.?()</span></code> indexing operator.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">example_05</span> <span class="n">gist_path</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">gist_path</span> <span class="o">^</span> <span class="s2">&quot;estate.csv&quot;</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">d</span> <span class="o">=</span> <span class="o">(</span><span class="n">of_csv</span> <span class="o">~</span><span class="n">sep</span><span class="o">:</span><span class="sc">&#39;,&#39;</span> <span class="n">fname</span><span class="o">)</span>
+    <span class="o">.?(</span><span class="k">fun</span> <span class="n">row</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">unpack_string</span> <span class="n">row</span><span class="o">.(</span><span class="mi">7</span><span class="o">))</span> <span class="o">=</span> <span class="s2">&quot;Condo&quot;</span>
+    <span class="o">.?(</span><span class="k">fun</span> <span class="n">row</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">unpack_string</span> <span class="n">row</span><span class="o">.(</span><span class="mi">4</span><span class="o">))</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span><span class="o">)</span>
+  <span class="k">in</span>
+  <span class="nn">Owl_pretty</span><span class="p">.</span><span class="n">pp_dataframe</span> <span class="nn">Format</span><span class="p">.</span><span class="n">std_formatter</span> <span class="n">d2</span>
+</pre></div>
+</div>
+<p>For the other examples, please refer to this Zoo gist <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/dataframe.ml">dataframe.ml</a>.</p>
+</div>
+<div class="section" id="what-is-next">
+<h2>What Is Next<a class="headerlink" href="#what-is-next" title="Permalink to this headline">¶</a></h2>
+<p>Comparing to those very mature libraries like Pandas, the Dataframe module in Owl is very young. I also try to keep its functionality minimal in the beginning to reserve enough space for future adjustment. From my point of view, dataframe should only offer a minimal set of table manipulation functions, its analytical capability should come from the combination with other modules (e.g. <cite>Stats</cite>) in Owl.</p>
 </div>
 </div>
 
