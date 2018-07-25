@@ -1,0 +1,145 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Interacting with Owl &#8212; Owl Numerical Library 0.3 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Architecture" href="arch.html" />
+    <link rel="prev" title="Installation" href="install.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Interacting with Owl</a><ul>
+<li><a class="reference internal" href="#using-toplevel">Using Toplevel</a></li>
+<li><a class="reference internal" href="#using-notebook">Using Notebook</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Part II: Owl Numerical System</a><ul>
+      <li>Previous: <a href="install.html" title="previous chapter">Installation</a></li>
+      <li>Next: <a href="arch.html" title="next chapter">Architecture</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="interacting-with-owl">
+<h1>Interacting with Owl<a class="headerlink" href="#interacting-with-owl" title="Permalink to this headline">¶</a></h1>
+<p>There are several ways to interact with Owl system. The most classic one is to write an OCaml application, compile the code, then run it natively on a computer. You can also skip the compilation step, and use Zoo system to run the code as a script.</p>
+<p>However, the easiest way for a beginner to try out Owl is REPL (Read–Eval–Print Loop), or an interactive toplevel. The toplevel offers a convenient way to play with small code snippets. The code run in the toplevel is compiled into bytecode rather than native code. Bytecode runs slower than native code. However, this has very little impact on Owl’s performance because its performance-critical code are all implemented in C functions.</p>
+<p>In the following, I will introduce two options to set up a toplevel environment for Owl.</p>
+<div class="section" id="using-toplevel">
+<h2>Using Toplevel<a class="headerlink" href="#using-toplevel" title="Permalink to this headline">¶</a></h2>
+<p>OCaml language has bundled with a simple toplevel, but I recommend to use <em>utop</em> as a more advance replacement. Installing <em>utop</em> is straightforward in OPAM, simply run the following command in the system shell.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>opam install utop
+</pre></div>
+</div>
+<p>After installation, you can load Owl in <em>utop</em> with the following commands. <code class="docutils literal notranslate"><span class="pre">owl-toplevel</span></code> is Owl’s toplevel library which will automatically load several dependent libraries (including <code class="docutils literal notranslate"><span class="pre">owl-zoo</span></code>, <code class="docutils literal notranslate"><span class="pre">owl-base</span></code>, and <code class="docutils literal notranslate"><span class="pre">owl</span></code> core library) to set up a complete numerical environment.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">#</span><span class="n">require</span> <span class="s2">&quot;owl-top&quot;</span><span class="o">;;</span>
+<span class="k">open</span> <span class="nc">Owl</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>If you do not want to type these commands every time you start <em>toplevel</em>, you can add them to <code class="docutils literal notranslate"><span class="pre">.ocamlinit</span></code> file. The toplevel reads <code class="docutils literal notranslate"><span class="pre">.ocamlinit</span></code> file when it starts and uses it to initialise the environment. This file is often stored in the home directory on your computer.</p>
+</div>
+<div class="section" id="using-notebook">
+<h2>Using Notebook<a class="headerlink" href="#using-notebook" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter Notebook is a popular way to mix presentation with interactive code execution. It originates in Python world but is widely supported by various languages. One attractive feature of notebook is that it uses client/server architecture and runs in a browser.</p>
+<p>If you want to know how to use a notebook and its technical details, please read <a class="reference external" href="http://jupyter.org/documentation">Jupyter Documentation</a>. Here let me show you how to set up a notebook to run Owl step by step.</p>
+<p>Run the following commands in the shell will install all the dependency for you. This includes Jupyter Notebook and its <a class="reference external" href="https://github.com/akabe/ocaml-jupyter">OCaml language extension</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install jupyter
+opam install jupyter
+jupyter kernelspec install --name ocaml-jupyter <span class="s2">&quot;</span><span class="k">$(</span>opam config var share<span class="k">)</span><span class="s2">/jupyter&quot;</span>
+</pre></div>
+</div>
+<p>To start a Jupyter notebook, you can run this command. The command starts a local server running on <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8888/</span></code>, then opens a tab in your browser as the client.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter notebook
+</pre></div>
+</div>
+<p>When the everything is up and running, you can start a new notebook in the web interface. In the new notebook, you must run the following OCaml code in the first input field to load Owl environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#use &quot;topfind&quot;;;</span>
+<span class="c1">#require &quot;owl-top&quot;;;</span>
+</pre></div>
+</div>
+<p>At this point, a complete Owl environment is set up in the Jupyter Notebook, and you are free to go with any experiments you like. For example, you can simply copy &amp; paste the code in <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/lazy_mnist.ml">lazy_mnist.ml</a> to train a convolutional neural network.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/chapter/interact.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
