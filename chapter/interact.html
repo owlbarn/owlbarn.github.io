@@ -86,8 +86,8 @@
   <div class="section" id="interacting-with-owl">
 <h1>Interacting with Owl<a class="headerlink" href="#interacting-with-owl" title="Permalink to this headline">¶</a></h1>
 <p>There are several ways to interact with Owl system. The most classic one is to write an OCaml application, compile the code, then run it natively on a computer. You can also skip the compilation step, and use Zoo system to run the code as a script.</p>
-<p>However, the easiest way for a beginner to try out Owl is REPL (Read–Eval–Print Loop), or an interactive toplevel. The toplevel offers a convenient way to play with small code snippets. The code run in the toplevel is compiled into bytecode rather than native code. Bytecode runs slower than native code. However, this has very little impact on Owl’s performance because its performance-critical code are all implemented in C functions.</p>
-<p>In the following, I will introduce two options to set up a toplevel environment for Owl.</p>
+<p>However, the easiest way for a beginner to try out Owl is REPL (Read–Eval–Print Loop), or an interactive toplevel. The toplevel offers a convenient way to play with small code snippets. The code run in the toplevel is compiled into bytecode rather than native code. Bytecode often runs much slower than native code. However, this has very little impact on Owl’s performance because all its performance-critical functions are implemented in C language.</p>
+<p>In the following, I will introduce two options to set up an interactive environment for Owl.</p>
 <div class="section" id="using-toplevel">
 <h2>Using Toplevel<a class="headerlink" href="#using-toplevel" title="Permalink to this headline">¶</a></h2>
 <p>OCaml language has bundled with a simple toplevel, but I recommend to use <em>utop</em> as a more advance replacement. Installing <em>utop</em> is straightforward in OPAM, simply run the following command in the system shell.</p>
