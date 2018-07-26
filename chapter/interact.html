@@ -51,6 +51,7 @@
 <li><a class="reference internal" href="#">Interacting with Owl</a><ul>
 <li><a class="reference internal" href="#using-toplevel">Using Toplevel</a></li>
 <li><a class="reference internal" href="#using-notebook">Using Notebook</a></li>
+<li><a class="reference internal" href="#notebook-examples">Notebook Examples</a></li>
 </ul>
 </li>
 </ul>
@@ -117,10 +118,71 @@ jupyter kernelspec install --name ocaml-jupyter <span class="s2">&quot;</span><s
 </div>
 <p>When the everything is up and running, you can start a new notebook in the web interface. In the new notebook, you must run the following OCaml code in the first input field to load Owl environment.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#use &quot;topfind&quot;;;</span>
-<span class="c1">#require &quot;owl-top&quot;;;</span>
+<span class="c1">#require &quot;owl-top, jupyter.notebook&quot;;;</span>
 </pre></div>
 </div>
-<p>At this point, a complete Owl environment is set up in the Jupyter Notebook, and you are free to go with any experiments you like. For example, you can simply copy &amp; paste the code in <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/lazy_mnist.ml">lazy_mnist.ml</a> to train a convolutional neural network.</p>
+<p>At this point, a complete Owl environment is set up in the Jupyter Notebook, and you are free to go with any experiments you like.</p>
+</div>
+<div class="section" id="notebook-examples">
+<h2>Notebook Examples<a class="headerlink" href="#notebook-examples" title="Permalink to this headline">¶</a></h2>
+<p>You can simply copy &amp; paste the whole <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/lazy_mnist.ml">lazy_mnist.ml</a> to train a convolutional neural network in the notebook. But here, let us just use the following code.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">#</span><span class="n">use</span> <span class="s2">&quot;topfind&quot;</span><span class="o">;;</span>
+<span class="o">#</span><span class="n">require</span> <span class="s2">&quot;owl-top, jupyter.notebook&quot;</span><span class="o">;;</span>
+
+<span class="k">open</span> <span class="nc">Owl</span>
+<span class="k">open</span> <span class="nn">Neural</span><span class="p">.</span><span class="nc">S</span>
+<span class="k">open</span> <span class="nn">Neural</span><span class="p">.</span><span class="nn">S</span><span class="p">.</span><span class="nc">Graph</span>
+<span class="k">open</span> <span class="nn">Neural</span><span class="p">.</span><span class="nn">S</span><span class="p">.</span><span class="nc">Algodiff</span>
+
+
+<span class="k">let</span> <span class="n">make_network</span> <span class="n">input_shape</span> <span class="o">=</span>
+  <span class="n">input</span> <span class="n">input_shape</span>
+  <span class="o">|&gt;</span> <span class="n">lambda</span> <span class="o">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="nn">Maths</span><span class="p">.</span><span class="o">(</span><span class="n">x</span> <span class="o">/</span> <span class="nc">F</span> <span class="mi">256</span><span class="o">.))</span>
+  <span class="o">|&gt;</span> <span class="n">conv2d</span> <span class="o">[|</span><span class="mi">5</span><span class="o">;</span><span class="mi">5</span><span class="o">;</span><span class="mi">1</span><span class="o">;</span><span class="mi">32</span><span class="o">|]</span> <span class="o">[|</span><span class="mi">1</span><span class="o">;</span><span class="mi">1</span><span class="o">|]</span> <span class="o">~</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="nc">Relu</span>
+  <span class="o">|&gt;</span> <span class="n">max_pool2d</span> <span class="o">[|</span><span class="mi">2</span><span class="o">;</span><span class="mi">2</span><span class="o">|]</span> <span class="o">[|</span><span class="mi">2</span><span class="o">;</span><span class="mi">2</span><span class="o">|]</span>
+  <span class="o">|&gt;</span> <span class="n">dropout</span> <span class="mi">0</span><span class="o">.</span><span class="mi">1</span>
+  <span class="o">|&gt;</span> <span class="n">fully_connected</span> <span class="mi">1024</span> <span class="o">~</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="nc">Relu</span>
+  <span class="o">|&gt;</span> <span class="n">linear</span> <span class="mi">10</span> <span class="o">~</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="o">(</span><span class="nc">Softmax</span> <span class="mi">1</span><span class="o">)</span>
+  <span class="o">|&gt;</span> <span class="n">get_network</span>
+  <span class="o">;;</span>
+
+
+<span class="n">make_network</span> <span class="o">[|</span><span class="mi">28</span><span class="o">;</span><span class="mi">28</span><span class="o">;</span><span class="mi">1</span><span class="o">|];;</span>
+</pre></div>
+</div>
+<p>Jupyter notebook should be nicely print out the structure of the neural network.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/jupyter_example_01.png"><img alt="jupyter example 01" src="../_images/jupyter_example_01.png" style="width: 424.5px; height: 605.0px;" /></a>
+</div>
+<p>Second example demonstrates how to plot figures in notebook. Because Owl’s Plot module does not support in-memory plotting, the figure needs to be written into a file first then read back as a string. In-memory plotting is not difficult to implement at all so I will certainly add this in future, at the moment we can just use <code class="docutils literal notranslate"><span class="pre">Owl_io.read_file_string</span></code>.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">#</span><span class="n">use</span> <span class="s2">&quot;topfind&quot;</span><span class="o">;;</span>
+<span class="o">#</span><span class="n">require</span> <span class="s2">&quot;owl-top, jupyter.notebook&quot;</span><span class="o">;;</span>
+<span class="k">open</span> <span class="nc">Owl</span><span class="o">;;</span>
+
+<span class="c">(* Plot a normal figure using Plot *)</span>
+
+<span class="k">let</span> <span class="n">f</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Maths</span><span class="p">.</span><span class="n">sin</span> <span class="n">x</span> <span class="o">/.</span> <span class="n">x</span> <span class="k">in</span>
+<span class="k">let</span> <span class="n">h</span> <span class="o">=</span> <span class="nn">Plot</span><span class="p">.</span><span class="n">create</span> <span class="s2">&quot;plot_003.png&quot;</span> <span class="k">in</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">set_foreground_color</span> <span class="n">h</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="o">;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">set_background_color</span> <span class="n">h</span> <span class="mi">255</span> <span class="mi">255</span> <span class="mi">255</span><span class="o">;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">set_title</span> <span class="n">h</span> <span class="s2">&quot;Function: f(x) = sine x / x&quot;</span><span class="o">;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">set_xlabel</span> <span class="n">h</span> <span class="s2">&quot;x-axis&quot;</span><span class="o">;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">set_ylabel</span> <span class="n">h</span> <span class="s2">&quot;y-axis&quot;</span><span class="o">;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">set_font_size</span> <span class="n">h</span> <span class="mi">8</span><span class="o">.;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">set_pen_size</span> <span class="n">h</span> <span class="mi">3</span><span class="o">.;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">plot_fun</span> <span class="o">~</span><span class="n">h</span> <span class="n">f</span> <span class="mi">1</span><span class="o">.</span> <span class="mi">15</span><span class="o">.;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">output</span> <span class="n">h</span><span class="o">;;</span>
+
+<span class="c">(* Load into memory and display in Jupyter *)</span>
+
+<span class="k">let</span> <span class="n">data</span> <span class="o">=</span> <span class="nn">Owl_io</span><span class="p">.</span><span class="n">read_file_string</span> <span class="s2">&quot;plot_003.png&quot;</span> <span class="k">in</span>
+<span class="nn">Jupyter_notebook</span><span class="p">.</span><span class="n">display</span> <span class="o">~</span><span class="n">base64</span><span class="o">:</span><span class="bp">true</span> <span class="s2">&quot;image/png&quot;</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p>Then we can see the plot is correctly rendered in the notebook running in your browser. Plotting capability greatly enriches the content of an interactive presentation.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/jupyter_example_02.png"><img alt="jupyter example 02" src="../_images/jupyter_example_02.png" style="width: 433.0px; height: 520.0px;" /></a>
+</div>
 </div>
 </div>
 
