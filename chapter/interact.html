@@ -51,7 +51,7 @@
 <li><a class="reference internal" href="#">Interacting with Owl</a><ul>
 <li><a class="reference internal" href="#using-toplevel">Using Toplevel</a></li>
 <li><a class="reference internal" href="#using-notebook">Using Notebook</a></li>
-<li><a class="reference internal" href="#notebook-examples">Notebook Examples</a></li>
+<li><a class="reference internal" href="#using-owl-jupyter">Using owl-jupyter</a></li>
 </ul>
 </li>
 </ul>
@@ -123,10 +123,7 @@ jupyter kernelspec install --name ocaml-jupyter <span class="s2">&quot;</span><s
 </pre></div>
 </div>
 <p>At this point, a complete Owl environment is set up in the Jupyter Notebook, and you are free to go with any experiments you like.</p>
-</div>
-<div class="section" id="notebook-examples">
-<h2>Notebook Examples<a class="headerlink" href="#notebook-examples" title="Permalink to this headline">¶</a></h2>
-<p>You can simply copy &amp; paste the whole <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/lazy_mnist.ml">lazy_mnist.ml</a> to train a convolutional neural network in the notebook. But here, let us just use the following code.</p>
+<p>For example, you can simply copy &amp; paste the whole <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/lazy_mnist.ml">lazy_mnist.ml</a> to train a convolutional neural network in the notebook. But here, let us just use the following code.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">#</span><span class="n">use</span> <span class="s2">&quot;topfind&quot;</span><span class="o">;;</span>
 <span class="o">#</span><span class="n">require</span> <span class="s2">&quot;owl-top, jupyter.notebook&quot;</span><span class="o">;;</span>
 
@@ -153,9 +150,9 @@ jupyter kernelspec install --name ocaml-jupyter <span class="s2">&quot;</span><s
 </div>
 <p>Jupyter notebook should nicely print out the structure of the neural network.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/jupyter_example_01.png"><img alt="jupyter example 01" src="../_images/jupyter_example_01.png" style="width: 424.5px; height: 605.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/jupyter_example_01.png"><img alt="jupyter example 01" src="../_images/jupyter_example_01.png" style="width: 577.0px; height: 828.0px;" /></a>
 </div>
-<p>Second example demonstrates how to plot figures in notebook. Because Owl’s Plot module does not support in-memory plotting, the figure needs to be written into a file first then read back as a string. In-memory plotting is not difficult to implement at all so I will certainly add this in future, at the moment we can just use <code class="docutils literal notranslate"><span class="pre">Owl_io.read_file_string</span></code>.</p>
+<p>Second example demonstrates how to plot figures in notebook. Because Owl’s Plot module does not support in-memory plotting, the figure needs to be written into a file first then passed to <code class="docutils literal notranslate"><span class="pre">Jupyter_notebook.display_file</span></code> to render.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">#</span><span class="n">use</span> <span class="s2">&quot;topfind&quot;</span><span class="o">;;</span>
 <span class="o">#</span><span class="n">require</span> <span class="s2">&quot;owl-top, jupyter.notebook&quot;</span><span class="o">;;</span>
 <span class="k">open</span> <span class="nc">Owl</span><span class="o">;;</span>
@@ -176,13 +173,36 @@ jupyter kernelspec install --name ocaml-jupyter <span class="s2">&quot;</span><s
 
 <span class="c">(* Load into memory and display in Jupyter *)</span>
 
-<span class="k">let</span> <span class="n">data</span> <span class="o">=</span> <span class="nn">Owl_io</span><span class="p">.</span><span class="n">read_file_string</span> <span class="s2">&quot;plot_003.png&quot;</span> <span class="k">in</span>
-<span class="nn">Jupyter_notebook</span><span class="p">.</span><span class="n">display</span> <span class="o">~</span><span class="n">base64</span><span class="o">:</span><span class="bp">true</span> <span class="s2">&quot;image/png&quot;</span> <span class="n">data</span>
+<span class="nn">Jupyter_notebook</span><span class="p">.</span><span class="n">display_file</span> <span class="o">~</span><span class="n">base64</span><span class="o">:</span><span class="bp">true</span> <span class="s2">&quot;image/png&quot;</span> <span class="s2">&quot;plot_003.png&quot;</span>
 </pre></div>
 </div>
 <p>Then we can see the plot is correctly rendered in the notebook running in your browser. Plotting capability greatly enriches the content of an interactive presentation.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/jupyter_example_02.png"><img alt="jupyter example 02" src="../_images/jupyter_example_02.png" style="width: 433.0px; height: 520.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/jupyter_example_02.png"><img alt="jupyter example 02" src="../_images/jupyter_example_02.png" style="width: 579.0px; height: 717.0px;" /></a>
+</div>
+</div>
+<div class="section" id="using-owl-jupyter">
+<h2>Using owl-jupyter<a class="headerlink" href="#using-owl-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>There is a convenient library <cite>owl-jupyter</cite> specifically for running Owl in a notebook. The library is a thin wrapper of <code class="docutils literal notranslate"><span class="pre">owl-top</span></code>. The biggest difference is that it overwrites <code class="docutils literal notranslate"><span class="pre">Plot.output</span></code> function so the figure is automatically rendered in the notebook without calling <code class="docutils literal notranslate"><span class="pre">Jupyter_notebook.display_file</span></code>.</p>
+<p>This means that all the plotting code can be directly used in the notebook without any modifications. Please check the following example and compare it with the previous plotting example, we can see <code class="docutils literal notranslate"><span class="pre">display_file</span></code> call is saved.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">#</span><span class="n">use</span> <span class="s2">&quot;topfind&quot;</span><span class="o">;;</span>
+<span class="o">#</span><span class="n">require</span> <span class="s2">&quot;owl-jupyter&quot;</span><span class="o">;;</span>
+<span class="k">open</span> <span class="nc">Owl_jupyter</span><span class="o">;;</span>
+
+<span class="k">let</span> <span class="n">f</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Maths</span><span class="p">.</span><span class="n">sin</span> <span class="n">x</span> <span class="o">/.</span> <span class="n">x</span> <span class="k">in</span>
+<span class="k">let</span> <span class="n">g</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">Maths</span><span class="p">.</span><span class="n">cos</span> <span class="n">x</span> <span class="o">/.</span> <span class="n">x</span> <span class="k">in</span>
+<span class="k">let</span> <span class="n">h</span> <span class="o">=</span> <span class="nn">Plot</span><span class="p">.</span><span class="n">create</span> <span class="s2">&quot;&quot;</span> <span class="k">in</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">set_foreground_color</span> <span class="n">h</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="o">;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">set_background_color</span> <span class="n">h</span> <span class="mi">255</span> <span class="mi">255</span> <span class="mi">255</span><span class="o">;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">set_pen_size</span> <span class="n">h</span> <span class="mi">3</span><span class="o">.;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">plot_fun</span> <span class="o">~</span><span class="n">h</span> <span class="n">f</span> <span class="mi">1</span><span class="o">.</span> <span class="mi">15</span><span class="o">.;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">plot_fun</span> <span class="o">~</span><span class="n">h</span> <span class="n">g</span> <span class="mi">1</span><span class="o">.</span> <span class="mi">15</span><span class="o">.;</span>
+<span class="nn">Plot</span><span class="p">.</span><span class="n">output</span> <span class="n">h</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>One thing worth noting is that, if you pass in empty string in <code class="docutils literal notranslate"><span class="pre">Plot.create</span></code> function, the figure is only rendered in the browser. If you pass in non-empty string, then the figure is both rendered in the browser and saved into the file you specified. This is to guarantee <code class="docutils literal notranslate"><span class="pre">output</span></code> function has the consistent behaviour when used in or out of a notebook.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/jupyter_example_03.png"><img alt="jupyter example 03" src="../_images/jupyter_example_03.png" style="width: 577.0px; height: 612.0px;" /></a>
 </div>
 </div>
 </div>

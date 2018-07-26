@@ -89,7 +89,7 @@
   <div class="section" id="plot">
 <h1>Plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#63 entries have been extracted.</p>
+#64 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/misc/owl_plot.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/misc/owl_plot.ml">{Implementation}</a></p>
@@ -127,7 +127,7 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">subplot</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L729">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L732">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">output</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -138,91 +138,96 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_output</span></code></p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L501">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_output</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">get_output</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L508">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_title</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_title</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L508">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L511">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_xlabel</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_xlabel</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L511">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L514">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_ylabel</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_ylabel</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L514">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L517">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_zlabel</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_zlabel</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L517">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L520">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_xrange</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_xrange</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L520">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L523">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_yrange</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_yrange</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L525">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L528">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_zrange</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_zrange</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L530">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L533">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_xticklabels</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">*</span> <span class="kt">string</span><span class="o">)</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_xticklabels</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L535">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L538">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_yticklabels</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">*</span> <span class="kt">string</span><span class="o">)</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_yticklabels</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L538">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L541">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_zticklabels</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">*</span> <span class="kt">string</span><span class="o">)</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_zticklabels</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L541">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L544">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_foreground_color</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_foreground_color</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L544">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L547">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_background_color</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_background_color</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L547">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L550">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_font_size</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_font_size</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L550">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L553">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_pen_size</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_pen_size</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L553">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L556">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_page_size</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_page_size</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L556">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L559">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">legend_on</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">position</span><span class="o">:</span><span class="n">legend_position</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">legend_on</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L559">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L562">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">legend_off</span> <span class="o">:</span> <span class="n">handle</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">legend_off</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L565">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L568">source code</a></p>
 </div>
 <div class="section" id="basic-plot-functions">
 <h2>Basic plot functions<a class="headerlink" href="#basic-plot-functions" title="Permalink to this headline">¶</a></h2>
@@ -231,50 +236,50 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">x</span> <span class="pre">y</span></code> plots <code class="docutils literal notranslate"><span class="pre">y</span></code> as a function of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L619">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L622">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">plot_fun</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">plot_fun</span> <span class="pre">f</span> <span class="pre">a</span> <span class="pre">b</span></code> generates a line plot for function <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">float</span> <span class="pre">-&gt;</span> <span class="pre">float</span></code>
 in the interval <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L661">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L664">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scatter</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">scatter</span> <span class="pre">x</span> <span class="pre">y</span></code> generates a scatter plot of <code class="docutils literal notranslate"><span class="pre">y</span></code> as a function of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L667">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L670">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">histogram</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">bin</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">histogram</span> <span class="pre">x</span></code> generates a histogram of <code class="docutils literal notranslate"><span class="pre">x</span></code> with the number <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L700">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L703">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ecdf</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ecdf</span> <span class="pre">x</span></code></p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1098">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1101">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">stairs</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">stairs</span> <span class="pre">x</span> <span class="pre">y</span></code></p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1109">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1112">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">stem</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">stem</span> <span class="pre">x</span></code> generates a stem plot of <code class="docutils literal notranslate"><span class="pre">y</span></code> as a function of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L734">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L737">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">autocorr</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">autocorr</span> <span class="pre">x</span></code> generates an autocorrelation plot of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L776">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L779">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">text</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">dx</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">dy</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -291,25 +296,25 @@ in the interval <code class="docutils literal notranslate"><span class="pre">[a,
 <p><code class="docutils literal notranslate"><span class="pre">draw_rect</span> <span class="pre">x0</span> <span class="pre">y0</span> <span class="pre">x1</span> <span class="pre">y1</span></code> draws a rectangle with top-left point at <code class="docutils literal notranslate"><span class="pre">(x0,y0)</span></code>
 and bottom-right point at <code class="docutils literal notranslate"><span class="pre">(x1,y1)</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">FillPattern</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L950">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L953">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">draw_circle</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">draw_circle</span> <span class="pre">x</span> <span class="pre">y</span> <span class="pre">r</span></code> draws a circle at point <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code> of radius <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>, <code class="docutils literal notranslate"><span class="pre">FillPattern</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1122">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1125">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bar</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">bar</span> <span class="pre">x</span></code> draws a bar chart of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">FillPattern</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L981">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L984">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">area</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">area</span> <span class="pre">x</span> <span class="pre">y</span></code> fills the area specified by <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">FillPattern</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1016">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1019">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">draw_polygon</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -317,25 +322,25 @@ and bottom-right point at <code class="docutils literal notranslate"><span class
 will be treated as connected to the next point except the last, which
 will be connected to the first point.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">FillPattern</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1053">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1056">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">error_bar</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">error_bar</span> <span class="pre">x</span> <span class="pre">y</span></code> generates a line plot of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> with error bars.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L853">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L856">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">boxplot</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">boxplot</span> <span class="pre">x</span></code> generates a box plot of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L910">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L913">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pie</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pie</span> <span class="pre">x</span></code> generates a simple pie chart of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Fill</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1190">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1193">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">loglog</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">x</span><span class="o">:</span><span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -344,28 +349,28 @@ will be connected to the first point.</p>
 specified in <code class="docutils literal notranslate"><span class="pre">spec</span></code>, plot logarithmic scales only for x-axis or y-axis
 respectively.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>, <code class="docutils literal notranslate"><span class="pre">Axis</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1222">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1225">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">semilogx</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">x</span><span class="o">:</span><span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">semilogx</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">loglog</span></code>. Plot data as logarithmic scales for the
 x-axis.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1282">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1285">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">semilogy</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">x</span><span class="o">:</span><span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">semilogy</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">loglog</span></code>. Plot data as logarithmic scales for the
 y-axis.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>, <code class="docutils literal notranslate"><span class="pre">LineStyle</span></code>, <code class="docutils literal notranslate"><span class="pre">LineWidth</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1289">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1292">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">spy</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">spy</span> <span class="pre">x</span></code> visualises the sparsity of the matrix <code class="docutils literal notranslate"><span class="pre">x</span></code> using scatter plot. The
 non-zero elements are plotted as dots, and zeros are ignored.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1670">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1673">source code</a></p>
 </div>
 <div class="section" id="plot-3d-figures">
 <h2>Plot 3D figures<a class="headerlink" href="#plot-3d-figures" title="Permalink to this headline">¶</a></h2>
@@ -373,7 +378,7 @@ non-zero elements are plotted as dots, and zeros are ignored.</p>
 </pre></div>
 </div>
 <p>Note <code class="docutils literal notranslate"><span class="pre">plot3d</span></code> is just an alias of <code class="docutils literal notranslate"><span class="pre">surf</span></code> function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1335">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1338">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">surf</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -381,7 +386,7 @@ non-zero elements are plotted as dots, and zeros are ignored.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">Altitude</span></code>, <code class="docutils literal notranslate"><span class="pre">Azimuth</span></code>, <code class="docutils literal notranslate"><span class="pre">Contour</span></code>, <code class="docutils literal notranslate"><span class="pre">NoMagColor</span></code>, <code class="docutils literal notranslate"><span class="pre">Curtain</span></code>.</p>
 <p>Please refer to <code class="docutils literal notranslate"><span class="pre">plotsurf3d</span></code> functions in the PLplot library for more
 information.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1296">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1299">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mesh</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -390,7 +395,7 @@ information.</p>
 <code class="docutils literal notranslate"><span class="pre">Curtain</span></code>.</p>
 <p>Please refer to <code class="docutils literal notranslate"><span class="pre">plmesh</span></code> and <code class="docutils literal notranslate"><span class="pre">plmeshc</span></code> functions in the PLplot library for
 more information.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1338">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1341">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">contour</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -399,7 +404,7 @@ more information.</p>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">heatmap</span> <span class="pre">x</span> <span class="pre">y</span> <span class="pre">z</span></code> generates a heatmap defined by <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1387">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1390">source code</a></p>
 </div>
 <div class="section" id="advanced-statistical-plot">
 <h2>Advanced statistical plot<a class="headerlink" href="#advanced-statistical-plot" title="Permalink to this headline">¶</a></h2>
@@ -417,14 +422,14 @@ meadian <code class="docutils literal notranslate"><span class="pre">(i</span> <
 <p>The y-axis is to be updated to corrsponding probability <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">cdf(y)</span> <span class="pre">*</span> <span class="pre">100%</span></code>.</p>
 <p>The same definition also applies to normplot and wblplot.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1455">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1458">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normplot</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">normalplot</span> <span class="pre">~sigma</span> <span class="pre">x</span></code> is probplot with normal distribution. User need to
 specify the <code class="docutils literal notranslate"><span class="pre">sigma</span></code> of distribution or the default value 1 will be used.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1505">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1508">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">wblplot</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -433,7 +438,7 @@ need to specify the weibull distribution parameters <code class="docutils litera
 explicitly. By default, (lambda, k) = (1., 1.). <code class="docutils literal notranslate"><span class="pre">wblplot</span></code> applies log-scale
 on x-axis.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1511">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1514">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">qqplot</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">spec</span><span class="o">:</span><span class="n">spec</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">pd</span><span class="o">:(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">x</span><span class="o">:</span><span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -446,12 +451,12 @@ meadian <code class="docutils literal notranslate"><span class="pre">(i</span> <
 <p>If input vectors are not of the same length, users are explected to input the
 longer one as x, and the shorter one y.</p>
 <p>Parameters: <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, <code class="docutils literal notranslate"><span class="pre">Marker</span></code>, <code class="docutils literal notranslate"><span class="pre">MarkerSize</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1571">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1574">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">image</span> <span class="o">:</span> <span class="o">?</span><span class="n">h</span><span class="o">:</span><span class="n">handle</span> <span class="o">-&gt;</span> <span class="n">dsmat</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">image</span> <span class="pre">mat</span></code> display a m * n matrix as image. Each element in the matrix is of range 0 ~ 255.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1633">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/misc/owl_plot.ml#L1636">source code</a></p>
 </div>
 </div>
 
