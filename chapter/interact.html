@@ -116,7 +116,8 @@ jupyter kernelspec install --name ocaml-jupyter <span class="s2">&quot;</span><s
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter notebook
 </pre></div>
 </div>
-<p>When the everything is up and running, you can start a new notebook in the web interface. In the new notebook, you must run the following OCaml code in the first input field to load Owl environment.</p>
+<p>If you want to run a notebook server remotely, please refer to <a class="reference external" href="http://jupyter-notebook.readthedocs.io/en/stable/public_server.html">{Running a notebook server}</a>. If you want to set up a server for multiple users, please refer to <a class="reference external" href="https://jupyterhub.readthedocs.io/en/latest/">{JupyterHub}</a> system.</p>
+<p>When everything is up and running, you can start a new notebook in the web interface. In the new notebook, you must run the following OCaml code in the first input field to load Owl environment.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#use &quot;topfind&quot;;;</span>
 <span class="c1">#require &quot;owl-top, jupyter.notebook&quot;;;</span>
 </pre></div>
