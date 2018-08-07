@@ -55,6 +55,7 @@
 <li><a class="reference internal" href="#query-frames">Query Frames</a></li>
 <li><a class="reference internal" href="#iterate-map-and-filter">Iterate, Map, and Filter</a></li>
 <li><a class="reference internal" href="#read-write-csv-files">Read/Write CSV Files</a></li>
+<li><a class="reference internal" href="#infer-type-and-separator">Infer Type and Separator</a></li>
 <li><a class="reference internal" href="#what-is-next">What Is Next</a></li>
 </ul>
 </li>
@@ -369,6 +370,25 @@ R1455     grid-networks     Grid Networks     nan       web       Seattle    WA 
 </pre></div>
 </div>
 <p>For the other examples, please refer to this Zoo gist <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/dataframe.ml">dataframe.ml</a>.</p>
+</div>
+<div class="section" id="infer-type-and-separator">
+<h2>Infer Type and Separator<a class="headerlink" href="#infer-type-and-separator" title="Permalink to this headline">¶</a></h2>
+<p>I want to devote a bit more text on CSV files. In the previous section, when we use <cite>of_csv</cite> function to load a CSV file, we explicitly pass in the separator and the types of all columns to the function. However, both parameters are optional and can be skipped.</p>
+<p>Dataframe is able to automatically detect the correct separator and the type of each column. Of course, it is possible that the detection may fail but such probability is fairly low in many cases. Technically, Dataframe first tries a set of predefined separator to see which one can correctly separate the columns, then it tries a sequence of types to find out which one is able to correctly unpack the elements of a column.</p>
+<p>There are several technical things worth mentioning here.</p>
+<ul class="simple">
+<li>To be efficient, Dataframe only takes maximum the first 100 lines in the CSV file for inference.</li>
+<li>If there are missing values in a column of integer type, it falls back to float value because we can use <code class="docutils literal notranslate"><span class="pre">nan</span></code> to represent missing values.</li>
+<li>If the types have been decided based on the first 100 lines, any following lines containing the data of inconsistent type will be dropped.</li>
+</ul>
+<p>With this capability, it is much easier to load a CSV to quickly investigate what is inside.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">example_06</span> <span class="n">gist_path</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">gist_path</span> <span class="o">^</span> <span class="s2">&quot;estate.csv&quot;</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">df</span> <span class="o">=</span> <span class="nn">Dataframe</span><span class="p">.</span><span class="n">of_csv</span> <span class="n">fname</span> <span class="k">in</span>
+  <span class="nn">Owl_pretty</span><span class="p">.</span><span class="n">pp_dataframe</span> <span class="nn">Format</span><span class="p">.</span><span class="n">std_formatter</span> <span class="n">df</span>
+</pre></div>
+</div>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">Dataframe.types</span></code> function to retrieve the types of all columns in a dataframe.</p>
 </div>
 <div class="section" id="what-is-next">
 <h2>What Is Next<a class="headerlink" href="#what-is-next" title="Permalink to this headline">¶</a></h2>
