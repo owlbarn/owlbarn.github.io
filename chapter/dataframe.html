@@ -373,8 +373,8 @@ R1455     grid-networks     Grid Networks     nan       web       Seattle    WA 
 </div>
 <div class="section" id="infer-type-and-separator">
 <h2>Infer Type and Separator<a class="headerlink" href="#infer-type-and-separator" title="Permalink to this headline">¶</a></h2>
-<p>I want to devote a bit more text on CSV files. In the previous section, when we use <cite>of_csv</cite> function to load a CSV file, we explicitly pass in the separator and the types of all columns to the function. However, both parameters are optional and can be skipped.</p>
-<p>Dataframe is able to automatically detect the correct separator and the type of each column. Of course, it is possible that the detection may fail but such probability is fairly low in many cases. Technically, Dataframe first tries a set of predefined separator to see which one can correctly separate the columns, then it tries a sequence of types to find out which one is able to correctly unpack the elements of a column.</p>
+<p>I want to devote a bit more text to CSV files. In the previous section, when we use <code class="docutils literal notranslate"><span class="pre">of_csv</span></code> function to load a CSV file, we explicitly pass in the separator and the types of all columns. However, both parameters are optional and can be skipped.</p>
+<p>Dataframe is able to automatically detect the correct separator and the type of each column. Of course, it is possible that the detection mechanism fails but such probability is fairly low in many cases. Technically, Dataframe first tries a set of predefined separators to see which one can correctly separate the columns, then it tries a sequence of types to find out which one is able to correctly unpack the elements of a column.</p>
 <p>There are several technical things worth mentioning here.</p>
 <ul class="simple">
 <li>To be efficient, Dataframe only takes maximum the first 100 lines in the CSV file for inference.</li>
