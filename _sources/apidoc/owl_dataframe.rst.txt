@@ -2,7 +2,7 @@ Dataframe
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#75 entries have been extracted.
+#79 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_dataframe.mli>`_ 
@@ -222,7 +222,7 @@ Obtain properties
 
 ``row_num x`` returns the number of rows in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L187>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L203>`__
 
 
 
@@ -238,7 +238,7 @@ Obtain properties
 
 ``shape x`` returns the shape of ``x``, i.e. ``(row numnber, column number)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L190>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L206>`__
 
 
 
@@ -248,7 +248,7 @@ Obtain properties
 
 ``numel x`` returns the number of elements in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L193>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L209>`__
 
 
 
@@ -264,7 +264,7 @@ Obtain properties
 
 ``get_heads x`` returns the column names of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L225>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L241>`__
 
 
 
@@ -274,7 +274,7 @@ Obtain properties
 
 ``set_heads x head_names`` sets ``head_names`` as the column names of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L231>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L247>`__
 
 
 
@@ -284,7 +284,7 @@ Obtain properties
 
 ``id_to_head head_name`` converts head name to its corresponding column index.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L241>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L300>`__
 
 
 
@@ -294,7 +294,7 @@ Obtain properties
 
 ``head_to_id i`` converts column index ``i`` to its corresponding head name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L244>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L303>`__
 
 
 
@@ -309,7 +309,7 @@ Basic get and set functions
 
 ``get x i j`` returns the element at ``(i,j)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L277>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L336>`__
 
 
 
@@ -319,7 +319,7 @@ Basic get and set functions
 
 ``set x i j v`` sets the value of element at ``(i,j)`` to ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L286>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L345>`__
 
 
 
@@ -329,7 +329,7 @@ Basic get and set functions
 
 ``get_by_name x i head_name`` is similar to ``get`` but uses column name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L295>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L354>`__
 
 
 
@@ -339,7 +339,7 @@ Basic get and set functions
 
 ``set_by_name x i head_name`` is similar to ``set`` but uses column name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L299>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L358>`__
 
 
 
@@ -349,7 +349,7 @@ Basic get and set functions
 
 ``get_row x i`` returns the ith row in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L247>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L306>`__
 
 
 
@@ -359,7 +359,7 @@ Basic get and set functions
 
 ``get_col x i`` returns the ith column in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L250>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L309>`__
 
 
 
@@ -369,7 +369,7 @@ Basic get and set functions
 
 ``get_rows x a`` returns the rows of ``x`` specified in ``a``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L259>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L318>`__
 
 
 
@@ -379,7 +379,7 @@ Basic get and set functions
 
 ``get_cols x a`` returns the columns of ``x`` specified in ``a``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L262>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L321>`__
 
 
 
@@ -389,7 +389,7 @@ Basic get and set functions
 
 ``get_col_by_name`` is similar to ``get_col`` but uses column name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L269>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L328>`__
 
 
 
@@ -399,7 +399,7 @@ Basic get and set functions
 
 ``get_cols_by_name`` is similar to ``get_cols`` but uses column names.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L274>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L333>`__
 
 
 
@@ -410,7 +410,7 @@ Basic get and set functions
 ``get_slice s x`` returns a slice of ``x`` defined by ``s``. For more details,
 please refer to :doc:`owl_dense_ndarray_generic`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L420>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L479>`__
 
 
 
@@ -420,7 +420,7 @@ please refer to :doc:`owl_dense_ndarray_generic`.
 
 ``get_slice_by_name`` is similar to ``get_slice`` but uses column name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L437>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L496>`__
 
 
 
@@ -436,7 +436,7 @@ please refer to :doc:`owl_dense_ndarray_generic`.
 
 ``tail n x`` returns bottom ``n`` rows of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L460>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L519>`__
 
 
 
@@ -453,7 +453,7 @@ Core operations
 and corresponding column names. If data is not passed in, the function will
 return an empty dataframe.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L159>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L175>`__
 
 
 
@@ -463,7 +463,7 @@ return an empty dataframe.
 
 ``copy x`` returns a copy of dataframe ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L316>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L375>`__
 
 
 
@@ -473,7 +473,7 @@ return an empty dataframe.
 
 ``append_row x row`` appends a row to the dataframe ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L199>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L215>`__
 
 
 
@@ -483,7 +483,51 @@ return an empty dataframe.
 
 ``append_col x col`` appends a column to the dataframe ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L217>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L233>`__
+
+
+
+.. code-block:: ocaml
+
+  val insert_row : t -> int -> elt array -> unit
+
+``insert_row x i row`` inserts one ``row`` with at position ``i`` into
+dataframe ``x``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L272>`__
+
+
+
+.. code-block:: ocaml
+
+  val insert_col : t -> int -> string -> series -> unit
+
+``insert_col x j col_head s`` inserts series ``s`` with column head ``col_head``
+at position ``j`` into dataframe ``x``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L292>`__
+
+
+
+.. code-block:: ocaml
+
+  val remove_row : t -> int -> unit
+
+``remove_row x i`` removes the ``ith`` row of ``x``. Negative index is
+accepted.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L257>`__
+
+
+
+.. code-block:: ocaml
+
+  val remove_col : t -> int -> unit
+
+``remove_col x i`` removes the ``ith`` column of ``x``. Negative index is
+accepted.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L265>`__
 
 
 
@@ -495,7 +539,7 @@ return an empty dataframe.
 ``x`` and ``y`` must have the same number of rows, and each column name should
 be unique.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L330>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L389>`__
 
 
 
@@ -507,7 +551,7 @@ be unique.
 ``x``. The two dataframes ``x`` and ``y`` must have the same number of columns
 and the same column names.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L351>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L410>`__
 
 
 
@@ -522,7 +566,7 @@ Iteration functions
 
 ``iteri_row f x`` iterates the rows of ``x`` and applies ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L365>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L424>`__
 
 
 
@@ -532,7 +576,7 @@ Iteration functions
 
 ``iter_row`` is simiar to ``iteri_row`` without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L372>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L431>`__
 
 
 
@@ -545,7 +589,7 @@ applying function ``f``. Note that the returned value of ``f`` must be
 consistent with ``x`` w.r.t to its length and type, otherwise runtime error
 will occur.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L375>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L434>`__
 
 
 
@@ -555,7 +599,7 @@ will occur.
 
 ``map_row`` is simiar to ``mapi_row`` but without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L385>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L444>`__
 
 
 
@@ -566,7 +610,7 @@ will occur.
 ``filteri_row`` creates a new dataframe from ``x`` by filtering out those rows
 which satisfy the condition ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L388>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L447>`__
 
 
 
@@ -576,7 +620,7 @@ which satisfy the condition ``f``.
 
 ``filter_row`` is similar to ``filteri_row`` without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L400>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L459>`__
 
 
 
@@ -588,7 +632,7 @@ which satisfy the condition ``f``.
 each row. If ``f`` returns ``None`` then the row is excluded in the returned
 dataframe; if ``f`` returns ``Some row`` then the row is included.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L403>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L462>`__
 
 
 
@@ -598,7 +642,7 @@ dataframe; if ``f`` returns ``Some row`` then the row is included.
 
 ``filter_map_row`` is similar to ``filter_mapi_row`` without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L417>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L476>`__
 
 
 
@@ -661,7 +705,7 @@ Parameters:
   * ``head``: column names, if not passed in, the first line of CSV file will be used.
   * ``types``: data type of each column, must be consistent with head.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L543>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L601>`__
 
 
 
@@ -672,7 +716,7 @@ Parameters:
 ``to_csv ~sep x fname`` converts a dataframe to CSV file of name ``fname``. The
 delimiter is specified by ``sep``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L573>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L631>`__
 
 
 
@@ -682,7 +726,7 @@ delimiter is specified by ``sep``.
 
 ``to_rows x`` returns an array of rows in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L307>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L366>`__
 
 
 
@@ -692,7 +736,7 @@ delimiter is specified by ``sep``.
 
 ``to_cols x`` returns an arrays of columns in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L304>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L363>`__
 
 
 
@@ -702,7 +746,7 @@ delimiter is specified by ``sep``.
 
 ``elt_to_str x`` converts element ``x`` to its string representation.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L135>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L151>`__
 
 
 
