@@ -34,7 +34,7 @@ Create matrices
 ``empty m n`` creates an ``m`` by ``n`` matrix without initialising the values of
 elements in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L23>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L25>`__
 
 
 
@@ -45,7 +45,7 @@ elements in ``x``.
 ``create m n a`` creates an ``m`` by ``n`` matrix and all the elements of ``x`` are
 initialised with the value ``a``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L26>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L28>`__
 
 
 
@@ -58,7 +58,7 @@ initialised with the value ``a``.
 index of the matrix. You need to explicitly convert it if you need 2D
 index. The function ``Owl_utils.ind`` can help you.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L35>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L37>`__
 
 
 
@@ -70,7 +70,7 @@ index. The function ``Owl_utils.ind`` can help you.
 as input. It is more convenient since you don't have to convert the index by
 yourself, but this also means ``init_2d`` is slower than ``init``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L38>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L40>`__
 
 
 
@@ -81,7 +81,7 @@ yourself, but this also means ``init_2d`` is slower than ``init``.
 ``zeros m n`` creates an ``m`` by ``n`` matrix where all the elements are
 initialised to zeros.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L29>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L31>`__
 
 
 
@@ -91,7 +91,7 @@ initialised to zeros.
 
 ``ones m n`` creates an ``m`` by ``n`` matrix where all the elements are ones.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L32>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L34>`__
 
 
 
@@ -101,7 +101,7 @@ initialised to zeros.
 
 ``eye m`` creates an ``m`` by ``m`` identity matrix.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L49>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L51>`__
 
 
 
@@ -134,7 +134,7 @@ are initialised sequentiallly from ``~a`` and is increased by ``~step``.
 
 The default value of ``~a`` is zero whilst the default value of ``~step`` is one.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L52>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L54>`__
 
 
 
@@ -146,7 +146,7 @@ The default value of ``~a`` is zero whilst the default value of ``~step`` is one
 follow a uniform distribution in ``(0,1)`` interval. ``uniform ~scale:a m n``
 adjusts the interval to ``(0,a)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L190>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L192>`__
 
 
 
@@ -157,7 +157,7 @@ adjusts the interval to ``(0,a)``.
 ``gaussian m n`` creates an ``m`` by ``n`` matrix where all the elements in ``x``
 follow a Gaussian distribution with specified sigma. By default ``sigma = 1``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L193>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L195>`__
 
 
 
@@ -167,7 +167,7 @@ follow a Gaussian distribution with specified sigma. By default ``sigma = 1``.
 
 `` semidef n `` returns an random ``n`` by ``n`` positive semi-definite matrix.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L596>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L598>`__
 
 
 
@@ -179,7 +179,7 @@ follow a Gaussian distribution with specified sigma. By default ``sigma = 1``.
 creating an ``m`` by ``1`` row vector. E.g., ``linspace 0. 5. 5`` will create a
 row vector ``[0;1;2;3;4;5]``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L56>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L58>`__
 
 
 
@@ -189,7 +189,7 @@ row vector ``[0;1;2;3;4;5]``.
 
 ``logspace base a b n`` ... the default value of base is ``e``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L61>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L63>`__
 
 
 
@@ -202,7 +202,7 @@ Matlab. It returns two matrices ``x`` and ``y`` where the row vectors in ``x`` a
 linearly spaced between ``[a1,b1]`` by ``n1`` whilst the column vectors in ``y``
 are linearly spaced between ``(a2,b2)`` by ``n2``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L620>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L622>`__
 
 
 
@@ -212,7 +212,7 @@ are linearly spaced between ``(a2,b2)`` by ``n2``.
 
 ``meshup x y`` creates mesh grids by using two row vectors ``x`` and ``y``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L627>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L629>`__
 
 
 
@@ -222,7 +222,7 @@ are linearly spaced between ``(a2,b2)`` by ``n2``.
 
 ``bernoulli k ~p:0.3 m n``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L196>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L198>`__
 
 
 
@@ -235,7 +235,7 @@ diagonal values. ``k`` specifies the main diagonal index. If ``k > 0`` then it i
 above the main diagonal, if ``k < 0`` then it is below the main diagonal.
 This function is the same as the ``diag`` function in Matlab.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L66>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L68>`__
 
 
 
@@ -247,7 +247,7 @@ This function is the same as the ``diag`` function in Matlab.
 ``k = 0`` is the main diagonal, ``k > 0`` is above the main diagonal, and
 ``k < 0`` is below the main diagonal.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L82>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L84>`__
 
 
 
@@ -259,7 +259,7 @@ This function is the same as the ``diag`` function in Matlab.
 ``k = 0`` is the main diagonal, ``k > 0`` is above the main diagonal, and
 ``k < 0`` is below the main diagonal.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L103>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L105>`__
 
 
 
@@ -272,7 +272,7 @@ triangular part of ``x``. If ``upper`` is ``true`` then it uses the upper part, 
 ``upper`` is ``false``, then ``symmetric`` uses the lower part. By default ``upper``
 is true.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L122>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L124>`__
 
 
 
@@ -284,7 +284,7 @@ is true.
 the upper triangular part is used for creating the hermitian matrix, but you
 use the lower part by setting ``upper=false``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L164>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L166>`__
 
 
 
@@ -302,7 +302,7 @@ function set the imaginary part of the diagonal elements to zero by default.
 In other words, if the diagonal elements of ``x`` have non-zero imaginary parts,
 the imaginary parts will be dropped without a warning.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L142>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L144>`__
 
 
 
@@ -318,7 +318,7 @@ Note: 1) If ``c`` is not passed in, then ``c = r`` will be used. 2) If ``c`` is 
 passed in and ``r`` is complex, the ``c = conj r`` will be used. 3) If ``r`` and ``c``
 have different length, then the result is a rectangular matrix.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L199>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L201>`__
 
 
 
@@ -334,7 +334,7 @@ zero. 2) If the last element of ``c`` is different from the first element of ``r
 then the first element of ``c`` prevails. 3) ``c`` and ``r`` can have different
 length, the return will be an rectangular matrix.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L220>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L222>`__
 
 
 
@@ -346,7 +346,7 @@ length, the return will be an rectangular matrix.
 we have ``H'*H = n*I``. Currrently, this function handles only the cases where
 ``n``, ``n/12``, or ``n/20`` is a power of 2.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L680>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L682>`__
 
 
 
@@ -360,7 +360,7 @@ we have ``H'*H = n*I``. Currrently, this function handles only the cases where
 There are three different algorithms to deal with ``n`` is odd, singly even,
 and doubly even respectively.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L742>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L744>`__
 
 
 
@@ -376,7 +376,7 @@ Obtain basic properties
 If ``x`` is an ``m`` by ``n`` matrix, ``shape x`` returns ``(m,n)``, i.e., the size
 of two dimensions of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L15>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L17>`__
 
 
 
@@ -447,7 +447,7 @@ Manipulate a matrix
 ``get x i j`` returns the value of element ``(i,j)`` of ``x``. The shorthand
 for ``get x i j`` is ``x.{i,j}``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L267>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L269>`__
 
 
 
@@ -458,7 +458,7 @@ for ``get x i j`` is ``x.{i,j}``
 ``set x i j a`` sets the element ``(i,j)`` of ``x`` to value ``a``. The shorthand
 for ``set x i j a`` is ``x.{i,j} <- a``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L270>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L272>`__
 
 
 
@@ -691,7 +691,7 @@ Please refer to :doc:`owl_dense_ndarray_generic`. for details.
 
 ``transpose x`` transposes an ``m`` by ``n`` matrix to ``n`` by ``m`` one.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L283>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L285>`__
 
 
 
@@ -702,7 +702,7 @@ Please refer to :doc:`owl_dense_ndarray_generic`. for details.
 ``ctranspose x`` performs conjugate transpose of a complex matrix ``x``. If ``x``
 is a real matrix, then ``ctranspose x`` is equivalent to ``transpose x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L291>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L293>`__
 
 
 
@@ -719,7 +719,7 @@ the main diagonal and ``k < 0`` means the below the main diagonal.
 
 ``swap_rows x i i'`` swaps the row ``i`` with row ``i'`` of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L273>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L275>`__
 
 
 
@@ -729,7 +729,7 @@ the main diagonal and ``k < 0`` means the below the main diagonal.
 
 ``swap_cols x j j'`` swaps the column ``j`` with column ``j'`` of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L278>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L280>`__
 
 
 
@@ -877,7 +877,7 @@ the function ``f : float -> bool``.
 
 Similar to `iteri` but 2d indices ``(i,j)`` are passed to the user function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L424>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L426>`__
 
 
 
@@ -887,7 +887,7 @@ Similar to `iteri` but 2d indices ``(i,j)`` are passed to the user function.
 
 Similar to `mapi` but 2d indices ``(i,j)`` are passed to the user function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L434>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L436>`__
 
 
 
@@ -897,7 +897,7 @@ Similar to `mapi` but 2d indices ``(i,j)`` are passed to the user function.
 
 Similar to `foldi` but 2d indices ``(i,j)`` are passed to the user function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L461>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L463>`__
 
 
 
@@ -907,7 +907,7 @@ Similar to `foldi` but 2d indices ``(i,j)`` are passed to the user function.
 
 Similar to `scani` but 2d indices ``(i,j)`` are passed to the user function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L468>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L470>`__
 
 
 
@@ -917,7 +917,7 @@ Similar to `scani` but 2d indices ``(i,j)`` are passed to the user function.
 
 Similar to `filteri` but 2d indices ``(i,j)`` are returned.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L447>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L449>`__
 
 
 
@@ -927,7 +927,7 @@ Similar to `filteri` but 2d indices ``(i,j)`` are returned.
 
 Similar to `iter2i` but 2d indices ``(i,j)`` are passed to the user function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L475>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L477>`__
 
 
 
@@ -937,7 +937,7 @@ Similar to `iter2i` but 2d indices ``(i,j)`` are passed to the user function.
 
 Similar to `map2i` but 2d indices ``(i,j)`` are passed to the user function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L489>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L491>`__
 
 
 
@@ -974,7 +974,7 @@ and ``y``. Note that 1d index is passed to funciton ``f``.
 ``iteri_rows f x`` iterates every row in ``x`` and applies function
 ``f : int -> mat -> unit`` to each of them.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L302>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L304>`__
 
 
 
@@ -984,7 +984,7 @@ and ``y``. Note that 1d index is passed to funciton ``f``.
 
 Similar to ``iteri_rows`` except row number is not passed to ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L308>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L310>`__
 
 
 
@@ -994,7 +994,7 @@ Similar to ``iteri_rows`` except row number is not passed to ``f``.
 
 ``iter2_rows f x y`` iterates rows of two matrices ``x`` and ```y``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L311>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L313>`__
 
 
 
@@ -1004,7 +1004,7 @@ Similar to ``iteri_rows`` except row number is not passed to ``f``.
 
 Similar to ``iter2iter2i_rows`` but without passing in indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L316>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L318>`__
 
 
 
@@ -1016,7 +1016,7 @@ Similar to ``iter2iter2i_rows`` but without passing in indices.
 ``f : int -> mat -> unit`` to each of them. Column number is passed to ``f`` as
 the first parameter.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L325>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L327>`__
 
 
 
@@ -1026,7 +1026,7 @@ the first parameter.
 
 Similar to ``iteri_cols`` except col number is not passed to ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L332>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L334>`__
 
 
 
@@ -1038,7 +1038,7 @@ Similar to ``iteri_cols`` except col number is not passed to ``f``.
 row in ``x``, then returns an int array containing the indices of those rows
 which satisfy the function ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L390>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L392>`__
 
 
 
@@ -1048,7 +1048,7 @@ which satisfy the function ``f``.
 
 Similar to ``filteri_rows`` except that the row indices are not passed to ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L398>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L400>`__
 
 
 
@@ -1060,7 +1060,7 @@ Similar to ``filteri_rows`` except that the row indices are not passed to ``f``.
 column in ``x``, then returns an int array containing the indices of those
 columns which satisfy the function ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L401>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L403>`__
 
 
 
@@ -1070,7 +1070,7 @@ columns which satisfy the function ``f``.
 
 Similar to ``filteri_cols`` except that the column indices are not passed to ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L409>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L411>`__
 
 
 
@@ -1081,7 +1081,7 @@ Similar to ``filteri_cols`` except that the column indices are not passed to ``f
 ``fold_rows f a x`` folds all the rows in ``x`` using function ``f``. The order
 of folding is from the first row to the last one.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L418>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L420>`__
 
 
 
@@ -1092,7 +1092,7 @@ of folding is from the first row to the last one.
 ``fold_cols f a x`` folds all the columns in ``x`` using function ``f``. The
 order of folding is from the first column to the last one.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L421>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L423>`__
 
 
 
@@ -1104,7 +1104,7 @@ order of folding is from the first column to the last one.
 function ``f : int -> mat -> 'a`` to each of them. The results is an array of
 all the returned values.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L335>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L337>`__
 
 
 
@@ -1114,7 +1114,7 @@ all the returned values.
 
 Similar to ``mapi_rows`` except row number is not passed to ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L338>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L340>`__
 
 
 
@@ -1125,7 +1125,7 @@ Similar to ``mapi_rows`` except row number is not passed to ``f``.
 ``mapi_cols f x`` maps every column in ``x`` to a type ``'a`` value by applying
 function ``f : int -> mat -> 'a``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L341>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L343>`__
 
 
 
@@ -1135,7 +1135,7 @@ function ``f : int -> mat -> 'a``.
 
 Similar to ``mapi_cols`` except column number is not passed to ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L346>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L348>`__
 
 
 
@@ -1147,7 +1147,7 @@ Similar to ``mapi_cols`` except column number is not passed to ``f``.
 then uses the returned ``d`` dimensional row vectors to assemble a new
 ``m`` by ``d`` matrix.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L349>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L351>`__
 
 
 
@@ -1158,7 +1158,7 @@ then uses the returned ``d`` dimensional row vectors to assemble a new
 ``map_by_row d f x`` is similar to ``mapi_by_row`` except that the row indices
 are not passed to ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L356>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L358>`__
 
 
 
@@ -1170,7 +1170,7 @@ are not passed to ``f``.
 then uses the returned ``d`` dimensional column vectors to assemble a new
 ``d`` by ``n`` matrix.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L359>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L361>`__
 
 
 
@@ -1181,7 +1181,7 @@ then uses the returned ``d`` dimensional column vectors to assemble a new
 ``map_by_col d f x`` is similar to ``mapi_by_col`` except that the column
 indices are not passed to ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L367>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L369>`__
 
 
 
@@ -1192,7 +1192,7 @@ indices are not passed to ``f``.
 ``mapi_at_row f x i`` creates a new matrix by applying function ``f`` only to
 the ``i``th row in matrix ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L370>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L372>`__
 
 
 
@@ -1203,7 +1203,7 @@ the ``i``th row in matrix ``x``.
 ``map_at_row f x i`` is similar to ``mapi_at_row`` except that the coordinates
 of an element is not passed to ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L377>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L379>`__
 
 
 
@@ -1214,7 +1214,7 @@ of an element is not passed to ``f``.
 ``mapi_at_col f x j`` creates a new matrix by applying function ``f`` only to
 the ``j``th column in matrix ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L380>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L382>`__
 
 
 
@@ -1225,7 +1225,7 @@ the ``j``th column in matrix ``x``.
 ``map_at_col f x i`` is similar to ``mapi_at_col`` except that the coordinates
 of an element is not passed to ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L387>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L389>`__
 
 
 
@@ -1578,7 +1578,7 @@ also returned in an int array along with the selected columns. The parameter
 
 ``shuffle_rows x`` shuffles all the rows in matrix ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L601>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L603>`__
 
 
 
@@ -1588,7 +1588,7 @@ also returned in an int array along with the selected columns. The parameter
 
 ``shuffle_cols x`` shuffles all the columns in matrix ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L609>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L611>`__
 
 
 
@@ -1621,7 +1621,7 @@ Note the length of ``x`` must be equal to ``(m * n)``.
 Similar to ``reshape`` function, you can pass in one negative index to let Owl
 automatically infer its dimension.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L555>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L557>`__
 
 
 
@@ -1670,7 +1670,7 @@ If ``append`` is ``true`` and the file exists, new rows will be appended to it.
 Files are created, if necessary, with the AND of 0o644 and the user's umask value.
 Note that the operation can be very time consuming.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L561>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L563>`__
 
 
 
@@ -1681,7 +1681,7 @@ Note that the operation can be very time consuming.
 ``load_txt ~sep k f`` load a text file ``f`` into a matrix of type ``k``. The
 delimitor is specified by ``sep`` which can be a regular expression.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L576>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L578>`__
 
 
 
@@ -1824,7 +1824,7 @@ maximum value along its index.
 
 ``mean' x`` calculates the mean of all the elements in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L538>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L540>`__
 
 
 
@@ -1858,7 +1858,7 @@ maximum value along its index.
 
 ``sum_rows x`` returns the summation of all the row vectors in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L508>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L510>`__
 
 
 
@@ -1868,7 +1868,7 @@ maximum value along its index.
 
 ``sum_cols`` returns the summation of all the column vectors in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L505>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L507>`__
 
 
 
@@ -1879,7 +1879,7 @@ maximum value along its index.
 ``mean_rows x`` returns the mean value of all row vectors in ``x``. It is
  equivalent to ``div_scalar (sum_rows x) (float_of_int (row_num x))``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L514>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L516>`__
 
 
 
@@ -1890,7 +1890,7 @@ maximum value along its index.
 ``mean_cols x`` returns the mean value of all column vectors in ``x``.
  It is equivalent to ``div_scalar (sum_cols x) (float_of_int (col_num x))``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L511>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L513>`__
 
 
 
@@ -1900,7 +1900,7 @@ maximum value along its index.
 
 ``min_rows x`` returns the minimum value in each row along with their coordinates.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L522>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L524>`__
 
 
 
@@ -1910,7 +1910,7 @@ maximum value along its index.
 
 ``min_cols x`` returns the minimum value in each column along with their coordinates.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L517>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L519>`__
 
 
 
@@ -1920,7 +1920,7 @@ maximum value along its index.
 
 ``max_rows x`` returns the maximum value in each row along with their coordinates.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L532>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L534>`__
 
 
 
@@ -1930,7 +1930,7 @@ maximum value along its index.
 
 ``max_cols x`` returns the maximum value in each column along with their coordinates.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L527>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L529>`__
 
 
 
@@ -2343,7 +2343,7 @@ Refer to :doc:`owl_dense_ndarray_generic`.
 
 Refer to :doc:`owl_dense_ndarray_generic`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L838>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L840>`__
 
 
 
@@ -2353,7 +2353,7 @@ Refer to :doc:`owl_dense_ndarray_generic`.
 
 Refer to :doc:`owl_dense_ndarray_generic`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L847>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L849>`__
 
 
 
@@ -2417,7 +2417,7 @@ Return:
 The elements in ``x`` are clipped by ``amin`` and ``amax``, and they will be between
 ``0.`` and ``1.`` after conversion to represents the intensity.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L883>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L885>`__
 
 
 
@@ -2523,7 +2523,7 @@ and returns the result in a new matrix.
 ``add_diag x a`` adds ``a`` to the diagonal elements in ``x``. A new copy
 of the data is returned.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L541>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L543>`__
 
 
 
@@ -2652,7 +2652,7 @@ it is normalised by ``1``.
 first then returns a ``2 x 2`` matrix, so two must have the same number of
 elements.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L856>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L858>`__
 
 
 
@@ -2665,7 +2665,7 @@ and ``b``. If ``a`` is an ``m x n`` matrix and ``b`` is a ``p x q`` matrix, then
 ``kron(a,b)`` is an ``m*p x n*q`` matrix formed by taking all possible products
 between the elements of ``a`` and the matrix ``b``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L241>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L243>`__
 
 
 
