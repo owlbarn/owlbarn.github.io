@@ -45,6 +45,18 @@
 
 
 
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Performance Comparison</a><ul>
+<li><a class="reference internal" href="#vectorised-math-operations">Vectorised Math Operations</a></li>
+<li><a class="reference internal" href="#fold-and-scan-operations">Fold and Scan Operations</a></li>
+<li><a class="reference internal" href="#repeat-operations">Repeat Operations</a></li>
+<li><a class="reference internal" href="#slicing-operation">Slicing Operation</a></li>
+<li><a class="reference internal" href="#linear-algebra-operations">Linear Algebra Operations</a></li>
+</ul>
+</li>
+</ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -77,7 +89,151 @@
   <div class="section" id="performance-comparison">
 <h1>Performance Comparison<a class="headerlink" href="#performance-comparison" title="Permalink to this headline">¶</a></h1>
 <p>We constantly conduct a comprehensive set of performance tests to make sure Owl is able to deliver the state-of-the-art performance. This guarantees that Owl has a competitive edge over other software tools.</p>
-<p>We present the results of a thorough comparison between Owl and other popular software in this article.</p>
+<p>We present the results of a thorough comparison between Owl and other popular software, namely Numpy and Julia in this article. The operations we use for comparison can be categorised into five groups as shown below. Please refer to the document of
+<a class="reference external" href="http://ocaml.xyz/chapter/ndarray.html">ndarray</a>, <a class="reference external" href="http://ocaml.xyz/chapter/slicing.html">slicing</a>, and <a class="reference external" href="http://ocaml.xyz/chapter/linalg.html">linear algebra</a> for detailed description of them.</p>
+<ol class="arabic simple">
+<li>Vectorised math operations. They can further be divided into two groups by the number of n-dimensional array they accept as input:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Unary operator: <code class="docutils literal notranslate"><span class="pre">abs</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">cbrt</span></code>, <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">tan</span></code>, <code class="docutils literal notranslate"><span class="pre">asin</span></code>, <code class="docutils literal notranslate"><span class="pre">sinh</span></code>, <code class="docutils literal notranslate"><span class="pre">asinh</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>, <code class="docutils literal notranslate"><span class="pre">sort</span></code>, <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code>, <code class="docutils literal notranslate"><span class="pre">copy</span></code>.</li>
+<li>Binary operator: <code class="docutils literal notranslate"><span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">mul</span></code>, <code class="docutils literal notranslate"><span class="pre">div</span></code>, <code class="docutils literal notranslate"><span class="pre">pow</span></code>, <code class="docutils literal notranslate"><span class="pre">hypot</span></code>, <code class="docutils literal notranslate"><span class="pre">min2</span></code>, <code class="docutils literal notranslate"><span class="pre">fmod</span></code>.</li>
+</ul>
+<p>For these operations, we generate one or two uniformly distributed vector(s) as the input. The size of each vector increases from 10 to 1,000,000. Specifically, to ensure a fair comparison, we modify the in-place sort function in Owl to make it return a copy.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Fold and scan operations, including <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">cumprod</span></code>, and <code class="docutils literal notranslate"><span class="pre">cummax</span></code>. These operations accept an “axis” parameter to specify along which dimension to perform the computation. Without loss of generality, for each of them, we generate a uniformly distributed 4-dimensional array, and choose the first and last dimension to perform computation. The size of each dimension is the same, increasing from 10 to 60.</li>
+<li>Repeat operations, namely <code class="docutils literal notranslate"><span class="pre">repeat</span></code> (i.e. inner repeat) and <code class="docutils literal notranslate"><span class="pre">tile</span></code> (i.e. outer repeat). For these two operations, we also use 4-dimensional array and different axes array as input. The size of each dimension increases from 10 to 35.</li>
+<li>Indexing and slicing, we benchmark the <code class="docutils literal notranslate"><span class="pre">get_slice</span></code> function in Owl. We choose two input shapes: <code class="docutils literal notranslate"><span class="pre">[|10;</span> <span class="pre">300;</span> <span class="pre">3000|]</span></code> and <code class="docutils literal notranslate"><span class="pre">[|3000;</span> <span class="pre">300;</span> <span class="pre">10|]</span></code>, and apply different index combinations, e.g. <code class="docutils literal notranslate"><span class="pre">[[-1;0];</span> <span class="pre">[0;1];</span> <span class="pre">[]]</span></code>.</li>
+<li>Linear Algebra functions, including <code class="docutils literal notranslate"><span class="pre">matmul</span></code>, <code class="docutils literal notranslate"><span class="pre">inv</span></code>, <code class="docutils literal notranslate"><span class="pre">eigenvals</span></code>, <code class="docutils literal notranslate"><span class="pre">svd</span></code>, <code class="docutils literal notranslate"><span class="pre">lu</span></code>, and <code class="docutils literal notranslate"><span class="pre">qr</span></code>. We use square matrix of order <code class="docutils literal notranslate"><span class="pre">n</span></code> as input, where <code class="docutils literal notranslate"><span class="pre">n</span></code> increases from 10 to 400.</li>
+</ol>
+<p>We use Owl version 0.4.0, Numpy version 1.14.3, and Julia version 0.6.3. Each observation is repeated for 30 times, with outliers being trimmed.
+The rest of this article presents the evaluation results.</p>
+<div class="section" id="vectorised-math-operations">
+<h2>Vectorised Math Operations<a class="headerlink" href="#vectorised-math-operations" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval15.png"><img alt="exp" src="../_images/op_eval15.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval6.png"><img alt="log" src="../_images/op_eval6.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval7.png"><img alt="sqrt" src="../_images/op_eval7.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval1.png"><img alt="cbrt" src="../_images/op_eval1.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval12.png"><img alt="sin" src="../_images/op_eval12.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval4.png"><img alt="tan" src="../_images/op_eval4.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval5.png"><img alt="asin" src="../_images/op_eval5.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval16.png"><img alt="sinh" src="../_images/op_eval16.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval14.png"><img alt="asinh" src="../_images/op_eval14.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval21.png"><img alt="round" src="../_images/op_eval21.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval13.png"><img alt="sort" src="../_images/op_eval13.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval0.png"><img alt="sigmoid" src="../_images/op_eval0.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval9.png"><img alt="abs" src="../_images/op_eval9.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval8.png"><img alt="copy" src="../_images/op_eval8.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval8.png"><img alt="add" src="../_images/op_eval8.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval11.png"><img alt="mul" src="../_images/op_eval11.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval20.png"><img alt="div" src="../_images/op_eval20.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval10.png"><img alt="pow" src="../_images/op_eval10.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval7.png"><img alt="min2" src="../_images/op_eval7.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval2.png"><img alt="hypot" src="../_images/op_eval2.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval9.png"><img alt="fmod" src="../_images/op_eval9.png" style="width: 100%;" /></a>
+</div>
+<p>We can see that in this group Owl outperforms or achieves similar performance as the other two in most cases, especially for complex computation such as <code class="docutils literal notranslate"><span class="pre">log</span></code> and <code class="docutils literal notranslate"><span class="pre">sin</span></code>.</p>
+</div>
+<div class="section" id="fold-and-scan-operations">
+<h2>Fold and Scan Operations<a class="headerlink" href="#fold-and-scan-operations" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval23.png"><img alt="max" src="../_images/op_eval23.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval24.png"><img alt="sum" src="../_images/op_eval24.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval25.png"><img alt="prod" src="../_images/op_eval25.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval22.png"><img alt="cummax" src="../_images/op_eval22.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval26.png"><img alt="cumprod" src="../_images/op_eval26.png" style="width: 100%;" /></a>
+</div>
+<p>For fold and scan operations, except for <code class="docutils literal notranslate"><span class="pre">max</span></code>, Owl operations are not the fastest. The performance varies for different computation.</p>
+</div>
+<div class="section" id="repeat-operations">
+<h2>Repeat Operations<a class="headerlink" href="#repeat-operations" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval28.png"><img alt="repeat" src="../_images/op_eval28.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval27.png"><img alt="tile" src="../_images/op_eval27.png" style="width: 100%;" /></a>
+</div>
+<p>We do not include results of Julia here, since its repeat operations are orders of magnitude slower than that of Owl and Numpy. Owl has shown the advantage for repeat operations.</p>
+</div>
+<div class="section" id="slicing-operation">
+<h2>Slicing Operation<a class="headerlink" href="#slicing-operation" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval29.png"><img alt="get_slice" src="../_images/op_eval29.png" style="width: 100%;" /></a>
+</div>
+<p>We apply 8 different indices for two 3-dimensional arrays in slicing, and the result shows that currently indexing and slicing in Owl still needs improving compared with Numpy and Julia.</p>
+</div>
+<div class="section" id="linear-algebra-operations">
+<h2>Linear Algebra Operations<a class="headerlink" href="#linear-algebra-operations" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval33.png"><img alt="matmul" src="../_images/op_eval33.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval35.png"><img alt="inv" src="../_images/op_eval35.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval31.png"><img alt="svd" src="../_images/op_eval31.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval34.png"><img alt="lu" src="../_images/op_eval34.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval30.png"><img alt="qr" src="../_images/op_eval30.png" style="width: 100%;" /></a>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/op_eval32.png"><img alt="eigvals" src="../_images/op_eval32.png" style="width: 100%;" /></a>
+</div>
+<p>Except for <code class="docutils literal notranslate"><span class="pre">qr</span></code>, the performance of Owl and Julia is very close for the other regarding to linear algebra operations. Both are slightly slower than that of Numpy.</p>
+</div>
 </div>
 
 
