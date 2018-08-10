@@ -97,7 +97,7 @@
   <div class="section" id="maths">
 <h1>Maths<a class="headerlink" href="#maths" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#153 entries have been extracted.</p>
+#155 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/maths/owl_maths.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/maths/owl_maths.ml">{Implementation}</a></p>
@@ -817,7 +817,7 @@ probability <span class="math notranslate nohighlight">\(p\)</span>.</li>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L327">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L331">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bdtrc</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -826,7 +826,7 @@ probability <span class="math notranslate nohighlight">\(p\)</span>.</li>
 of the binomial probability density,</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{bdtrc}(k, n, p) = \sum_{j=k+1}^n {{n}\choose{j}} p^j (1-p)^{n-j}\]</div>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L329">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L333">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bdtri</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -834,7 +834,7 @@ of the binomial probability density,</p>
 <p>Finds the event probability <span class="math notranslate nohighlight">\(p\)</span> such that the sum of the terms 0 through
 <span class="math notranslate nohighlight">\(k\)</span> of the binomial probability density is equal to the given cumulative
 probability <span class="math notranslate nohighlight">\(y\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L331">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L335">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">btdtr</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -859,7 +859,7 @@ density function,</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L333">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L337">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">btdtri</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -886,7 +886,7 @@ density function,</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L335">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L339">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -900,21 +900,31 @@ density function,</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_inf</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> exactly if <code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">neg_infinity</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L309">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_normal</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">is_normal</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is a normal float number.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L311">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_subnormal</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">is_nan</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is subnormal float number.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L313">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_odd</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_odd</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> exactly if <code class="docutils literal notranslate"><span class="pre">x</span></code> is odd.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L311">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L315">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_even</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_even</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> exactly if <code class="docutils literal notranslate"><span class="pre">x</span></code> is even.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L313">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L317">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_pow2</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_pow2</span> <span class="pre">x</span></code> return <code class="docutils literal notranslate"><span class="pre">true</span></code> exactly if <code class="docutils literal notranslate"><span class="pre">x</span></code> is an integer power of 2, e.g. 32, 64, etc.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L315">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L319">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">same_sign</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
@@ -933,27 +943,27 @@ other words, <span class="math notranslate nohighlight">\(\sum_i^K x_i = 1\)</sp
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_sqr</span> <span class="pre">x</span></code> checks if <code class="docutils literal notranslate"><span class="pre">x</span></code> is the square of an integer.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L319">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L323">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fermat_fact</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">fermat_fact</span> <span class="pre">x</span></code> performs Fermat factorisation over <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. into two
 roughly equal factors. <code class="docutils literal notranslate"><span class="pre">x</span></code> must be an odd number.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L321">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L325">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nextafter</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">nextafter</span> <span class="pre">from</span> <span class="pre">to</span></code> returns the next representable double precision value
 of <code class="docutils literal notranslate"><span class="pre">from</span></code> in the direction of <code class="docutils literal notranslate"><span class="pre">to</span></code>. If <code class="docutils literal notranslate"><span class="pre">from</span></code> equals <code class="docutils literal notranslate"><span class="pre">to</span></code>, this value
 is returned.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L323">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L327">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nextafterf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">nextafter</span> <span class="pre">from</span> <span class="pre">to</span></code> returns the next representable single precision value
 of <code class="docutils literal notranslate"><span class="pre">from</span></code> in the direction of <code class="docutils literal notranslate"><span class="pre">to</span></code>. If <code class="docutils literal notranslate"><span class="pre">from</span></code> equals <code class="docutils literal notranslate"><span class="pre">to</span></code>, this value
 is returned.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L325">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L329">source code</a></p>
 </div>
 </div>
 

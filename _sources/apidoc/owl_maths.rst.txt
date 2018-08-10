@@ -2,7 +2,7 @@ Maths
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#153 entries have been extracted.
+#155 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/maths/owl_maths.mli>`_ 
@@ -1350,7 +1350,7 @@ Returns:
   * Probability of :math:`k` or fewer successes in :math:`n` independent events with success
     probability :math:`p`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L327>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L331>`__
 
 
 
@@ -1366,7 +1366,7 @@ of the binomial probability density,
 .. math::
   \mathrm{bdtrc}(k, n, p) = \sum_{j=k+1}^n {{n}\choose{j}} p^j (1-p)^{n-j}
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L329>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L333>`__
 
 
 
@@ -1380,7 +1380,7 @@ Finds the event probability :math:`p` such that the sum of the terms 0 through
 :math:`k` of the binomial probability density is equal to the given cumulative
 probability :math:`y`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L331>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L335>`__
 
 
 
@@ -1407,7 +1407,7 @@ Returns:
   * Cumulative density function of the beta distribution with :math:`a` and
     :math:`b` at :math:`x`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L333>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L337>`__
 
 
 
@@ -1434,7 +1434,7 @@ Parameters:
 Returns:
   * The quantile corresponding to :math:`p`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L335>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L339>`__
 
 
 
@@ -1465,11 +1465,31 @@ Helper functions
 
 .. code-block:: ocaml
 
+  val is_normal : float -> bool
+
+``is_normal x`` returns ``true`` if ``x`` is a normal float number.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L311>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_subnormal : float -> bool
+
+``is_nan x`` returns ``true`` if ``x`` is subnormal float number.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L313>`__
+
+
+
+.. code-block:: ocaml
+
   val is_odd : int -> bool
 
 ``is_odd x`` returns ``true`` exactly if ``x`` is odd.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L311>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L315>`__
 
 
 
@@ -1479,7 +1499,7 @@ Helper functions
 
 ``is_even x`` returns ``true`` exactly if ``x`` is even.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L313>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L317>`__
 
 
 
@@ -1489,7 +1509,7 @@ Helper functions
 
 ``is_pow2 x`` return ``true`` exactly if ``x`` is an integer power of 2, e.g. 32, 64, etc.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L315>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L319>`__
 
 
 
@@ -1523,7 +1543,7 @@ other words, :math:`\sum_i^K x_i = 1` and :math:`x_i \ge 0, \forall i \in
 
 ``is_sqr x`` checks if ``x`` is the square of an integer.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L319>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L323>`__
 
 
 
@@ -1534,7 +1554,7 @@ other words, :math:`\sum_i^K x_i = 1` and :math:`x_i \ge 0, \forall i \in
 ``fermat_fact x`` performs Fermat factorisation over ``x``, i.e. into two
 roughly equal factors. ``x`` must be an odd number.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L321>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L325>`__
 
 
 
@@ -1546,7 +1566,7 @@ roughly equal factors. ``x`` must be an odd number.
 of ``from`` in the direction of ``to``. If ``from`` equals ``to``, this value
 is returned.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L323>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L327>`__
 
 
 
@@ -1558,7 +1578,7 @@ is returned.
 of ``from`` in the direction of ``to``. If ``from`` equals ``to``, this value
 is returned.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L325>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L329>`__
 
 
 
