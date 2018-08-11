@@ -105,12 +105,19 @@
 <li>Fold and scan operations, including <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">cumprod</span></code>, and <code class="docutils literal notranslate"><span class="pre">cummax</span></code>. These operations accept an “axis” parameter to specify along which dimension to perform the computation. Without loss of generality, for each of them, we generate a uniformly distributed 4-dimensional array, and choose the first and last dimension to perform computation. The size of each dimension is the same, increasing from 10 to 60.</li>
 <li>Repeat operations, namely <code class="docutils literal notranslate"><span class="pre">repeat</span></code> (i.e. inner repeat) and <code class="docutils literal notranslate"><span class="pre">tile</span></code> (i.e. outer repeat). For these two operations, we also use 4-dimensional array and different axes array as input. The size of each dimension increases from 10 to 35.</li>
 <li>Indexing and slicing, we benchmark the <code class="docutils literal notranslate"><span class="pre">get_slice</span></code> function in Owl. We choose two input shapes: <code class="docutils literal notranslate"><span class="pre">[|10;</span> <span class="pre">300;</span> <span class="pre">3000|]</span></code> and <code class="docutils literal notranslate"><span class="pre">[|3000;</span> <span class="pre">300;</span> <span class="pre">10|]</span></code>, and apply different index combinations, e.g. <code class="docutils literal notranslate"><span class="pre">[[-1;0];</span> <span class="pre">[0;1];</span> <span class="pre">[]]</span></code>.</li>
-<li>Linear Algebra functions, including <code class="docutils literal notranslate"><span class="pre">matmul</span></code>, <code class="docutils literal notranslate"><span class="pre">inv</span></code>, <code class="docutils literal notranslate"><span class="pre">eigenvals</span></code>, <code class="docutils literal notranslate"><span class="pre">svd</span></code>, <code class="docutils literal notranslate"><span class="pre">lu</span></code>, and <code class="docutils literal notranslate"><span class="pre">qr</span></code>. We use square matrix of order <code class="docutils literal notranslate"><span class="pre">n</span></code> as input, where <code class="docutils literal notranslate"><span class="pre">n</span></code> increases from 10 to 400.</li>
+<li>Linear Algebra functions, including <code class="docutils literal notranslate"><span class="pre">matmul</span></code>, <code class="docutils literal notranslate"><span class="pre">inv</span></code>, <code class="docutils literal notranslate"><span class="pre">eigenvals</span></code>, <code class="docutils literal notranslate"><span class="pre">svd</span></code>, <code class="docutils literal notranslate"><span class="pre">lu</span></code>, and <code class="docutils literal notranslate"><span class="pre">qr</span></code>. We use a square matrix of order <code class="docutils literal notranslate"><span class="pre">n</span></code> as input, where <code class="docutils literal notranslate"><span class="pre">n</span></code> increases from 10 to 1000.</li>
 </ol>
 <p>We use Owl version 0.4.0, Numpy version 1.14.3, and Julia version 0.6.3. Each observation is repeated for 30 times, with outliers being trimmed.
 The rest of this article presents the evaluation results.</p>
 <div class="section" id="vectorised-math-operations">
 <h2>Vectorised Math Operations<a class="headerlink" href="#vectorised-math-operations" title="Permalink to this headline">¶</a></h2>
+<p>The ndarray module in Owl includes a full set of vectorised unary and binary mathematical functions. These functions map to each element in the input ndarray to the output with specific tranformation functions.
+We choose a group of representative operations considering computation type and complexity for evaluation. For example, <code class="docutils literal notranslate"><span class="pre">log2</span></code> and <code class="docutils literal notranslate"><span class="pre">sub</span></code> are not used, since we have already selected the <code class="docutils literal notranslate"><span class="pre">log</span></code> and <code class="docutils literal notranslate"><span class="pre">add</span></code> operations with equivalent complexity.</p>
+<p>Also, since Numpy and Julia do not have <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code>, we calculate it using existing operations. For example, the code in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The figures below show the evaluation results.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/op_eval15.png"><img alt="exp" src="../_images/op_eval15.png" style="width: 100%;" /></a>
 </div>
@@ -179,6 +186,9 @@ The rest of this article presents the evaluation results.</p>
 </div>
 <div class="section" id="fold-and-scan-operations">
 <h2>Fold and Scan Operations<a class="headerlink" href="#fold-and-scan-operations" title="Permalink to this headline">¶</a></h2>
+<p>Fold and scan operations share the similar interface. They both have an axis parameter to specify along which axis of the input ndarray to perform certain type of calculation.</p>
+<p>A fold function, or “reduction” function as is called in some other numerical libraries, reduces one dimension of a ndarray to one, and accumulates the value along that dimension according to the applied calculation. Scan functions are similar, only that they do not change the shape of input.</p>
+<p>In this part we choose the widely used maximum, summation, and multiplication calculations for both.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/op_eval23.png"><img alt="max" src="../_images/op_eval23.png" style="width: 100%;" /></a>
 </div>
@@ -194,27 +204,36 @@ The rest of this article presents the evaluation results.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/op_eval26.png"><img alt="cumprod" src="../_images/op_eval26.png" style="width: 100%;" /></a>
 </div>
-<p>For fold and scan operations, except for <code class="docutils literal notranslate"><span class="pre">max</span></code>, Owl operations are not the fastest. The performance varies for different computation.</p>
+<p>For fold and scan operations, except for <code class="docutils literal notranslate"><span class="pre">max</span></code>, Owl operations are not the fastest. The performance varies for different computations.
+Similar to vectorised math operations, the fold functions of Numpy and Julia also utilise AVX/SSE to boost the performance, while in Owl they are implemented as simple <code class="docutils literal notranslate"><span class="pre">for</span></code> loops with varied strides. This explains the performance gap for <code class="docutils literal notranslate"><span class="pre">sum</span></code> and <code class="docutils literal notranslate"><span class="pre">prod</span></code>.</p>
 </div>
 <div class="section" id="repeat-operations">
 <h2>Repeat Operations<a class="headerlink" href="#repeat-operations" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">repeat</span></code> function in Owl repeats the elements in ndarray according the repetition specified by an integer array, the i-th element of which specifies the number of times that the individual entries of the i-th dimension of input ndarray should be repeated.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tile</span></code> is similar, but it repeats the whole input along specified dimensions. These two functions are also referred to as inner and outer repetition respectively.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/op_eval28.png"><img alt="repeat" src="../_images/op_eval28.png" style="width: 100%;" /></a>
 </div>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/op_eval27.png"><img alt="tile" src="../_images/op_eval27.png" style="width: 100%;" /></a>
 </div>
-<p>We do not include results of Julia here, since its repeat operations are orders of magnitude slower than that of Owl and Numpy. Owl has shown the advantage for repeat operations.</p>
+<p>We exclude results of Julia in the comparison, since its repeat operations are orders of magnitude slower than that of Owl and Numpy.</p>
+<p>Owl has shown the advantage for repeat operations. Part of the reason is that , multiple axes repeat in Numpy is implemented with multiple basic single axis repeat operation, whereas Owl has adopted an algorithm that repeats along multiple axes without generating intermediate results.</p>
 </div>
 <div class="section" id="slicing-operation">
 <h2>Slicing Operation<a class="headerlink" href="#slicing-operation" title="Permalink to this headline">¶</a></h2>
+<p>Slicing is one of the most important functions in a numerical computing library.
+Owl provides basic slicing and fancy slicing. The latter supports more powerful index definition, but basic slicing is sufficient for performance evaluation.
+Basic slicing contains two functions <code class="docutils literal notranslate"><span class="pre">get_slice</span></code> and <code class="docutils literal notranslate"><span class="pre">set_slice</span></code> to retrieve and assign slice values respectively. We evaluate the get function in this section.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/op_eval29.png"><img alt="get_slice" src="../_images/op_eval29.png" style="width: 100%;" /></a>
 </div>
-<p>We apply 8 different indices for two 3-dimensional arrays in slicing, and the result shows that currently indexing and slicing in Owl still needs improving compared with Numpy and Julia.</p>
+<p>We apply 8 different indices for two 3-dimensional arrays in slicing, and the result shows that slicing in Owl is slower than Numpy and Julia.</p>
 </div>
 <div class="section" id="linear-algebra-operations">
 <h2>Linear Algebra Operations<a class="headerlink" href="#linear-algebra-operations" title="Permalink to this headline">¶</a></h2>
+<p>Linear Algebra functions are usually categorised into matrix/vector products, decompositions, matrix eigenvalues, solving and inverting matrix, etc. In this section we choose to test multiplication, SVD/LU/QR decomposition, eigenvalue computation, and inversion functions for matrix. Since LU decomposition is not provided in Numpy, we use <code class="docutils literal notranslate"><span class="pre">scipy.linalg.lu</span></code> from the Scipy linear algebra library instead.
+The results are shown as below.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/op_eval33.png"><img alt="matmul" src="../_images/op_eval33.png" style="width: 100%;" /></a>
 </div>
@@ -233,7 +252,8 @@ The rest of this article presents the evaluation results.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/op_eval32.png"><img alt="eigvals" src="../_images/op_eval32.png" style="width: 100%;" /></a>
 </div>
-<p>Except for <code class="docutils literal notranslate"><span class="pre">qr</span></code>, the performance of Owl and Julia is very close for the other regarding to linear algebra operations. Both are slightly slower than that of Numpy.</p>
+<p>The performance for linear algebra operations are similar, since they all call the low level LAPACK and BLAS libraries to perform the required calculation.</p>
+<p>As to the performance of QR decomposition, most of its time is spent in LAPACK routines. Owl’s LAPACK interface passes data directly to LAPACK, while Numpy’s interface implementation preprocesses the data according to different conditions, thus trying to improve the performance.</p>
 </div>
 </div>
 
