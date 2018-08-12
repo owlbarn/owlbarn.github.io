@@ -119,11 +119,11 @@
 <div class="section" id="share-via-gist">
 <h2>Share via Gist<a class="headerlink" href="#share-via-gist" title="Permalink to this headline">¶</a></h2>
 <p>Second, Alice needs to distribute the files in <code class="docutils literal notranslate"><span class="pre">myscript</span></code> folder. But how?</p>
-<p>The distribution is done via <a class="reference external" href="https://gist.github.com/">gist.github.com</a>, so you must have <code class="docutils literal notranslate"><span class="pre">gist</span></code> installed on your computer. E.g., if you use Mac, you can install <code class="docutils literal notranslate"><span class="pre">gist</span></code> with <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">gist</span></code>. Owl provides a simple command line tool to upload the Zoo code snippets. Note that you need to log into your github account for <code class="docutils literal notranslate"><span class="pre">gist</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span></code>.</p>
+<p>The distribution is done via <a class="reference external" href="https://gist.github.com/">gist.github.com</a>, so you must have <code class="docutils literal notranslate"><span class="pre">gist</span></code> installed on your computer. E.g., if you use Mac, you can install <code class="docutils literal notranslate"><span class="pre">gist</span></code> with <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">gist</span></code>. Owl provides a simple command line tool to upload the Zoo code snippets. Note that you need to log into your Github account for <code class="docutils literal notranslate"><span class="pre">gist</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>owl -upload myscript
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">owl</span> <span class="pre">-upload</span></code> command simply uploads all the files in <code class="docutils literal notranslate"><span class="pre">myscript</span></code> as a bundle to your <a class="reference external" href="https://gist.github.com/">gist.github.com</a> page. The command also prints out the url after a successful upload. In our case, you can check the updated bundle on <a class="reference external" href="https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08">[this page]</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">owl</span> <span class="pre">-upload</span></code> command simply uploads all the files in <code class="docutils literal notranslate"><span class="pre">myscript</span></code> as a bundle to your <a class="reference external" href="https://gist.github.com/">gist.github.com</a> page. The command also prints out the url after a successful upload. In our case, you can check the updated bundle on <a class="reference external" href="https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08">this page</a>.</p>
 </div>
 <div class="section" id="import-in-another-script">
 <h2>Import in Another Script<a class="headerlink" href="#import-in-another-script" title="Permalink to this headline">¶</a></h2>
@@ -140,19 +140,29 @@
 <li>All the <code class="docutils literal notranslate"><span class="pre">ml</span></code> files in the bundle will be imported as modules, so you need to use <code class="docutils literal notranslate"><span class="pre">Coolmodule.sqr_magic</span></code> to access the function.</li>
 <li>You may also want to use <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">bob.ml</span></code> to make the script executable. This is obvious if you are a heavy terminal user.</li>
 </ol>
-<p>Note that to use <code class="docutils literal notranslate"><span class="pre">#zoo</span></code> directive in <code class="docutils literal notranslate"><span class="pre">utop</span></code> you need to manually load the <code class="docutils literal notranslate"><span class="pre">owl_zoo</span></code> library with <code class="docutils literal notranslate"><span class="pre">#require</span> <span class="pre">&quot;owl_zoo&quot;;;</span></code>. Alternatively, you can also load <code class="docutils literal notranslate"><span class="pre">owl_top</span></code> using <code class="docutils literal notranslate"><span class="pre">#require</span> <span class="pre">&quot;owl_top&quot;;;</span></code> which is an OCaml toplevel wrapper of Owl.</p>
+<p>Note that to use <code class="docutils literal notranslate"><span class="pre">#zoo</span></code> directive in <code class="docutils literal notranslate"><span class="pre">utop</span></code> you need to manually load the <code class="docutils literal notranslate"><span class="pre">owl-zoo</span></code> library with <code class="docutils literal notranslate"><span class="pre">#require</span> <span class="pre">&quot;owl-zoo&quot;;;</span></code>. Alternatively, you can also load <code class="docutils literal notranslate"><span class="pre">owl-top</span></code> using <code class="docutils literal notranslate"><span class="pre">#require</span> <span class="pre">&quot;owl-top&quot;;;</span></code> which is an OCaml toplevel wrapper of Owl.</p>
 <p>If you want to make <code class="docutils literal notranslate"><span class="pre">utop</span></code> load the library automatically by adding this line to <code class="docutils literal notranslate"><span class="pre">~/.ocamlinit</span></code>.</p>
 </div>
 <div class="section" id="choose-a-version-of-script">
 <h2>Choose a Version of Script<a class="headerlink" href="#choose-a-version-of-script" title="Permalink to this headline">¶</a></h2>
 <p>Alice has modified and uploaded her scripts several times. Each version of her code is assigned a unique <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">id</span></code>. Different versions of code may work differently, so how could Bob specify which version to use? Good news is that, he barely needs to change his code.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">#!/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">env</span> <span class="n">owl</span>
-<span class="o">#</span><span class="n">zoo</span> <span class="s2">&quot;9f0892ab2b96f81baacd7322d73a4b08/71261b317cd730a4dbfb0ffeded02b10fcaa5948&quot;</span>
+<span class="o">#</span><span class="n">zoo</span> <span class="s2">&quot;9f0892ab2b96f81baacd7322d73a4b08?vid=71261b317cd730a4dbfb0ffeded02b10fcaa5948&quot;</span>
 
 <span class="k">let</span> <span class="o">_</span> <span class="o">=</span> <span class="nn">Coolmodule</span><span class="p">.</span><span class="n">sqr_magic</span> <span class="mi">4</span> <span class="o">|&gt;</span> <span class="nn">Owl</span><span class="p">.</span><span class="nn">Mat</span><span class="p">.</span><span class="n">print</span>
 </pre></div>
 </div>
-<p>The only thing he needs to add is a version id after the gist bundle id and a slash. Version id can be obtained from the gist’s <a class="reference external" href="https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08/revisions">[revisions page]</a>. If the version id is not specified, as shown in the previous code snippet, the latest version on the Gist server will be used by default.</p>
+<p>The only thing he needs to add is a version id using the parameter <code class="docutils literal notranslate"><span class="pre">vid</span></code>. The naming scheme of Zoo is designed to be similar with the field-value pair in a RESTful query. Version id can be obtained from a gist’s <a class="reference external" href="https://gist.github.com/9f0892ab2b96f81baacd7322d73a4b08/revisions">revisions page</a>.</p>
+<p>Besides specifying a version, it is also quite possible that Bob prefers to use the newest version Alice provides, whatever its id may be. The problem here is that, how often does Bob need to contact the Gist server to retreat the version information? Every time he runs his code? Well, that may not be a good idea in many cases considering the communication overhead and response time. Zoo caches gists locally and tends to use the cached code and data rather than downloading them all the time.</p>
+<p>To solve this problem, Zoo provides another parameter in the naming scheme: <code class="docutils literal notranslate"><span class="pre">tol</span></code>. It is the threshold of a gist’s <em>tolerance</em> of the time it exists on the local cache. Any gist that exists on a user’s local cache for longer than <code class="docutils literal notranslate"><span class="pre">tol</span></code> seconds is deemed outdated and thus requires updating the latest <code class="docutils literal notranslate"><span class="pre">vid</span></code> information from the Gist server before being used. For example:</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">#!/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">env</span> <span class="n">owl</span>
+<span class="o">#</span><span class="n">zoo</span> <span class="s2">&quot;9f0892ab2b96f81baacd7322d73a4b08?tol=300&quot;</span>
+
+<span class="k">let</span> <span class="o">_</span> <span class="o">=</span> <span class="nn">Coolmodule</span><span class="p">.</span><span class="n">sqr_magic</span> <span class="mi">4</span> <span class="o">|&gt;</span> <span class="nn">Owl</span><span class="p">.</span><span class="nn">Mat</span><span class="p">.</span><span class="n">print</span>
+</pre></div>
+</div>
+<p>By setting the <code class="docutils literal notranslate"><span class="pre">tol</span></code> parameter to 300, Bob indicates that, if Zoo has already fetched the version information of this gist from remote server within the past 300 seconds, then keep using its local cache; otherwise contact the Gist server to check if a newer version is pushed. If so, the newest version is downloaded to local cache before being used. In the case where Bob don’t want to miss every single update of Alice’s gist code, he can simply set <code class="docutils literal notranslate"><span class="pre">tol</span></code> to 0, which means fetching the version information every time he executes his code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">vid</span></code> and <code class="docutils literal notranslate"><span class="pre">tol</span></code> parameters enable users to have fine-grained version control of Zoo gists. Of course, these two parameters should not be used together. When <code class="docutils literal notranslate"><span class="pre">vid</span></code> is set in a name, the <code class="docutils literal notranslate"><span class="pre">tol</span></code> parameter will be ignored. If both are not set, as shown in the previous code snippet, Zoo will use the latest locally cached version if it exists.</p>
 </div>
 <div class="section" id="command-line-tool">
 <h2>Command Line Tool<a class="headerlink" href="#command-line-tool" title="Permalink to this headline">¶</a></h2>
@@ -172,7 +182,7 @@ Usage:
   owl -help                         print out help information
 </pre></div>
 </div>
-<p>Note that both <code class="docutils literal notranslate"><span class="pre">run</span></code> and <code class="docutils literal notranslate"><span class="pre">info</span></code> commands accept a full gist name in the format of <code class="docutils literal notranslate"><span class="pre">gist-id/version-id</span></code>. If the version id is not specified, the latest version on the Gist server will be used by default.</p>
+<p>Note that both <code class="docutils literal notranslate"><span class="pre">run</span></code> and <code class="docutils literal notranslate"><span class="pre">info</span></code> commands accept a full gist name that can contain extra parameters, instead of only a gist id.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -181,7 +191,19 @@ Usage:
 <ul class="simple">
 <li><a class="reference external" href="https://gist.github.com/jzstark/9428a62a31dbea75511882ab8218076f">Google Inception V3 for Image Classification</a></li>
 <li><a class="reference external" href="https://gist.github.com/jzstark/6f28d54e69d1a19c1819f52c5b16c1a1">Neural Style Transfer</a></li>
+<li><a class="reference external" href="https://gist.github.com/jzstark/f937ce439c8adcaea23d42753f487299">Fast Neural Style Transfer</a></li>
 </ul>
+<p>For example, you can use Zoo to perform DNN-based image classification in only 6 lines of code:</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="o">#!/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">env</span> <span class="n">owl</span>
+<span class="o">#</span><span class="n">zoo</span> <span class="s2">&quot;9428a62a31dbea75511882ab8218076f&quot;</span>
+
+<span class="k">let</span> <span class="o">_</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">image</span>  <span class="o">=</span> <span class="s2">&quot;/path/to/your/image.png&quot;</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">labels</span> <span class="o">=</span> <span class="nn">InceptionV3</span><span class="p">.</span><span class="n">infer</span> <span class="n">image</span> <span class="k">in</span>
+  <span class="nn">InceptionV3</span><span class="p">.</span><span class="n">to_json</span> <span class="o">~</span><span class="n">top</span><span class="o">:</span><span class="mi">5</span> <span class="n">labels</span>
+</pre></div>
+</div>
+<p>Please refer to the gist pages listed above and the <a class="reference external" href="http://138.68.155.178/index.html">zoo demo website</a> for more information.</p>
 </div>
 </div>
 
