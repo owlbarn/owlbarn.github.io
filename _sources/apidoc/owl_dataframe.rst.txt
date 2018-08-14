@@ -2,7 +2,7 @@ Dataframe
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#79 entries have been extracted.
+#80 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_dataframe.mli>`_ 
@@ -410,7 +410,7 @@ Basic get and set functions
 ``get_slice s x`` returns a slice of ``x`` defined by ``s``. For more details,
 please refer to :doc:`owl_dense_ndarray_generic`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L479>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L489>`__
 
 
 
@@ -420,7 +420,7 @@ please refer to :doc:`owl_dense_ndarray_generic`.
 
 ``get_slice_by_name`` is similar to ``get_slice`` but uses column name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L496>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L506>`__
 
 
 
@@ -436,7 +436,7 @@ please refer to :doc:`owl_dense_ndarray_generic`.
 
 ``tail n x`` returns bottom ``n`` rows of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L519>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L529>`__
 
 
 
@@ -464,6 +464,16 @@ return an empty dataframe.
 ``copy x`` returns a copy of dataframe ``x``.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L375>`__
+
+
+
+.. code-block:: ocaml
+
+  val reset : t -> unit
+
+``reset x`` resets the dataframe ``x`` by setting all the time series to empty.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L389>`__
 
 
 
@@ -539,7 +549,7 @@ accepted.
 ``x`` and ``y`` must have the same number of rows, and each column name should
 be unique.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L389>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L401>`__
 
 
 
@@ -551,7 +561,7 @@ be unique.
 ``x``. The two dataframes ``x`` and ``y`` must have the same number of columns
 and the same column names.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L410>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L420>`__
 
 
 
@@ -566,7 +576,7 @@ Iteration functions
 
 ``iteri_row f x`` iterates the rows of ``x`` and applies ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L424>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L434>`__
 
 
 
@@ -576,7 +586,7 @@ Iteration functions
 
 ``iter_row`` is simiar to ``iteri_row`` without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L431>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L441>`__
 
 
 
@@ -589,7 +599,7 @@ applying function ``f``. Note that the returned value of ``f`` must be
 consistent with ``x`` w.r.t to its length and type, otherwise runtime error
 will occur.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L434>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L444>`__
 
 
 
@@ -599,7 +609,7 @@ will occur.
 
 ``map_row`` is simiar to ``mapi_row`` but without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L444>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L454>`__
 
 
 
@@ -610,7 +620,7 @@ will occur.
 ``filteri_row`` creates a new dataframe from ``x`` by filtering out those rows
 which satisfy the condition ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L447>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L457>`__
 
 
 
@@ -620,7 +630,7 @@ which satisfy the condition ``f``.
 
 ``filter_row`` is similar to ``filteri_row`` without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L459>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L469>`__
 
 
 
@@ -632,7 +642,7 @@ which satisfy the condition ``f``.
 each row. If ``f`` returns ``None`` then the row is excluded in the returned
 dataframe; if ``f`` returns ``Some row`` then the row is included.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L462>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L472>`__
 
 
 
@@ -642,7 +652,7 @@ dataframe; if ``f`` returns ``Some row`` then the row is included.
 
 ``filter_map_row`` is similar to ``filter_mapi_row`` without passing in row indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L476>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L486>`__
 
 
 
@@ -705,7 +715,7 @@ Parameters:
   * ``head``: column names, if not passed in, the first line of CSV file will be used.
   * ``types``: data type of each column, must be consistent with head.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L615>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L625>`__
 
 
 
@@ -716,7 +726,7 @@ Parameters:
 ``to_csv ~sep x fname`` converts a dataframe to CSV file of name ``fname``. The
 delimiter is specified by ``sep``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L653>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_dataframe.ml#L663>`__
 
 
 
