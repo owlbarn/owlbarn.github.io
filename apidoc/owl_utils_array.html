@@ -86,7 +86,7 @@
   <div class="section" id="utils-array">
 <h1>Utils.Array<a class="headerlink" href="#utils-array" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#80 entries have been extracted.</p>
+#82 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.ml">{Implementation}</a></p>
@@ -140,7 +140,7 @@
 </pre></div>
 </div>
 <p>Refer to OCaml native array.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L450">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L460">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">blit</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -189,6 +189,12 @@
 </pre></div>
 </div>
 <p>Refer to OCaml native array.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">argsort</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">int</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">argsort</span> <span class="pre">cmp</span> <span class="pre">x</span></code> sorts <code class="docutils literal notranslate"><span class="pre">x</span></code> according to the compare function <code class="docutils literal notranslate"><span class="pre">cmp</span></code> and
+returns the corresponding indices.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L468">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sort</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">int</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -208,7 +214,7 @@
 of length <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">-</span> <span class="pre">min</span> <span class="pre">+</span> <span class="pre">1</span></code>, and fills the holes with <code class="docutils literal notranslate"><span class="pre">fill</span></code>. E.g.,
 <code class="docutils literal notranslate"><span class="pre">sort_fill</span> <span class="pre">~min:1</span> <span class="pre">~max:5</span> <span class="pre">~fill:0</span> <span class="pre">[|4;2|]</span> <span class="pre">x</span></code> returns a new array as follows:
 <code class="docutils literal notranslate"><span class="pre">[|1;</span> <span class="pre">0;</span> <span class="pre">2;</span> <span class="pre">0;</span> <span class="pre">4;</span> <span class="pre">5|]</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L443">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L453">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unsafe_get</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
@@ -284,6 +290,11 @@ to <code class="docutils literal notranslate"><span class="pre">get_slice</span>
 </div>
 <p>TODO</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L66">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reverse</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">reverse</span> <span class="pre">x</span></code> reverse the elements in <code class="docutils literal notranslate"><span class="pre">x</span></code> in place.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L442">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mapi</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="kt">array</span>
 </pre></div>
 </div>

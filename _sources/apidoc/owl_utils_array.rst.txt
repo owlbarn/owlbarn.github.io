@@ -2,7 +2,7 @@ Utils.Array
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#80 entries have been extracted.
+#82 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli>`_ 
@@ -87,7 +87,7 @@ Refer to OCaml native array.
 
 Refer to OCaml native array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L450>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L460>`__
 
 
 
@@ -165,6 +165,17 @@ Refer to OCaml native array.
 
 .. code-block:: ocaml
 
+  val argsort : ('a -> 'a -> int) -> 'a array -> int array
+
+``argsort cmp x`` sorts ``x`` according to the compare function ``cmp`` and
+returns the corresponding indices.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L468>`__
+
+
+
+.. code-block:: ocaml
+
   val sort : ('a -> 'a -> int) -> 'a array -> unit
 
 Refer to OCaml native array.
@@ -190,7 +201,7 @@ of length ``max - min + 1``, and fills the holes with ``fill``. E.g.,
 ``sort_fill ~min:1 ~max:5 ~fill:0 [|4;2|] x`` returns a new array as follows:
 ``[|1; 0; 2; 0; 4; 5|]``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L443>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L453>`__
 
 
 
@@ -332,6 +343,16 @@ TODO
 TODO
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L66>`__
+
+
+
+.. code-block:: ocaml
+
+  val reverse : 'a array -> unit
+
+``reverse x`` reverse the elements in ``x`` in place.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L442>`__
 
 
 
