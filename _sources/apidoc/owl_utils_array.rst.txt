@@ -2,7 +2,7 @@ Utils.Array
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#82 entries have been extracted.
+#84 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli>`_ 
@@ -165,7 +165,29 @@ Refer to OCaml native array.
 
 .. code-block:: ocaml
 
-  val argsort : ('a -> 'a -> int) -> 'a array -> int array
+  val min_i : ?cmp:('a -> 'a -> int) -> 'a array -> int
+
+``min_i x`` returns the index of minimum value in array ``x``. If ``cmp`` is
+not passed in then ``Pervasives.compare`` is used as default value.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L477>`__
+
+
+
+.. code-block:: ocaml
+
+  val max_i : ?cmp:('a -> 'a -> int) -> 'a array -> int
+
+``max_i x`` returns the index of minimum value in array ``x``. If ``cmp`` is
+not passed in then ``Pervasives.compare`` is used as default value.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L490>`__
+
+
+
+.. code-block:: ocaml
+
+  val argsort : ?cmp:('a -> 'a -> int) -> 'a array -> int array
 
 ``argsort cmp x`` sorts ``x`` according to the compare function ``cmp`` and
 returns the corresponding indices.
