@@ -106,32 +106,32 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">get_w2i</span> <span class="pre">v</span></code> returns word -&gt; index mapping of <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L19">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L16">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_i2w</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span><span class="o">,</span> <span class="kt">string</span><span class="o">)</span> <span class="nn">Hashtbl</span><span class="p">.</span><span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">get_i2w</span> <span class="pre">v</span></code> returns index -&gt; word mapping of <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L22">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L19">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exits_w</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">exits_w</span> <span class="pre">v</span> <span class="pre">w</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if word <code class="docutils literal notranslate"><span class="pre">w</span></code> exists in the vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L25">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L22">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exits_i</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">exits_i</span> <span class="pre">i</span> <span class="pre">w</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if index <code class="docutils literal notranslate"><span class="pre">i</span></code> exists in the vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L28">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L25">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">word2index</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">word2index</span> <span class="pre">v</span> <span class="pre">w</span></code> converts word <code class="docutils literal notranslate"><span class="pre">w</span></code> to its index using vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L31">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L28">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">index2word</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">index2word</span> <span class="pre">v</span> <span class="pre">i</span></code> converts index <code class="docutils literal notranslate"><span class="pre">i</span></code> to its corresponding word using vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L34">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L31">source code</a></p>
 </div>
 <div class="section" id="obtain-properties">
 <h2>Obtain properties<a class="headerlink" href="#obtain-properties" title="Permalink to this headline">¶</a></h2>
@@ -139,38 +139,38 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">v</span></code> returns the size of vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L37">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L34">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">freq_i</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">freq_i</span> <span class="pre">v</span> <span class="pre">i</span></code> returns the frequency of word of index <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L40">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L37">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">freq_w</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">freq_w</span> <span class="pre">v</span> <span class="pre">w</span></code> returns the frequency of word <code class="docutils literal notranslate"><span class="pre">w</span></code> in the vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L43">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L40">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sort_freq</span> <span class="o">:</span> <span class="o">?</span><span class="n">inc</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span><span class="o">)</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">sort_freq</span> <span class="pre">v</span></code> returns the vocabulary as a <code class="docutils literal notranslate"><span class="pre">(index,</span> <span class="pre">freq)</span> <span class="pre">array</span></code> in
 increasing or decreasing frequency specified by parameter <code class="docutils literal notranslate"><span class="pre">inc</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L228">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L225">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">top</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">string</span> <span class="o">*</span> <span class="kt">int</span><span class="o">)</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">top</span> <span class="pre">v</span> <span class="pre">k</span></code> returns the top <code class="docutils literal notranslate"><span class="pre">k</span></code> words in vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L244">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L241">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bottom</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">string</span> <span class="o">*</span> <span class="kt">int</span><span class="o">)</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">bottom</span> <span class="pre">v</span> <span class="pre">k</span></code> returns the bottom <code class="docutils literal notranslate"><span class="pre">k</span></code> words in vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L252">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L249">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">re_index</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">re_index</span> <span class="pre">v</span></code> re-indexes the indices of words in vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L55">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L52">source code</a></p>
 </div>
 <div class="section" id="core-functions">
 <h2>Core functions<a class="headerlink" href="#core-functions" title="Permalink to this headline">¶</a></h2>
@@ -191,13 +191,13 @@ vocabulary of alphabets is returned.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L167">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L164">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">build_from_string</span> <span class="o">:</span> <span class="o">?</span><span class="n">lo</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">hi</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">alphabet</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">stopwords</span><span class="o">:(</span><span class="kt">string</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="nn">Hashtbl</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">build_from_string</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">build</span></code> but builds the vocabulary from an
 input string rather than a file.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L198">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L195">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">trim_percent</span> <span class="o">:</span> <span class="n">lo</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">hi</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -211,7 +211,7 @@ on percentage of frequency.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L95">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L92">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">trim_count</span> <span class="o">:</span> <span class="n">lo</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">hi</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -225,37 +225,37 @@ on absolute count of words.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L115">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L112">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">remove_stopwords</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="nn">Hashtbl</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">c</span><span class="o">)</span> <span class="nn">Hashtbl</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">remove_stopwords</span> <span class="pre">stopwords</span> <span class="pre">v</span></code> removes the stopwords defined in a hashtbl from vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L129">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L126">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">v</span></code> makes a copy of vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L47">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L44">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tokenise</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">tokenise</span> <span class="pre">v</span> <span class="pre">s</span></code> tokenises the string <code class="docutils literal notranslate"><span class="pre">s</span></code> according to the vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L263">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L260">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">w2i_to_tuples</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">string</span> <span class="o">*</span> <span class="kt">int</span><span class="o">)</span> <span class="kt">list</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">w2w2i_to_tuples</span> <span class="pre">v</span></code> converts vocabulary <code class="docutils literal notranslate"><span class="pre">v</span></code> to a list of <code class="docutils literal notranslate"><span class="pre">(word,</span> <span class="pre">index)</span></code> tuples.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L259">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L256">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_array</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">string</span><span class="o">)</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">to_array</span> <span class="pre">v</span></code> converts a vocabulary to a (word, index) array.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L303">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L300">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">of_array</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">string</span><span class="o">)</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">of_array</span> <span class="pre">v</span></code> converts a (word, index) array to a vocabulary.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L309">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L306">source code</a></p>
 </div>
 <div class="section" id="i-o-functions">
 <h2>I/O functions<a class="headerlink" href="#i-o-functions" title="Permalink to this headline">¶</a></h2>
@@ -263,27 +263,27 @@ on absolute count of words.</p>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">save</span> <span class="pre">v</span> <span class="pre">fname</span></code> serialises the vocabulary and saves it to a file of name <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L272">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L269">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">fname</span></code> loads the serialised vocabulary from a file of name <code class="docutils literal notranslate"><span class="pre">fname</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L275">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L272">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">save_txt</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">save_txt</span> <span class="pre">v</span> <span class="pre">fname</span></code> saves the vocabulary in the text format to a file of name <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L278">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L275">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_string</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">to_string</span> <span class="pre">v</span></code> returns the summary information of a vocabulary.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L289">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L286">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_vocab</span> <span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Pretty printer for vocabulary type.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L297">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L294">source code</a></p>
 </div>
 </div>
 

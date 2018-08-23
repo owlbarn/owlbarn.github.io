@@ -97,32 +97,32 @@
 </pre></div>
 </div>
 <p>Remove a local gist of given id.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L34">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L31">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">upload_gist</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Upload a zoo bundle of given path to the gist server and return a gist id.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L45">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L42">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">download_gist</span> <span class="o">:</span> <span class="o">?</span><span class="n">vid</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Download the gist of given id and version; if a version id is not given, the latest version id will be used.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L53">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L50">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">list_gist</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">list_gist</span> <span class="pre">&quot;&quot;</span></code> lists all the local gists; <code class="docutils literal notranslate"><span class="pre">list_gist</span> <span class="pre">gist-id</span></code> lists all the local versions of a gist.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L69">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L66">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">update_gist</span> <span class="o">:</span> <span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Update the zoo gist bundles of an array of gist ids.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L76">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L73">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">show_info</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Show the gist’s detail information of given gist id.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L85">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L82">source code</a></p>
 </div>
 <div class="section" id="execute-gists">
 <h2>Execute gists<a class="headerlink" href="#execute-gists" title="Permalink to this headline">¶</a></h2>
@@ -130,22 +130,22 @@
 </pre></div>
 </div>
 <p>Evaluate an OCaml expression in toplevel.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L12">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L9">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">preprocess</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Preprocess the zoo scripts, inject the necessary directives, functions, and modules.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L19">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L16">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">run</span> <span class="o">:</span> <span class="kt">string</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">args</span> <span class="pre">script</span></code> executes the zoo script with the given arguments.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L125">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L122">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">run_gist</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">run_gist</span> <span class="pre">gist-id</span></code> runs a zoo gist with the given <code class="docutils literal notranslate"><span class="pre">gist-id</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L132">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L129">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -153,22 +153,22 @@
 </pre></div>
 </div>
 <p>Print out help information of <code class="docutils literal notranslate"><span class="pre">owl</span></code> command line.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L139">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L136">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">start_toplevel</span> <span class="o">:</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Start the toplevel system tailored for Owl’s zoo system.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L156">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L153">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">query_path</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">query_path</span> <span class="pre">gist</span></code> returns the absolute path of a given gist.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L111">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L108">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load_file</span> <span class="o">:</span> <span class="o">?</span><span class="n">gist</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Load a zoo file with the given gist name and file name, the file path is relative to the gist/version folder.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L120">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L117">source code</a></p>
 </div>
 </div>
 

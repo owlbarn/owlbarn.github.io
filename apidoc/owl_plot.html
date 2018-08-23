@@ -89,7 +89,7 @@
   <div class="section" id="plot">
 <h1>Plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#64 entries have been extracted.</p>
+#65 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/misc/owl_plot.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/misc/owl_plot.ml">{Implementation}</a></p>
@@ -115,6 +115,25 @@
 </pre></div>
 </div>
 <p>axis type</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">spec</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">RGB</span>         <span class="k">of</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span>
+  <span class="o">|</span> <span class="nc">LineStyle</span>   <span class="k">of</span> <span class="kt">int</span>
+  <span class="o">|</span> <span class="nc">LineWidth</span>   <span class="k">of</span> <span class="kt">float</span>
+  <span class="o">|</span> <span class="nc">Marker</span>      <span class="k">of</span> <span class="kt">string</span>
+  <span class="o">|</span> <span class="nc">MarkerSize</span>  <span class="k">of</span> <span class="kt">float</span>
+  <span class="o">|</span> <span class="nc">Fill</span>
+  <span class="o">|</span> <span class="nc">FillPattern</span> <span class="k">of</span> <span class="kt">int</span>
+  <span class="o">|</span> <span class="nc">Contour</span>
+  <span class="o">|</span> <span class="nc">Altitude</span>    <span class="k">of</span> <span class="kt">float</span>
+  <span class="o">|</span> <span class="nc">Azimuth</span>     <span class="k">of</span> <span class="kt">float</span>
+  <span class="o">|</span> <span class="nc">ZLine</span>       <span class="k">of</span> <span class="n">axis</span>
+  <span class="o">|</span> <span class="nc">NoMagColor</span>
+  <span class="o">|</span> <span class="nc">Curtain</span>
+  <span class="o">|</span> <span class="nc">Faceted</span>
+  <span class="o">|</span> <span class="nc">Axis</span>        <span class="k">of</span> <span class="n">axis</span>
+</pre></div>
+</div>
+<p>specification of a figure</p>
 </div>
 <div class="section" id="config-functions">
 <h2>Config functions<a class="headerlink" href="#config-functions" title="Permalink to this headline">¶</a></h2>

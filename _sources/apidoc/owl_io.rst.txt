@@ -37,7 +37,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val write_file : ?flag:open_flag -> string -> string -> unit
+  val write_file : ?_flag:open_flag -> string -> string -> unit
 
 TODO
 
@@ -132,7 +132,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val iteri_lines_of_marshal : ?verbose:bool -> (int -> 'a -> 'b) -> string -> unit
+  val iteri_lines_of_marshal : ?verbose:bool -> (int -> 'a -> unit) -> string -> unit
 
 TODO
 

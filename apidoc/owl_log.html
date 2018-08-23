@@ -106,18 +106,18 @@ level loggging.</p>
 </pre></div>
 </div>
 <p>This function sets the global logging level. Low level logging will be omitted.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L33">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L34">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_output</span> <span class="o">:</span> <span class="n">out_channel</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>This function sets the channel for the logging output. The default one is the
 standard output.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L35">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L36">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_color</span> <span class="o">:</span> <span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_color</span> <span class="pre">true</span></code> turns on the colour; <code class="docutils literal notranslate"><span class="pre">set_color</span> <span class="pre">false</span></code> turns it off.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L37">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L38">source code</a></p>
 </div>
 <div class="section" id="log-functions">
 <h2>Log functions<a class="headerlink" href="#log-functions" title="Permalink to this headline">¶</a></h2>
@@ -125,27 +125,27 @@ standard output.</p>
 </pre></div>
 </div>
 <p>This function outputs log at <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> level.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L73">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L74">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">info</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="n">out_channel</span><span class="o">,</span> <span class="kt">unit</span><span class="o">)</span> <span class="n">format</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p>This function outputs log at <code class="docutils literal notranslate"><span class="pre">INFO</span></code> level.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L71">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L72">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">warn</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="n">out_channel</span><span class="o">,</span> <span class="kt">unit</span><span class="o">)</span> <span class="n">format</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p>This function outputs log at <code class="docutils literal notranslate"><span class="pre">WARN</span></code> level.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L75">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L76">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">error</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="n">out_channel</span><span class="o">,</span> <span class="kt">unit</span><span class="o">)</span> <span class="n">format</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p>This function outputs log at <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> level.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L77">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L78">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fatal</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="n">out_channel</span><span class="o">,</span> <span class="kt">unit</span><span class="o">)</span> <span class="n">format</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p>This function outputs log at <code class="docutils literal notranslate"><span class="pre">FATAL</span></code> level.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L79">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L80">source code</a></p>
 </div>
 </div>
 
