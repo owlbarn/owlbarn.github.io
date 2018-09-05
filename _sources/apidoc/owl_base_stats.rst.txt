@@ -2,7 +2,7 @@ Base.Stats
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#41 entries have been extracted.
+#48 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/stats/owl_base_stats.mli>`_ 
@@ -285,11 +285,63 @@ Refer to :doc:`owl_stats`.
 
 .. code-block:: ocaml
 
+  val percentile : float array -> float -> float
+
+Refer to :doc:`owl_stats`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L568>`__
+
+
+
+.. code-block:: ocaml
+
+  val quantile : float array -> float -> float
+
+Refer to :doc:`owl_stats`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L554>`__
+
+
+
+.. code-block:: ocaml
+
+  val first_quartile : float array -> float
+
+Refer to :doc:`owl_stats`.
+
+.. code-block:: ocaml
+
+  val third_quartile : float array -> float
+
+Refer to :doc:`owl_stats`.
+
+.. code-block:: ocaml
+
+  val median : float array -> float
+
+Refer to :doc:`owl_stats`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L571>`__
+
+
+
+.. code-block:: ocaml
+
+  val histogram_sorted : [ `Bins of float array | `N of int ] -> ?weights:float array -> float array -> histogram
+
+Refer to :doc:`owl_stats`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L510>`__
+
+
+
+.. code-block:: ocaml
+
   val normalise : histogram -> histogram
 
 Refer to :doc:`owl_stats`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L509>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L523>`__
 
 
 
@@ -299,7 +351,7 @@ Refer to :doc:`owl_stats`.
 
 Refer to :doc:`owl_stats`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L519>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L534>`__
 
 
 
@@ -308,6 +360,16 @@ Refer to :doc:`owl_stats`.
   val pp_hist: Format.formatter -> histogram -> unit
 
 Refer to :doc:`owl_stats`.
+
+.. code-block:: ocaml
+
+  val tukey_fences : ?k:float -> float array -> float * float
+
+Refer to :doc:`owl_stats`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L580>`__
+
+
 
 Random variables
 -------------------------------------------------------------------------------
