@@ -90,7 +90,7 @@
   <div class="section" id="stats">
 <h1>Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#249 entries have been extracted.</p>
+#250 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.ml">{Implementation}</a></p>
@@ -218,12 +218,10 @@ standardized moment of <code class="docutils literal notranslate"><span class="p
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">first_quartile</span> <span class="pre">x</span></code> returns the first quartile of <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. 25 percentiles.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L229">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">third_quartile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">third_quartile</span> <span class="pre">x</span></code> returns the third quartile of <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. 75 percentiles.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L232">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">median</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -1264,6 +1262,15 @@ expressed in terms of the gamma function:</p>
 </pre></div>
 </div>
 <p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tukey_fences</span> <span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tukey_fences</span> <span class="pre">?k</span> <span class="pre">x</span></code> returns a tuple of the lower and upper boundaries for
+values that are not outliers. <code class="docutils literal notranslate"><span class="pre">k</span></code> defaults to the standard coefficient of <code class="docutils literal notranslate"><span class="pre">1.5</span></code>.
+For first and third quartiles <code class="docutils literal notranslate"><span class="pre">Q1</span></code> and <cite>Q3</cite>, the range is computed as follows:</p>
+<div class="math notranslate nohighlight">
+\[(Q1 - k*(Q3-Q1), Q3 + k*(Q3-Q1))\]</div>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L764">source code</a></p>
 </div>
 </div>
 

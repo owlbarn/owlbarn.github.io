@@ -2,7 +2,7 @@ Computation.Operator
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#190 entries have been extracted.
+#192 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_operator_sig.ml>`_ 
@@ -1069,7 +1069,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val conv1d_backward_input : arr -> arr -> int array -> arr -> arr
+  val upsampling2d : arr -> int array -> arr
 
 TODO
 
@@ -1079,7 +1079,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val conv1d_backward_kernel : arr -> arr -> int array -> arr -> arr
+  val conv1d_backward_input : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1089,7 +1089,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val conv2d_backward_input : arr -> arr -> int array -> arr -> arr
+  val conv1d_backward_kernel : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1099,7 +1099,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val conv2d_backward_kernel : arr -> arr -> int array -> arr -> arr
+  val conv2d_backward_input : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1109,7 +1109,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val conv3d_backward_input : arr -> arr -> int array -> arr -> arr
+  val conv2d_backward_kernel : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1119,7 +1119,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val conv3d_backward_kernel : arr -> arr -> int array -> arr -> arr
+  val conv3d_backward_input : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1129,7 +1129,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val transpose_conv1d_backward_input : arr -> arr -> int array -> arr -> arr
+  val conv3d_backward_kernel : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1139,7 +1139,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val transpose_conv1d_backward_kernel : arr -> arr -> int array -> arr -> arr
+  val transpose_conv1d_backward_input : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1149,7 +1149,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val transpose_conv2d_backward_input : arr -> arr -> int array -> arr -> arr
+  val transpose_conv1d_backward_kernel : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1159,7 +1159,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val transpose_conv2d_backward_kernel : arr -> arr -> int array -> arr -> arr
+  val transpose_conv2d_backward_input : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1169,7 +1169,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val transpose_conv3d_backward_input : arr -> arr -> int array -> arr -> arr
+  val transpose_conv2d_backward_kernel : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1179,7 +1179,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val transpose_conv3d_backward_kernel : arr -> arr -> int array -> arr -> arr
+  val transpose_conv3d_backward_input : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1189,7 +1189,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val dilated_conv1d_backward_input : arr -> arr -> int array -> int array -> arr -> arr
+  val transpose_conv3d_backward_kernel : arr -> arr -> int array -> arr -> arr
 
 TODO
 
@@ -1199,7 +1199,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val dilated_conv1d_backward_kernel : arr -> arr -> int array -> int array -> arr -> arr
+  val dilated_conv1d_backward_input : arr -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1209,7 +1209,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val dilated_conv2d_backward_input : arr -> arr -> int array -> int array -> arr -> arr
+  val dilated_conv1d_backward_kernel : arr -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1219,7 +1219,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val dilated_conv2d_backward_kernel : arr -> arr -> int array -> int array -> arr -> arr
+  val dilated_conv2d_backward_input : arr -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1229,7 +1229,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val dilated_conv3d_backward_input : arr -> arr -> int array -> int array -> arr -> arr
+  val dilated_conv2d_backward_kernel : arr -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1239,7 +1239,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val dilated_conv3d_backward_kernel : arr -> arr -> int array -> int array -> arr -> arr
+  val dilated_conv3d_backward_input : arr -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1249,7 +1249,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val max_pool1d_backward : padding -> arr -> int array -> int array -> arr -> arr
+  val dilated_conv3d_backward_kernel : arr -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1259,7 +1259,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val max_pool2d_backward : padding -> arr -> int array -> int array -> arr -> arr
+  val max_pool1d_backward : padding -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1269,7 +1269,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val max_pool3d_backward : padding -> arr -> int array -> int array -> arr -> arr
+  val max_pool2d_backward : padding -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1279,7 +1279,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val avg_pool1d_backward : padding -> arr -> int array -> int array -> arr -> arr
+  val max_pool3d_backward : padding -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1289,7 +1289,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val avg_pool2d_backward : padding -> arr -> int array -> int array -> arr -> arr
+  val avg_pool1d_backward : padding -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1299,7 +1299,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val avg_pool3d_backward : padding -> arr -> int array -> int array -> arr -> arr
+  val avg_pool2d_backward : padding -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1309,7 +1309,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val row_num : arr -> int
+  val avg_pool3d_backward : padding -> arr -> int array -> int array -> arr -> arr
 
 TODO
 
@@ -1319,11 +1319,31 @@ TODO
 
 .. code-block:: ocaml
 
+  val upsampling2d_backward : arr -> int array -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L424>`__
+
+
+
+.. code-block:: ocaml
+
+  val row_num : arr -> int
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L427>`__
+
+
+
+.. code-block:: ocaml
+
   val col_num : arr -> int
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L426>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L432>`__
 
 
 
@@ -1333,7 +1353,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L431>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L437>`__
 
 
 
@@ -1343,7 +1363,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L433>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L439>`__
 
 
 
@@ -1353,7 +1373,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L435>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L441>`__
 
 
 
@@ -1363,7 +1383,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L437>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L443>`__
 
 
 
@@ -1373,7 +1393,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L439>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L445>`__
 
 
 
@@ -1383,7 +1403,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L441>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L447>`__
 
 
 
@@ -1393,7 +1413,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L443>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L449>`__
 
 
 
@@ -1403,7 +1423,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L451>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L457>`__
 
 
 
@@ -1413,7 +1433,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L459>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L465>`__
 
 
 
@@ -1423,7 +1443,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L464>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L470>`__
 
 
 
@@ -1433,7 +1453,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L466>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L472>`__
 
 
 
@@ -1443,7 +1463,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L468>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L474>`__
 
 
 

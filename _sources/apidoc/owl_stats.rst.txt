@@ -2,7 +2,7 @@ Stats
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#249 entries have been extracted.
+#250 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli>`_ 
@@ -246,19 +246,11 @@ TODO
 
 ``first_quartile x`` returns the first quartile of ``x``, i.e. 25 percentiles.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L229>`__
-
-
-
 .. code-block:: ocaml
 
   val third_quartile : float array -> float
 
 ``third_quartile x`` returns the third quartile of ``x``, i.e. 75 percentiles.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L232>`__
-
-
 
 .. code-block:: ocaml
 
@@ -1848,4 +1840,19 @@ TODO
   val dirichlet_logpdf : float array -> alpha:float array -> float
 
 TODO
+
+.. code-block:: ocaml
+
+  val tukey_fences : ?k:float -> float array -> float * float
+
+``tukey_fences ?k x`` returns a tuple of the lower and upper boundaries for
+values that are not outliers. ``k`` defaults to the standard coefficient of ``1.5``.
+For first and third quartiles ``Q1`` and `Q3`, the range is computed as follows:
+
+.. math::
+  (Q1 - k*(Q3-Q1), Q3 + k*(Q3-Q1))
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L764>`__
+
+
 
