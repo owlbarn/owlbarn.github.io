@@ -90,7 +90,7 @@
   <div class="section" id="stats">
 <h1>Stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#250 entries have been extracted.</p>
+#251 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.ml">{Implementation}</a></p>
@@ -286,6 +286,13 @@ Note that the ranking starts with one!</p>
 <li><code class="docutils literal notranslate"><span class="pre">Max</span></code> the maximum of ranks is assigned to each value.</li>
 </ul>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L103">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">histogram_sorted</span> <span class="o">:</span> <span class="o">[</span> <span class="o">`</span><span class="nc">Bins</span> <span class="k">of</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">|</span> <span class="o">`</span><span class="nc">N</span> <span class="k">of</span> <span class="kt">int</span> <span class="o">]</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">weights</span><span class="o">:</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">histogram</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">histogram_sorted</span> <span class="pre">bins</span> <span class="pre">x</span></code> is like <code class="docutils literal notranslate"><span class="pre">histogram</span></code> but assumes that <code class="docutils literal notranslate"><span class="pre">x</span></code> is sorted
+already. This increases efficiency if there are less bins than data. Undefined
+results if <code class="docutils literal notranslate"><span class="pre">x</span></code> is not in fact sorted.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L185">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normalise</span> <span class="o">:</span> <span class="n">histogram</span> <span class="o">-&gt;</span> <span class="n">histogram</span>
 </pre></div>
 </div>

@@ -2,7 +2,7 @@ Stats
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#250 entries have been extracted.
+#251 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli>`_ 
@@ -362,6 +362,18 @@ Note that the ranking starts with one!
 - ``Max`` the maximum of ranks is assigned to each value.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L103>`__
+
+
+
+.. code-block:: ocaml
+
+  val histogram_sorted : [ `Bins of float array | `N of int ] -> ?weights:float array -> float array -> histogram
+
+``histogram_sorted bins x`` is like ``histogram`` but assumes that ``x`` is sorted
+already. This increases efficiency if there are less bins than data. Undefined
+results if ``x`` is not in fact sorted.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L185>`__
 
 
 
