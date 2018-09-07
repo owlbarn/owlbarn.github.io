@@ -2,7 +2,7 @@ Base.Maths
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#61 entries have been extracted.
+#64 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_maths.mli>`_ 
@@ -281,7 +281,7 @@ Basic functions
 
 ``sigmod x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L140>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L149>`__
 
 
 
@@ -321,7 +321,7 @@ Basic functions
 
 ``relu x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L137>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L146>`__
 
 
 
@@ -357,11 +357,29 @@ Basic functions
 
 .. code-block:: ocaml
 
+  val cot : float -> float
+
+``cot x``
+
+.. code-block:: ocaml
+
+  val sec : float -> float
+
+``sec x``
+
+.. code-block:: ocaml
+
+  val csc : float -> float
+
+``csc x``
+
+.. code-block:: ocaml
+
   val asin : float -> float
 
 ``asin x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L119>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L128>`__
 
 
 
@@ -371,7 +389,7 @@ Basic functions
 
 ``acos x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L122>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L131>`__
 
 
 
@@ -381,7 +399,7 @@ Basic functions
 
 ``atan x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L125>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L134>`__
 
 
 
@@ -391,7 +409,7 @@ Basic functions
 
 ``sinh x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L110>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L119>`__
 
 
 
@@ -401,7 +419,7 @@ Basic functions
 
 ``cosh x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L113>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L122>`__
 
 
 
@@ -411,7 +429,7 @@ Basic functions
 
 ``tanh x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L116>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L125>`__
 
 
 
@@ -421,7 +439,7 @@ Basic functions
 
 ``asinh x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L128>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L137>`__
 
 
 
@@ -431,7 +449,7 @@ Basic functions
 
 ``acosh x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L131>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L140>`__
 
 
 
@@ -441,7 +459,7 @@ Basic functions
 
 ``atanh x``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L134>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L143>`__
 
 
 
@@ -451,7 +469,7 @@ Basic functions
 
 ``xlogy(x, y)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L143>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L152>`__
 
 
 
@@ -461,7 +479,7 @@ Basic functions
 
 ``xlog1py(x, y)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L148>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L157>`__
 
 
 
@@ -471,7 +489,7 @@ Basic functions
 
 ``logit(x)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L153>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L162>`__
 
 
 
@@ -481,7 +499,7 @@ Basic functions
 
 ``expit(x)``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L156>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L165>`__
 
 
 
@@ -496,7 +514,7 @@ Helper functions
 
 ``is_nan x`` returns ``true`` if ``x`` is ``nan``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L161>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L170>`__
 
 
 
@@ -506,7 +524,7 @@ Helper functions
 
 ``is_inf x`` returns ``true`` if ``x`` is ``infinity`` or ``neg_infinity``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L164>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L173>`__
 
 
 
@@ -516,7 +534,7 @@ Helper functions
 
 ``is_normal x`` returns ``true`` if ``x`` is a normal float number.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L167>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L176>`__
 
 
 
@@ -526,7 +544,7 @@ Helper functions
 
 ``is_nan x`` returns ``true`` if ``x`` is subnormal float number.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L170>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L179>`__
 
 
 
@@ -536,7 +554,7 @@ Helper functions
 
 ``is_odd x`` returns ``true`` if ``x`` is odd.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L173>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L182>`__
 
 
 
@@ -546,7 +564,7 @@ Helper functions
 
 ``is_even x`` returns ``true`` if ``x`` is even.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L176>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L185>`__
 
 
 
@@ -556,7 +574,7 @@ Helper functions
 
 ``is_pow2 x`` return ``true`` if ``x`` is integer power of 2, e.g. 32, 64, etc.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L179>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L188>`__
 
 
 
@@ -568,7 +586,7 @@ Helper functions
 otherwise it returns ``false``. Positive and negative zeros are special cases
 and always returns ``true``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L182>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L191>`__
 
 
 
@@ -579,7 +597,7 @@ and always returns ``true``.
 ``is_simplex x`` checks whether ``x`` is simplex. In other words,
 :math:`\sum_i^K x_i = 1` and :math:`x_i \ge 0, \forall x_i \in [1,K]`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L188>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L197>`__
 
 
 
@@ -589,7 +607,7 @@ and always returns ``true``.
 
 ``is_sqr x`` checks if ``x`` is the square of an integer.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L210>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L219>`__
 
 
 
@@ -601,7 +619,7 @@ and always returns ``true``.
 deterministic for numbers below 341550071728321, then becomes probabilistic
 for those above. The function uses Rabin–Miller primality test.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L228>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L237>`__
 
 
 
@@ -612,7 +630,7 @@ for those above. The function uses Rabin–Miller primality test.
 ``fermat_fact x`` performs Fermat factorisation over ``x``, i.e. into two
 roughly equal factors. ``x`` must be an odd number.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L213>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L222>`__
 
 
 
