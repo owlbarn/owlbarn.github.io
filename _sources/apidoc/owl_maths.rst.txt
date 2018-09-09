@@ -2,7 +2,7 @@ Maths
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#158 entries have been extracted.
+#160 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/maths/owl_maths.mli>`_ 
@@ -688,6 +688,26 @@ Cotangent of the angle given in degrees.
 
 
 
+.. code-block:: ocaml
+
+  val log1mexp : float -> float
+
+``log1mexp(x)`` returns :math:`log(1-exp(x))`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L157>`__
+
+
+
+.. code-block:: ocaml
+
+  val log1pexp : float -> float
+
+``log1pexp(x)`` returns :math:`log(1+exp(x))`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L159>`__
+
+
+
 Airy functions
 -------------------------------------------------------------------------------
 
@@ -700,7 +720,7 @@ Airy functions
 Airy function ``airy x`` returns ``(Ai, Ai', Bi, Bi')`` evaluated at :math:`x`.
 ``Ai'`` is the derivative of ``Ai`` whilst ``Bi'`` is the derivative of ``Bi``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L157>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L161>`__
 
 
 
@@ -715,7 +735,7 @@ Bessel functions
 
 Bessel function of the first kind of order 0.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L184>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L188>`__
 
 
 
@@ -725,7 +745,7 @@ Bessel function of the first kind of order 0.
 
 Bessel function of the first kind of order 1.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L186>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L190>`__
 
 
 
@@ -735,7 +755,7 @@ Bessel function of the first kind of order 1.
 
 Bessel function of real order.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L188>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L192>`__
 
 
 
@@ -745,7 +765,7 @@ Bessel function of real order.
 
 Bessel function of the second kind of order 0.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L190>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L194>`__
 
 
 
@@ -755,7 +775,7 @@ Bessel function of the second kind of order 0.
 
 Bessel function of the second kind of order 1.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L192>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L196>`__
 
 
 
@@ -765,7 +785,7 @@ Bessel function of the second kind of order 1.
 
 Bessel function of the second kind of real order.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L194>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L198>`__
 
 
 
@@ -775,7 +795,7 @@ Bessel function of the second kind of real order.
 
 Bessel function of the second kind of integer order.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L196>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L200>`__
 
 
 
@@ -785,7 +805,7 @@ Bessel function of the second kind of integer order.
 
 Modified Bessel function of order 0.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L198>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L202>`__
 
 
 
@@ -795,7 +815,7 @@ Modified Bessel function of order 0.
 
 Exponentially scaled modified Bessel function of order 0.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L200>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L204>`__
 
 
 
@@ -805,7 +825,7 @@ Exponentially scaled modified Bessel function of order 0.
 
 Modified Bessel function of order 1.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L202>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L206>`__
 
 
 
@@ -815,7 +835,7 @@ Modified Bessel function of order 1.
 
 Exponentially scaled modified Bessel function of order 1.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L204>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L208>`__
 
 
 
@@ -825,7 +845,7 @@ Exponentially scaled modified Bessel function of order 1.
 
 Modified Bessel function of the first kind of real order.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L206>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L210>`__
 
 
 
@@ -835,7 +855,7 @@ Modified Bessel function of the first kind of real order.
 
 Modified Bessel function of the second kind of order 0, :math:`K_0`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L208>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L212>`__
 
 
 
@@ -845,7 +865,7 @@ Modified Bessel function of the second kind of order 0, :math:`K_0`.
 
 Exponentially scaled modified Bessel function K of order 0.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L210>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L214>`__
 
 
 
@@ -855,7 +875,7 @@ Exponentially scaled modified Bessel function K of order 0.
 
 Modified Bessel function of the second kind of order 1, :math:`K_1(x)`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L212>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L216>`__
 
 
 
@@ -865,7 +885,7 @@ Modified Bessel function of the second kind of order 1, :math:`K_1(x)`.
 
 Exponentially scaled modified Bessel function K of order 1.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L214>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L218>`__
 
 
 
@@ -880,7 +900,7 @@ Elliptic functions
 
 Jacobian Elliptic function ``ellipj u m`` returns ``(sn, cn, dn, phi)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L166>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L170>`__
 
 
 
@@ -890,7 +910,7 @@ Jacobian Elliptic function ``ellipj u m`` returns ``(sn, cn, dn, phi)``.
 
 ``ellipk m`` returns the complete elliptic integral of the first kind.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L174>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L178>`__
 
 
 
@@ -900,7 +920,7 @@ Jacobian Elliptic function ``ellipj u m`` returns ``(sn, cn, dn, phi)``.
 
 FIXME. Complete elliptic integral of the first kind around :math:`m = 1`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L176>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L180>`__
 
 
 
@@ -910,7 +930,7 @@ FIXME. Complete elliptic integral of the first kind around :math:`m = 1`.
 
 ``ellipkinc phi m`` incomplete elliptic integral of the first kind.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L178>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L182>`__
 
 
 
@@ -920,7 +940,7 @@ FIXME. Complete elliptic integral of the first kind around :math:`m = 1`.
 
 ``ellipe m`` complete elliptic integral of the second kind.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L180>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L184>`__
 
 
 
@@ -930,7 +950,7 @@ FIXME. Complete elliptic integral of the first kind around :math:`m = 1`.
 
 ``ellipeinc phi m`` incomplete elliptic integral of the second kind.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L182>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L186>`__
 
 
 
@@ -952,7 +972,7 @@ The gamma function is often referred to as the generalized factorial since
 :math:`z\ gamma(z) = \gamma(z+1)` and :math:`gamma(n+1) = n!`
 for natural number :math:`n`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L238>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L242>`__
 
 
 
@@ -962,7 +982,7 @@ for natural number :math:`n`.
 
 Reciprocal Gamma function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L240>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L244>`__
 
 
 
@@ -972,7 +992,7 @@ Reciprocal Gamma function.
 
 Logarithm of the gamma function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L242>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L246>`__
 
 
 
@@ -982,7 +1002,7 @@ Logarithm of the gamma function.
 
 Incomplete gamma function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L244>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L248>`__
 
 
 
@@ -992,7 +1012,7 @@ Incomplete gamma function.
 
 Inverse function of ``gammainc``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L246>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L250>`__
 
 
 
@@ -1002,7 +1022,7 @@ Inverse function of ``gammainc``.
 
 Complemented incomplete gamma integral.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L248>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L252>`__
 
 
 
@@ -1012,7 +1032,7 @@ Complemented incomplete gamma integral.
 
 Inverse function of ``gammaincc``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L250>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L254>`__
 
 
 
@@ -1022,7 +1042,7 @@ Inverse function of ``gammaincc``.
 
 The digamma function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L252>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L256>`__
 
 
 
@@ -1040,7 +1060,7 @@ Beta function.
 .. math::
   \mathrm{B}(a, b) =  \frac{\Gamma(a) \Gamma(b)}{\Gamma(a+b)}
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L270>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L274>`__
 
 
 
@@ -1050,7 +1070,7 @@ Beta function.
 
 Incomplete beta integral.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L272>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L276>`__
 
 
 
@@ -1060,7 +1080,7 @@ Incomplete beta integral.
 
 Inverse function of ``betainc``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L274>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L278>`__
 
 
 
@@ -1075,7 +1095,7 @@ Factorials
 
 Factorial function ``fact n`` calculates :math:`n!`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L254>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L258>`__
 
 
 
@@ -1085,7 +1105,7 @@ Factorial function ``fact n`` calculates :math:`n!`.
 
 Logarithm of factorial function ``log_fact n`` calculates :math:`\log n!`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L258>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L262>`__
 
 
 
@@ -1096,7 +1116,7 @@ Logarithm of factorial function ``log_fact n`` calculates :math:`\log n!`.
 Double factorial function ``doublefact n`` calculates
 :math:`n!! = n(n-2)(n-4)\dots 2` or :math:`\dots 1`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L262>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L266>`__
 
 
 
@@ -1106,7 +1126,7 @@ Double factorial function ``doublefact n`` calculates
 
 Logarithm of double factorial function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L266>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L270>`__
 
 
 
@@ -1117,7 +1137,7 @@ Logarithm of double factorial function.
 ``permutation n k`` returns the number :math:`n!/(n-k)!` of ordered subsets
  * of length :math:`k`, taken from a set of :math:`n` elements.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L293>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L297>`__
 
 
 
@@ -1127,7 +1147,7 @@ Logarithm of double factorial function.
 
 ``permutation_float`` is like ``permutation`` but deals with larger range.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L286>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L290>`__
 
 
 
@@ -1139,7 +1159,7 @@ Logarithm of double factorial function.
     of a set of n elements. This is the binomial coefficient
     :math:`\binom{n}{k}`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L282>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L286>`__
 
 
 
@@ -1149,7 +1169,7 @@ Logarithm of double factorial function.
 
 ``combination_float`` is like ``combination`` but can deal with a larger range.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L280>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L284>`__
 
 
 
@@ -1159,7 +1179,7 @@ Logarithm of double factorial function.
 
 ``log_combination n k`` returns the logarithm of :math:`\binom{n}{k}`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L284>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L288>`__
 
 
 
@@ -1174,7 +1194,7 @@ Error functions
 
 Error function. :math:`\int_{-\infty}^x \frac{1}{\sqrt(2\pi)} \exp(-(1/2) y^2) dy`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L295>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L299>`__
 
 
 
@@ -1184,7 +1204,7 @@ Error function. :math:`\int_{-\infty}^x \frac{1}{\sqrt(2\pi)} \exp(-(1/2) y^2) d
 
 Complementary error function, :math:`\int^{\infty}_x \frac{1}{\sqrt(2\pi)} \exp(-(1/2) y^2) dy`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L297>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L301>`__
 
 
 
@@ -1194,7 +1214,7 @@ Complementary error function, :math:`\int^{\infty}_x \frac{1}{\sqrt(2\pi)} \exp(
 
 Scaled complementary error function, :math:`\exp(x^2) \mathrm{erfc}(x)`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L299>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L303>`__
 
 
 
@@ -1204,7 +1224,7 @@ Scaled complementary error function, :math:`\exp(x^2) \mathrm{erfc}(x)`.
 
 Inverse function of ``erf``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L301>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L305>`__
 
 
 
@@ -1214,7 +1234,7 @@ Inverse function of ``erf``.
 
 Inverse function of ``erfc``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L303>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L307>`__
 
 
 
@@ -1229,7 +1249,7 @@ Dawson & Fresnel integrals
 
 Dawson’s integral.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L305>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L309>`__
 
 
 
@@ -1240,7 +1260,7 @@ Dawson’s integral.
 Fresnel trigonometric integrals. ``fresnel x`` returns a tuple consisting of
 ``(Fresnel sin integral, Fresnel cos integral)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L307>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L311>`__
 
 
 
@@ -1261,7 +1281,7 @@ order :math:`v` at :math:`x`. The Struve function is defined as,
 
 where :math:`\Gamma` is the gamma function. :math:`x` must be positive unless :math:`v` is an integer
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L313>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L317>`__
 
 
 
@@ -1276,7 +1296,7 @@ Other special functions
 
 Exponential integral :math:`E_n`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L216>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L220>`__
 
 
 
@@ -1287,7 +1307,7 @@ Exponential integral :math:`E_n`.
 Hyperbolic sine and cosine integrals, ``shichi x`` returns
  * :math:`(\mathrm{shi}, \mathrm{chi})``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L218>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L222>`__
 
 
 
@@ -1297,7 +1317,7 @@ Hyperbolic sine and cosine integrals, ``shichi x`` returns
 
 Hyperbolic sine integral.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L224>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L228>`__
 
 
 
@@ -1307,7 +1327,7 @@ Hyperbolic sine integral.
 
 Hyperbolic cosine integral.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L226>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L230>`__
 
 
 
@@ -1317,7 +1337,7 @@ Hyperbolic cosine integral.
 
 Sine and cosine integrals, ``sici x`` returns :math:`(\mathrm{si}, \mathrm{ci})`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L228>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L232>`__
 
 
 
@@ -1340,7 +1360,7 @@ Cosine integral.
 ``zeta x q`` returns the Hurwitz zeta function :math:`\zeta(x, q)`, which
     reduces to the Riemann zeta function :math:`\zeta(x)` when :math:`q=1`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L276>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L280>`__
 
 
 
@@ -1350,7 +1370,7 @@ Cosine integral.
 
 Riemann zeta function minus 1.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L278>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L282>`__
 
 
 
@@ -1380,7 +1400,7 @@ Returns:
   * Probability of :math:`k` or fewer successes in :math:`n` independent events with success
     probability :math:`p`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L343>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L347>`__
 
 
 
@@ -1396,7 +1416,7 @@ of the binomial probability density,
 .. math::
   \mathrm{bdtrc}(k, n, p) = \sum_{j=k+1}^n {{n}\choose{j}} p^j (1-p)^{n-j}
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L345>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L349>`__
 
 
 
@@ -1410,7 +1430,7 @@ Finds the event probability :math:`p` such that the sum of the terms 0 through
 :math:`k` of the binomial probability density is equal to the given cumulative
 probability :math:`y`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L347>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L351>`__
 
 
 
@@ -1437,7 +1457,7 @@ Returns:
   * Cumulative density function of the beta distribution with :math:`a` and
     :math:`b` at :math:`x`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L349>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L353>`__
 
 
 
@@ -1464,7 +1484,7 @@ Parameters:
 Returns:
   * The quantile corresponding to :math:`p`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L351>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L355>`__
 
 
 
@@ -1479,7 +1499,7 @@ Helper functions
 
 ``is_nan x`` returns ``true`` exactly if ``x`` is ``nan``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L319>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L323>`__
 
 
 
@@ -1489,7 +1509,7 @@ Helper functions
 
 ``is_inf x`` returns ``true`` exactly if ``x`` is ``infinity`` or ``neg_infinity``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L321>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L325>`__
 
 
 
@@ -1499,7 +1519,7 @@ Helper functions
 
 ``is_normal x`` returns ``true`` if ``x`` is a normal float number.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L323>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L327>`__
 
 
 
@@ -1509,7 +1529,7 @@ Helper functions
 
 ``is_nan x`` returns ``true`` if ``x`` is subnormal float number.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L325>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L329>`__
 
 
 
@@ -1519,7 +1539,7 @@ Helper functions
 
 ``is_odd x`` returns ``true`` exactly if ``x`` is odd.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L327>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L331>`__
 
 
 
@@ -1529,7 +1549,7 @@ Helper functions
 
 ``is_even x`` returns ``true`` exactly if ``x`` is even.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L329>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L333>`__
 
 
 
@@ -1539,7 +1559,7 @@ Helper functions
 
 ``is_pow2 x`` return ``true`` exactly if ``x`` is an integer power of 2, e.g. 32, 64, etc.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L331>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L335>`__
 
 
 
@@ -1551,7 +1571,7 @@ Helper functions
 otherwise it returns ``false``. Positive and negative zeros are special cases
 and always returns ``true``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L315>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L319>`__
 
 
 
@@ -1563,7 +1583,7 @@ and always returns ``true``.
 other words, :math:`\sum_i^K x_i = 1` and :math:`x_i \ge 0, \forall i \in
 [1,K]`, where :math:`K` is the dimension of :math:`x`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L317>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L321>`__
 
 
 
@@ -1573,7 +1593,7 @@ other words, :math:`\sum_i^K x_i = 1` and :math:`x_i \ge 0, \forall i \in
 
 ``is_sqr x`` checks if ``x`` is the square of an integer.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L335>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L339>`__
 
 
 
@@ -1584,7 +1604,7 @@ other words, :math:`\sum_i^K x_i = 1` and :math:`x_i \ge 0, \forall i \in
 ``fermat_fact x`` performs Fermat factorisation over ``x``, i.e. into two
 roughly equal factors. ``x`` must be an odd number.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L337>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L341>`__
 
 
 
@@ -1596,7 +1616,7 @@ roughly equal factors. ``x`` must be an odd number.
 of ``from`` in the direction of ``to``. If ``from`` equals ``to``, this value
 is returned.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L339>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L343>`__
 
 
 
@@ -1608,7 +1628,7 @@ is returned.
 of ``from`` in the direction of ``to``. If ``from`` equals ``to``, this value
 is returned.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L341>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L345>`__
 
 
 

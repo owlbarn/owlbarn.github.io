@@ -97,7 +97,7 @@
   <div class="section" id="maths">
 <h1>Maths<a class="headerlink" href="#maths" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#158 entries have been extracted.</p>
+#160 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/maths/owl_maths.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/maths/owl_maths.ml">{Implementation}</a></p>
@@ -445,6 +445,16 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">expit(x)</span></code> returns <span class="math notranslate nohighlight">\(1/(1+\exp(-x))\)</span>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L155">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log1mexp</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">log1mexp(x)</span></code> returns <span class="math notranslate nohighlight">\(log(1-exp(x))\)</span>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L157">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log1pexp</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">log1pexp(x)</span></code> returns <span class="math notranslate nohighlight">\(log(1+exp(x))\)</span>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L159">source code</a></p>
 </div>
 <div class="section" id="airy-functions">
 <h2>Airy functions<a class="headerlink" href="#airy-functions" title="Permalink to this headline">¶</a></h2>
@@ -453,7 +463,7 @@
 </div>
 <p>Airy function <code class="docutils literal notranslate"><span class="pre">airy</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">(Ai,</span> <span class="pre">Ai',</span> <span class="pre">Bi,</span> <span class="pre">Bi')</span></code> evaluated at <span class="math notranslate nohighlight">\(x\)</span>.
 <code class="docutils literal notranslate"><span class="pre">Ai'</span></code> is the derivative of <code class="docutils literal notranslate"><span class="pre">Ai</span></code> whilst <code class="docutils literal notranslate"><span class="pre">Bi'</span></code> is the derivative of <code class="docutils literal notranslate"><span class="pre">Bi</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L157">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L161">source code</a></p>
 </div>
 <div class="section" id="bessel-functions">
 <h2>Bessel functions<a class="headerlink" href="#bessel-functions" title="Permalink to this headline">¶</a></h2>
@@ -461,82 +471,82 @@
 </pre></div>
 </div>
 <p>Bessel function of the first kind of order 0.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L184">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L188">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">j1</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Bessel function of the first kind of order 1.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L186">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L190">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jv</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Bessel function of real order.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L188">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L192">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">y0</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Bessel function of the second kind of order 0.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L190">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L194">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">y1</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Bessel function of the second kind of order 1.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L192">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L196">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">yv</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Bessel function of the second kind of real order.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L194">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L198">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">yn</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Bessel function of the second kind of integer order.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L196">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L200">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">i0</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Modified Bessel function of order 0.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L198">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L202">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">i0e</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Exponentially scaled modified Bessel function of order 0.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L200">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L204">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">i1</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Modified Bessel function of order 1.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L202">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L206">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">i1e</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Exponentially scaled modified Bessel function of order 1.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L204">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L208">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iv</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Modified Bessel function of the first kind of real order.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L206">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L210">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">k0</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Modified Bessel function of the second kind of order 0, <span class="math notranslate nohighlight">\(K_0\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L208">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L212">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">k0e</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Exponentially scaled modified Bessel function K of order 0.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L210">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L214">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">k1</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Modified Bessel function of the second kind of order 1, <span class="math notranslate nohighlight">\(K_1(x)\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L212">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L216">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">k1e</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Exponentially scaled modified Bessel function K of order 1.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L214">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L218">source code</a></p>
 </div>
 <div class="section" id="elliptic-functions">
 <h2>Elliptic functions<a class="headerlink" href="#elliptic-functions" title="Permalink to this headline">¶</a></h2>
@@ -544,32 +554,32 @@
 </pre></div>
 </div>
 <p>Jacobian Elliptic function <code class="docutils literal notranslate"><span class="pre">ellipj</span> <span class="pre">u</span> <span class="pre">m</span></code> returns <code class="docutils literal notranslate"><span class="pre">(sn,</span> <span class="pre">cn,</span> <span class="pre">dn,</span> <span class="pre">phi)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L166">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L170">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ellipk</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ellipk</span> <span class="pre">m</span></code> returns the complete elliptic integral of the first kind.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L174">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L178">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ellipkm1</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>FIXME. Complete elliptic integral of the first kind around <span class="math notranslate nohighlight">\(m = 1\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L176">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L180">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ellipkinc</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ellipkinc</span> <span class="pre">phi</span> <span class="pre">m</span></code> incomplete elliptic integral of the first kind.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L178">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L182">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ellipe</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ellipe</span> <span class="pre">m</span></code> complete elliptic integral of the second kind.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L180">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L184">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ellipeinc</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ellipeinc</span> <span class="pre">phi</span> <span class="pre">m</span></code> incomplete elliptic integral of the second kind.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L182">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L186">source code</a></p>
 </div>
 <div class="section" id="gamma-functions">
 <h2>Gamma Functions<a class="headerlink" href="#gamma-functions" title="Permalink to this headline">¶</a></h2>
@@ -582,42 +592,42 @@
 <p>The gamma function is often referred to as the generalized factorial since
 <span class="math notranslate nohighlight">\(z\ gamma(z) = \gamma(z+1)\)</span> and <span class="math notranslate nohighlight">\(gamma(n+1) = n!\)</span>
 for natural number <span class="math notranslate nohighlight">\(n\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L238">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L242">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rgamma</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Reciprocal Gamma function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L240">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L244">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">loggamma</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Logarithm of the gamma function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L242">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L246">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gammainc</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Incomplete gamma function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L244">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L248">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gammaincinv</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Inverse function of <code class="docutils literal notranslate"><span class="pre">gammainc</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L246">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L250">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gammaincc</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Complemented incomplete gamma integral.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L248">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L252">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gammainccinv</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Inverse function of <code class="docutils literal notranslate"><span class="pre">gammaincc</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L250">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L254">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">psi</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>The digamma function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L252">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L256">source code</a></p>
 </div>
 <div class="section" id="beta-functions">
 <h2>Beta functions<a class="headerlink" href="#beta-functions" title="Permalink to this headline">¶</a></h2>
@@ -627,17 +637,17 @@ for natural number <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>Beta function.</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{B}(a, b) =  \frac{\Gamma(a) \Gamma(b)}{\Gamma(a+b)}\]</div>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L270">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L274">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">betainc</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Incomplete beta integral.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L272">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L276">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">betaincinv</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Inverse function of <code class="docutils literal notranslate"><span class="pre">betainc</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L274">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L278">source code</a></p>
 </div>
 <div class="section" id="factorials">
 <h2>Factorials<a class="headerlink" href="#factorials" title="Permalink to this headline">¶</a></h2>
@@ -645,23 +655,23 @@ for natural number <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </pre></div>
 </div>
 <p>Factorial function <code class="docutils literal notranslate"><span class="pre">fact</span> <span class="pre">n</span></code> calculates <span class="math notranslate nohighlight">\(n!\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L254">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L258">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log_fact</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Logarithm of factorial function <code class="docutils literal notranslate"><span class="pre">log_fact</span> <span class="pre">n</span></code> calculates <span class="math notranslate nohighlight">\(\log n!\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L258">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L262">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">doublefact</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Double factorial function <code class="docutils literal notranslate"><span class="pre">doublefact</span> <span class="pre">n</span></code> calculates
 <span class="math notranslate nohighlight">\(n!! = n(n-2)(n-4)\dots 2\)</span> or <span class="math notranslate nohighlight">\(\dots 1\)</span></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L262">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L266">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log_doublefact</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Logarithm of double factorial function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L266">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L270">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">permutation</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
@@ -672,12 +682,12 @@ for natural number <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L293">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L297">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">permutation_float</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">permutation_float</span></code> is like <code class="docutils literal notranslate"><span class="pre">permutation</span></code> but deals with larger range.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L286">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L290">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">combination</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
@@ -686,17 +696,17 @@ for natural number <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <dd>of a set of n elements. This is the binomial coefficient
 <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span></dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L282">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L286">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">combination_float</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">combination_float</span></code> is like <code class="docutils literal notranslate"><span class="pre">combination</span></code> but can deal with a larger range.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L280">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L284">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log_combination</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">log_combination</span> <span class="pre">n</span> <span class="pre">k</span></code> returns the logarithm of <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L284">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L288">source code</a></p>
 </div>
 <div class="section" id="error-functions">
 <h2>Error functions<a class="headerlink" href="#error-functions" title="Permalink to this headline">¶</a></h2>
@@ -704,27 +714,27 @@ for natural number <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </pre></div>
 </div>
 <p>Error function. <span class="math notranslate nohighlight">\(\int_{-\infty}^x \frac{1}{\sqrt(2\pi)} \exp(-(1/2) y^2) dy\)</span></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L295">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L299">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">erfc</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Complementary error function, <span class="math notranslate nohighlight">\(\int^{\infty}_x \frac{1}{\sqrt(2\pi)} \exp(-(1/2) y^2) dy\)</span></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L297">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L301">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">erfcx</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Scaled complementary error function, <span class="math notranslate nohighlight">\(\exp(x^2) \mathrm{erfc}(x)\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L299">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L303">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">erfinv</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Inverse function of <code class="docutils literal notranslate"><span class="pre">erf</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L301">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L305">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">erfcinv</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Inverse function of <code class="docutils literal notranslate"><span class="pre">erfc</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L303">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L307">source code</a></p>
 </div>
 <div class="section" id="dawson-fresnel-integrals">
 <h2>Dawson &amp; Fresnel integrals<a class="headerlink" href="#dawson-fresnel-integrals" title="Permalink to this headline">¶</a></h2>
@@ -732,13 +742,13 @@ for natural number <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </pre></div>
 </div>
 <p>Dawson’s integral.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L305">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L309">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fresnel</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Fresnel trigonometric integrals. <code class="docutils literal notranslate"><span class="pre">fresnel</span> <span class="pre">x</span></code> returns a tuple consisting of
 <code class="docutils literal notranslate"><span class="pre">(Fresnel</span> <span class="pre">sin</span> <span class="pre">integral,</span> <span class="pre">Fresnel</span> <span class="pre">cos</span> <span class="pre">integral)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L307">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L311">source code</a></p>
 </div>
 <div class="section" id="struve-functions">
 <h2>Struve functions<a class="headerlink" href="#struve-functions" title="Permalink to this headline">¶</a></h2>
@@ -750,7 +760,7 @@ order <span class="math notranslate nohighlight">\(v\)</span> at <span class="ma
 <div class="math notranslate nohighlight">
 \[H_v(x) = (z/2)^{v + 1} \sum_{n=0}^\infty \frac{(-1)^n (z/2)^{2n}}{\Gamma(n + \frac{3}{2}) \Gamma(n + v + \frac{3}{2})},\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Gamma\)</span> is the gamma function. <span class="math notranslate nohighlight">\(x\)</span> must be positive unless <span class="math notranslate nohighlight">\(v\)</span> is an integer</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L313">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L317">source code</a></p>
 </div>
 <div class="section" id="other-special-functions">
 <h2>Other special functions<a class="headerlink" href="#other-special-functions" title="Permalink to this headline">¶</a></h2>
@@ -758,7 +768,7 @@ order <span class="math notranslate nohighlight">\(v\)</span> at <span class="ma
 </pre></div>
 </div>
 <p>Exponential integral <span class="math notranslate nohighlight">\(E_n\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L216">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L220">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shichi</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -769,22 +779,22 @@ order <span class="math notranslate nohighlight">\(v\)</span> at <span class="ma
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L218">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L222">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shi</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Hyperbolic sine integral.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L224">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L228">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chi</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Hyperbolic cosine integral.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L226">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L230">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sici</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Sine and cosine integrals, <code class="docutils literal notranslate"><span class="pre">sici</span> <span class="pre">x</span></code> returns <span class="math notranslate nohighlight">\((\mathrm{si}, \mathrm{ci})\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L228">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L232">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">si</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -800,12 +810,12 @@ order <span class="math notranslate nohighlight">\(v\)</span> at <span class="ma
 <dt><code class="docutils literal notranslate"><span class="pre">zeta</span> <span class="pre">x</span> <span class="pre">q</span></code> returns the Hurwitz zeta function <span class="math notranslate nohighlight">\(\zeta(x, q)\)</span>, which</dt>
 <dd>reduces to the Riemann zeta function <span class="math notranslate nohighlight">\(\zeta(x)\)</span> when <span class="math notranslate nohighlight">\(q=1\)</span>.</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L276">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L280">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">zetac</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Riemann zeta function minus 1.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L278">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L282">source code</a></p>
 </div>
 <div class="section" id="raw-statistical-functions">
 <h2>Raw statistical functions<a class="headerlink" href="#raw-statistical-functions" title="Permalink to this headline">¶</a></h2>
@@ -832,7 +842,7 @@ probability <span class="math notranslate nohighlight">\(p\)</span>.</li>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L343">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L347">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bdtrc</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -841,7 +851,7 @@ probability <span class="math notranslate nohighlight">\(p\)</span>.</li>
 of the binomial probability density,</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{bdtrc}(k, n, p) = \sum_{j=k+1}^n {{n}\choose{j}} p^j (1-p)^{n-j}\]</div>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L345">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L349">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bdtri</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -849,7 +859,7 @@ of the binomial probability density,</p>
 <p>Finds the event probability <span class="math notranslate nohighlight">\(p\)</span> such that the sum of the terms 0 through
 <span class="math notranslate nohighlight">\(k\)</span> of the binomial probability density is equal to the given cumulative
 probability <span class="math notranslate nohighlight">\(y\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L347">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L351">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">btdtr</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -874,7 +884,7 @@ density function,</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L349">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L353">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">btdtri</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -901,7 +911,7 @@ density function,</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L351">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L355">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -909,76 +919,76 @@ density function,</p>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_nan</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> exactly if <code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">nan</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L319">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L323">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_inf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_inf</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> exactly if <code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">neg_infinity</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L321">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L325">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_normal</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_normal</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is a normal float number.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L323">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L327">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_subnormal</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_nan</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is subnormal float number.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L325">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L329">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_odd</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_odd</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> exactly if <code class="docutils literal notranslate"><span class="pre">x</span></code> is odd.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L327">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L331">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_even</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_even</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> exactly if <code class="docutils literal notranslate"><span class="pre">x</span></code> is even.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L329">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L333">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_pow2</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_pow2</span> <span class="pre">x</span></code> return <code class="docutils literal notranslate"><span class="pre">true</span></code> exactly if <code class="docutils literal notranslate"><span class="pre">x</span></code> is an integer power of 2, e.g. 32, 64, etc.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L331">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L335">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">same_sign</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">same_sign</span> <span class="pre">x</span> <span class="pre">y</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> have the same sign,
 otherwise it returns <code class="docutils literal notranslate"><span class="pre">false</span></code>. Positive and negative zeros are special cases
 and always returns <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L315">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L319">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_simplex</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_simplex</span> <span class="pre">x</span></code> checks whether the vector <span class="math notranslate nohighlight">\(x\)</span> lies on a simplex. In
 other words, <span class="math notranslate nohighlight">\(\sum_i^K x_i = 1\)</span> and <span class="math notranslate nohighlight">\(x_i \ge 0, \forall i \in
 [1,K]\)</span>, where <span class="math notranslate nohighlight">\(K\)</span> is the dimension of <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L317">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L321">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_sqr</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_sqr</span> <span class="pre">x</span></code> checks if <code class="docutils literal notranslate"><span class="pre">x</span></code> is the square of an integer.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L335">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L339">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fermat_fact</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">fermat_fact</span> <span class="pre">x</span></code> performs Fermat factorisation over <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. into two
 roughly equal factors. <code class="docutils literal notranslate"><span class="pre">x</span></code> must be an odd number.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L337">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L341">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nextafter</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">nextafter</span> <span class="pre">from</span> <span class="pre">to</span></code> returns the next representable double precision value
 of <code class="docutils literal notranslate"><span class="pre">from</span></code> in the direction of <code class="docutils literal notranslate"><span class="pre">to</span></code>. If <code class="docutils literal notranslate"><span class="pre">from</span></code> equals <code class="docutils literal notranslate"><span class="pre">to</span></code>, this value
 is returned.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L339">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L343">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nextafterf</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">nextafter</span> <span class="pre">from</span> <span class="pre">to</span></code> returns the next representable single precision value
 of <code class="docutils literal notranslate"><span class="pre">from</span></code> in the direction of <code class="docutils literal notranslate"><span class="pre">to</span></code>. If <code class="docutils literal notranslate"><span class="pre">from</span></code> equals <code class="docutils literal notranslate"><span class="pre">to</span></code>, this value
 is returned.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L341">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L345">source code</a></p>
 </div>
 </div>
 
