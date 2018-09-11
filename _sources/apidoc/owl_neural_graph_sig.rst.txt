@@ -2,7 +2,7 @@ Neural.Graph Functor
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#81 entries have been extracted.
+#82 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_graph_sig.ml>`_ 
@@ -732,11 +732,24 @@ Arguments:
   val lambda : ?name:string -> ?act_typ:Activation.typ -> (t -> t) -> node -> node
 
 ``lambda func node`` wraps arbitrary expression as a Node object.
-
 Arguments:
   * ``func``: The function to be evaluated. Takes input tensor as first argument.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L486>`__
+
+
+
+.. code-block:: ocaml
+
+  val lambda_array : ?name:string -> ?act_typ:Activation.typ -> int array -> (t array -> t) -> node array -> node
+
+``lambda_array target_shape func node`` wraps arbitrary expression as a Node object.
+
+Arguments:
+  * ``target_shape``: the shape of the tensor returned by ``func``.
+  * ``func``: The function to be evaluated. Takes input tensor array as first argument.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L493>`__
 
 
 
@@ -749,7 +762,7 @@ Node that adds a list of inputs.
 It takes as input an array of nodes, all of the same shape, and returns a
 single node (also of the same shape).
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L493>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L500>`__
 
 
 
@@ -762,7 +775,7 @@ Node that multiplies (element-wise) a list of inputs.
 It takes as input an array of nodes, all of the same shape, and returns a
 single node (also of the same shape).
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L500>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L507>`__
 
 
 
@@ -772,7 +785,7 @@ single node (also of the same shape).
 
 Node that computes a dot product between samples in two nodes.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L507>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L514>`__
 
 
 
@@ -782,7 +795,7 @@ Node that computes a dot product between samples in two nodes.
 
 Node that computes the maximum (element-wise) a list of inputs.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L514>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L521>`__
 
 
 
@@ -795,7 +808,7 @@ Node that averages a list of inputs.
 It takes as input an array of nodes, all of the same shape, and returns a
 single node (also of the same shape).
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L521>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L528>`__
 
 
 
@@ -808,7 +821,7 @@ single node (also of the same shape).
 Arguments:
   * ``axis``: Axis along which to concatenate.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L528>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L535>`__
 
 
 
@@ -823,7 +836,7 @@ Helper functions
 
 Convert a neural network to its string representation.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L538>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L545>`__
 
 
 
@@ -833,7 +846,7 @@ Convert a neural network to its string representation.
 
 Pretty printing function a neural network.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L554>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L561>`__
 
 
 
@@ -843,7 +856,7 @@ Pretty printing function a neural network.
 
 Print the string representation of a neural network to the standard output.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L560>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L567>`__
 
 
 
@@ -853,7 +866,7 @@ Print the string representation of a neural network to the standard output.
 
 Serialise a network and save it to the a file with the given name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L563>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L570>`__
 
 
 
@@ -863,7 +876,7 @@ Serialise a network and save it to the a file with the given name.
 
 Load the neural network from a file with the given name.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L566>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L573>`__
 
 
 
@@ -874,7 +887,7 @@ Load the neural network from a file with the given name.
 Save all the weights in a neural network to a file. The weights and the name of
 their associated neurons are saved as key-value pairs in a hash table.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L569>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L576>`__
 
 
 
@@ -885,7 +898,7 @@ their associated neurons are saved as key-value pairs in a hash table.
 Load the weights from a file of the given name. Note that the weights and the
 name of their associated neurons are saved as key-value pairs in a hash table.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L578>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L585>`__
 
 
 
@@ -900,7 +913,7 @@ Train Networks
 
 Generic function of training a neural network.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L594>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L601>`__
 
 
 
@@ -910,7 +923,7 @@ Generic function of training a neural network.
 
 Train a neural network with various configurations.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L607>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L614>`__
 
 
 
