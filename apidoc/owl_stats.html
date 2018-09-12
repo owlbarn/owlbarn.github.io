@@ -358,10 +358,11 @@ as follows:</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_kde</span> <span class="o">:</span> <span class="o">?</span><span class="n">bandwidth</span><span class="o">:[</span> <span class="o">`</span><span class="nc">Silverman</span> <span class="o">|</span> <span class="o">`</span><span class="nc">Scott</span> <span class="o">]</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">n_points</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">*</span> <span class="kt">float</span> <span class="kt">array</span><span class="o">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">gaussian_kde</span> <span class="pre">x</span></code> is a simple Gaussian kernel density estimator for
-<cite>O(n * points)</cite>.  The function returns an array tuple <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b)`</span> <span class="pre">where</span> <span class="pre">``a</span></code> is
-a uniformly spaced points from the sample range at which the density function
-was estimated, and <code class="docutils literal notranslate"><span class="pre">b</span></code> is the estimates at these points.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gaussian_kde</span> <span class="pre">x</span></code> is a Gaussian kernel density estimator. The estimation of
+the pdf runs in <cite>O(sample_size * n_points)</cite>, and returns an array tuple
+<code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b)</span></code> where <code class="docutils literal notranslate"><span class="pre">a</span></code> is a uniformly spaced points from the sample range at
+which the density function was estimated, and <code class="docutils literal notranslate"><span class="pre">b</span></code> is the estimates at these
+points.</p>
 <dl class="docutils">
 <dt>Bandwidth selection rules is as follows:</dt>
 <dd><ul class="first last simple">
