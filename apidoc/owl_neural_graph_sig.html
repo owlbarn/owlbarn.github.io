@@ -622,13 +622,14 @@ each batch.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lambda</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">func</span> <span class="pre">node</span></code> wraps arbitrary expression as a Node object.
-Arguments:</p>
-<blockquote>
-<div><ul class="simple">
+<p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">func</span> <span class="pre">node</span></code> wraps arbitrary expression as a Node object.</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd><ul class="first last simple">
 <li><code class="docutils literal notranslate"><span class="pre">func</span></code>: The function to be evaluated. Takes input tensor as first argument.</li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L486">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lambda_array</span> <span class="o">:</span> <span class="o">?</span><span class="n">name</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">act_typ</span><span class="o">:</span><span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">node</span>
 </pre></div>

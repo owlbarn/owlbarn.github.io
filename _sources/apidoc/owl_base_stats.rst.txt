@@ -2,7 +2,7 @@ Base.Stats
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#48 entries have been extracted.
+#50 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/stats/owl_base_stats.mli>`_ 
@@ -317,6 +317,16 @@ Refer to :doc:`owl_stats`.
 
 .. code-block:: ocaml
 
+  val interquartile : float array -> float
+
+Refer to :doc:`owl_stats`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L580>`__
+
+
+
+.. code-block:: ocaml
+
   val median : float array -> float
 
 Refer to :doc:`owl_stats`.
@@ -367,7 +377,17 @@ Refer to :doc:`owl_stats`.
 
 Refer to :doc:`owl_stats`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L580>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L584>`__
+
+
+
+.. code-block:: ocaml
+
+  val gaussian_kde : ?bandwidth:[ `Silverman | `Scott ] -> ?n_points:int -> float array -> (float array * float array)
+
+Refer to :doc:`owl_stats`.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L613>`__
 
 
 
