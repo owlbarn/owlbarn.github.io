@@ -491,8 +491,8 @@ which the density function was estimated, and ``b`` is the estimates at these
 points.
 
 Bandwidth selection rules is as follows:
-  * Silverman: Use `rule-of-thumb` for choosing the bandwidth. It defaults to [0.9 * min(SD, IQR / 1.34) * n^-0.2].
-  * Scott: Same as Silverman, but with a factor, equal to [1.06].
+  * Silverman: use `rule-of-thumb` for choosing the bandwidth. It defaults to [0.9 * min(SD, IQR / 1.34) * n^-0.2].
+  * Scott: same as Silverman, but with a factor, equal to [1.06].
 
 The default bandwidth value is ``Scott``.
 
