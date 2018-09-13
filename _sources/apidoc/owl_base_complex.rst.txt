@@ -2,7 +2,7 @@ Base.Complex
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#76 entries have been extracted.
+#77 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_complex.mli>`_ 
@@ -679,6 +679,16 @@ Helper functions
 ``is_inf x`` returns ``true`` if either ``x.re`` or ``x.im`` is ``infinity`` or ``neg_infinity``.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L348>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_normal : t -> bool
+
+``is_normal x`` returns ``true`` if both ``x.re`` and ``x.im`` are ``normal``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L351>`__
 
 
 

@@ -89,7 +89,7 @@
   <div class="section" id="base-complex">
 <h1>Base.Complex<a class="headerlink" href="#base-complex" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#76 entries have been extracted.</p>
+#77 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_complex.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_complex.ml">{Implementation}</a></p>
@@ -446,6 +446,11 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_inf</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if either <code class="docutils literal notranslate"><span class="pre">x.re</span></code> or <code class="docutils literal notranslate"><span class="pre">x.im</span></code> is <code class="docutils literal notranslate"><span class="pre">infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">neg_infinity</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L348">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_normal</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">is_normal</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if both <code class="docutils literal notranslate"><span class="pre">x.re</span></code> and <code class="docutils literal notranslate"><span class="pre">x.im</span></code> are <code class="docutils literal notranslate"><span class="pre">normal</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L351">source code</a></p>
 </div>
 </div>
 
