@@ -89,7 +89,7 @@
   <div class="section" id="base-complex">
 <h1>Base.Complex<a class="headerlink" href="#base-complex" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#77 entries have been extracted.</p>
+#82 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_complex.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_complex.ml">{Implementation}</a></p>
@@ -313,6 +313,31 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">x</span></code> returns the phase of a complex number <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L293">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">floor</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">floor</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L305">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ceil</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ceil</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L302">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">round</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">round</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L308">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">trunc</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">trunc</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L311">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fix</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fix</span> <span class="pre">x</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L314">source code</a></p>
 </div>
 <div class="section" id="binary-functions">
 <h2>Binary functions<a class="headerlink" href="#binary-functions" title="Permalink to this headline">¶</a></h2>
@@ -392,32 +417,32 @@
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L304">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L319">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">not_equal</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L307">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L322">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">less</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L310">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L325">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">greater</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L318">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L333">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">less_equal</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L326">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L341">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">greater_equal</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L329">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L344">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -425,32 +450,32 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">complex</span> <span class="pre">re</span> <span class="pre">im</span></code> returns a complex number <code class="docutils literal notranslate"><span class="pre">{re;</span> <span class="pre">im}</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L334">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L349">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">of_tuple</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">of_tuple</span> <span class="pre">(re,</span> <span class="pre">im)</span></code> returns a complex number <code class="docutils literal notranslate"><span class="pre">{re;</span> <span class="pre">im}</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L337">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L352">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_tuple</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">to_tuple</span> <span class="pre">x</span></code> converts a complex number to tuple <code class="docutils literal notranslate"><span class="pre">(x.re;</span> <span class="pre">x.im)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L342">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L357">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_nan</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_nan</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x.re</span></code> is <code class="docutils literal notranslate"><span class="pre">nan</span></code> or <code class="docutils literal notranslate"><span class="pre">x.im</span></code> is <code class="docutils literal notranslate"><span class="pre">nan</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L345">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L360">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_inf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_inf</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if either <code class="docutils literal notranslate"><span class="pre">x.re</span></code> or <code class="docutils literal notranslate"><span class="pre">x.im</span></code> is <code class="docutils literal notranslate"><span class="pre">infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">neg_infinity</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L348">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L363">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_normal</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_normal</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if both <code class="docutils literal notranslate"><span class="pre">x.re</span></code> and <code class="docutils literal notranslate"><span class="pre">x.im</span></code> are <code class="docutils literal notranslate"><span class="pre">normal</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L351">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L366">source code</a></p>
 </div>
 </div>
 

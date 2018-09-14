@@ -2,7 +2,7 @@ Base.Complex
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#77 entries have been extracted.
+#82 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_complex.mli>`_ 
@@ -431,6 +431,56 @@ TODO
 
 
 
+.. code-block:: ocaml
+
+  val floor : t -> t
+
+``floor x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L305>`__
+
+
+
+.. code-block:: ocaml
+
+  val ceil : t -> t
+
+``ceil x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L302>`__
+
+
+
+.. code-block:: ocaml
+
+  val round : t -> t
+
+``round x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L308>`__
+
+
+
+.. code-block:: ocaml
+
+  val trunc : t -> t
+
+``trunc x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L311>`__
+
+
+
+.. code-block:: ocaml
+
+  val fix : t -> t
+
+``fix x``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L314>`__
+
+
+
 Binary functions
 -------------------------------------------------------------------------------
 
@@ -573,7 +623,7 @@ Comparison functions
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L304>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L319>`__
 
 
 
@@ -583,7 +633,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L307>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L322>`__
 
 
 
@@ -593,7 +643,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L310>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L325>`__
 
 
 
@@ -603,7 +653,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L318>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L333>`__
 
 
 
@@ -613,7 +663,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L326>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L341>`__
 
 
 
@@ -623,7 +673,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L329>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L344>`__
 
 
 
@@ -638,7 +688,7 @@ Helper functions
 
 ``complex re im`` returns a complex number ``{re; im}``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L334>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L349>`__
 
 
 
@@ -648,7 +698,7 @@ Helper functions
 
 ``of_tuple (re, im)`` returns a complex number ``{re; im}``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L337>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L352>`__
 
 
 
@@ -658,7 +708,7 @@ Helper functions
 
 ``to_tuple x`` converts a complex number to tuple ``(x.re; x.im)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L342>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L357>`__
 
 
 
@@ -668,7 +718,7 @@ Helper functions
 
 ``is_nan x`` returns ``true`` if ``x.re`` is ``nan`` or ``x.im`` is ``nan``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L345>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L360>`__
 
 
 
@@ -678,7 +728,7 @@ Helper functions
 
 ``is_inf x`` returns ``true`` if either ``x.re`` or ``x.im`` is ``infinity`` or ``neg_infinity``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L348>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L363>`__
 
 
 
@@ -688,7 +738,7 @@ Helper functions
 
 ``is_normal x`` returns ``true`` if both ``x.re`` and ``x.im`` are ``normal``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L351>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_complex.ml#L366>`__
 
 
 
