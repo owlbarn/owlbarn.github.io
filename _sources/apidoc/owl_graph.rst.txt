@@ -2,7 +2,7 @@ Graph
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#44 entries have been extracted.
+#46 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_graph.mli>`_ 
@@ -21,6 +21,13 @@ Type definition
     
 
 Order to traverse a graph, BFS or DFS.
+
+.. code-block:: ocaml
+
+  type traversal = PreOrder | PostOrder
+    
+
+Order of the function evaluation.
 
 .. code-block:: ocaml
 
@@ -53,7 +60,7 @@ Obtaining properties
 
 ``name x`` returns the name string of node ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L26>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L28>`__
 
 
 
@@ -63,7 +70,7 @@ Obtaining properties
 
 ``set_name x s`` sets the name string of node ``x`` to ``s``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L29>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L31>`__
 
 
 
@@ -73,7 +80,7 @@ Obtaining properties
 
 ``parents x`` returns the parents of node ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L32>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L34>`__
 
 
 
@@ -83,7 +90,7 @@ Obtaining properties
 
 ``set_parents x parents`` set ``x`` parents to ``parents``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L35>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L37>`__
 
 
 
@@ -93,7 +100,7 @@ Obtaining properties
 
 ``children x`` returns the children of node ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L38>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L40>`__
 
 
 
@@ -103,7 +110,7 @@ Obtaining properties
 
 ``set_children x children`` sets ``x`` children to ``children``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L41>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L43>`__
 
 
 
@@ -113,7 +120,7 @@ Obtaining properties
 
 ``indegree x`` returns the in-degree of node ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L44>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L46>`__
 
 
 
@@ -123,7 +130,7 @@ Obtaining properties
 
 ``outdegree x`` returns the out-degree of node ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L47>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L49>`__
 
 
 
@@ -133,7 +140,7 @@ Obtaining properties
 
 ``degree x`` returns the total number of links of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L50>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L52>`__
 
 
 
@@ -143,7 +150,7 @@ Obtaining properties
 
 ``attr x`` returns the ``attr`` field of node ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L53>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L55>`__
 
 
 
@@ -153,7 +160,7 @@ Obtaining properties
 
 ``set_attr x`` sets the ``attr`` field of node ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L56>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L58>`__
 
 
 
@@ -163,7 +170,7 @@ Obtaining properties
 
 ``num_ancestor x`` returns the number of ancestors of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L247>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L273>`__
 
 
 
@@ -173,7 +180,7 @@ Obtaining properties
 
 ``num_descendant x`` returns the number of descendants of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L253>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L279>`__
 
 
 
@@ -183,7 +190,7 @@ Obtaining properties
 
 ``length x`` returns the total number of ancestors and descendants of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L259>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L285>`__
 
 
 
@@ -200,7 +207,7 @@ Manipulation functions
 string. The created node is also connected to parents in ``prev`` and children
 in ``next``. The ``attr`` will be saved in ``attr`` field.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L59>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L61>`__
 
 
 
@@ -214,7 +221,7 @@ words, they are bidirectional links between parents and children.
 
 NOTE: this function does not eliminate any duplicates in the array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L70>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L72>`__
 
 
 
@@ -226,7 +233,7 @@ NOTE: this function does not eliminate any duplicates in the array.
 This function creates unidirectional links from parents to children. In other
 words, this function save ``children`` to ``parent.next`` field.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L79>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L81>`__
 
 
 
@@ -238,7 +245,7 @@ words, this function save ``children`` to ``parent.next`` field.
 This function creates unidirectional links from children to parents. In other
 words, this function save ``parents`` to ``child.prev`` field.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L85>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L87>`__
 
 
 
@@ -249,7 +256,7 @@ words, this function save ``parents`` to ``child.prev`` field.
 ``remove_node x`` removes node ``x`` from the graph by disconnecting itself
 from all its parent nodes and child nodes.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L91>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L93>`__
 
 
 
@@ -261,7 +268,7 @@ from all its parent nodes and child nodes.
 the correponding entry of ``dst`` in ``src.next`` and ``src`` in ``dst.prev``
 will be removed. Note that it does not remove [dst -> src] if there exists one.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L101>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L103>`__
 
 
 
@@ -275,7 +282,7 @@ parents now make link to ``y`` rather than ``x`` in ``next`` field.
 NOTE: The function does NOT make link from ``y`` to ``x`` parents. Namely,
 the ``prev`` field of ``y`` remains intact.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L106>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L108>`__
 
 
 
@@ -289,7 +296,7 @@ the ``prev`` field of ``y`` remains intact.
 NOTE: The function does NOT make link from ``y`` to ``x`` children. Namely,
 the ``next`` field of ``y`` remains intact.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L116>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L118>`__
 
 
 
@@ -304,7 +311,7 @@ Note that this function only makes a copy of the graph structure, ``attr``
 fileds of the nodes in the new graph share the same memory with those in the
 original graph.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L218>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L244>`__
 
 
 
@@ -315,21 +322,21 @@ Iterators
 
 .. code-block:: ocaml
 
-  val iter_ancestors : ?order:order -> ('a node -> unit) -> 'a node array -> unit
+  val iter_ancestors : ?order:order -> ?traversal:traversal -> ('a node -> unit) -> 'a node array -> unit
 
 Iterate the ancestors of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L147>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L173>`__
 
 
 
 .. code-block:: ocaml
 
-  val iter_descendants : ?order:order -> ('a node -> unit) -> 'a node array -> unit
+  val iter_descendants : ?order:order -> ?traversal:traversal -> ('a node -> unit) -> 'a node array -> unit
 
 Iterate the descendants of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L153>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L179>`__
 
 
 
@@ -339,7 +346,7 @@ Iterate the descendants of a given node.
 
 Filter the ancestors of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L165>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L191>`__
 
 
 
@@ -349,7 +356,7 @@ Filter the ancestors of a given node.
 
 Iterate the descendants of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L171>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L197>`__
 
 
 
@@ -359,7 +366,7 @@ Iterate the descendants of a given node.
 
 Fold the ancestors of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L177>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L203>`__
 
 
 
@@ -369,7 +376,7 @@ Fold the ancestors of a given node.
 
 Fold the descendants of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L183>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L209>`__
 
 
 
@@ -379,7 +386,7 @@ Fold the descendants of a given node.
 
 Iterate all the in-edges of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L189>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L215>`__
 
 
 
@@ -389,7 +396,7 @@ Iterate all the in-edges of a given node.
 
 Iterate all the out-edges of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L195>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L221>`__
 
 
 
@@ -399,7 +406,7 @@ Iterate all the out-edges of a given node.
 
 Fold all the in-edges of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L201>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L227>`__
 
 
 
@@ -409,7 +416,7 @@ Fold all the in-edges of a given node.
 
 Fold all the out-edges of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L207>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L233>`__
 
 
 
@@ -420,11 +427,22 @@ Helper functions
 
 .. code-block:: ocaml
 
+  val topo_sort : 'a node array -> 'a node array
+
+Topological sort of a given graph using a DFS order. Assumes that the graph is
+acyclic.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L305>`__
+
+
+
+.. code-block:: ocaml
+
   val pp_node : Format.formatter -> 'a node -> unit
 
 Pretty print a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L266>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L292>`__
 
 
 
@@ -434,7 +452,7 @@ Pretty print a given node.
 
 Convert a given node to its string representaion.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L272>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L298>`__
 
 
 

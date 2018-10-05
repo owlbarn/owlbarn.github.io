@@ -89,7 +89,7 @@
   <div class="section" id="graph">
 <h1>Graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#44 entries have been extracted.</p>
+#46 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_graph.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_graph.ml">{Implementation}</a></p>
@@ -99,6 +99,10 @@
 </pre></div>
 </div>
 <p>Order to traverse a graph, BFS or DFS.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">traversal</span> <span class="o">=</span> <span class="nc">PreOrder</span> <span class="o">|</span> <span class="nc">PostOrder</span>
+</pre></div>
+</div>
+<p>Order of the function evaluation.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">dir</span> <span class="o">=</span> <span class="nc">Ancestor</span> <span class="o">|</span> <span class="nc">Descendant</span>
 </pre></div>
 </div>
@@ -118,72 +122,72 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">x</span></code> returns the name string of node <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L26">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L28">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_name</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_name</span> <span class="pre">x</span> <span class="pre">s</span></code> sets the name string of node <code class="docutils literal notranslate"><span class="pre">x</span></code> to <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L29">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L31">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">parents</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">parents</span> <span class="pre">x</span></code> returns the parents of node <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L32">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L34">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_parents</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_parents</span> <span class="pre">x</span> <span class="pre">parents</span></code> set <code class="docutils literal notranslate"><span class="pre">x</span></code> parents to <code class="docutils literal notranslate"><span class="pre">parents</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L35">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L37">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">children</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">children</span> <span class="pre">x</span></code> returns the children of node <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L38">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L40">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_children</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_children</span> <span class="pre">x</span> <span class="pre">children</span></code> sets <code class="docutils literal notranslate"><span class="pre">x</span></code> children to <code class="docutils literal notranslate"><span class="pre">children</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L41">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L43">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">indegree</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">indegree</span> <span class="pre">x</span></code> returns the in-degree of node <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L44">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L46">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">outdegree</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">outdegree</span> <span class="pre">x</span></code> returns the out-degree of node <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L47">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L49">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">degree</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">degree</span> <span class="pre">x</span></code> returns the total number of links of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L50">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L52">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">attr</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">attr</span> <span class="pre">x</span></code> returns the <code class="docutils literal notranslate"><span class="pre">attr</span></code> field of node <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L53">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L55">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_attr</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">set_attr</span> <span class="pre">x</span></code> sets the <code class="docutils literal notranslate"><span class="pre">attr</span></code> field of node <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L56">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L58">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">num_ancestor</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">num_ancestor</span> <span class="pre">x</span></code> returns the number of ancestors of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L247">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L273">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">num_descendant</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">num_descendant</span> <span class="pre">x</span></code> returns the number of descendants of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L253">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L279">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">length</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">x</span></code> returns the total number of ancestors and descendants of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L259">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L285">source code</a></p>
 </div>
 <div class="section" id="manipulation-functions">
 <h2>Manipulation functions<a class="headerlink" href="#manipulation-functions" title="Permalink to this headline">¶</a></h2>
@@ -193,7 +197,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">~id</span> <span class="pre">~name</span> <span class="pre">~prev</span> <span class="pre">~next</span> <span class="pre">attr</span></code> creates a node with given id and name
 string. The created node is also connected to parents in <code class="docutils literal notranslate"><span class="pre">prev</span></code> and children
 in <code class="docutils literal notranslate"><span class="pre">next</span></code>. The <code class="docutils literal notranslate"><span class="pre">attr</span></code> will be saved in <code class="docutils literal notranslate"><span class="pre">attr</span></code> field.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L59">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L61">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -201,34 +205,34 @@ in <code class="docutils literal notranslate"><span class="pre">next</span></cod
 The created links are the Cartesian product of parents and children. In other
 words, they are bidirectional links between parents and children.</p>
 <p>NOTE: this function does not eliminate any duplicates in the array.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L70">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L72">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect_descendants</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">connect_descendants</span> <span class="pre">parents</span> <span class="pre">children</span></code> connects parents to their children.
 This function creates unidirectional links from parents to children. In other
 words, this function save <code class="docutils literal notranslate"><span class="pre">children</span></code> to <code class="docutils literal notranslate"><span class="pre">parent.next</span></code> field.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L79">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L81">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect_ancestors</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">connect_ancestors</span> <span class="pre">parents</span> <span class="pre">children</span></code> connects children to their parents.
 This function creates unidirectional links from children to parents. In other
 words, this function save <code class="docutils literal notranslate"><span class="pre">parents</span></code> to <code class="docutils literal notranslate"><span class="pre">child.prev</span></code> field.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L85">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L87">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">remove_node</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">remove_node</span> <span class="pre">x</span></code> removes node <code class="docutils literal notranslate"><span class="pre">x</span></code> from the graph by disconnecting itself
 from all its parent nodes and child nodes.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L91">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L93">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">remove_edge</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">remove_edge</span> <span class="pre">src</span> <span class="pre">dst</span></code> removes a link <code class="docutils literal notranslate"><span class="pre">src</span> <span class="pre">-&gt;</span> <span class="pre">dst</span></code> from the graph. Namely,
 the correponding entry of <code class="docutils literal notranslate"><span class="pre">dst</span></code> in <code class="docutils literal notranslate"><span class="pre">src.next</span></code> and <code class="docutils literal notranslate"><span class="pre">src</span></code> in <code class="docutils literal notranslate"><span class="pre">dst.prev</span></code>
 will be removed. Note that it does not remove [dst -&gt; src] if there exists one.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L101">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L103">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">replace_child</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -236,7 +240,7 @@ will be removed. Note that it does not remove [dst -&gt; src] if there exists on
 parents now make link to <code class="docutils literal notranslate"><span class="pre">y</span></code> rather than <code class="docutils literal notranslate"><span class="pre">x</span></code> in <code class="docutils literal notranslate"><span class="pre">next</span></code> field.</p>
 <p>NOTE: The function does NOT make link from <code class="docutils literal notranslate"><span class="pre">y</span></code> to <code class="docutils literal notranslate"><span class="pre">x</span></code> parents. Namely,
 the <code class="docutils literal notranslate"><span class="pre">prev</span></code> field of <code class="docutils literal notranslate"><span class="pre">y</span></code> remains intact.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L106">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L108">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">replace_parent</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -244,7 +248,7 @@ the <code class="docutils literal notranslate"><span class="pre">prev</span></co
 <code class="docutils literal notranslate"><span class="pre">x</span></code> children now make link to <code class="docutils literal notranslate"><span class="pre">y</span></code> rather than <code class="docutils literal notranslate"><span class="pre">x</span></code> in <code class="docutils literal notranslate"><span class="pre">prev</span></code> field.</p>
 <p>NOTE: The function does NOT make link from <code class="docutils literal notranslate"><span class="pre">y</span></code> to <code class="docutils literal notranslate"><span class="pre">x</span></code> children. Namely,
 the <code class="docutils literal notranslate"><span class="pre">next</span></code> field of <code class="docutils literal notranslate"><span class="pre">y</span></code> remains intact.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L116">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L118">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="o">?</span><span class="n">dir</span><span class="o">:</span><span class="n">dir</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span>
 </pre></div>
 </div>
@@ -253,73 +257,79 @@ the <code class="docutils literal notranslate"><span class="pre">next</span></co
 <p>Note that this function only makes a copy of the graph structure, <code class="docutils literal notranslate"><span class="pre">attr</span></code>
 fileds of the nodes in the new graph share the same memory with those in the
 original graph.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L218">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L244">source code</a></p>
 </div>
 <div class="section" id="iterators">
 <h2>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iter_ancestors</span> <span class="o">:</span> <span class="o">?</span><span class="n">order</span><span class="o">:</span><span class="n">order</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iter_ancestors</span> <span class="o">:</span> <span class="o">?</span><span class="n">order</span><span class="o">:</span><span class="n">order</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">traversal</span><span class="o">:</span><span class="n">traversal</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Iterate the ancestors of a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L147">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iter_descendants</span> <span class="o">:</span> <span class="o">?</span><span class="n">order</span><span class="o">:</span><span class="n">order</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L173">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iter_descendants</span> <span class="o">:</span> <span class="o">?</span><span class="n">order</span><span class="o">:</span><span class="n">order</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">traversal</span><span class="o">:</span><span class="n">traversal</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Iterate the descendants of a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L153">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L179">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">filter_ancestors</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Filter the ancestors of a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L165">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L191">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">filter_descendants</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Iterate the descendants of a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L171">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L197">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fold_ancestors</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span>
 </pre></div>
 </div>
 <p>Fold the ancestors of a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L177">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L203">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fold_descendants</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span>
 </pre></div>
 </div>
 <p>Fold the descendants of a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L183">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L209">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iter_in_edges</span> <span class="o">:</span> <span class="o">?</span><span class="n">order</span><span class="o">:</span><span class="n">order</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Iterate all the in-edges of a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L189">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L215">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iter_out_edges</span> <span class="o">:</span> <span class="o">?</span><span class="n">order</span><span class="o">:</span><span class="n">order</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Iterate all the out-edges of a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L195">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L221">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fold_in_edges</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span>
 </pre></div>
 </div>
 <p>Fold all the in-edges of a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L201">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L227">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fold_out_edges</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span>
 </pre></div>
 </div>
 <p>Fold all the out-edges of a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L207">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L233">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">topo_sort</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>Topological sort of a given graph using a DFS order. Assumes that the graph is
+acyclic.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L305">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_node</span> <span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Pretty print a given node.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L266">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L292">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_string</span> <span class="o">:</span> <span class="kt">bool</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">node</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Convert a given node to its string representaion.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L272">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L298">source code</a></p>
 </div>
 </div>
 
