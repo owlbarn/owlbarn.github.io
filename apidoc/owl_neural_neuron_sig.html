@@ -134,7 +134,7 @@
   <div class="section" id="neural-neuron-functor">
 <h1>Neural.Neuron Functor<a class="headerlink" href="#neural-neuron-functor" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#493 entries have been extracted.</p>
+#497 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_neuron_sig.ml">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_neuron.ml">{Implementation}</a></p>
@@ -2076,7 +2076,7 @@
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mkpar</span> <span class="o">:</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>Assemble all the parameters in an array, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
+<p>Assemble all the trainable parameters in an array, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mkpri</span> <span class="o">:</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span>
 </pre></div>
 </div>
@@ -2088,7 +2088,15 @@
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">update</span> <span class="o">:</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>Update parameters in a neuron, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
+<p>Update trainable parameters of the neuron, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load_weights</span> <span class="o">:</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Load both trainable and non-trainable parameters into the neuron.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">save_weights</span> <span class="o">:</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>Assemble both trainable and non-trainable parameters of the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
 </pre></div>
 </div>
@@ -2332,17 +2340,17 @@
 </pre></div>
 </div>
 <p>Get both input and output shapes of a neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3011">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3022">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_in_shape</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Get the input shape of a neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3057">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3068">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_out_shape</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Get the output shape of a neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3060">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3071">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -2362,11 +2370,11 @@
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mkpar</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>Assemble all the parameters in an array, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
+<p>Assemble all the trainable parameters in an array, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mkpri</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p>Assemble all the primial values in an array, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
+<p>Assemble all the primal values in an array, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mkadj</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span>
 </pre></div>
 </div>
@@ -2374,7 +2382,15 @@
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">update</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
-<p>Update parameters in a neuron, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
+<p>Update trainable parameters in a neuron, used by <code class="docutils literal notranslate"><span class="pre">Optimise</span></code> module.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load_weights</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>Load both trainable and non-trainable parameters into the neuron.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">save_weights</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>Assemble both trainable and non-trainable parameters of the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="n">neuron</span>
 </pre></div>
 </div>

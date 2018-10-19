@@ -2,7 +2,7 @@ Neural.Neuron Functor
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#493 entries have been extracted.
+#497 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_neuron_sig.ml>`_ 
@@ -2856,7 +2856,7 @@ Tag the neuron, used by ``Algodiff`` module.
 
   val mkpar : neuron_typ -> t array
 
-Assemble all the parameters in an array, used by ``Optimise`` module.
+Assemble all the trainable parameters in an array, used by ``Optimise`` module.
 
 .. code-block:: ocaml
 
@@ -2874,7 +2874,19 @@ Assemble all the adjacent values in an array, used by ``Optimise`` module.
 
   val update : neuron_typ -> t array -> unit
 
-Update parameters in a neuron, used by ``Optimise`` module.
+Update trainable parameters of the neuron, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val load_weights : neuron_typ -> t array -> unit
+
+Load both trainable and non-trainable parameters into the neuron.
+
+.. code-block:: ocaml
+
+  val save_weights : neuron_typ -> t array
+
+Assemble both trainable and non-trainable parameters of the neuron.
 
 .. code-block:: ocaml
 
@@ -3218,7 +3230,7 @@ Types of neuron.
 
 Get both input and output shapes of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3011>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3022>`__
 
 
 
@@ -3228,7 +3240,7 @@ Get both input and output shapes of a neuron.
 
 Get the input shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3057>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3068>`__
 
 
 
@@ -3238,7 +3250,7 @@ Get the input shape of a neuron.
 
 Get the output shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3060>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3071>`__
 
 
 
@@ -3270,13 +3282,13 @@ Tag the neuron, used by ``Algodiff`` module.
 
   val mkpar : neuron -> t array
 
-Assemble all the parameters in an array, used by ``Optimise`` module.
+Assemble all the trainable parameters in an array, used by ``Optimise`` module.
 
 .. code-block:: ocaml
 
   val mkpri : neuron -> t array
 
-Assemble all the primial values in an array, used by ``Optimise`` module.
+Assemble all the primal values in an array, used by ``Optimise`` module.
 
 .. code-block:: ocaml
 
@@ -3288,7 +3300,19 @@ Assemble all the adjacent values in an array, used by ``Optimise`` module.
 
   val update : neuron -> t array -> unit
 
-Update parameters in a neuron, used by ``Optimise`` module.
+Update trainable parameters in a neuron, used by ``Optimise`` module.
+
+.. code-block:: ocaml
+
+  val load_weights : neuron -> t array -> unit
+
+Load both trainable and non-trainable parameters into the neuron.
+
+.. code-block:: ocaml
+
+  val save_weights : neuron -> t array
+
+Assemble both trainable and non-trainable parameters of the neuron.
 
 .. code-block:: ocaml
 

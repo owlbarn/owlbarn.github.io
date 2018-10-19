@@ -103,7 +103,12 @@
 </pre></div>
 </div>
 <p>Abstract dataframe type.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">series</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">series</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">Bool_Series</span>   <span class="k">of</span> <span class="kt">bool</span> <span class="kt">array</span>
+  <span class="o">|</span> <span class="nc">Int_Series</span>    <span class="k">of</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">|</span> <span class="nc">Float_Series</span>  <span class="k">of</span> <span class="kt">float</span> <span class="kt">array</span>
+  <span class="o">|</span> <span class="nc">String_Series</span> <span class="k">of</span> <span class="kt">string</span> <span class="kt">array</span>
+  <span class="o">|</span> <span class="nc">Any_Series</span>
 </pre></div>
 </div>
 <p>Abstract series type.</p>
