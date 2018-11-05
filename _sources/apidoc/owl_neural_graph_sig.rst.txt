@@ -2,7 +2,7 @@ Neural.Graph Functor
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#89 entries have been extracted.
+#90 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_graph_sig.ml>`_ 
@@ -266,6 +266,16 @@ Update the parameters of neurons, used by ``Optimise`` module.
 Execute the computations in all the neurons in a network with the given input.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L213>`__
+
+
+
+.. code-block:: ocaml
+
+  val run_inputs : t array -> network -> t array
+
+Execute the computations in all the neurons in a network with the given inputs.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L194>`__
 
 
 

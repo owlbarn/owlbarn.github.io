@@ -170,7 +170,7 @@ Obtaining properties
 
 ``num_ancestor x`` returns the number of ancestors of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L273>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L274>`__
 
 
 
@@ -180,7 +180,7 @@ Obtaining properties
 
 ``num_descendant x`` returns the number of descendants of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L279>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L280>`__
 
 
 
@@ -190,7 +190,7 @@ Obtaining properties
 
 ``length x`` returns the total number of ancestors and descendants of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L285>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L286>`__
 
 
 
@@ -311,7 +311,7 @@ Note that this function only makes a copy of the graph structure, ``attr``
 fileds of the nodes in the new graph share the same memory with those in the
 original graph.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L244>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L245>`__
 
 
 
@@ -326,7 +326,7 @@ Iterators
 
 Iterate the ancestors of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L173>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L174>`__
 
 
 
@@ -336,7 +336,7 @@ Iterate the ancestors of a given node.
 
 Iterate the descendants of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L179>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L180>`__
 
 
 
@@ -346,7 +346,7 @@ Iterate the descendants of a given node.
 
 Filter the ancestors of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L191>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L192>`__
 
 
 
@@ -356,7 +356,7 @@ Filter the ancestors of a given node.
 
 Iterate the descendants of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L197>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L198>`__
 
 
 
@@ -366,7 +366,7 @@ Iterate the descendants of a given node.
 
 Fold the ancestors of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L203>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L204>`__
 
 
 
@@ -376,7 +376,7 @@ Fold the ancestors of a given node.
 
 Fold the descendants of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L209>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L210>`__
 
 
 
@@ -386,7 +386,7 @@ Fold the descendants of a given node.
 
 Iterate all the in-edges of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L215>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L216>`__
 
 
 
@@ -396,7 +396,7 @@ Iterate all the in-edges of a given node.
 
 Iterate all the out-edges of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L221>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L222>`__
 
 
 
@@ -406,7 +406,7 @@ Iterate all the out-edges of a given node.
 
 Fold all the in-edges of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L227>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L228>`__
 
 
 
@@ -416,7 +416,7 @@ Fold all the in-edges of a given node.
 
 Fold all the out-edges of a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L233>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L234>`__
 
 
 
@@ -432,7 +432,7 @@ Helper functions
 Topological sort of a given graph using a DFS order. Assumes that the graph is
 acyclic.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L305>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L306>`__
 
 
 
@@ -442,7 +442,7 @@ acyclic.
 
 Pretty print a given node.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L292>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L293>`__
 
 
 
@@ -452,7 +452,7 @@ Pretty print a given node.
 
 Convert a given node to its string representaion.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L298>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_graph.ml#L299>`__
 
 
 

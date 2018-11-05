@@ -90,7 +90,7 @@
   <div class="section" id="neural-graph-functor">
 <h1>Neural.Graph Functor<a class="headerlink" href="#neural-graph-functor" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#89 entries have been extracted.</p>
+#90 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_graph_sig.ml">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_graph.ml">{Implementation}</a></p>
@@ -234,6 +234,11 @@
 </div>
 <p>Execute the computations in all the neurons in a network with the given input.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L213">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">run_inputs</span> <span class="o">:</span> <span class="n">t</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>Execute the computations in all the neurons in a network with the given inputs.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L194">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">forward</span> <span class="o">:</span> <span class="n">network</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
