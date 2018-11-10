@@ -2,7 +2,7 @@ Maths
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#160 entries have been extracted.
+#163 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/maths/owl_maths.mli>`_ 
@@ -1400,7 +1400,7 @@ Returns:
   * Probability of :math:`k` or fewer successes in :math:`n` independent events with success
     probability :math:`p`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L347>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L353>`__
 
 
 
@@ -1416,7 +1416,7 @@ of the binomial probability density,
 .. math::
   \mathrm{bdtrc}(k, n, p) = \sum_{j=k+1}^n {{n}\choose{j}} p^j (1-p)^{n-j}
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L349>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L355>`__
 
 
 
@@ -1430,7 +1430,7 @@ Finds the event probability :math:`p` such that the sum of the terms 0 through
 :math:`k` of the binomial probability density is equal to the given cumulative
 probability :math:`y`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L351>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L357>`__
 
 
 
@@ -1457,7 +1457,7 @@ Returns:
   * Cumulative density function of the beta distribution with :math:`a` and
     :math:`b` at :math:`x`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L353>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L359>`__
 
 
 
@@ -1484,7 +1484,7 @@ Parameters:
 Returns:
   * The quantile corresponding to :math:`p`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L355>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L361>`__
 
 
 
@@ -1599,12 +1599,44 @@ other words, :math:`\sum_i^K x_i = 1` and :math:`x_i \ge 0, \forall i \in
 
 .. code-block:: ocaml
 
+  val mulmod : int -> int -> int -> int
+
+``mulmod a b m`` computes (a*b) mod m.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L341>`__
+
+
+
+.. code-block:: ocaml
+
+  val powmod : int -> int -> int -> int
+
+``powmod a b m`` computes (a^b) mod m.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L343>`__
+
+
+
+.. code-block:: ocaml
+
+  val is_prime : int -> bool
+
+``is_prime x`` returns ``true`` if ``x`` is a prime number. The function is
+deterministic for all numbers representable by an int. The function uses the
+Rabin–Miller primality test.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L345>`__
+
+
+
+.. code-block:: ocaml
+
   val fermat_fact : int -> int * int
 
 ``fermat_fact x`` performs Fermat factorisation over ``x``, i.e. into two
 roughly equal factors. ``x`` must be an odd number.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L341>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L347>`__
 
 
 
@@ -1616,7 +1648,7 @@ roughly equal factors. ``x`` must be an odd number.
 of ``from`` in the direction of ``to``. If ``from`` equals ``to``, this value
 is returned.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L343>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L349>`__
 
 
 
@@ -1628,7 +1660,7 @@ is returned.
 of ``from`` in the direction of ``to``. If ``from`` equals ``to``, this value
 is returned.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L345>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/maths/owl_maths.ml#L351>`__
 
 
 

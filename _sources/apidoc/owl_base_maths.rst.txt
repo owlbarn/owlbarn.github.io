@@ -2,7 +2,7 @@ Base.Maths
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#77 entries have been extracted.
+#79 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_maths.mli>`_ 
@@ -750,13 +750,33 @@ and always returns ``true``.
 
 .. code-block:: ocaml
 
+  val mulmod : int -> int -> int -> int
+
+``mulmod a b m`` computes (a*b) mod m.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L295>`__
+
+
+
+.. code-block:: ocaml
+
+  val powmod : int -> int -> int -> int
+
+``powmod a b m`` computes (a^b) mod m.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L317>`__
+
+
+
+.. code-block:: ocaml
+
   val is_prime : int -> bool
 
 ``is_prime x`` returns ``true`` if ``x`` is a prime number. The function is
-deterministic for numbers below 341550071728321, then becomes probabilistic
-for those above. The function uses Rabin–Miller primality test.
+deterministic for all numbers representable by an int. The function uses the
+Rabin–Miller primality test.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L296>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L340>`__
 
 
 
@@ -767,7 +787,7 @@ for those above. The function uses Rabin–Miller primality test.
 ``fermat_fact x`` performs Fermat factorisation over ``x``, i.e. into two
 roughly equal factors. ``x`` must be an odd number.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L281>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L326>`__
 
 
 

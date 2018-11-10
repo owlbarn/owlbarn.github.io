@@ -87,7 +87,7 @@
   <div class="section" id="base-maths">
 <h1>Base.Maths<a class="headerlink" href="#base-maths" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#77 entries have been extracted.</p>
+#79 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_maths.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_base_maths.ml">{Implementation}</a></p>
@@ -462,19 +462,29 @@ and always returns <code class="docutils literal notranslate"><span class="pre">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_sqr</span> <span class="pre">x</span></code> checks if <code class="docutils literal notranslate"><span class="pre">x</span></code> is the square of an integer.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L278">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mulmod</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mulmod</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">m</span></code> computes (a*b) mod m.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L295">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">powmod</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">powmod</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">m</span></code> computes (a^b) mod m.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L317">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_prime</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_prime</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is a prime number. The function is
-deterministic for numbers below 341550071728321, then becomes probabilistic
-for those above. The function uses Rabin–Miller primality test.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L296">source code</a></p>
+deterministic for all numbers representable by an int. The function uses the
+Rabin–Miller primality test.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L340">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fermat_fact</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">fermat_fact</span> <span class="pre">x</span></code> performs Fermat factorisation over <code class="docutils literal notranslate"><span class="pre">x</span></code>, i.e. into two
 roughly equal factors. <code class="docutils literal notranslate"><span class="pre">x</span></code> must be an odd number.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L281">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_base_maths.ml#L326">source code</a></p>
 </div>
 </div>
 

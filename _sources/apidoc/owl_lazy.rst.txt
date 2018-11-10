@@ -2,7 +2,7 @@ Lazy Functor
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#185 entries have been extracted.
+#186 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_lazy.mli>`_ 
@@ -385,6 +385,12 @@ TODO
 .. code-block:: ocaml
 
   val one_hot : int -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val lazy_print : ?max_row:int -> ?max_col:int -> ?header:bool -> ?fmt:(A.elt -> string) -> arr -> arr
 
 TODO
 
