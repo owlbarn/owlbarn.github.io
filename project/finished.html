@@ -55,7 +55,7 @@
 <li><a class="reference internal" href="#applications-of-linear-types">Applications of Linear Types</a></li>
 <li><a class="reference internal" href="#composing-data-analytical-services">Composing Data Analytical Services</a></li>
 <li><a class="reference internal" href="#computer-vision-performance-optimisation-of-computation-graph">Computer Vision &amp; Performance Optimisation of Computation Graph</a></li>
-<li><a class="reference internal" href="#the-design-of-dataframe-for-tabluar-data">The Design of Dataframe for Tabluar Data</a></li>
+<li><a class="reference internal" href="#automatic-parameter-tuning-for-openmp">Automatic Parameter Tuning for OpenMP</a></li>
 </ul>
 </li>
 </ul>
@@ -121,14 +121,14 @@
 </div>
 <div class="section" id="computer-vision-performance-optimisation-of-computation-graph">
 <h2>Computer Vision &amp; Performance Optimisation of Computation Graph<a class="headerlink" href="#computer-vision-performance-optimisation-of-computation-graph" title="Permalink to this headline">¶</a></h2>
-<p>By <strong>Pierre Vandenhove</strong> | MSc | October 2018 | <a class="reference external" href="https://github.com/pvdhove/owl-mask-rcnn">{Github}</a></p>
+<p>By <strong>Pierre Vandenhove</strong> | MSc | October 2018 | <a class="reference external" href="https://github.com/owlbarn/owl-mask-rcnn">{MRCNN Github}</a></p>
 <p>[Work in Progress] Computer vision tasks are known to be highly computationally-heavy, both performance-wise and memory-wise. They are thus especially relevant to put a numerical framework such as Owl to the test. The first part of this project focuses on the implementation of several computer vision applications using Owl’s neural network library. The first such application is Microsoft’s ‘ResNet’ network to perform simple image classification (<a class="reference external" href="https://arxiv.org/abs/1512.03385">paper 1512.03385</a>, <a class="reference external" href="https://github.com/pvdhove/owl-resnet">Resnet implementation in Owl</a>). The second, more extensive one, is ‘Mask R-CNN’, which is one of the leading networks to perform object detection, segmentation and classification (<a class="reference external" href="https://arxiv.org/abs/1703.06870">paper 1703.06870</a>, <a class="reference external" href="https://github.com/pvdhove/owl-mask-rcnn">MRCNN implementation</a>). This allowed exemplifying some use cases to improve Owl’s flexibility and ease of use, as well as add some necessary operations.</p>
 <p>These applications are valuable benchmarking tools to identify bottlenecks and guide the optimisation of different subcomponents of Owl. A crucial step in this process is to apply Owl’s computation graph to them, which is the key to obtaining state-of-the-art performance and memory usage. With the new applications as examples, it was possible to make it more robust, efficient and user-friendly.</p>
 </div>
-<div class="section" id="the-design-of-dataframe-for-tabluar-data">
-<h2>The Design of Dataframe for Tabluar Data<a class="headerlink" href="#the-design-of-dataframe-for-tabluar-data" title="Permalink to this headline">¶</a></h2>
-<p>By <strong>Liang Wang</strong> | PhD | June 2018 | <a class="reference external" href="https://ocaml.xyz">{Techreport 02}</a></p>
-<p>TODO: Add description</p>
+<div class="section" id="automatic-parameter-tuning-for-openmp">
+<h2>Automatic Parameter Tuning for OpenMP<a class="headerlink" href="#automatic-parameter-tuning-for-openmp" title="Permalink to this headline">¶</a></h2>
+<p>By <strong>Jianxin Zhao</strong> | PhD | November 2018 | <a class="reference external" href="https://github.com/owlbarn/owl/tree/master/src/aeos">{AEOS Github}</a> | <a class="reference external" href="http://ocaml.xyz">{Thesis}</a></p>
+<p>Automatic Empirical Optimisation of Software (AEOS) is crucial for high performance computing software. It is a methodology to generate optimised software using empirically tuned parameters. As an initial attempt to improve the performance of Owl with it, we build the AEOS module to tune the OpenMP parameters in Owl. OpenMP is an application programming interface that supports multi-platform shared memory multiprocessing programming. It is used in Owl to boost performance of basic operations. However, using OpenMP brings certain overhead, so that when the size of input data is small, or the operation is simple, the non-OpenMP version operation might be faster. Thus an optimal threshold varies for different operations and machines. In the AEOS module, each operation is abstracted as a stand-alone module, and uses linear regression to find this optimal threshold. Compared with the previous practice of set a single threshold for all OpenMP operations, using AEOS module further improves their performance. The AEOS module is designed in such way that extending it to accommodate more parameters or operations should be easy.</p>
 </div>
 </div>
 

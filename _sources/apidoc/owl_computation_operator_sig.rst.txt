@@ -2,7 +2,7 @@ Computation.Operator
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#195 entries have been extracted.
+#196 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_operator_sig.ml>`_ 
@@ -1433,7 +1433,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val trace : arr -> elt
+  val qr : arr -> arr * arr
 
 TODO
 
@@ -1443,7 +1443,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val dot : arr -> arr -> arr
+  val trace : arr -> elt
 
 TODO
 
@@ -1453,11 +1453,21 @@ TODO
 
 .. code-block:: ocaml
 
+  val dot : arr -> arr -> arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L468>`__
+
+
+
+.. code-block:: ocaml
+
   val transpose : ?axis:int array -> arr -> arr
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L474>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L476>`__
 
 
 
@@ -1467,7 +1477,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L482>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L484>`__
 
 
 
@@ -1477,7 +1487,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L487>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L489>`__
 
 
 
@@ -1487,7 +1497,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L489>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L491>`__
 
 
 
@@ -1497,7 +1507,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L491>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L493>`__
 
 
 
