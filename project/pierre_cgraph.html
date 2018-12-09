@@ -1,0 +1,436 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Computer Vision in OCaml &#8212; Owl Numerical Library 0.3 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Computer Vision in OCaml</a><ul>
+<li><a class="reference internal" href="#mask-r-cnn-network">Mask R-CNN network</a><ul>
+<li><a class="reference internal" href="#feature-extractor">Feature extractor</a></li>
+<li><a class="reference internal" href="#proposal-generation">Proposal generation</a></li>
+<li><a class="reference internal" href="#classification">Classification</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mask-r-cnn-driven-optimisation">Mask-R-CNN-driven optimisation</a><ul>
+<li><a class="reference internal" href="#optimising-memory-with-pebbles">Optimising memory with pebbles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#allocation-algorithm">Allocation algorithm</a></li>
+<li><a class="reference internal" href="#try-it">Try it!</a></li>
+<li><a class="reference internal" href="#whats-next">What’s next?</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="computer-vision-in-ocaml">
+<h1>Computer Vision in OCaml<a class="headerlink" href="#computer-vision-in-ocaml" title="Permalink to this headline">¶</a></h1>
+<p>by Pierre Vandenhove</p>
+<p>As an intern at OCaml Labs, my initial task was to find a way to
+automatically segment and categorise pictures and videos, using the
+great OCaml’s numerical library <a class="reference external" href="http://ocaml.xyz/">Owl</a> created by
+Liang Wang. Many machine learning tasks had already been successfully
+ported to Owl (for <a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/lazy_mnist.ml">character
+recognition</a>,
+<a class="reference external" href="http://demo.ocaml.xyz/fst.html">image style transfer</a>, …). There
+was even an implementation of Google’s <a class="reference external" href="http://demo.ocaml.xyz/index.html">Inception neural
+network</a>, which can already label
+images in a really impressive way.</p>
+<p><em>Computer vision</em> is a field dealing with many different automated tasks
+whose goal is to give high-level descriptions of images and videos. It
+has been applied to a wide variety of domains ranging from highly
+technical (automatic tagging of satellite images, analysis of medical
+images, …) to more mundane (categorise pictures in your phone, make
+your face into an emoji, …). It has seen tremendous progress since
+2012, when <a class="reference external" href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks">A. Krizhevsky et
+al.</a>
+used the first deep learning approach to computer vision, crushing all
+their opponents in the <a class="reference external" href="http://image-net.org/challenges/LSVRC/2012/results.html">ImageNet
+challenge</a>.
+It has therefore evolved quite a lot since Inception was first described
+in 2014 and it was relevant to implement a more recent and involved
+network with Owl.</p>
+<p>Inception performs <em>single-label image classification</em> — it works well
+when there is one large object in an image, but gets easily confused
+when there are lots of small ones. Other programs are meant to classify
+the pixels on an image in different categories (<em>semantic
+segmentation</em>), or to detect the position of the objects on an image
+(<em>object detection</em>). In 2017, the <em>Mask R-CNN</em> (<em>Mask Region-based
+Convolutional Neural Network</em>) architecture was published and with
+sufficient training, it can solve all these problems at once: it can
+detect objects on an image, label each of them and provide a binary mask
+to tell which pixels belong to the objects. This network has now been
+implemented in Owl. As a preliminary example, this is what it can do:</p>
+<p>Example 1</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/owl_vision_buildings.jpg"><img alt="mrcnn buildings" src="../_images/owl_vision_buildings.jpg" style="width: 100%;" /></a>
+</div>
+<p>Example 2</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/owl_vision_sheep.jpg"><img alt="mrcnn sheep" src="../_images/owl_vision_sheep.jpg" style="width: 100%;" /></a>
+</div>
+<div class="section" id="mask-r-cnn-network">
+<h2>Mask R-CNN network<a class="headerlink" href="#mask-r-cnn-network" title="Permalink to this headline">¶</a></h2>
+<p>I will briefly outline the main parts of architecture of Mask R-CNN and
+how it stands out from its predecessors. You can of course get more
+detailed and technical explanations in <a class="reference external" href="https://arxiv.org/abs/1703.06870">the original
+paper</a>. The Owl implementation of
+the inference mode is available
+<a class="reference external" href="https://github.com/pvdhove/owl-mask-rcnn">in this repository</a>. The code was
+mostly ported from <a class="reference external" href="https://github.com/matterport/Mask_RCNN">this Keras/TensorFlow
+implementation</a>.</p>
+<div class="section" id="feature-extractor">
+<h3>Feature extractor<a class="headerlink" href="#feature-extractor" title="Permalink to this headline">¶</a></h3>
+<p>The picture is first fed to a <a class="reference external" href="https://en.wikipedia.org/wiki/Convolutional_neural_network">convolutional neural
+network</a>
+in order to extract features on the image. The first few layers detect
+low-level features (edges and basic shapes) but as you go deeper into
+the network, these features are assembled to detect higher level
+features (people, cars) (which, some argue, works <a class="reference external" href="https://medium.freecodecamp.org/an-intuitive-guide-to-convolutional-neural-networks-260c2de0a050">in the same way as the brain</a>).
+Five of these layers (called <em>feature maps</em>) of various sizes, both
+high- and low-level, are then passed on to the next parts. This
+implementation chooses Microsoft’s
+<a class="reference external" href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html">ResNet101</a>
+as a feature extractor.</p>
+<p>These feature maps are then transformed with a <a class="reference external" href="https://arxiv.org/abs/1612.03144">Feature Pyramid
+Network</a> to share information
+between all the maps, such that each map knows about both high- and
+low-level features at different resolutions. Later on, the size of the
+objects will determine which feature map is used to analyse them.</p>
+</div>
+<div class="section" id="proposal-generation">
+<h3>Proposal generation<a class="headerlink" href="#proposal-generation" title="Permalink to this headline">¶</a></h3>
+<p>To try to locate the objects, about 250,000 overlapping rectangular regions
+(<em>anchors</em>) are generated. A small convolutional network (a <a class="reference external" href="http://papers.nips.cc/paper/5638-faster-r-cnn-towards-real-time-object-detection-with-region-proposal-networks">Region
+Proposal Network</a>,
+introduced in 2015 by the predecessor of Mask R-CNN) scans the feature
+maps and quickly associates to each of them a number that could be
+called the ’objectness’ of that region. The 1000 best anchors are then
+selected according to their objectness (higher is better). Anchors that
+overlap too much with each other are eliminated, to avoid detecting the
+same object multiple times. Each selected anchor is also refined in case
+it was not perfectly centered around the object.</p>
+</div>
+<div class="section" id="classification">
+<h3>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h3>
+<p>All anchor proposals from the previous layer are resized to a fixed size
+and fed into a 10-layer neural network that assigns to each of them
+probabilities that it belongs to each class (the network is pre-trained
+on fixed classes; changing the set of classes requires to re-train the
+whole network). Note that this step does not take as much time for each
+anchor as a full-fledged image classifier (such as Inception) since it
+reuses the pre-computed feature maps from the Feature Pyramid Network —
+there is no need to go back to the original picture. The class with the
+highest probability is chosen for each proposal and thanks to the class
+predictions, the anchor proposals are even more refined. Proposals
+classified in the ’background’ class are deleted. Eventually, only the
+proposals with an objectness over some threshold are kept, and we have
+our final detections, each coming with a bounding box and a label!</p>
+<p>The only thing left to do is to generate a <em>binary mask</em> on each object.
+This is handled by a small convolutional neural network which outputs
+for each detected bounding box a small square of values between 0 and 1.
+This square is resized to the original size of the bounding box with
+bilinear interpolation, and pixels with a value over 0.5 are tagged as
+being part of the object.</p>
+</div>
+</div>
+<div class="section" id="mask-r-cnn-driven-optimisation">
+<h2>Mask-R-CNN-driven optimisation<a class="headerlink" href="#mask-r-cnn-driven-optimisation" title="Permalink to this headline">¶</a></h2>
+<p>All of this works really well, but the first issue I stumbled upon after
+porting it to Owl was that the memory usage, in inference mode, was
+<em>huge</em>. The network has over 400 layers and to avoid reinitialising the
+network for every picture, it is good to keep its input size fixed and
+to resize instead all the images to that size — a larger size takes more
+time and memory but yields more accurate results. A reasonable input
+size for this network is a 1024-pixel-wide square. Unfortunately,
+obtaining detections for one picture with this size required over <em>11 GB
+of RAM</em>, which was too much for my laptop. As a comparison, the
+TensorFlow implementation only uses 1 GB. There was a big room for
+improvement!</p>
+<p>What I had not used yet is the great <em>computation graph</em> module of Owl.
+A <em>computation graph</em> is a way to represent the control flow of a
+program. For example, the following program can be turned into this
+graph:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/owl_vision_cg.png"><img alt="computation graph" src="../_images/owl_vision_cg.png" style="width: 100%;" /></a>
+</div>
+<p>A computation graph is always directed and acyclic. Representing the
+structure of a program as a computation graph has several advantages,
+especially for computationally-intensive code dealing with big
+multi-dimensional arrays. A really useful one is that prior to
+evaluating the nodes, you can optimise the structure of the graph: for
+instance, useless calculations such as adding an array with nothing but
+zeros can be removed, common patterns can be merged into one node and
+executed more efficiently, etc. This helps a bit: thanks to these
+optimisations, the number of nodes of Mask R-CNN drops from 4095 to 3765.
+Another really important feature in this case is the ability to
+pre-allocate a memory space to each node, to decrease the overall memory
+consumption and reduce the garbage collector overhead.</p>
+<div class="section" id="optimising-memory-with-pebbles">
+<h3>Optimising memory with pebbles<a class="headerlink" href="#optimising-memory-with-pebbles" title="Permalink to this headline">¶</a></h3>
+<p>To describe the problem of allocating memory in a computation graph, it
+is interesting to look at the <em>pebble game</em>, which was introduced <a class="reference external" href="http://perso.ens-lyon.fr/loris.marchal/scheduling/sethi_complete_register_allocation.pdf">in
+1973</a>
+to explain register allocation.</p>
+<p>The <em>pebble game</em> is played on a directed acyclic graph. Each node can
+store at most one pebble. The game begins with no pebble on any node. At
+each step, the player can do one of the following moves:</p>
+<ol class="arabic simple">
+<li>if a vertex <span class="math notranslate nohighlight">\(v\)</span> has no predecessor, the player can place a pebble on
+<span class="math notranslate nohighlight">\(v\)</span>.</li>
+<li>if all predecessors of a vertex <span class="math notranslate nohighlight">\(v\)</span> are pebbled, the player can
+place a pebble on <span class="math notranslate nohighlight">\(v\)</span> or <em>slide</em> a pebble from one of its
+predecessors to <span class="math notranslate nohighlight">\(v\)</span>.</li>
+<li>the player can remove any pebble from a vertex (and reuse that
+pebble later).</li>
+</ol>
+<p>The goal of the game is to place a pebble at least once on some fixed
+<em>output vertices</em> of the graph.</p>
+<p>Here is an example of an optimal pebbling strategy using the previous computation
+graph (gray nodes are pebbled), using moves 1 → 2 → 3 → 1 →
+2 → 2. We assume that the goal is to pebble
+node 5:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/owl_vision_pebble.png"><img alt="pebbling" src="../_images/owl_vision_pebble.png" style="width: 100%;" /></a>
+</div>
+<p>This relates to the memory allocation of the computation graph if we see
+pebbles as memory blocks used to store the output value of a node. We
+assume that the values of the inputs are known (move 1). We can only
+compute the value of a vertex if all its predecessors are simultaneously
+stored in memory (move 2). The <em>sliding</em> move means that the memory of a
+node can be overwritten by its successor during its computation
+(<em>inplace reuse</em>). We can always reuse a memory block from any other
+node (move 3). Given a graph, the idea is thus to find a strategy to
+pebble it using a minimum number of pebbles (in other words, using as
+little memory as possible).</p>
+<p>We also want to avoid pebbling any node twice (in order the keep the
+execution time as low as possible, because that would mean that we
+compute the same node twice). Given these constraints, finding a
+strategy using the least amount of pebbles is unfortunately
+<a class="reference external" href="http://perso.ens-lyon.fr/loris.marchal/scheduling/sethi_complete_register_allocation.pdf">NP-complete</a>.
+Since computation graphs can have a few thousand nodes, we will be
+looking for a fast heuristic instead of an exact algorithm.</p>
+</div>
+</div>
+<div class="section" id="allocation-algorithm">
+<h2>Allocation algorithm<a class="headerlink" href="#allocation-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>The initially implemented strategy to allocate memory to a node <span class="math notranslate nohighlight">\(u\)</span> in
+Owl’s computation graph module was simply to reuse the memory of a
+direct predecessor with same output shape as <span class="math notranslate nohighlight">\(u\)</span> when that is possible.
+This optimisation allowed to decrease the memory consumption of Mask
+R-CNN from 11 GB to 7 GB — much better, but still quite far from the 1
+GB of the TensorFlow implementation!</p>
+<p>We can actually make it much more performant by sharing memory between
+nodes</p>
+<ul class="simple">
+<li>that are not necessarily a parent/child pair;</li>
+<li>that do not have the same output size (by allocating a large block
+of memory once, without necessarily using all of it all the time).</li>
+</ul>
+<p>To do this efficiently, we first have to fix an evaluation order (in
+practice, any topological order). Given this order, we can pinpoint the
+moment when the memory of a node becomes useless by keeping a counter of
+how many times it has been used. When it has been used by all its
+children, we can recycle its memory. Then to allocate memory to a node,
+we simply check which blocks are available and we select the one with
+the closest size (in order not to waste too much memory). If no block is
+available, we allocate a new one. This can be executed in
+<span class="math notranslate nohighlight">\(\mathcal{O}(n * \log(n))\)</span> time, which is negligible compared to the
+actual cost of evaluating the graph.</p>
+<p>Then we just have to be careful that some operations cannot overwrite
+their inputs while they are being computed (the <em>sliding</em> move from the
+pebble game is forbidden) and that some nodes cannot be overwritten for
+practical purposes (typically constant nodes or neural network weights).
+Implementing this effectively reduced the memory consumption of Mask
+R-CNN from 7 GB to 1 GB for a 1024x1024 picture, making it as efficient
+as the TensorFlow implementation! A summary of the changes can be found in
+<a class="reference external" href="https://github.com/owlbarn/owl/pull/318">this pull request</a>. Here are some
+more statistics illustrating what the computation graph with this new
+algorithm achieves:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="17%" />
+<col width="33%" />
+<col width="19%" />
+<col width="17%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Architecture</td>
+<td>Time without CG (s)</td>
+<td>Time with CG (building + evaluating) (s)</td>
+<td>Memory without CG (MB)</td>
+<td>Memory with CG (MB)</td>
+</tr>
+<tr class="row-even"><td>InceptionV3</td>
+<td>0.565</td>
+<td>0.107 + 0.228 = 0.335</td>
+<td>625.76</td>
+<td>230.10</td>
+</tr>
+<tr class="row-odd"><td>ResNet50</td>
+<td>0.793</td>
+<td>0.140 + 0.609 = 0.749</td>
+<td>1309.9</td>
+<td>397.07</td>
+</tr>
+<tr class="row-even"><td>MNIST (training)</td>
+<td>20.422</td>
+<td>0.144 + 10.920 = 11.064</td>
+<td>3685.3</td>
+<td>895.32</td>
+</tr>
+<tr class="row-odd"><td>Mask R-CNN</td>
+<td>11.538</td>
+<td>0.363 + 8.379 = 8.742</td>
+<td>6483.4</td>
+<td>870.48</td>
+</tr>
+</tbody>
+</table>
+<p>InceptionV3 and ResNet50 are tested with a 299x299 image; Mask R-CNN is
+tested with a 768x768 image. The MNIST line refers to a small neural network
+trained to recognize hand-written digits whose implementation can be found
+<a class="reference external" href="https://github.com/owlbarn/owl/blob/master/examples/lazy_mnist.ml">in this code repository</a>.
+The time is the average over 30 evaluations, without reusing pre-computed nodes
+when a computation graph is used. The graph building phase includes graph
+construction, optimisation and memory initialisation. The memory is the maximum
+resident set size of the program. This was evaluated on a laptop with an Intel
+i5-6300HQ and 8 GB of RAM.</p>
+<p>For instance, when evaluated in the right order, the following
+computation graph, which can be used to recognise hand-written
+digits, needs only two different blocks of memory (each colour
+corresponds to a memory block, white nodes always need to be kept in
+memory):</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/owl_vision_lazymnistinf.png"><img alt="coloured cgraph" src="../_images/owl_vision_lazymnistinf.png" style="width: 100%;" /></a>
+</div>
+<p>You can find bigger visualisations of the allocation performed by <a class="reference external" href="https://drive.google.com/drive/folders/12KCY9OC6GjuHiH2pRiAjqNi-pz2sNcc1?usp=sharing">the
+new algorithm</a>.</p>
+<p>Using a computation graph has many other advantages that I have not
+mentioned. To learn more about it, you can see <a class="reference external" href="http://ocaml.xyz/chapter/cgraph_intro.html">this
+article</a>. It is important
+to point out that this mechanism can be used for any scientific
+computation using multi-dimensional arrays, not only neural networks.</p>
+</div>
+<div class="section" id="try-it">
+<h2>Try it!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
+<p>Here is an example of what happens if you apply Mask R-CNN on a video:</p>
+<div style="position:relative;height:0;padding-bottom:56.25%">
+  <iframe src="https://www.youtube.com/embed/ruM7S-cqk-k?ecver=2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen>
+  </iframe>
+</div><p>Processing one image with a size of 1024x1024 pixels takes between 10 and
+15 seconds on my laptop. You can try a demo of the network
+<a class="reference external" href="http://demo.ocaml.xyz/mrcnn.html">on this page</a>. If you want to apply it on
+videos, large images or experiment a bit more, see <a class="reference external" href="https://github.com/pvdhove/owl-mask-rcnn">the
+GitHub repository</a>. Pre-trained
+weights on 80 classes of common objects are provided, which have been converted
+from the TensorFlow implementation mentioned above.</p>
+</div>
+<div class="section" id="whats-next">
+<h2>What’s next?<a class="headerlink" href="#whats-next" title="Permalink to this headline">¶</a></h2>
+<p>A few things can still be improved. First of all, to fully support
+training, some operations are still missing both in Owl and in my
+implementation of Mask R-CNN. Then to make it even faster, especially
+for videos, GPU support would be incredibly helpful. Owl’s <a class="reference external" href="https://github.com/owlbarn/owl/tree/master/src/opencl">GPU
+support</a> is
+already fully functional, but some work is still necessary to apply it
+to Mask R-CNN.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+
+    <div class="footer">
+      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/project/pierre_cgraph.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123353217-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123353217-1');
+</script>
+
+  </body>
+</html>
