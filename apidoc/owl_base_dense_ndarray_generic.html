@@ -98,7 +98,7 @@
   <div class="section" id="base-dense-ndarray-generic">
 <h1>Base.Dense.Ndarray.Generic<a class="headerlink" href="#base-dense-ndarray-generic" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#389 entries have been extracted.</p>
+#393 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/dense/owl_base_dense_ndarray_generic.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/dense/owl_base_dense_ndarray_generic.ml">{Implementation}</a></p>
@@ -299,7 +299,7 @@
 </pre></div>
 </div>
 <p>TODO: not implemented</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4224">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4230">source code</a></p>
 </div>
 <div class="section" id="iterate-array-elements">
 <h2>Iterate array elements<a class="headerlink" href="#iterate-array-elements" title="Permalink to this headline">¶</a></h2>
@@ -568,7 +568,7 @@
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4202">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4208">source code</a></p>
 </div>
 <div class="section" id="unary-math-operators">
 <h2>Unary math operators<a class="headerlink" href="#unary-math-operators" title="Permalink to this headline">¶</a></h2>
@@ -1217,7 +1217,24 @@
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_matrix_generic.html"><span class="doc">Dense.Matrix.Generic</span></a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4198">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4197">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lyapunov</span> <span class="o">:</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Refer to <a class="reference internal" href="owl_dense_matrix_generic.html"><span class="doc">Dense.Matrix.Generic</span></a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4199">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diag</span><span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Refer to <a class="reference internal" href="owl_dense_matrix_generic.html"><span class="doc">Dense.Matrix.Generic</span></a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tril</span><span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Refer to <a class="reference internal" href="owl_dense_matrix_generic.html"><span class="doc">Dense.Matrix.Generic</span></a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">triu</span><span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Refer to <a class="reference internal" href="owl_dense_matrix_generic.html"><span class="doc">Dense.Matrix.Generic</span></a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">trace</span> <span class="o">:</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -1947,12 +1964,12 @@
 </pre></div>
 </div>
 <p>Identity function to deal with the type conversion required by other functors.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4229">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4235">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_to_float</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p>Identity function to deal with the type conversion required by other functors.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4231">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4237">source code</a></p>
 </div>
 </div>
 

@@ -2,7 +2,7 @@ Base.Dense.Ndarray.Generic
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#389 entries have been extracted.
+#393 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/dense/owl_base_dense_ndarray_generic.mli>`_ 
@@ -396,7 +396,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 TODO: not implemented
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4224>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4230>`__
 
 
 
@@ -931,7 +931,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4202>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4208>`__
 
 
 
@@ -2222,9 +2222,37 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 Refer to :doc:`owl_dense_matrix_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4198>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4197>`__
 
 
+
+.. code-block:: ocaml
+
+  val lyapunov : (float, 'b) t -> (float, 'b) t -> (float, 'b) t
+
+Refer to :doc:`owl_dense_matrix_generic`
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4199>`__
+
+
+
+.. code-block:: ocaml
+
+  val diag: ?k:int -> (float, 'b) t -> (float, 'b) t
+
+Refer to :doc:`owl_dense_matrix_generic`
+
+.. code-block:: ocaml
+
+  val tril: ?k:int -> (float, 'b) t -> (float, 'b) t
+
+Refer to :doc:`owl_dense_matrix_generic`
+
+.. code-block:: ocaml
+
+  val triu: ?k:int -> (float, 'b) t -> (float, 'b) t
+
+Refer to :doc:`owl_dense_matrix_generic`
 
 .. code-block:: ocaml
 
@@ -3558,7 +3586,7 @@ Helper functions
 
 Identity function to deal with the type conversion required by other functors.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4229>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4235>`__
 
 
 
@@ -3568,7 +3596,7 @@ Identity function to deal with the type conversion required by other functors.
 
 Identity function to deal with the type conversion required by other functors.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4231>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4237>`__
 
 
 

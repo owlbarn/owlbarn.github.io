@@ -2,7 +2,7 @@ Computation.Operator
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#196 entries have been extracted.
+#200 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_operator_sig.ml>`_ 
@@ -1443,7 +1443,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val trace : arr -> elt
+  val lyapunov : arr -> arr -> arr
 
 TODO
 
@@ -1453,17 +1453,35 @@ TODO
 
 .. code-block:: ocaml
 
-  val dot : arr -> arr -> arr
+  val diag: ?k:int -> arr -> arr
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L468>`__
+.. code-block:: ocaml
+
+  val triu: ?k:int -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val tril: ?k:int -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val trace : arr -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L474>`__
 
 
 
 .. code-block:: ocaml
 
-  val transpose : ?axis:int array -> arr -> arr
+  val dot : arr -> arr -> arr
 
 TODO
 
@@ -1473,7 +1491,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val to_rows : arr -> 'a array
+  val transpose : ?axis:int array -> arr -> arr
 
 TODO
 
@@ -1483,11 +1501,21 @@ TODO
 
 .. code-block:: ocaml
 
+  val to_rows : arr -> 'a array
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L492>`__
+
+
+
+.. code-block:: ocaml
+
   val of_rows : arr array -> arr
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L489>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L497>`__
 
 
 
@@ -1497,7 +1525,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L491>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L499>`__
 
 
 
@@ -1507,7 +1535,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L493>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L501>`__
 
 
 
