@@ -225,7 +225,7 @@ TODO
 ``percentile x p`` returns the ``p`` percentile of the data ``x``. ``p`` is between
 0. and 100. ``x`` does not need to be sorted beforehand.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L222>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L226>`__
 
 
 
@@ -233,8 +233,13 @@ TODO
 
   val quantile : float array -> float -> float
 
-``quantile x p`` returns the ``p`` quantile of the data ``x``. ``p`` is between
-0. and 1. ``x`` does not need to be sorted beforehand.
+``quantile x p`` returns the ``p`` quantile of the data
+    ``x``. ``x`` does not need to be sorted beforehand. When computing
+    several quantiles on the same data, it is more efficient to
+    "pre-apply" the function, as in ``let f = quantile x in List.map f
+    [ 0.1 ; 0.5 ]``, in which case the data is sorted only once.
+
+    @raise Invalid_argument if ``p`` is not between 0 and 1.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L217>`__
 
@@ -259,7 +264,7 @@ TODO
 ``interquartile x`` returns the interquartile range of ``x``
     which is defined as the first quartile subtracted from the third quartile.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L233>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L237>`__
 
 
 
@@ -269,7 +274,7 @@ TODO
 
 ``median x`` returns the median of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L225>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L229>`__
 
 
 
@@ -440,7 +445,7 @@ order with duplicates removed.
 
 ``z_score x`` calculates the z score of a given array ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L235>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L239>`__
 
 
 
@@ -450,7 +455,7 @@ order with duplicates removed.
 
 ``t_score x`` calculates the t score of a given array ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L238>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L242>`__
 
 
 
@@ -460,7 +465,7 @@ order with duplicates removed.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L244>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L248>`__
 
 
 
@@ -476,7 +481,7 @@ as follows:
 .. math::
   (Q1 - k*(Q3-Q1), Q3 + k*(Q3-Q1))
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L764>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L768>`__
 
 
 
@@ -496,7 +501,7 @@ Bandwidth selection rules is as follows:
 
 The default bandwidth value is ``Scott``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L771>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L775>`__
 
 
 
@@ -512,7 +517,7 @@ MCMC: Markov Chain Monte Carlo
 TODO: ``metropolis_hastings f p n`` is Metropolis-Hastings MCMC algorithm.
 f is pdf of the p
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L734>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L738>`__
 
 
 
@@ -523,7 +528,7 @@ f is pdf of the p
 TODO: ``gibbs_sampling f p n`` is Gibbs sampler. f is a sampler based on the full
 conditional function of all variables
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L750>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L754>`__
 
 
 
@@ -563,7 +568,7 @@ The result ``(h,p,z)`` : ``h`` is ``true`` if the test rejects the null hypothes
 the ``alpha`` significance level, and ``false`` otherwise. ``p`` is the p-value and
 ``z`` is the z-score.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L277>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L281>`__
 
 
 
@@ -576,7 +581,7 @@ which is a parametric test of the location parameter when the population
 standard deviation is unknown. ``mu`` is population mean, ``alpha`` is the
 significance level.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L292>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L296>`__
 
 
 
@@ -588,7 +593,7 @@ significance level.
 hypothesis that the data in ``x – y`` comes from a normal distribution with
 mean equal to zero and unknown variance, using the paired-sample t-test.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L308>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L312>`__
 
 
 
@@ -606,7 +611,7 @@ unequal means.
 ``equal_var`` indicates whether two samples have the same variance. If the
 two variances are not the same, the test is referred to as Welche's t-test.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L372>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L376>`__
 
 
 
@@ -625,7 +630,7 @@ hypothesis at the ``alpha`` significance level, and ``false``
 otherwise. ``p`` is the p-value and ``d`` is the Kolmogorov-Smirnov
 test statistic.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L434>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L438>`__
 
 
 
@@ -644,7 +649,7 @@ hypothesis at the ``alpha`` significance level, and ``false``
 otherwise. ``p`` is the p-value and ``d`` is the Kolmogorov-Smirnov
 test statistic.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L486>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L490>`__
 
 
 
@@ -657,7 +662,7 @@ hypothesis that the data in ``x`` comes from a normal distribution with input
 ``variance``, using the chi-square variance test. The alternative hypothesis
 is that ``x`` comes from a normal distribution with a different variance.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L526>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L530>`__
 
 
 
@@ -669,7 +674,7 @@ is that ``x`` comes from a normal distribution with a different variance.
 data ``x`` comes from a normal distribution with an unknown mean and variance,
 using the Jarque-Bera test.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L515>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L519>`__
 
 
 
@@ -685,7 +690,7 @@ The result ``(h,p,z)`` : ``h`` is ``true`` if the test rejects the null hypothes
 the ``alpha`` significance level, and ``false`` otherwise. ``p`` is the p-value and
 ``z`` is prior odds ratio.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L541>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L545>`__
 
 
 
@@ -699,7 +704,7 @@ by runnign Wald–Wolfowitz runs test. The test is based on the number of runs
 of consecutive values above or below the mean of ``x``. ``~v`` is the reference
 value, the default value is the median of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L694>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L698>`__
 
 
 
@@ -713,7 +718,7 @@ using exact test (see paper Ying Kuen Cheung and Jerome H. Klotz (1997)
 The Mann Whitney Wilcoxon distribution using linked list
 Statistica Sinica 7 805-813), else usning asymptotic normal distribution.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L585>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L589>`__
 
 
 
@@ -723,7 +728,7 @@ Statistica Sinica 7 805-813), else usning asymptotic normal distribution.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L637>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L641>`__
 
 
 
