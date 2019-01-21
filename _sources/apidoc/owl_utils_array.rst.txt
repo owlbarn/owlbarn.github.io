@@ -707,9 +707,9 @@ TODO
 
   val balance_last : float -> float array -> float array
 
-``balance_last mass x`` performs the following function. Let ``k`` be the
+``balance_last mass x`` performs the following function. Let ``l`` be the
 length of ``x``, if ``i < l - 1``, then ``x.(i) = x.(i)``, otherwise
-``x.(l - 1) = mass - \sum x.(i)``.
+``x.(l - 1) = mass - \sum_{i < l - 1} x.(i)``.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L378>`__
 
