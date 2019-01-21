@@ -2,7 +2,7 @@ Computation.Operator
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#200 entries have been extracted.
+#204 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_operator_sig.ml>`_ 
@@ -117,7 +117,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val shape : arr -> int array
+  val init_nd : int array -> (int array -> elt) -> arr
 
 TODO
 
@@ -127,7 +127,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val numel : arr -> int
+  val shape : arr -> int array
 
 TODO
 
@@ -137,7 +137,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val get : arr -> int array -> elt
+  val numel : arr -> int
 
 TODO
 
@@ -147,11 +147,21 @@ TODO
 
 .. code-block:: ocaml
 
+  val get : arr -> int array -> elt
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L93>`__
+
+
+
+.. code-block:: ocaml
+
   val set : arr -> int array -> elt -> unit
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L94>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L96>`__
 
 
 
@@ -161,7 +171,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L97>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L99>`__
 
 
 
@@ -171,7 +181,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L100>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L102>`__
 
 
 
@@ -181,7 +191,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L103>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L105>`__
 
 
 
@@ -191,7 +201,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L106>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L108>`__
 
 
 
@@ -201,7 +211,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L108>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L110>`__
 
 
 
@@ -211,7 +221,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L111>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L113>`__
 
 
 
@@ -221,7 +231,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L117>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L119>`__
 
 
 
@@ -231,7 +241,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L120>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L122>`__
 
 
 
@@ -241,7 +251,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L123>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L125>`__
 
 
 
@@ -251,7 +261,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L126>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L128>`__
 
 
 
@@ -261,7 +271,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L133>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L135>`__
 
 
 
@@ -271,7 +281,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L136>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L138>`__
 
 
 
@@ -281,7 +291,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L138>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L140>`__
 
 
 
@@ -291,7 +301,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L142>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L144>`__
 
 
 
@@ -301,7 +311,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L145>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L147>`__
 
 
 
@@ -311,7 +321,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L148>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L150>`__
 
 
 
@@ -321,7 +331,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L151>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L153>`__
 
 
 
@@ -330,10 +340,10 @@ TODO
   val delay : (Device.A.arr -> Device.A.arr) -> arr -> arr
 
 ``delay f x`` returns ``f x``. It allows to use a function that is not tracked
-by the computation graph and delay its evaluation. The output must have the
-same shape as the input.
+     by the computation graph and delay its evaluation. The output must have the
+     same shape as the input.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L154>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L156>`__
 
 
 
@@ -342,10 +352,10 @@ same shape as the input.
   val lazy_print : ?max_row:int -> ?max_col:int -> ?header:bool -> ?fmt:(Device.A.elt -> string) -> arr -> arr
 
 ``lazy_print x`` prints the output of ``x`` when it is evaluated. Is implemented
-as an identity node. For information about the optional parameters, refer to the
-``print`` function of the ``Ndarray`` module.
+     as an identity node. For information about the optional parameters, refer to the
+     ``print`` function of the ``Ndarray`` module.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L161>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L163>`__
 
 
 
@@ -355,7 +365,7 @@ as an identity node. For information about the optional parameters, refer to the
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L164>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L166>`__
 
 
 
@@ -503,7 +513,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L213>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L215>`__
 
 
 
@@ -513,7 +523,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L215>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L217>`__
 
 
 
@@ -523,7 +533,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L217>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L219>`__
 
 
 
@@ -533,7 +543,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L219>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L221>`__
 
 
 
@@ -561,7 +571,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L227>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L229>`__
 
 
 
@@ -571,7 +581,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L229>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L231>`__
 
 
 
@@ -581,7 +591,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L231>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L233>`__
 
 
 
@@ -591,7 +601,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L233>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L235>`__
 
 
 
@@ -601,7 +611,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L235>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L237>`__
 
 
 
@@ -611,7 +621,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L237>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L239>`__
 
 
 
@@ -621,7 +631,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L239>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L241>`__
 
 
 
@@ -631,7 +641,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L250>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L252>`__
 
 
 
@@ -647,7 +657,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L255>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L257>`__
 
 
 
@@ -657,7 +667,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L257>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L259>`__
 
 
 
@@ -673,7 +683,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L261>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L263>`__
 
 
 
@@ -683,7 +693,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L263>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L265>`__
 
 
 
@@ -693,7 +703,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L265>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L267>`__
 
 
 
@@ -703,7 +713,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L267>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L269>`__
 
 
 
@@ -713,7 +723,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L269>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L271>`__
 
 
 
@@ -747,7 +757,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L279>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L281>`__
 
 
 
@@ -757,7 +767,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L281>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L283>`__
 
 
 
@@ -767,7 +777,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L283>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L285>`__
 
 
 
@@ -777,7 +787,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L285>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L287>`__
 
 
 
@@ -787,7 +797,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L287>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L289>`__
 
 
 
@@ -797,7 +807,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L289>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L291>`__
 
 
 
@@ -807,7 +817,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L291>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L293>`__
 
 
 
@@ -817,7 +827,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L293>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L295>`__
 
 
 
@@ -827,7 +837,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L295>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L297>`__
 
 
 
@@ -837,7 +847,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L297>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L299>`__
 
 
 
@@ -847,7 +857,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L299>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L301>`__
 
 
 
@@ -857,7 +867,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L301>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L303>`__
 
 
 
@@ -867,7 +877,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L303>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L305>`__
 
 
 
@@ -877,7 +887,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L305>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L307>`__
 
 
 
@@ -887,7 +897,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L307>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L309>`__
 
 
 
@@ -897,7 +907,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L309>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L311>`__
 
 
 
@@ -907,7 +917,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L311>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L313>`__
 
 
 
@@ -917,7 +927,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L313>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L315>`__
 
 
 
@@ -927,7 +937,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L315>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L317>`__
 
 
 
@@ -937,7 +947,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L317>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L319>`__
 
 
 
@@ -947,7 +957,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L319>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L321>`__
 
 
 
@@ -957,7 +967,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L321>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L323>`__
 
 
 
@@ -967,7 +977,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L324>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L326>`__
 
 
 
@@ -977,7 +987,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L327>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L329>`__
 
 
 
@@ -987,7 +997,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L330>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L332>`__
 
 
 
@@ -997,7 +1007,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L333>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L335>`__
 
 
 
@@ -1007,7 +1017,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L336>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L338>`__
 
 
 
@@ -1017,7 +1027,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L339>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L341>`__
 
 
 
@@ -1027,7 +1037,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L342>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L344>`__
 
 
 
@@ -1037,7 +1047,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L345>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L347>`__
 
 
 
@@ -1047,7 +1057,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L348>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L350>`__
 
 
 
@@ -1057,7 +1067,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L351>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L353>`__
 
 
 
@@ -1067,7 +1077,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L354>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L356>`__
 
 
 
@@ -1077,7 +1087,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L357>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L359>`__
 
 
 
@@ -1087,7 +1097,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L360>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L362>`__
 
 
 
@@ -1097,7 +1107,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L363>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L365>`__
 
 
 
@@ -1107,7 +1117,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L366>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L368>`__
 
 
 
@@ -1117,7 +1127,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L369>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L371>`__
 
 
 
@@ -1127,7 +1137,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L372>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L374>`__
 
 
 
@@ -1137,7 +1147,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L375>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L377>`__
 
 
 
@@ -1147,7 +1157,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L378>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L380>`__
 
 
 
@@ -1157,7 +1167,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L381>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L383>`__
 
 
 
@@ -1167,7 +1177,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L384>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L386>`__
 
 
 
@@ -1177,7 +1187,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L387>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L389>`__
 
 
 
@@ -1187,7 +1197,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L390>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L392>`__
 
 
 
@@ -1197,7 +1207,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L393>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L395>`__
 
 
 
@@ -1207,7 +1217,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L396>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L398>`__
 
 
 
@@ -1217,7 +1227,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L399>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L401>`__
 
 
 
@@ -1227,7 +1237,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L402>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L404>`__
 
 
 
@@ -1237,7 +1247,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L405>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L407>`__
 
 
 
@@ -1247,7 +1257,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L408>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L410>`__
 
 
 
@@ -1257,7 +1267,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L411>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L413>`__
 
 
 
@@ -1267,7 +1277,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L414>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L416>`__
 
 
 
@@ -1277,7 +1287,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L417>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L419>`__
 
 
 
@@ -1287,7 +1297,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L420>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L422>`__
 
 
 
@@ -1297,7 +1307,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L423>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L425>`__
 
 
 
@@ -1307,7 +1317,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L426>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L428>`__
 
 
 
@@ -1317,7 +1327,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L429>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L431>`__
 
 
 
@@ -1327,7 +1337,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L432>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L434>`__
 
 
 
@@ -1337,7 +1347,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L435>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L437>`__
 
 
 
@@ -1347,7 +1357,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L438>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L440>`__
 
 
 
@@ -1357,7 +1367,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L441>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L443>`__
 
 
 
@@ -1367,7 +1377,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L444>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L446>`__
 
 
 
@@ -1377,7 +1387,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L449>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L451>`__
 
 
 
@@ -1387,7 +1397,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L454>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L456>`__
 
 
 
@@ -1397,7 +1407,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L456>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L458>`__
 
 
 
@@ -1407,7 +1417,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L458>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L460>`__
 
 
 
@@ -1417,7 +1427,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L460>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L462>`__
 
 
 
@@ -1427,9 +1437,15 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L462>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L464>`__
 
 
+
+.. code-block:: ocaml
+
+  val chol: ?upper:bool -> arr -> arr
+
+TODO
 
 .. code-block:: ocaml
 
@@ -1437,7 +1453,17 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L464>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L470>`__
+
+
+
+.. code-block:: ocaml
+
+  val svd : ?thin:bool -> arr -> arr * arr * arr
+
+TODO
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L468>`__
 
 
 
@@ -1447,13 +1473,19 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L466>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L472>`__
 
 
 
 .. code-block:: ocaml
 
   val diag: ?k:int -> arr -> arr
+
+TODO
+
+.. code-block:: ocaml
+
+  val diagm: ?k:int -> arr -> arr
 
 TODO
 
@@ -1475,7 +1507,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L474>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L482>`__
 
 
 
@@ -1485,7 +1517,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L476>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L484>`__
 
 
 
@@ -1495,7 +1527,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L484>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L492>`__
 
 
 
@@ -1505,7 +1537,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L492>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L500>`__
 
 
 
@@ -1515,7 +1547,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L497>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L505>`__
 
 
 
@@ -1525,7 +1557,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L499>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L507>`__
 
 
 
@@ -1535,7 +1567,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L501>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L509>`__
 
 
 
