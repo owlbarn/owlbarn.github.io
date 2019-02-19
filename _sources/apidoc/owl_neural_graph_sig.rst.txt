@@ -927,7 +927,7 @@ Convert a neural network to its string representation.
 
 .. code-block:: ocaml
 
-  val pp_network : Format.formatter -> network -> unit
+  val pp_network : Format.formatter -> network -> unit [@@ocaml.toplevel_printer]
 
 Pretty printing function a neural network.
 

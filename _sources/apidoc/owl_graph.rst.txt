@@ -438,7 +438,7 @@ acyclic.
 
 .. code-block:: ocaml
 
-  val pp_node : Format.formatter -> 'a node -> unit
+  val pp_node : Format.formatter -> 'a node -> unit [@@ocaml.toplevel_printer]
 
 Pretty print a given node.
 

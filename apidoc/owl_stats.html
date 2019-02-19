@@ -326,7 +326,7 @@ one. If bins are infinitely wide, their density is 0 and the sum over width
 times density of all finite bins is the total weight in the finite bins. The
 result is stored in the <code class="docutils literal notranslate"><span class="pre">density</span></code> field.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L190">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_hist</span><span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="n">histogram</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_hist</span><span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="n">histogram</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="o">[@@</span><span class="n">ocaml</span><span class="o">.</span><span class="n">toplevel_printer</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>Pretty-print summary information on a histogram record</p>

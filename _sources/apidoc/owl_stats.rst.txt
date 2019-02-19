@@ -423,7 +423,7 @@ result is stored in the ``density`` field.
 
 .. code-block:: ocaml
 
-  val pp_hist: Format.formatter -> histogram -> unit
+  val pp_hist: Format.formatter -> histogram -> unit [@@ocaml.toplevel_printer]
 
 Pretty-print summary information on a histogram record
 

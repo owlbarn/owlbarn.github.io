@@ -1763,7 +1763,7 @@ function to format every element into string.
 
 .. code-block:: ocaml
 
-  val pp_dsnda : Format.formatter -> ('a, 'b) t -> unit
+  val pp_dsnda : Format.formatter -> ('a, 'b) t -> unit [@@ocaml.toplevel_printer]
 
 ``pp_dsnda x`` prints ``x`` in OCaml toplevel. If the ndarray is too long,
 ``pp_dsnda`` only prints out parts of the ndarray.

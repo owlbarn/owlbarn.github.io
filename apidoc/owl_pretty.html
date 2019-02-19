@@ -92,7 +92,7 @@
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_pretty.ml">{Implementation}</a></p>
 <div class="section" id="ndarray-pretty-printer">
 <h2>Ndarray pretty printer<a class="headerlink" href="#ndarray-pretty-printer" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_dsnda</span> <span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">c</span><span class="o">)</span> <span class="nn">Bigarray</span><span class="p">.</span><span class="nn">Genarray</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_dsnda</span> <span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">c</span><span class="o">)</span> <span class="nn">Bigarray</span><span class="p">.</span><span class="nn">Genarray</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="o">[@@</span><span class="n">ocaml</span><span class="o">.</span><span class="n">toplevel_printer</span><span class="o">]</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pp_dsnda</span></code> is the pretty printer for n-dimensional arrays.</p>
@@ -113,7 +113,7 @@ the headers. [fmt] is the function to format every element into string.</p>
 </div>
 <div class="section" id="dataframe-pretty-printer">
 <h2>Dataframe pretty printer<a class="headerlink" href="#dataframe-pretty-printer" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_dataframe</span> <span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="nn">Owl_dataframe</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_dataframe</span> <span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="nn">Owl_dataframe</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="o">[@@</span><span class="n">ocaml</span><span class="o">.</span><span class="n">toplevel_printer</span><span class="o">]</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pp_dataframe</span></code> is the pretty printer for dataframe.</p>

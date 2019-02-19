@@ -17,7 +17,7 @@ Ndarray pretty printer
 
 .. code-block:: ocaml
 
-  val pp_dsnda : Format.formatter -> ('a, 'b, 'c) Bigarray.Genarray.t -> unit
+  val pp_dsnda : Format.formatter -> ('a, 'b, 'c) Bigarray.Genarray.t -> unit [@@ocaml.toplevel_printer]
 
 ``pp_dsnda`` is the pretty printer for n-dimensional arrays.
 
@@ -55,7 +55,7 @@ Dataframe pretty printer
 
 .. code-block:: ocaml
 
-  val pp_dataframe : Format.formatter -> Owl_dataframe.t -> unit
+  val pp_dataframe : Format.formatter -> Owl_dataframe.t -> unit [@@ocaml.toplevel_printer]
 
 ``pp_dataframe`` is the pretty printer for dataframe.
 

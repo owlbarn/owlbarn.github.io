@@ -581,7 +581,7 @@ TODO
 
 .. code-block:: ocaml
 
-  val pp_spnda : ('a, 'b) t -> unit
+  val pp_spnda : ('a, 'b) t -> unit [@@ocaml.toplevel_printer]
 
 TODO
 

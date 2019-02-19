@@ -335,7 +335,7 @@ I/O functions
 
 .. code-block:: ocaml
 
-  val pp_vocab : Format.formatter -> t -> unit
+  val pp_vocab : Format.formatter -> t -> unit [@@ocaml.toplevel_printer]
 
 Pretty printer for vocabulary type.
 

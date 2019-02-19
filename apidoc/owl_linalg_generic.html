@@ -93,7 +93,7 @@
   <div class="section" id="linalg-generic">
 <h1>Linalg.Generic<a class="headerlink" href="#linalg-generic" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#66 entries have been extracted.</p>
+#67 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/linalg/owl_linalg_generic.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/linalg/owl_linalg_generic.ml">{Implementation}</a></p>
@@ -119,7 +119,7 @@ is singular, <code class="docutils literal notranslate"><span class="pre">inv</s
 <p><code class="docutils literal notranslate"><span class="pre">pinv</span> <span class="pre">x</span></code> computes Moore-Penrose pseudoinverse of matrix <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">tol</span></code> specifies
 the tolerance, the absolute value of the elements smaller than <code class="docutils literal notranslate"><span class="pre">tol</span></code> will be
 set to zeros.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L715">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L716">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">det</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
@@ -138,7 +138,7 @@ equivalent to <code class="docutils literal notranslate"><span class="pre">log</
 The function does so by counting the number of singular values of <code class="docutils literal notranslate"><span class="pre">x</span></code> which
 are beyond a pre-defined threshold <code class="docutils literal notranslate"><span class="pre">tol</span></code>. By default, <code class="docutils literal notranslate"><span class="pre">tol</span> <span class="pre">=</span> <span class="pre">max(m,n)</span> <span class="pre">*</span> <span class="pre">eps</span></code>
 where <code class="docutils literal notranslate"><span class="pre">eps</span> <span class="pre">=</span> <span class="pre">1e-10</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L276">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L277">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">norm</span> <span class="o">:</span> <span class="o">?</span><span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -161,7 +161,7 @@ where <code class="docutils literal notranslate"><span class="pre">eps</span> <s
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L591">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L592">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">vecnorm</span> <span class="o">:</span> <span class="o">?</span><span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -187,7 +187,7 @@ assumes the input is either 1d vector or 2d matrix.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L602">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L603">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cond</span> <span class="o">:</span> <span class="o">?</span><span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -196,7 +196,7 @@ assumes the input is either 1d vector or 2d matrix.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cond</span> <span class="pre">~p:2.</span> <span class="pre">x</span></code> or <code class="docutils literal notranslate"><span class="pre">cond</span> <span class="pre">x</span></code> returns the 2-norm condition number.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cond</span> <span class="pre">~p:infinity</span> <span class="pre">x</span></code> returns the infinity norm condition number.</p>
 <p>The default value of <code class="docutils literal notranslate"><span class="pre">p</span></code> is <code class="docutils literal notranslate"><span class="pre">2.</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L622">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L623">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rcond</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -215,32 +215,32 @@ conditioned, the result is near <code class="docutils literal notranslate"><span
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_triu</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is upper triangular otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L549">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L550">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_tril</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_tril</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is lower triangular otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L552">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L553">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_symmetric</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_symmetric</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is symmetric otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L555">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L556">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_hermitian</span> <span class="o">:</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_hermitian</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is hermitian otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L558">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L559">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_diag</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_diag</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> is diagonal otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L561">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L562">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_posdef</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_posdef</span> <span class="pre">x</span></code> checks whether <code class="docutils literal notranslate"><span class="pre">x</span></code> is a positive semi-definite matrix.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L564">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L565">source code</a></p>
 </div>
 <div class="section" id="factorisation">
 <h2>Factorisation<a class="headerlink" href="#factorisation" title="Permalink to this headline">¶</a></h2>
@@ -265,7 +265,7 @@ used by default.</p>
 <p><code class="docutils literal notranslate"><span class="pre">lq</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">(l,</span> <span class="pre">q)</span></code> calculates the LQ decomposition of <code class="docutils literal notranslate"><span class="pre">x</span></code>. By default, the
 reduced LQ decomposition is performed. But you can get full <code class="docutils literal notranslate"><span class="pre">Q</span></code> by setting
 parameter <code class="docutils literal notranslate"><span class="pre">thin</span> <span class="pre">=</span> <span class="pre">false</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L208">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L209">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">qr</span> <span class="o">:</span> <span class="o">?</span><span class="n">thin</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">pivot</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="n">int32</span><span class="o">,</span> <span class="n">int32_elt</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -278,7 +278,7 @@ setting <code class="docutils literal notranslate"><span class="pre">pivot</span
 the returned indices are not adjusted to 0-based C layout.</p>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">qr</span></code> performs a reduced QR factorisation, full factorisation can
 be enabled by setting <code class="docutils literal notranslate"><span class="pre">thin</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L156">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L157">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chol</span> <span class="o">:</span> <span class="o">?</span><span class="n">upper</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -286,7 +286,7 @@ be enabled by setting <code class="docutils literal notranslate"><span class="pr
 matrix <code class="docutils literal notranslate"><span class="pre">x</span></code> such that <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">u'</span> <span class="pre">*&#64;</span> <span class="pre">u</span></code>. By default, the upper triangular matrix
 is returned. The lower triangular part can be obtained by setting the
 parameter <code class="docutils literal notranslate"><span class="pre">upper</span> <span class="pre">=</span> <span class="pre">false</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L306">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L307">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">svd</span> <span class="o">:</span> <span class="o">?</span><span class="n">thin</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -298,14 +298,14 @@ E.g., for a <code class="docutils literal notranslate"><span class="pre">m</span
 <p>The full svd can be performed by setting <code class="docutils literal notranslate"><span class="pre">thin</span> <span class="pre">=</span> <span class="pre">false</span></code>. Note that for complex
 numbers, the type of returned singular values are also complex, the imaginary
 part is zero.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L233">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L234">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">svdvals</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">svdvals</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">s</span></code> performs the singular value decomposition of <code class="docutils literal notranslate"><span class="pre">x</span></code> like
 <code class="docutils literal notranslate"><span class="pre">svd</span> <span class="pre">x</span></code>, but the function only returns the singular values without <code class="docutils literal notranslate"><span class="pre">u</span></code> and
 <code class="docutils literal notranslate"><span class="pre">vt</span></code>. Note that for complex numbers, the return is also complex type.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L243">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L244">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gsvd</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -322,13 +322,13 @@ of <code class="docutils literal notranslate"><span class="pre">x</span></code> 
 </div>
 <p>Please refer to:
 <a class="reference external" href="https://software.intel.com/en-us/mkl-developer-reference-c-ggsvd3">Intel MKL Reference</a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L249">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L250">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gsvdvals</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">gsvdvals</span> <span class="pre">x</span> <span class="pre">y</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">gsvd</span> <span class="pre">x</span> <span class="pre">y</span></code> but only returns the singular
 values of the generalised singular value decomposition of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L265">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L266">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">schur</span> <span class="o">:</span> <span class="n">otyp</span><span class="o">:(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -356,12 +356,12 @@ if you use S, D, C, Z module, then you do not need to worry about <code class="d
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L327">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L328">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">schur_tz</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">schur_tz</span> <span class="pre">x</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">schur</span></code> but only returns <code class="docutils literal notranslate"><span class="pre">(t,</span> <span class="pre">z)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L337">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L338">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ordschur</span> <span class="o">:</span> <span class="n">otyp</span><span class="o">:(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="n">select</span><span class="o">:(</span><span class="n">int32</span><span class="o">,</span> <span class="n">int32_elt</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -385,7 +385,7 @@ factorization <code class="docutils literal notranslate"><span class="pre">schur
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L344">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L345">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">qz</span> <span class="o">:</span> <span class="n">otyp</span><span class="o">:(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -412,20 +412,20 @@ Y = Z T Z^H\]</div>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L358">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L359">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ordqz</span> <span class="o">:</span> <span class="n">otyp</span><span class="o">:(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="n">select</span><span class="o">:(</span><span class="n">int32</span><span class="o">,</span> <span class="n">int32_elt</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ordqz</span> <span class="pre">~select</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">q</span> <span class="pre">z</span></code> reorders the generalised Schur decomposition of a pair
 of matrices (X,Y) so that a selected cluster of eigenvalues appears in the
 leading diagonal blocks of (X,Y).</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L372">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L373">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">qzvals</span> <span class="o">:</span> <span class="n">otyp</span><span class="o">:(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">qzvals</span> <span class="pre">~otyp</span> <span class="pre">x</span> <span class="pre">y</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">qz</span> <span class="pre">~otyp</span> <span class="pre">x</span> <span class="pre">y</span></code> but only returns the
 generalised eigen values.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L386">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L387">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hess</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -434,7 +434,7 @@ Both Hessenberg matrix <code class="docutils literal notranslate"><span class="p
 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">q</span> <span class="pre">*&#64;</span> <span class="pre">h</span> <span class="pre">*&#64;</span> <span class="pre">(transpose</span> <span class="pre">q)</span></code>.</p>
 <div class="math notranslate nohighlight">
 \[X = Q H Q^T\]</div>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L512">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L513">source code</a></p>
 </div>
 <div class="section" id="eigenvalues-eigenvectors">
 <h2>Eigenvalues &amp; eigenvectors<a class="headerlink" href="#eigenvalues-eigenvectors" title="Permalink to this headline">¶</a></h2>
@@ -447,13 +447,13 @@ of an arbitrary square matrix <code class="docutils literal notranslate"><span c
 <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">otyp</span></code> specifies the complex type of the output, but you do not
 need worry about this parameter if you use S, D, C, Z modules in Linalg.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L407">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L408">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">eigvals</span> <span class="o">:</span> <span class="o">?</span><span class="n">permute</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">scale</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">otyp</span><span class="o">:(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">kind</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">c</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">d</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">eigvals</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">w</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">eig</span></code> but only computes the eigenvalues of
 an arbitrary square matrix <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L475">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L476">source code</a></p>
 </div>
 <div class="section" id="linear-system-of-equations">
 <h2>Linear system of equations<a class="headerlink" href="#linear-system-of-equations" title="Permalink to this headline">¶</a></h2>
@@ -466,7 +466,7 @@ negligible elements, <code class="docutils literal notranslate"><span class="pre
 <code class="docutils literal notranslate"><span class="pre">transpose</span> <span class="pre">x</span> <span class="pre">*&#64;</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">I</span></code>. Namely,</p>
 <div class="math notranslate nohighlight">
 \[X^T X = I\]</div>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L646">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L647">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">linsolve</span> <span class="o">:</span> <span class="o">?</span><span class="n">trans</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -483,14 +483,14 @@ complex matrices.</p>
 \[A^H X = B\]</div>
 <p>The associated operator is <code class="docutils literal notranslate"><span class="pre">/&#64;</span></code>, so you can simply use <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">/&#64;</span> <span class="pre">b</span></code> to solve
 the linear equation system to get <code class="docutils literal notranslate"><span class="pre">x</span></code>. Please refer to <a class="reference internal" href="owl_operator.html"><span class="doc">Operator Functor</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L674">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L675">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">linreg</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">*</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">linreg</span> <span class="pre">x</span> <span class="pre">y</span> <span class="pre">-&gt;</span> <span class="pre">(a,</span> <span class="pre">b)</span></code> solves <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b*x</span></code> using Ordinary Least Squares.</p>
 <div class="math notranslate nohighlight">
 \[Y = A + BX\]</div>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L698">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L699">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sylvester</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -512,7 +512,7 @@ function calls LAPACKE function <code class="docutils literal notranslate"><span
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L733">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L734">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lyapunov</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -534,7 +534,27 @@ same function is called <code class="docutils literal notranslate"><span class="
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L743">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L744">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">discrete_lyapunov</span> <span class="o">:</span> <span class="o">?</span><span class="n">solver</span><span class="o">:[`</span><span class="n">default</span> <span class="o">|</span> <span class="o">`</span><span class="n">bilinear</span> <span class="o">|</span> <span class="o">`</span><span class="n">direct</span><span class="o">]</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">discrete_lyapunov</span> <span class="pre">a</span> <span class="pre">q</span></code> solves a discrete-time Lyapunov equation in the following form.</p>
+<div class="math notranslate nohighlight">
+\[X - AXA^H = Q\]</div>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">a</span></code> : <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">m</span></code> matrix A.</li>
+<li><code class="docutils literal notranslate"><span class="pre">q</span></code> : <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">n</span></code> matrix Q.</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">x</span></code> : <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">n</span></code> matrix X.</li>
+</ul>
+</dd>
+</dl>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L770">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">care</span> <span class="o">:</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -557,7 +577,7 @@ in the following form. The algorithm is based on <a class="reference internal" h
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L753">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L780">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dare</span> <span class="o">:</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -580,7 +600,7 @@ in the following form. The algorithm is based on <a class="reference internal" h
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L769">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L796">source code</a></p>
 </div>
 <div class="section" id="low-level-factorisation-functions">
 <h2>Low-level factorisation functions<a class="headerlink" href="#low-level-factorisation-functions" title="Permalink to this headline">¶</a></h2>
@@ -595,7 +615,7 @@ matrix <code class="docutils literal notranslate"><span class="pre">x</span></co
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">qrfact</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">(a,</span> <span class="pre">tau,</span> <span class="pre">jpvt)</span></code> calculates QR factorisation of a general
 matrix <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L185">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L186">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bkfact</span> <span class="o">:</span> <span class="o">?</span><span class="n">upper</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">symmetric</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">rook</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="n">int32</span><span class="o">,</span> <span class="n">int32_elt</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -611,7 +631,7 @@ is stored: <code class="docutils literal notranslate"><span class="pre">x</span>
 <p>For <code class="docutils literal notranslate"><span class="pre">ipiv</span></code>, it indicates the details of the interchanges and the block
 structure of <code class="docutils literal notranslate"><span class="pre">d</span></code>. Please refer to the function <code class="docutils literal notranslate"><span class="pre">sytrf</span></code>, <code class="docutils literal notranslate"><span class="pre">hetrf</span></code> in MKL
 documentation for more details.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L525">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L526">source code</a></p>
 </div>
 <div class="section" id="matrix-functions">
 <h2>Matrix functions<a class="headerlink" href="#matrix-functions" title="Permalink to this headline">¶</a></h2>
@@ -624,7 +644,7 @@ itself <code class="docutils literal notranslate"><span class="pre">r</span></co
 it can be be negative, zero, or positive. Non-integer exponents
 are not yet implemented. (If <code class="docutils literal notranslate"><span class="pre">r</span></code> is negative, <code class="docutils literal notranslate"><span class="pre">mpow</span></code> calls <code class="docutils literal notranslate"><span class="pre">inv</span></code>,
 and warnings in documentation for <code class="docutils literal notranslate"><span class="pre">inv</span></code> apply.)</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L809">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L836">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">expm</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -633,53 +653,53 @@ and warnings in documentation for <code class="docutils literal notranslate"><sp
 \[e^x = \sum_{k=0}^{\infty} \frac{1}{k!} x^k\]</div>
 <p>The function implements the scaling and squaring algorithm which uses Padé
 approximation to compute the matrix exponential <a class="reference internal" href="../chapter/reference.html#al2009new" id="id3">[AMH09]</a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L839">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L866">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sinm</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">sinm</span> <span class="pre">x</span></code> computes the matrix sine of input <code class="docutils literal notranslate"><span class="pre">x</span></code>. The function uses <code class="docutils literal notranslate"><span class="pre">expm</span></code>
 to compute the matrix exponentials.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L951">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L978">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cosm</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">cosm</span> <span class="pre">x</span></code> computes the matrix cosine of input <code class="docutils literal notranslate"><span class="pre">x</span></code>. The function uses <code class="docutils literal notranslate"><span class="pre">expm</span></code>
 to compute the matrix exponentials.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L983">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1010">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tanm</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">tanm</span> <span class="pre">x</span></code> computes the matrix tangent of input <code class="docutils literal notranslate"><span class="pre">x</span></code>. The function uses
 <code class="docutils literal notranslate"><span class="pre">expm</span></code> to compute the matrix exponentials.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1026">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1053">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sincosm</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">sincosm</span> <span class="pre">x</span></code> returns both matrix sine and cosine of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1023">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1050">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sinhm</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">sinhm</span> <span class="pre">x</span></code> computes the hyperbolic matrix sine of input <code class="docutils literal notranslate"><span class="pre">x</span></code>. The function
 uses <code class="docutils literal notranslate"><span class="pre">expm</span></code> to compute the matrix exponentials.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1032">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1059">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">coshm</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">coshm</span> <span class="pre">x</span></code> computes the hyperbolic matrix cosine of input <code class="docutils literal notranslate"><span class="pre">x</span></code>. The function
 uses <code class="docutils literal notranslate"><span class="pre">expm</span></code> to compute the matrix exponentials.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1037">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1064">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tanhm</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">tanhm</span> <span class="pre">x</span></code> computes the hyperbolic matrix tangent of input <code class="docutils literal notranslate"><span class="pre">x</span></code>. The function
 uses <code class="docutils literal notranslate"><span class="pre">expm</span></code> to compute the matrix exponentials.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1049">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1076">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sinhcoshm</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">*</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">sinhcoshm</span> <span class="pre">x</span></code> returns both hyperbolic matrix sine and cosine of <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1042">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1069">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -701,7 +721,7 @@ from eigen values <code class="docutils literal notranslate"><span class="pre">e
 <p><code class="docutils literal notranslate"><span class="pre">peakflops</span> <span class="pre">()</span></code> returns the peak number of float point operations using
 <code class="docutils literal notranslate"><span class="pre">Owl_cblas_basic.dgemm</span></code> function. The default matrix size is <code class="docutils literal notranslate"><span class="pre">2000</span> <span class="pre">x</span> <span class="pre">2000</span></code>,
 but you can change this by setting <code class="docutils literal notranslate"><span class="pre">n</span></code> to other numbers as you like.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L791">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L818">source code</a></p>
 </div>
 </div>
 
