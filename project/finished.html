@@ -56,7 +56,7 @@
 <li><a class="reference internal" href="#composing-data-analytical-services">Composing Data Analytical Services</a></li>
 <li><a class="reference internal" href="#computer-vision-performance-optimisation-of-computation-graph">Computer Vision &amp; Performance Optimisation of Computation Graph</a></li>
 <li><a class="reference internal" href="#automatic-parameter-tuning-for-openmp">Automatic Parameter Tuning for OpenMP</a></li>
-<li><a class="reference internal" href="#run-computation-graph-on-gpu-tpu">Run Computation Graph on GPU/TPU ?????</a></li>
+<li><a class="reference internal" href="#run-your-owl-computation-on-tensorflow">Run Your Owl Computation on TensorFlow</a></li>
 </ul>
 </li>
 </ul>
@@ -131,10 +131,18 @@
 <p>By <strong>Jianxin Zhao</strong> | PhD | November 2018 | <a class="reference external" href="https://github.com/owlbarn/owl/tree/master/src/aeos">{AEOS Github}</a> | <a class="reference external" href="http://ocaml.xyz">{Thesis}</a> | {<a class="reference internal" href="jianxin_aeos.html"><span class="doc">Automated Empirical Optimisation of Parameters in Owl</span></a>}</p>
 <p>Automatic Empirical Optimisation of Software (AEOS) is crucial for high performance computing software. It is a methodology to generate optimised software using empirically tuned parameters. As an initial attempt to improve the performance of Owl with it, we build the AEOS module to tune the OpenMP parameters in Owl. OpenMP is an application programming interface that supports multi-platform shared memory multiprocessing programming. It is used in Owl to boost performance of basic operations. However, using OpenMP brings certain overhead, so that when the size of input data is small, or the operation is simple, the non-OpenMP version operation might be faster. Thus an optimal threshold varies for different operations and machines. In the AEOS module, each operation is abstracted as a stand-alone module, and uses linear regression to find this optimal threshold. Compared with the previous practice of set a single threshold for all OpenMP operations, using AEOS module further improves their performance. The AEOS module is designed in such way that extending it to accommodate more parameters or operations should be easy.</p>
 </div>
-<div class="section" id="run-computation-graph-on-gpu-tpu">
-<h2>Run Computation Graph on GPU/TPU ?????<a class="headerlink" href="#run-computation-graph-on-gpu-tpu" title="Permalink to this headline">¶</a></h2>
-<p>By <strong>Jianxin Zhao</strong> | PhD | February 2019 | {<a class="reference internal" href="jianxin_cgraph.html"><span class="doc">Convert Owl Computation Graph to TensorFlow</span></a>}</p>
-<p>blah blah blah ….</p>
+<div class="section" id="run-your-owl-computation-on-tensorflow">
+<h2>Run Your Owl Computation on TensorFlow<a class="headerlink" href="#run-your-owl-computation-on-tensorflow" title="Permalink to this headline">¶</a></h2>
+<p>By <strong>Jianxin Zhao</strong> | PhD | February 2019 | {<a class="reference internal" href="jianxin_cgraph.html"><span class="doc">Run Your Owl Computation on TensorFlow</span></a>}</p>
+<p>In this project we are looking at computation interoperability of Owl with existing libraries such as TensorFlow.
+Our target is to have the best of both worlds. On one hand, we can define “how to compute” on Owl with its elegant and powerful syntax; on the other hand, we can execute the computation efficiently across various hardware devices, such as GPU and TPU, that TensorFlow supports.
+One crucial decision to make is to find the correct intermediate representation in exchanging computation between different platforms.
+Unlike many existing systems and tools, we decide that computation graph, rather than neural network graph, should be the fundamental abstraction.
+Based on this decision, we build an experimental converter system. It aims to export CGraph defined in Owl and execute it in TensorFlow.
+This system centres around the abstraction of TensorFlow computation graph, and how to map Owl computation graph to it.
+Our system utilises the Save and Restore mechanism in TensorFlow to provide a concise workflow.
+Currently we are actively developing the system. Thought still quite limited at the initial phase, the system has shown its potential in real-world examples, including deep neural network inference and algorithmic differentiation.
+In our next step, it would be interesting to see how our system can be extended and combined with related topics such as GPU and XLA.</p>
 </div>
 </div>
 
