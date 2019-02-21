@@ -56,6 +56,7 @@
 <li><a class="reference internal" href="#composing-data-analytical-services">Composing Data Analytical Services</a></li>
 <li><a class="reference internal" href="#computer-vision-performance-optimisation-of-computation-graph">Computer Vision &amp; Performance Optimisation of Computation Graph</a></li>
 <li><a class="reference internal" href="#automatic-parameter-tuning-for-openmp">Automatic Parameter Tuning for OpenMP</a></li>
+<li><a class="reference internal" href="#run-computation-graph-on-gpu-tpu">Run Computation Graph on GPU/TPU ?????</a></li>
 </ul>
 </li>
 </ul>
@@ -129,6 +130,11 @@
 <h2>Automatic Parameter Tuning for OpenMP<a class="headerlink" href="#automatic-parameter-tuning-for-openmp" title="Permalink to this headline">¶</a></h2>
 <p>By <strong>Jianxin Zhao</strong> | PhD | November 2018 | <a class="reference external" href="https://github.com/owlbarn/owl/tree/master/src/aeos">{AEOS Github}</a> | <a class="reference external" href="http://ocaml.xyz">{Thesis}</a> | {<a class="reference internal" href="jianxin_aeos.html"><span class="doc">Automated Empirical Optimisation of Parameters in Owl</span></a>}</p>
 <p>Automatic Empirical Optimisation of Software (AEOS) is crucial for high performance computing software. It is a methodology to generate optimised software using empirically tuned parameters. As an initial attempt to improve the performance of Owl with it, we build the AEOS module to tune the OpenMP parameters in Owl. OpenMP is an application programming interface that supports multi-platform shared memory multiprocessing programming. It is used in Owl to boost performance of basic operations. However, using OpenMP brings certain overhead, so that when the size of input data is small, or the operation is simple, the non-OpenMP version operation might be faster. Thus an optimal threshold varies for different operations and machines. In the AEOS module, each operation is abstracted as a stand-alone module, and uses linear regression to find this optimal threshold. Compared with the previous practice of set a single threshold for all OpenMP operations, using AEOS module further improves their performance. The AEOS module is designed in such way that extending it to accommodate more parameters or operations should be easy.</p>
+</div>
+<div class="section" id="run-computation-graph-on-gpu-tpu">
+<h2>Run Computation Graph on GPU/TPU ?????<a class="headerlink" href="#run-computation-graph-on-gpu-tpu" title="Permalink to this headline">¶</a></h2>
+<p>By <strong>Jianxin Zhao</strong> | PhD | February 2019 | {<a class="reference internal" href="jianxin_cgraph.html"><span class="doc">Convert Owl Computation Graph to TensorFlow</span></a>}</p>
+<p>blah blah blah ….</p>
 </div>
 </div>
 
