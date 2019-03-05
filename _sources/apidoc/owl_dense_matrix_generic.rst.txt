@@ -2,7 +2,7 @@ Dense.Matrix.Generic
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#434 entries have been extracted.
+#435 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/dense/owl_dense_matrix_generic.mli>`_ 
@@ -2420,6 +2420,13 @@ The elements in ``x`` are clipped by ``amin`` and ``amax``, and they will be bet
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L885>`__
 
 
+
+.. code-block:: ocaml
+
+  val lgamma : ('a, 'b) t-> ('a, 'b) t
+
+``lgamma x`` computes the loggamma of the elements in ``x`` and returns the result in
+a new matrix.
 
 Binary math operators
 -------------------------------------------------------------------------------

@@ -96,7 +96,7 @@
   <div class="section" id="dense-matrix-generic">
 <h1>Dense.Matrix.Generic<a class="headerlink" href="#dense-matrix-generic" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#434 entries have been extracted.</p>
+#435 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/dense/owl_dense_matrix_generic.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/dense/owl_dense_matrix_generic.ml">{Implementation}</a></p>
@@ -1673,6 +1673,11 @@ along specified axis.</li>
 The elements in <code class="docutils literal notranslate"><span class="pre">x</span></code> are clipped by <code class="docutils literal notranslate"><span class="pre">amin</span></code> and <code class="docutils literal notranslate"><span class="pre">amax</span></code>, and they will be between
 <code class="docutils literal notranslate"><span class="pre">0.</span></code> and <code class="docutils literal notranslate"><span class="pre">1.</span></code> after conversion to represents the intensity.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L885">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lgamma</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span><span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">lgamma</span> <span class="pre">x</span></code> computes the loggamma of the elements in <code class="docutils literal notranslate"><span class="pre">x</span></code> and returns the result in
+a new matrix.</p>
 </div>
 <div class="section" id="binary-math-operators">
 <h2>Binary math operators<a class="headerlink" href="#binary-math-operators" title="Permalink to this headline">¶</a></h2>
