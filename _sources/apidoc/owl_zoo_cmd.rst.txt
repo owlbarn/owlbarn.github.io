@@ -112,9 +112,9 @@ Preprocess the zoo scripts, inject the necessary directives, functions, and modu
 
 .. code-block:: ocaml
 
-  val run_gist : string -> unit
+  val run_gist : string -> string array -> unit
 
-``run_gist gist-id`` runs a zoo gist with the given ``gist-id``.
+``run_gist gist-id`` runs a zoo gist with the given ``gist-id`` and parameters.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L129>`__
 

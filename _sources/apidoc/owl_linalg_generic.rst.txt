@@ -2,7 +2,7 @@ Linalg.Generic
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#67 entries have been extracted.
+#68 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/linalg/owl_linalg_generic.mli>`_ 
@@ -47,7 +47,7 @@ is singular, ``inv`` will return a useless result.)
 the tolerance, the absolute value of the elements smaller than ``tol`` will be
 set to zeros.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L716>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L747>`__
 
 
 
@@ -554,12 +554,31 @@ negligible elements, ``M.col_num x`` is the nullity of ``a``, and
 
 .. code-block:: ocaml
 
-  val linsolve : ?trans:bool -> ('a, 'b) t -> ('a, 'b) t -> ('a, 'b) t
+  val triangular_solve : upper:bool -> ?trans:bool -> ('a, 'b) t -> ('a, 'b) t -> ('a, 'b) t
+
+``triangular_linsolve a b -> x`` solves a linear system of equations ``a * x = b`` 
+   where ``a`` is either a upper or a lower triangular matrix. This function uses
+   cblas ``trsm`` under the hood.
+
+.. math::
+  AX = B
+
+By default, ``trans = false`` indicates no transpose. If ``trans = true``, then
+function will solve ``A^T * x = b`` for real matrices; ``A^H * x = b`` for
+complex matrices.
+
+.. math::
+  A^H X = B
+
+.. code-block:: ocaml
+
+  val linsolve : ?trans:bool -> ?typ:[`n | `u | `l] -> ('a, 'b) t -> ('a, 'b) t -> ('a, 'b) t
 
 ``linsolve a b -> x`` solves a linear system of equations ``a * x = b`` in the
-following form. The function uses LU factorisation with partial pivoting when
+following form. By default, ``typ=`n`` and the function use LU factorisation with partial pivoting when
 ``a`` is square and QR factorisation with column pivoting otherwise. The number
 of rows of ``a`` must equal the number of rows of ``b``.
+If ``a`` is a upper(lower) triangular matrix, the function calls the ``solve_triangular`` function when ``typ=`u``(``typ=`l``). 
 
 .. math::
   AX = B
@@ -574,7 +593,7 @@ complex matrices.
 The associated operator is ``/@``, so you can simply use ``a /@ b`` to solve
 the linear equation system to get ``x``. Please refer to :doc:`owl_operator`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L675>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L700>`__
 
 
 
@@ -587,7 +606,7 @@ the linear equation system to get ``x``. Please refer to :doc:`owl_operator`.
 .. math::
   Y = A + BX
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L699>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L730>`__
 
 
 
@@ -609,7 +628,7 @@ Parameters:
 Returns:
   * ``x`` : ``m x n`` matrix X.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L734>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L765>`__
 
 
 
@@ -631,7 +650,7 @@ Parameters:
 Returns:
   * ``x`` : ``m x n`` matrix X.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L744>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L775>`__
 
 
 
@@ -651,7 +670,7 @@ Parameters:
 Returns:
   * ``x`` : ``m x n`` matrix X.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L770>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L801>`__
 
 
 
@@ -674,7 +693,7 @@ Parameters:
 Returns:
   * ``x`` : a solution matrix X.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L780>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L811>`__
 
 
 
@@ -697,7 +716,7 @@ Parameters:
 Returns:
   * ``x`` : a symmetric solution matrix X.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L796>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L827>`__
 
 
 
@@ -767,7 +786,7 @@ it can be be negative, zero, or positive. Non-integer exponents
 are not yet implemented. (If ``r`` is negative, ``mpow`` calls ``inv``,
 and warnings in documentation for ``inv`` apply.)
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L836>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L867>`__
 
 
 
@@ -783,7 +802,7 @@ and warnings in documentation for ``inv`` apply.)
 The function implements the scaling and squaring algorithm which uses Padé
 approximation to compute the matrix exponential :cite:`al2009new`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L866>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L897>`__
 
 
 
@@ -794,7 +813,7 @@ approximation to compute the matrix exponential :cite:`al2009new`.
 ``sinm x`` computes the matrix sine of input ``x``. The function uses ``expm``
 to compute the matrix exponentials.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L978>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1009>`__
 
 
 
@@ -805,7 +824,7 @@ to compute the matrix exponentials.
 ``cosm x`` computes the matrix cosine of input ``x``. The function uses ``expm``
 to compute the matrix exponentials.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1010>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1041>`__
 
 
 
@@ -816,7 +835,7 @@ to compute the matrix exponentials.
 ``tanm x`` computes the matrix tangent of input ``x``. The function uses
 ``expm`` to compute the matrix exponentials.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1053>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1084>`__
 
 
 
@@ -826,7 +845,7 @@ to compute the matrix exponentials.
 
 ``sincosm x`` returns both matrix sine and cosine of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1050>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1081>`__
 
 
 
@@ -837,7 +856,7 @@ to compute the matrix exponentials.
 ``sinhm x`` computes the hyperbolic matrix sine of input ``x``. The function
 uses ``expm`` to compute the matrix exponentials.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1059>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1090>`__
 
 
 
@@ -848,7 +867,7 @@ uses ``expm`` to compute the matrix exponentials.
 ``coshm x`` computes the hyperbolic matrix cosine of input ``x``. The function
 uses ``expm`` to compute the matrix exponentials.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1064>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1095>`__
 
 
 
@@ -859,7 +878,7 @@ uses ``expm`` to compute the matrix exponentials.
 ``tanhm x`` computes the hyperbolic matrix tangent of input ``x``. The function
 uses ``expm`` to compute the matrix exponentials.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1076>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1107>`__
 
 
 
@@ -869,7 +888,7 @@ uses ``expm`` to compute the matrix exponentials.
 
 ``sinhcoshm x`` returns both hyperbolic matrix sine and cosine of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1069>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L1100>`__
 
 
 
@@ -902,7 +921,7 @@ from eigen values ``ev`` according to the passed in keywards.
 ``Owl_cblas_basic.dgemm`` function. The default matrix size is ``2000 x 2000``,
 but you can change this by setting ``n`` to other numbers as you like.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L818>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/linalg/owl_linalg_generic.ml#L849>`__
 
 
 
