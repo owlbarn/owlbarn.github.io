@@ -2,7 +2,7 @@ Exception
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#18 entries have been extracted.
+#28 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_exception.mli>`_ 
@@ -29,7 +29,46 @@ Parameters:
 Returns:
   * ``unit``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L7>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L56>`__
+
+
+
+.. code-block:: ocaml
+
+  val verify : bool -> (unit -> exn) -> unit
+
+``verify p f`` calls the function ``f`` which further raises an exception
+if the predicate ``p`` is ``false``, otherwise returns ``unit``.
+
+Parameters:
+  * ``p``: predicate to check.
+  * ``f``: function to raise the exception.
+
+Returns:
+  * ``unit``
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L60>`__
+
+
+
+.. code-block:: ocaml
+
+  val to_string : exn -> string
+
+``to_string e`` converts an exception into a string containing more
+detailed information for debugging the code.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L108>`__
+
+
+
+.. code-block:: ocaml
+
+  val pp_exception : Format.formatter -> exn -> unit [@@ocaml.toplevel_printer]
+
+``pp_exception`` is the pretty printer for Owl exceptions.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L120>`__
 
 
 
@@ -40,7 +79,14 @@ Exception definition
 
 .. code-block:: ocaml
 
-  exception NOT_IMPLEMENTED
+  exception CONV_INVALID_ARGUMENT
+    
+
+Input arugments of convolution operations are invalid.
+
+.. code-block:: ocaml
+
+  exception NOT_IMPLEMENTED of string
     
 
 Exception of not implemented yet.
@@ -82,17 +128,59 @@ Unit Test fails.
 
 .. code-block:: ocaml
 
-  exception NOT_SQUARE
+  exception INVALID_ARGUMENT of string
+    
+
+Input arugments are invalid.
+
+.. code-block:: ocaml
+
+  exception INVALID_PROBABILITY of float
+    
+
+Invalide probability value, not within [0,1] range.
+
+.. code-block:: ocaml
+
+  exception LINALG_MATRIX_DOT_SHAPE of (int * int * int * int)
+    
+
+Invalid matrix shapes for matrix dot product.
+
+.. code-block:: ocaml
+
+  exception NON_NEGATIVE_INT of int
+    
+
+Fails if the input is negative.
+
+.. code-block:: ocaml
+
+  exception NOT_SQUARE of int array
     
 
 Fails if a matrix is not square.
 
 .. code-block:: ocaml
 
-  exception DIFFERENT_SHAPE
+  exception NOT_MATRIX of int array
+    
+
+Fails if the input is not a matrix.
+
+.. code-block:: ocaml
+
+  exception DIFFERENT_SHAPE of (int array * int array)
     
 
 Fail if two ndarrays have different shape.
+
+.. code-block:: ocaml
+
+  exception DIFFERENT_SIZE of (int * int)
+    
+
+Fail if two ndarrays have different size.
 
 .. code-block:: ocaml
 

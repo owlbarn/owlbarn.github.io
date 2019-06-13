@@ -1616,12 +1616,12 @@ hence it always returns a float number.</p>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L840">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L845">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L849">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L854">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cumsum</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -1672,7 +1672,7 @@ along specified axis.</li>
 <p><code class="docutils literal notranslate"><span class="pre">mat2gray</span> <span class="pre">~amin</span> <span class="pre">~amax</span> <span class="pre">x</span></code> converts the matrix <code class="docutils literal notranslate"><span class="pre">x</span></code> to the intensity image.
 The elements in <code class="docutils literal notranslate"><span class="pre">x</span></code> are clipped by <code class="docutils literal notranslate"><span class="pre">amin</span></code> and <code class="docutils literal notranslate"><span class="pre">amax</span></code>, and they will be between
 <code class="docutils literal notranslate"><span class="pre">0.</span></code> and <code class="docutils literal notranslate"><span class="pre">1.</span></code> after conversion to represents the intensity.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L885">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L890">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lgamma</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span><span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -1839,7 +1839,7 @@ it is normalised by <code class="docutils literal notranslate"><span class="pre"
 <p><code class="docutils literal notranslate"><span class="pre">cov</span> <span class="pre">~a</span> <span class="pre">~b</span></code> takes two matrices as inputs. The functions flatten <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>
 first then returns a <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">x</span> <span class="pre">2</span></code> matrix, so two must have the same number of
 elements.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L858">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/dense/owl_dense_matrix_generic.ml#L863">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">kron</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="n">t</span>
 </pre></div>
 </div>

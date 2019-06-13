@@ -236,7 +236,7 @@
 </pre></div>
 </div>
 <p>Build a program for the passed-in devices with the given parameters.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L319">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L320">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">retain</span> <span class="o">:</span> <span class="n">cl_program</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -276,17 +276,17 @@
 </pre></div>
 </div>
 <p>Set the arguments of a given kernel.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L421">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L425">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">enqueue_task</span> <span class="o">:</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_kernel</span> <span class="o">-&gt;</span> <span class="n">cl_event</span>
 </pre></div>
 </div>
 <p>Enqueue a task into the associate command queue of a given kernel.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L428">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L432">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">enqueue_ndrange</span> <span class="o">:</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">global_work_ofs</span><span class="o">:</span><span class="kt">int</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">local_work_size</span><span class="o">:</span><span class="kt">int</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_kernel</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_event</span>
 </pre></div>
 </div>
 <p>Enqueue a ndrange task into the associate command queue of a given kernel.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L440">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L444">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">retain</span> <span class="o">:</span> <span class="n">cl_kernel</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -323,22 +323,22 @@
 </pre></div>
 </div>
 <p>Barrier function of the given command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L530">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L534">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">marker</span> <span class="o">:</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_event</span>
 </pre></div>
 </div>
 <p>Marker function of the given command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L542">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L546">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">flush</span> <span class="o">:</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Flush the given command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L524">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L528">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">finish</span> <span class="o">:</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Finish the given command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L527">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L531">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">retain</span> <span class="o">:</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -376,12 +376,12 @@
 </pre></div>
 </div>
 <p>Set the status of a given event.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L622">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L626">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">wait_for</span> <span class="o">:</span> <span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">int32</span>
 </pre></div>
 </div>
 <p>Wait for a list of events to finish.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L628">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L633">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">retain</span> <span class="o">:</span> <span class="n">cl_event</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -417,27 +417,27 @@
 </pre></div>
 </div>
 <p>Create an object with the passed in bigarray. Refer to <code class="docutils literal notranslate"><span class="pre">create</span></code> for a more general function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L685">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L690">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">enqueue_read</span> <span class="o">:</span> <span class="o">?</span><span class="n">blocking</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="nn">Ctypes</span><span class="p">.</span><span class="n">ptr</span> <span class="o">-&gt;</span> <span class="n">cl_event</span>
 </pre></div>
 </div>
 <p>Enqueue a read operation on the given memory object to a command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L709">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L715">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">enqueue_write</span> <span class="o">:</span> <span class="o">?</span><span class="n">blocking</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="nn">Ctypes</span><span class="p">.</span><span class="n">ptr</span> <span class="o">-&gt;</span> <span class="n">cl_event</span>
 </pre></div>
 </div>
 <p>Enqueue a write operation on the given memory object to a command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L729">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L735">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">enqueue_map</span> <span class="o">:</span> <span class="o">?</span><span class="n">blocking</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="nn">Owl_opencl_generated</span><span class="p">.</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">flags</span><span class="o">:</span><span class="kt">int</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">cl_event</span> <span class="o">*</span> <span class="kt">unit</span> <span class="nn">Ctypes</span><span class="p">.</span><span class="n">ptr</span>
 </pre></div>
 </div>
 <p>Enqueue a map operation on the given memory object to a command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L749">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L755">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">enqueue_unmap</span> <span class="o">:</span> <span class="o">?</span><span class="n">wait_for</span><span class="o">:</span><span class="n">cl_event</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">cl_command_queue</span> <span class="o">-&gt;</span> <span class="n">cl_mem</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="nn">Ctypes</span><span class="p">.</span><span class="n">ptr</span> <span class="o">-&gt;</span> <span class="n">cl_event</span>
 </pre></div>
 </div>
 <p>Enqueue a unmap operation on the given memory object to a command queue.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L772">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L778">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">retain</span> <span class="o">:</span> <span class="n">cl_mem</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
