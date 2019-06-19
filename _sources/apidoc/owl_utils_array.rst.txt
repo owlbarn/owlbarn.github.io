@@ -87,7 +87,7 @@ Refer to OCaml native array.
 
 Refer to OCaml native array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L460>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L484>`__
 
 
 
@@ -170,7 +170,7 @@ Refer to OCaml native array.
 ``min_i x`` returns the index of minimum value in array ``x``. If ``cmp`` is
 not passed in then ``Pervasives.compare`` is used as default value.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L477>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L501>`__
 
 
 
@@ -181,7 +181,7 @@ not passed in then ``Pervasives.compare`` is used as default value.
 ``max_i x`` returns the index of minimum value in array ``x``. If ``cmp`` is
 not passed in then ``Pervasives.compare`` is used as default value.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L490>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L514>`__
 
 
 
@@ -192,7 +192,7 @@ not passed in then ``Pervasives.compare`` is used as default value.
 ``argsort cmp x`` sorts ``x`` according to the compare function ``cmp`` and
 returns the corresponding indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L468>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L492>`__
 
 
 
@@ -223,7 +223,7 @@ of length ``max - min + 1``, and fills the holes with ``fill``. E.g.,
 ``sort_fill ~min:1 ~max:5 ~fill:0 [|4;2|] x`` returns a new array as follows:
 ``[|1; 0; 2; 0; 4; 5|]``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L453>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L477>`__
 
 
 
@@ -262,7 +262,7 @@ Operator of array concatenation.
 The ``slice`` definition must have ``[|start;stop;step|]`` format. The value
 of start, stop, and step can be negative, and the boundary is inclusive.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L324>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L348>`__
 
 
 
@@ -274,7 +274,7 @@ of start, stop, and step can be negative, and the boundary is inclusive.
 of the elements in ``y`` based on the slice definition ``slice``. Please refer
 to ``get_slice`` function for the information on the format of slice definiton.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L342>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L366>`__
 
 
 
@@ -334,7 +334,7 @@ TODO
 
 ``unique x`` removes the duplicates in the array ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L429>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L453>`__
 
 
 
@@ -344,7 +344,7 @@ TODO
 
 ``merge x y`` merges two arrays and removes the duplicates.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L439>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L463>`__
 
 
 
@@ -354,7 +354,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L57>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L63>`__
 
 
 
@@ -364,7 +364,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L66>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L78>`__
 
 
 
@@ -374,7 +374,7 @@ TODO
 
 ``reverse x`` reverse the elements in ``x`` in place.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L442>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L466>`__
 
 
 
@@ -384,7 +384,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L104>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L122>`__
 
 
 
@@ -394,7 +394,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L114>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L132>`__
 
 
 
@@ -404,7 +404,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L126>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L144>`__
 
 
 
@@ -414,7 +414,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L119>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L137>`__
 
 
 
@@ -424,7 +424,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L140>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L158>`__
 
 
 
@@ -434,7 +434,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L133>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L151>`__
 
 
 
@@ -444,7 +444,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L147>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L165>`__
 
 
 
@@ -454,7 +454,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L158>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L176>`__
 
 
 
@@ -464,7 +464,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L161>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L179>`__
 
 
 
@@ -474,7 +474,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L167>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L185>`__
 
 
 
@@ -484,7 +484,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L236>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L260>`__
 
 
 
@@ -494,7 +494,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L244>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L268>`__
 
 
 
@@ -504,7 +504,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L247>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L271>`__
 
 
 
@@ -514,7 +514,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L256>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L280>`__
 
 
 
@@ -524,7 +524,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L75>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L93>`__
 
 
 
@@ -534,7 +534,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L85>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L103>`__
 
 
 
@@ -544,7 +544,7 @@ TODO
 
 ``filteri f x`` filters out the elements in ``x`` according to predicate ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L89>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L107>`__
 
 
 
@@ -554,7 +554,7 @@ TODO
 
 ``filter f x`` filters out the elements in ``x`` according to predicate ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L101>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L119>`__
 
 
 
@@ -565,7 +565,7 @@ TODO
 ``filter2i f x y`` filters the elements in ``x`` and ``y`` using passed in
 function ``f``. Both arrays must have same length.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L183>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L201>`__
 
 
 
@@ -576,7 +576,7 @@ function ``f``. Both arrays must have same length.
 ``filter2 f x y`` is similar to ``filter2i`` but without passing index of
 the elements to function ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L197>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L218>`__
 
 
 
@@ -588,7 +588,7 @@ the elements to function ``f``.
 function ``f``. Both arrays must have same length. Note that the indices of
 those satisfying the predicate ``f`` are returned in an array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L200>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L221>`__
 
 
 
@@ -599,7 +599,7 @@ those satisfying the predicate ``f`` are returned in an array.
 ``filter2_i f x y`` is similar to ``filter2i_i`` but without passing index of
 the elements to function ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L214>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L238>`__
 
 
 
@@ -610,7 +610,7 @@ the elements to function ``f``.
 ``filter2_split f x y`` is similar to ``filter2 f x y``, but the returned
 results are two separated arrays rather than merging into one tuple array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L217>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L241>`__
 
 
 
@@ -622,7 +622,7 @@ results are two separated arrays rather than merging into one tuple array.
 ``m <= n``, a copy of ``x`` subarray is returned. If ``m > n``, then ``x`` is
 extended, the extra space is filled with value ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L222>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L246>`__
 
 
 
@@ -638,7 +638,7 @@ extended, the extra space is filled with value ``v``.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L266>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L290>`__
 
 
 
@@ -649,7 +649,7 @@ TODO
 ``align side v x y`` aligns two arrays ``x`` and ``y`` along the specified side
 with value ``v``. The copies of two arrays are returned.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L275>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L299>`__
 
 
 
@@ -659,7 +659,7 @@ with value ``v``. The copies of two arrays are returned.
 
 ``align3 side v x y z`` aligns three arrays ``x``, ``y``, and ``z``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L286>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L310>`__
 
 
 
@@ -669,7 +669,7 @@ with value ``v``. The copies of two arrays are returned.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L298>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L322>`__
 
 
 
@@ -679,7 +679,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L312>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L336>`__
 
 
 
@@ -689,7 +689,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L319>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L343>`__
 
 
 
@@ -699,7 +699,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L359>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L383>`__
 
 
 
@@ -711,7 +711,7 @@ TODO
 length of ``x``, if ``i < l - 1``, then ``x.(i) = x.(i)``, otherwise
 ``x.(l - 1) = mass - \sum_{i < l - 1} x.(i)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L378>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L402>`__
 
 
 
@@ -721,7 +721,7 @@ length of ``x``, if ``i < l - 1``, then ``x.(i) = x.(i)``, otherwise
 
 ``index_of x a`` returns the index of first occurrence of ``a`` in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L391>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L415>`__
 
 
 
@@ -734,7 +734,7 @@ in the sorted array ``a`` less than or equal to ``x``, according to the
 comparison function ``cmp``. If ``x`` is smaller than all elements, returns -1.
 The function raises an exception if ``a`` is empty.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L410>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L434>`__
 
 
 
