@@ -45,6 +45,14 @@
 
 
 
+
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Frequently Asked Questions</a><ul>
+<li><a class="reference internal" href="#why-do-i-get-illegal-instruction-error">Why do I get <cite>Illegal instruction</cite> error?</a></li>
+</ul>
+</li>
+</ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -76,10 +84,40 @@
             
   <div class="section" id="frequently-asked-questions">
 <h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
-<p><cite>#0</cite> <strong>What is your question?</strong></p>
-<p>Here is my answer …</p>
-<p><cite>#1</cite> <strong>What is your question?</strong></p>
-<p>Here is my answer …</p>
+<div class="section" id="why-do-i-get-illegal-instruction-error">
+<h2>Why do I get <cite>Illegal instruction</cite> error?<a class="headerlink" href="#why-do-i-get-illegal-instruction-error" title="Permalink to this headline">¶</a></h2>
+<p>The short answer is that the binary of Owl or the program using Owl have
+been compiled on one platform and are run on another.</p>
+<p>If you use opam or dune to install or build your code you can use <code class="docutils literal notranslate"><span class="pre">OWL_CFLAGS</span></code>
+to override the <code class="docutils literal notranslate"><span class="pre">-march</span></code>-option that is used to build the binary, by default
+it’s set to <code class="docutils literal notranslate"><span class="pre">native</span></code>, but if you want to maximize compatibility you should set
+it to <code class="docutils literal notranslate"><span class="pre">x86-64</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>env <span class="nv">OWL_CFLAGS</span><span class="o">=</span><span class="s2">&quot;-g -O3 -Ofast -march=x86-64 -mfpmath=sse -funroll-loops -ffast-math -DSFMT_MEXP=19937 -msse2 -fno-strict-aliasing -Wno-tautological-constant-out-of-range-compare&quot;</span> opam install owl
+</pre></div>
+</div>
+<p>If you use esy you can inject environment variables into the sandboxed build
+environment using the <code class="docutils literal notranslate"><span class="pre">resolutions</span></code> field in you package.json:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;resolutions&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;@opam/owl&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;owlbarn/owl:owl.opam#7f6ae99&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;override&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;buildEnv&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;OWL_CFLAGS&quot;</span><span class="p">:</span> <span class="s2">&quot;-g -O3 -Ofast -march=x86-64 -mfpmath=sse -funroll-loops -ffast-math -DSFMT_MEXP=19937 -msse2 -fno-strict-aliasing -Wno-tautological-constant-out-of-range-compare&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The somewhat longer answer is that some parts of Owl are written in C.  Since
+Owl is trying to be as performant as possible it is compiled with the CFLAGS
+option <code class="docutils literal notranslate"><span class="pre">-march=native</span></code>. This tells GCC (the c compiler used) to use all
+available instruction-sets the machine’s current CPU supports aka make the
+fastes binary possible. The downside of this is that the compiled binary may not
+run on older CPUs.</p>
+</div>
 </div>
 
 
@@ -90,7 +128,7 @@
   </div>
 
     <div class="footer">
-      &copy;2018, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      &copy;2019, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
       
       |
       <a href="../_sources/chapter/faq.rst.txt"
