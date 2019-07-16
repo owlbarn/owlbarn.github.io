@@ -1,0 +1,60 @@
+Base.Countmin_sketch
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#6 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_countmin_sketch_sig.ml>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_countmin_sketch.ml>`_
+
+
+
+Type definition
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type 'a sketch
+    
+
+The type of Count-Min sketches
+
+Core functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val init : epsilon:float -> delta:float -> 'a sketch
+
+``init epsilon delta`` initializes a sketch with approximation ratio
+``(1 + epsilon)`` and failure probability ``delta``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L25>`__
+
+
+
+.. code-block:: ocaml
+
+  val incr : 'a sketch -> 'a -> unit
+
+``incr s x`` increments the frequency count of ``x`` in sketch ``s`` in-place.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L32>`__
+
+
+
+.. code-block:: ocaml
+
+  val count : 'a sketch -> 'a -> int
+
+``count s x`` returns the estimated frequency of element ``x`` in ``s``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L38>`__
+
+
+
