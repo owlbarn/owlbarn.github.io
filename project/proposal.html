@@ -61,8 +61,7 @@
 <li><a class="reference internal" href="#project-10-gpu-computing">Project 10. GPU Computing</a></li>
 <li><a class="reference internal" href="#project-11-data-processing-and-visualisation">Project 11. Data Processing and Visualisation</a></li>
 <li><a class="reference internal" href="#project-12-neural-network-exchange-format">Project 12. Neural Network Exchange Format</a></li>
-<li><a class="reference internal" href="#project-13-ordinary-differential-equation-solver">Project 13. Ordinary Differential Equation Solver</a></li>
-<li><a class="reference internal" href="#project-14-distributed-ml-on-unikernel-for-iot">Project 14. Distributed ML on Unikernel for IoT</a></li>
+<li><a class="reference internal" href="#project-13-distributed-ml-on-unikernel-for-iot">Project 13. Distributed ML on Unikernel for IoT</a></li>
 </ul>
 </li>
 </ul>
@@ -70,7 +69,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../chapter/index.html">Part II: Owl Numerical System</a><ul>
+  <li><a href="../chapter/index.html">Owl Numerical System</a><ul>
       <li>Previous: <a href="../chapter/community.html" title="previous chapter">Community</a></li>
       <li>Next: <a href="finished.html" title="next chapter">Finished Sub-Projects</a></li>
   </ul></li>
@@ -179,15 +178,8 @@
 <li><a class="reference external" href="https://www.khronos.org/nnef/">Khronos NNEF</a></li>
 </ul>
 </div>
-<div class="section" id="project-13-ordinary-differential-equation-solver">
-<h2>Project 13. Ordinary Differential Equation Solver<a class="headerlink" href="#project-13-ordinary-differential-equation-solver" title="Permalink to this headline">¶</a></h2>
-<p>By <a class="reference external" href="https://github.com/tachukao">Ta-Chu Kao</a> and <a class="reference external" href="https://github.com/mseri">Marcello Seri</a> | ongoing | <a class="reference external" href="https://github.com/owlbarn/owl_ode">{Owl-ODE Github}</a></p>
-<p>Owl Ode is a lightweight package for solving ordinary differential equations. Built on top of Owl’s numerical library, Owl Ode was designed with extensibility and ease of use in mind and includes a number of classic ode solvers (e.g. Euler and Runge-Kutta, in both adaptive and fixed-step variants) and symplectic sovlers (e.g. Leapfrog), with more to come.</p>
-<p>Taking full advantage of Owl’s automatic differentiation library, we plan on supporting a number of fully differentiable solvers, which can be used for training Neural Odes in the not too distant future.</p>
-<p>Currently, Owl Ode includes a thin wrapper around Sundials Cvode (via sundialsml’s own wrapper). Going forward, we aim to expose more functions in Sundials and provide bindings for other battle-tested ode solvers in ODEPACK and gsl.</p>
-</div>
-<div class="section" id="project-14-distributed-ml-on-unikernel-for-iot">
-<h2>Project 14. Distributed ML on Unikernel for IoT<a class="headerlink" href="#project-14-distributed-ml-on-unikernel-for-iot" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="project-13-distributed-ml-on-unikernel-for-iot">
+<h2>Project 13. Distributed ML on Unikernel for IoT<a class="headerlink" href="#project-13-distributed-ml-on-unikernel-for-iot" title="Permalink to this headline">¶</a></h2>
 <p>By <a class="reference external" href="https://www.linkedin.com/in/hidoyu/">Hiroshi Doyu</a> (Ericsson) | ongoing | <a class="reference external" href="https://github.com/owlbarn/light_actor">{LwAE Github}</a></p>
 <p>Considering the coming enormous amount of hyper-scale IoT data, Mobile Edge servers would be heavily overloaded at peak times, especially raw data for ML training is too huge and insecure to move around quickly. To solve this problem, we need to offload those computation from Edge servers to any available computational devices at hand before sending them out to Edge. Usually those beyond-Edge devices are resource constraint. Container-based solutions are not enough efficient for this purpose. We expect Owl with MirageOS(Unikernel) to fill this gap because of its size conciseness. And LwAE is the way to distribute those computations over resource constraint IoT devices along with Cloud and Edge. We’ll explore the possibility of beyond-Edge computation with Owl, MirageOS and LwAE.</p>
 </div>

@@ -57,6 +57,7 @@
 <li><a class="reference internal" href="#computer-vision-performance-optimisation-of-computation-graph">Computer Vision &amp; Performance Optimisation of Computation Graph</a></li>
 <li><a class="reference internal" href="#automatic-parameter-tuning-for-openmp">Automatic Parameter Tuning for OpenMP</a></li>
 <li><a class="reference internal" href="#run-your-owl-computation-on-tensorflow">Run Your Owl Computation on TensorFlow</a></li>
+<li><a class="reference internal" href="#ordinary-differential-equation-solver">Ordinary Differential Equation Solver</a></li>
 </ul>
 </li>
 </ul>
@@ -64,7 +65,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../chapter/index.html">Part II: Owl Numerical System</a><ul>
+  <li><a href="../chapter/index.html">Owl Numerical System</a><ul>
       <li>Previous: <a href="proposal.html" title="previous chapter">Proposed Sub-Projects</a></li>
       <li>Next: <a href="../chapter/howto.html" title="next chapter">How-To?</a></li>
   </ul></li>
@@ -143,6 +144,13 @@ This system centres around the abstraction of TensorFlow computation graph, and 
 Our system utilises the Save and Restore mechanism in TensorFlow to provide a concise workflow.
 Currently we are actively developing the system. Thought still quite limited at the initial phase, the system has shown its potential in real-world examples, including deep neural network inference and algorithmic differentiation.
 In our next step, it would be interesting to see how our system can be extended and combined with related topics such as GPU and XLA.</p>
+</div>
+<div class="section" id="ordinary-differential-equation-solver">
+<h2>Ordinary Differential Equation Solver<a class="headerlink" href="#ordinary-differential-equation-solver" title="Permalink to this headline">¶</a></h2>
+<p>By <a class="reference external" href="https://github.com/tachukao">Ta-Chu Kao</a> and <a class="reference external" href="https://github.com/mseri">Marcello Seri</a> | July 2019 | <a class="reference external" href="https://github.com/owlbarn/owl_ode">{Owl-ODE Github}</a></p>
+<p>Owl Ode is a lightweight package for solving ordinary differential equations. Built on top of Owl’s numerical library, Owl Ode was designed with extensibility and ease of use in mind and includes a number of classic ode solvers (e.g. Euler and Runge-Kutta, in both adaptive and fixed-step variants) and symplectic sovlers (e.g. Leapfrog), with more to come.</p>
+<p>Taking full advantage of Owl’s automatic differentiation library, we plan on supporting a number of fully differentiable solvers, which can be used for training Neural Odes in the not too distant future.</p>
+<p>Currently, Owl Ode includes a thin wrapper around Sundials Cvode (via sundialsml’s own wrapper). Going forward, we aim to expose more functions in Sundials and provide bindings for other battle-tested ode solvers in ODEPACK and gsl.</p>
 </div>
 </div>
 
