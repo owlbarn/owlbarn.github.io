@@ -9,11 +9,12 @@
     <title>Owl-ODE &#8212; Owl Numerical Library 0.3 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Base.Countmin_sketch" href="owl_countmin_sketch_sig.html" />
@@ -70,55 +71,17 @@
       </div>
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="owl-ode">
 <h1>Owl-ODE<a class="headerlink" href="#owl-ode" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#6 entries have been extracted.</p>
+#1 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/../../owl_ode/src/ode/ode.owldoc">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/../../owl_ode/src/ode/ode.ml">{Implementation}</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">tspec_t</span> <span class="o">=</span>
-  <span class="o">|</span> <span class="nc">T1</span> <span class="k">of</span> <span class="o">{</span><span class="n">t0</span><span class="o">:</span> <span class="kt">float</span><span class="o">;</span> <span class="n">duration</span><span class="o">:</span><span class="kt">float</span><span class="o">;</span> <span class="n">dt</span><span class="o">:</span> <span class="kt">float</span><span class="o">}</span>
-</pre></div>
-</div>
-<dl class="docutils">
-<dt>The [T1] constructor allow to specify the initial</dt>
-<dd>and final integration time, in the sense that the
-solver starts with t=t0 and integrates until it
-reaches t=t0+duration, and the timestep dt.
-This last parameter is ignored by the adaptive
-methods.</dd>
-</dl>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">s</span>
-</pre></div>
-</div>
-<dl class="docutils">
-<dt>[s] is the type of the state (and thus also of</dt>
-<dd>the initial condition) provided to {!Owl_ode.Ode.odeint}.
-For example {!Owl.Mat.mat}.</dd>
-</dl>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span>
-</pre></div>
-</div>
-<dl class="docutils">
-<dt>[t] is type of the output of the evolution function</dt>
-<dd>[f: s-&gt; float -&gt;t]. For example, in the case of
-sympletic solvers, [type s = Owl.Mat.(mat*mat)] and
-[type t = Owl.Mat.mat].</dd>
-</dl>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">output</span>
-</pre></div>
-</div>
-<dl class="docutils">
-<dt>[output] defines the type of the output of {!Owl_ode.Ode.odeint}.</dt>
-<dd>For example, in the case of sympletc solvers,
-[type output = Owl.Mat.(mat * mat * mat)], corresponds
-to matrices that contain respectively the time,
-position, and momentum coordinates of the
-integrated solution</dd>
-</dl>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">odeint</span> <span class="o">:</span> <span class="o">(</span><span class="k">module</span> <span class="nn">Types</span><span class="p">.</span><span class="nc">SolverT</span> <span class="k">with</span> <span class="k">type</span> <span class="n">output</span> <span class="o">=</span> <span class="k">&#39;</span><span class="n">a</span> <span class="ow">and</span> <span class="k">type</span> <span class="n">s</span> <span class="o">=</span> <span class="k">&#39;</span><span class="n">b</span> <span class="ow">and</span> <span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="k">&#39;</span><span class="n">c</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">c</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="nn">Types</span><span class="p">.</span><span class="n">tspec_t</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
@@ -141,28 +104,12 @@ type, {!Owl_ode.Types.SolverT}. This is useful to write new custom
 solvers or extend and customise the provided ones.</p>
 <p>Refer to the documentation of the {!Owl_ode.Types.SolverT} type
 for further information.</p>
-<p>{6 Owl_ode Types}</p>
-<p>The Types module provides some common types for
-Owl_ode ODEs integrators.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/../../owl_ode/src/ode/ode.ml#L11">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">solve</span> <span class="o">:</span> <span class="o">((</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">s</span> <span class="o">-&gt;</span> <span class="n">tspec_t</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="n">output</span><span class="o">)</span>
-</pre></div>
-</div>
-<p>[solve f y0 tspec ()] solves the initial value problem</p>
-<blockquote>
-<div><div class="math notranslate nohighlight">
-\[\frac{dy}{dt} = f(y,t)\]</div>
-<div class="math notranslate nohighlight">
-\[y(t_{0}) = y_{0}\]</div>
-<p>with the given evolution function f, initial condition y0, and
-temporal specification tspec, and returns the desired outputs
-of type output. Several such functions have already been
-implemented in this library and can be used as reference.</p>
-</div></blockquote>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/../../owl_ode/src/ode/ode.ml#L26">source code</a></p>
 </div>
 
 
           </div>
+          
         </div>
       </div>
     <div class="clearer"></div>
