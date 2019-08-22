@@ -168,7 +168,7 @@ Refer to OCaml native array.
   val min_i : ?cmp:('a -> 'a -> int) -> 'a array -> int
 
 ``min_i x`` returns the index of minimum value in array ``x``. If ``cmp`` is
-not passed in then ``Pervasives.compare`` is used as default value.
+not passed in then ``Stdlib.compare`` is used as default value.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L501>`__
 
@@ -179,7 +179,7 @@ not passed in then ``Pervasives.compare`` is used as default value.
   val max_i : ?cmp:('a -> 'a -> int) -> 'a array -> int
 
 ``max_i x`` returns the index of minimum value in array ``x``. If ``cmp`` is
-not passed in then ``Pervasives.compare`` is used as default value.
+not passed in then ``Stdlib.compare`` is used as default value.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L514>`__
 
