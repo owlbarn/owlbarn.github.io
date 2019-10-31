@@ -152,8 +152,9 @@ In our next step, it would be interesting to see how our system can be extended 
 <h2>Ordinary Differential Equation Solver<a class="headerlink" href="#ordinary-differential-equation-solver" title="Permalink to this headline">¶</a></h2>
 <p>By <a class="reference external" href="https://github.com/tachukao">Ta-Chu Kao</a> and <a class="reference external" href="https://github.com/mseri">Marcello Seri</a> | July 2019 | <a class="reference external" href="https://github.com/owlbarn/owl_ode">{Owl-ODE Github}</a></p>
 <p>Owl Ode is a lightweight package for solving ordinary differential equations. Built on top of Owl’s numerical library, Owl Ode was designed with extensibility and ease of use in mind and includes a number of classic ode solvers (e.g. Euler and Runge-Kutta, in both adaptive and fixed-step variants) and symplectic sovlers (e.g. Leapfrog), with more to come.</p>
-<p>Taking full advantage of Owl’s automatic differentiation library, we plan on supporting a number of fully differentiable solvers, which can be used for training Neural Odes in the not too distant future.</p>
-<p>Currently, Owl Ode includes a thin wrapper around Sundials Cvode (via sundialsml’s own wrapper). Going forward, we aim to expose more functions in Sundials and provide bindings for other battle-tested ode solvers in ODEPACK and gsl.</p>
+<p>Taking full advantage of Owl’s automatic differentiation library, we plan on supporting a number of fully differentiable solvers, which can be used, for example, for <cite>training Neural Odes &lt;https://github.com/tachukao/adjoint_ode/&gt;</cite>.</p>
+<p>Currently, Owl Ode includes separately-released thin wrappers around Sundials Cvode (via sundialsml’s own wrapper) and ODEPACK, native ocaml <cite>contact variational integrators &lt;https://github.com/mseri/ocaml-cviode&gt;</cite>, and exposes a fully native ocaml module compatible with js_of_ocaml (owl-ode-base).</p>
+<p>Going forward, we aim to expose more functions in Sundials, make the API even more flexible and configurable, and provide bindings for other battle-tested ODE solvers.</p>
 </div>
 </div>
 

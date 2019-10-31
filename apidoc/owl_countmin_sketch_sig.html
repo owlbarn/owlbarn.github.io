@@ -89,7 +89,7 @@
   <div class="section" id="base-countmin-sketch">
 <h1>Base.Countmin_sketch<a class="headerlink" href="#base-countmin-sketch" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#6 entries have been extracted.</p>
+#8 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_countmin_sketch_sig.ml">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_countmin_sketch.ml">{Implementation}</a></p>
@@ -112,12 +112,28 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">incr</span> <span class="pre">s</span> <span class="pre">x</span></code> increments the frequency count of <code class="docutils literal notranslate"><span class="pre">x</span></code> in sketch <code class="docutils literal notranslate"><span class="pre">s</span></code> in-place.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L32">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L31">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">count</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">sketch</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">s</span> <span class="pre">x</span></code> returns the estimated frequency of element <code class="docutils literal notranslate"><span class="pre">x</span></code> in <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L38">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L36">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">init_from</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">sketch</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">sketch</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">init_from</span> <span class="pre">s</span></code> initializes a new empty sketch with the same parameters as <code class="docutils literal notranslate"><span class="pre">s</span></code>, which</dt>
+<dd>can later be merged with <code class="docutils literal notranslate"><span class="pre">s</span></code>.</dd>
+</dl>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L41">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">merge</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">sketch</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">sketch</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">sketch</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">merge</span> <span class="pre">s1</span> <span class="pre">s2</span></code> returns a new sketch whose counts are the sum of those in <code class="docutils literal notranslate"><span class="pre">s1</span></code> and <code class="docutils literal notranslate"><span class="pre">s2</span></code>.</dt>
+<dd>Raises <code class="docutils literal notranslate"><span class="pre">INVALID_ARGUMENT</span></code> if the parameters of <code class="docutils literal notranslate"><span class="pre">s1</span></code> and <code class="docutils literal notranslate"><span class="pre">s2</span></code> do not match.</dd>
+</dl>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L45">source code</a></p>
 </div>
 </div>
 

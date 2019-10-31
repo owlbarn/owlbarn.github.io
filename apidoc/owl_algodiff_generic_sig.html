@@ -46,18 +46,6 @@
 
 
 
-
-  <h3><a href="../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Algodiff.Generic Functor</a><ul>
-<li><a class="reference internal" href="#type-definition">Type definition</a></li>
-<li><a class="reference internal" href="#supported-maths-functions">Supported Maths functions</a></li>
-<li><a class="reference internal" href="#core-functions">Core functions</a></li>
-<li><a class="reference internal" href="#low-level-functions">Low-level functions</a></li>
-<li><a class="reference internal" href="#helper-functions">Helper functions</a></li>
-</ul>
-</li>
-</ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -92,592 +80,144 @@
   <div class="section" id="algodiff-generic-functor">
 <h1>Algodiff.Generic Functor<a class="headerlink" href="#algodiff-generic-functor" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#134 entries have been extracted.</p>
+#23 entries have been extracted.</p>
 <p>Github:
-<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/optimise/algodiff/owl_algodiff_generic_sig.ml">{Signature}</a>
-<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/optimise/algodiff/owl_algodiff_generic.ml">{Implementation}</a></p>
-<div class="section" id="type-definition">
-<h2>Type definition<a class="headerlink" href="#type-definition" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
-  <span class="o">|</span> <span class="nc">F</span> <span class="k">of</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span>
-  <span class="o">|</span> <span class="nc">Arr</span> <span class="k">of</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
-  <span class="c">(* primal, tangent, tag *)</span>
-  <span class="o">|</span> <span class="nc">DF</span> <span class="k">of</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="kt">int</span>
-  <span class="c">(* primal, adjoint, op, fanout, tag, tracker *)</span>
-  <span class="o">|</span> <span class="nc">DR</span> <span class="k">of</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="n">ref</span> <span class="o">*</span> <span class="n">op</span> <span class="o">*</span> <span class="kt">int</span> <span class="n">ref</span> <span class="o">*</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span> <span class="n">ref</span>
-
-  <span class="ow">and</span> <span class="n">adjoint</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="n">ref</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">t</span><span class="o">)</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">t</span><span class="o">)</span> <span class="kt">list</span>
-
-  <span class="ow">and</span> <span class="n">register</span> <span class="o">=</span> <span class="n">t</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="kt">list</span>
-
-  <span class="ow">and</span> <span class="n">label</span> <span class="o">=</span> <span class="kt">string</span> <span class="o">*</span> <span class="n">t</span> <span class="kt">list</span>
-
-  <span class="ow">and</span> <span class="n">op</span> <span class="o">=</span> <span class="n">adjoint</span> <span class="o">*</span> <span class="n">register</span> <span class="o">*</span> <span class="n">label</span>
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/algodiff/owl_algodiff_generic_sig.ml">{Signature}</a>
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/algodiff/owl_algodiff_generic.ml">{Implementation}</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make_forward</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>Abstract number type</p>
-</div>
-<div class="section" id="supported-maths-functions">
-<h2>Supported Maths functions<a class="headerlink" href="#supported-maths-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">+</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">-</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">*</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">/</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">*@</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">(</span> <span class="o">**</span> <span class="o">)</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">add</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sub</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mul</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">div</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dot</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pow</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atan2</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">min2</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max2</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cross_entropy</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">inv</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">neg</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">abs</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">signum</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">floor</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ceil</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">round</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sqr</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sqrt</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log2</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log10</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exp</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sin</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cos</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tan</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sinh</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cosh</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tanh</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">asin</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">acos</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atan</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">asinh</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">acosh</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atanh</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sum&#39;</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sum</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sum_reduce</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mean</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">l1norm&#39;</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">l2norm&#39;</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">l2norm_sqr&#39;</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sigmoid</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">relu</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">softplus</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">softsign</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">softmax</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reshape</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">flatten</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">concat</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_slice</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">list</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_slice</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">list</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diag</span> <span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diagm</span> <span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">trace</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">triu</span> <span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">inv</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chol</span> <span class="o">:</span> <span class="o">?</span><span class="n">upper</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L37">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make_reverse</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">qr</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L39">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reverse_prop</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lq</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">svd</span> <span class="o">:</span> <span class="o">?</span><span class="n">thin</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lyapunov</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">discrete_lyapunov</span> <span class="o">:</span> <span class="o">?</span><span class="n">solver</span><span class="o">:[</span> <span class="o">`</span><span class="n">default</span> <span class="o">|</span> <span class="o">`</span><span class="n">bilinear</span> <span class="o">|</span> <span class="o">`</span><span class="n">direct</span> <span class="o">]</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dropout</span> <span class="o">:</span> <span class="o">?</span><span class="n">rate</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool1d</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool2d</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool3d</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool1d</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool2d</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool3d</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">upsampling2d</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
 </div>
-<div class="section" id="core-functions">
-<h2>Core functions<a class="headerlink" href="#core-functions" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L47">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diff</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>similar to <code class="docutils literal notranslate"><span class="pre">diff</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">diff</span> <span class="pre">f</span> <span class="pre">x)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L63">source code</a></p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">f</span> <span class="pre">x</span></code> returns the exat derivative of a function <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar</span></code> at</dt>
+<dd><p class="first">point <code class="docutils literal notranslate"><span class="pre">x</span></code>. Simply calling <code class="docutils literal notranslate"><span class="pre">diff</span> <span class="pre">f</span></code> will return its derivative function <code class="docutils literal notranslate"><span class="pre">g</span></code> of
+the same type, i.e. <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">:</span> <span class="pre">scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar</span></code>.</p>
+<p class="last">Keep calling this function will give you higher-order derivatives of <code class="docutils literal notranslate"><span class="pre">f</span></code>, i.e.
+<code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">|&gt;</span> <span class="pre">diff</span> <span class="pre">|&gt;</span> <span class="pre">diff</span> <span class="pre">|&gt;</span> <span class="pre">diff</span> <span class="pre">|&gt;</span> <span class="pre">...</span></code></p>
+</dd>
+</dl>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L57">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diff&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>gradient of <code class="docutils literal notranslate"><span class="pre">f</span></code> : (vector -&gt; scalar) at <code class="docutils literal notranslate"><span class="pre">x</span></code>, reverse ad.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L56">source code</a></p>
+<p>similar to <code class="docutils literal notranslate"><span class="pre">diff</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">diff</span> <span class="pre">f</span> <span class="pre">x)</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L50">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">grad</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>similar to <code class="docutils literal notranslate"><span class="pre">grad</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">grad</span> <span class="pre">f</span> <span class="pre">x)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L75">source code</a></p>
+<p>gradient of <code class="docutils literal notranslate"><span class="pre">f</span></code> : (vector -&gt; scalar) at <code class="docutils literal notranslate"><span class="pre">x</span></code>, reverse ad.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L69">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">grad&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>similar to <code class="docutils literal notranslate"><span class="pre">grad</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">grad</span> <span class="pre">f</span> <span class="pre">x)</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L60">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobian</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <dl class="docutils">
 <dt>jacobian of <code class="docutils literal notranslate"><span class="pre">f</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">(vector -&gt; vector) at <code class="docutils literal notranslate"><span class="pre">x</span></code>, both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are row</span></dt>
 <dd>vectors.</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L66">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobian</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L148">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobian&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>similar to <code class="docutils literal notranslate"><span class="pre">jacobian</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">jacobian</span> <span class="pre">f</span> <span class="pre">x)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L129">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobian&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L99">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <dl class="docutils">
 <dt>jacobian vector product of <code class="docutils literal notranslate"><span class="pre">f</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">(vector -&gt; vector) at <code class="docutils literal notranslate"><span class="pre">x</span></code> along <code class="docutils literal notranslate"><span class="pre">v</span></code>, forward</span></dt>
 <dd>ad. Namely, it calcultes <code class="docutils literal notranslate"><span class="pre">(jacobian</span> <span class="pre">x)</span> <span class="pre">v</span></code></dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L101">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L81">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianv&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>similar to <code class="docutils literal notranslate"><span class="pre">jacobianv'</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">jacobianv</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L85">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianv&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L72">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianTv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <dl class="docutils">
 <dt>transposed jacobian vector product of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">(vector</span> <span class="pre">-&gt;</span> <span class="pre">vector)</span></code> at <code class="docutils literal notranslate"><span class="pre">x</span></code> along</dt>
 <dd><code class="docutils literal notranslate"><span class="pre">v</span></code>, backward ad. Namely, it calculates <code class="docutils literal notranslate"><span class="pre">transpose</span> <span class="pre">((jacobianv</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v))</span></code>.</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L78">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianTv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>similar to <code class="docutils literal notranslate"><span class="pre">jacobianTv</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">transpose</span> <span class="pre">(jacobianv</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v))</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L97">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L95">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianTv&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>hessian of <code class="docutils literal notranslate"><span class="pre">f</span></code> : (scalar -&gt; scalar) at <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L88">source code</a></p>
+<p>similar to <code class="docutils literal notranslate"><span class="pre">jacobianTv</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">transpose</span> <span class="pre">(jacobianv</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v))</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L84">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hessian</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>simiarl to <code class="docutils literal notranslate"><span class="pre">hessian</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L141">source code</a></p>
+<p>hessian of <code class="docutils literal notranslate"><span class="pre">f</span></code> : (scalar -&gt; scalar) at <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L160">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hessian&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>simiarl to <code class="docutils literal notranslate"><span class="pre">hessian</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x)</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L163">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hessianv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <dl class="docutils">
 <dt>hessian vector product of <code class="docutils literal notranslate"><span class="pre">f</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">(scalar -&gt; scalar) at <code class="docutils literal notranslate"><span class="pre">x</span></code> along <code class="docutils literal notranslate"><span class="pre">v</span></code>. Namely,</span></dt>
 <dd>it calculates <code class="docutils literal notranslate"><span class="pre">(hessian</span> <span class="pre">x)</span> <span class="pre">v</span></code>.</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L144">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hessianv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>similar to <code class="docutils literal notranslate"><span class="pre">hessianv</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">hessianv</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L165">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L184">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hessianv&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>laplacian of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">(scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar)</span></code> at <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L159">source code</a></p>
+<p>similar to <code class="docutils literal notranslate"><span class="pre">hessianv</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">hessianv</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v)</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L178">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplacian</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>simiar to <code class="docutils literal notranslate"><span class="pre">laplacian</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">laplacian</span> <span class="pre">f</span> <span class="pre">x)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L171">source code</a></p>
+<p>laplacian of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">(scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar)</span></code> at <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L190">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">laplacian&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>return <code class="docutils literal notranslate"><span class="pre">(grad</span> <span class="pre">f</span> <span class="pre">x,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x)</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">(scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L172">source code</a></p>
+<p>simiar to <code class="docutils literal notranslate"><span class="pre">laplacian</span></code>, but return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">laplacian</span> <span class="pre">f</span> <span class="pre">x)</span></code>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L191">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gradhessian</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">grad</span> <span class="pre">f</span> <span class="pre">x,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L132">source code</a></p>
+<p>return <code class="docutils literal notranslate"><span class="pre">(grad</span> <span class="pre">f</span> <span class="pre">x,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x)</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">(scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar)</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L151">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gradhessian&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p>return <code class="docutils literal notranslate"><span class="pre">(grad</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L135">source code</a></p>
+<p>return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">grad</span> <span class="pre">f</span> <span class="pre">x,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x)</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L154">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gradhessianv</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
 </pre></div>
 </div>
+<p>return <code class="docutils literal notranslate"><span class="pre">(grad</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v)</span></code></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L172">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gradhessianv&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span> <span class="o">*</span> <span class="n">t</span>
+</pre></div>
+</div>
 <p>return <code class="docutils literal notranslate"><span class="pre">(f</span> <span class="pre">x,</span> <span class="pre">grad</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v,</span> <span class="pre">hessian</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">v)</span></code></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L153">source code</a></p>
-</div>
-<div class="section" id="low-level-functions">
-<h2>Low-level functions<a class="headerlink" href="#low-level-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_elt</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>convert from <code class="docutils literal notranslate"><span class="pre">t</span></code> type to <code class="docutils literal notranslate"><span class="pre">elt</span></code> type.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_elt</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span>
-</pre></div>
-</div>
-<p>convert from <code class="docutils literal notranslate"><span class="pre">float</span></code> type to <code class="docutils literal notranslate"><span class="pre">t</span></code> type.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_flt</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>convert from <code class="docutils literal notranslate"><span class="pre">t</span></code> type to <code class="docutils literal notranslate"><span class="pre">float</span></code> type.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_flt</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
-</pre></div>
-</div>
-<p>convert from <code class="docutils literal notranslate"><span class="pre">arr</span></code> type to <code class="docutils literal notranslate"><span class="pre">t</span></code> type.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pack_arr</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>convert from <code class="docutils literal notranslate"><span class="pre">t</span></code> type to <code class="docutils literal notranslate"><span class="pre">arr</span></code> type.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unpack_arr</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tag</span> <span class="o">:</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="kt">int</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L20">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">primal</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">primal&#39;</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">adjval</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">adjref</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="n">ref</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tangent</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make_forward</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L46">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make_reverse</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/algodiff/owl_algodiff_generic.ml#L48">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reverse_prop</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">type_info</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shape</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
-</pre></div>
-</div>
-<p>TODO</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy_primal&#39;</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>A shortcut function for <code class="docutils literal notranslate"><span class="pre">F</span> <span class="pre">A.(float_to_elt</span> <span class="pre">x)</span></code>.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="o">_</span><span class="n">f</span> <span class="o">:</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>other functions, without tracking gradient</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">clip_by_value</span> <span class="o">:</span> <span class="n">amin</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">amax</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>other functions, without tracking gradient</p>
-</div>
-<div class="section" id="helper-functions">
-<h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_trace</span> <span class="o">:</span> <span class="n">t</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="kt">string</span>
-</pre></div>
-</div>
-<dl class="docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">to_dot</span> <span class="pre">[t0;</span> <span class="pre">t1;</span> <span class="pre">...]</span></code> outputs the trace of computation graph in the dot file</dt>
-<dd>format which you can use other tools further visualisation, such as Graphviz.</dd>
-</dl>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_dot</span> <span class="o">:</span> <span class="n">t</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="kt">string</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">pp_num</span> <span class="pre">t</span></code> pretty prints the abstract number used in <code class="docutils literal notranslate"><span class="pre">Algodiff</span></code>.</p>
-</div>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/algodiff/owl_algodiff_generic.ml#L166">source code</a></p>
 </div>
 
 
