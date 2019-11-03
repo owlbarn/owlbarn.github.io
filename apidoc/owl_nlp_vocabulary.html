@@ -252,12 +252,12 @@ on absolute count of words.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_array</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">string</span><span class="o">)</span> <span class="kt">array</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">to_array</span> <span class="pre">v</span></code> converts a vocabulary to a (word, index) array.</p>
+<p><code class="docutils literal notranslate"><span class="pre">to_array</span> <span class="pre">v</span></code> converts a vocabulary to a (index, word) array.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L300">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">of_array</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">string</span><span class="o">)</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">of_array</span> <span class="pre">v</span></code> converts a (word, index) array to a vocabulary.</p>
+<p><code class="docutils literal notranslate"><span class="pre">of_array</span> <span class="pre">v</span></code> converts a (index, word) array to a vocabulary.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L306">source code</a></p>
 </div>
 <div class="section" id="i-o-functions">

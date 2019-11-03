@@ -272,7 +272,7 @@ Parameters:
 
   val to_array : t -> (int * string) array
 
-``to_array v`` converts a vocabulary to a (word, index) array.
+``to_array v`` converts a vocabulary to a (index, word) array.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L300>`__
 
@@ -282,7 +282,7 @@ Parameters:
 
   val of_array : (int * string) array -> t
 
-``of_array v`` converts a (word, index) array to a vocabulary.
+``of_array v`` converts a (index, word) array to a vocabulary.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_vocabulary.ml#L306>`__
 
