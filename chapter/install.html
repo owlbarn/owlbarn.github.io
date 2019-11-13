@@ -97,11 +97,12 @@
 <div class="section" id="option-1-install-from-opam">
 <h2>Option 1: Install from OPAM<a class="headerlink" href="#option-1-install-from-opam" title="Permalink to this headline">¶</a></h2>
 <p>Thanks to the folks in <a class="reference external" href="http://ocamllabs.io/">OCaml Labs</a>, OPAM makes package management in OCaml much easier than before. You can simply type the following in the command line to start.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>opam install owl
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>opam depext owl
+opam install owl
 </pre></div>
 </div>
-<p>However, Owl’s current version on OPAM is <code class="docutils literal notranslate"><span class="pre">0.3.0</span></code>, and it lags way behind the development in master branch and misses many new features.</p>
-<p>On the other hand, this document is tightly synchronised with the master branch. This means that you may not be able to try out the stuff I teach here. If you want to try the newest features, I recommend the other ways to install Owl, as below.</p>
+<p>If you want to try the newest development features, I recommend the other ways to install Owl, as below.</p>
+<p>In case of linking issues, known to happen on <cite>ubuntu</cite>-based distribution. You will need to compile <cite>openblas</cite> by hand, and use the appropriate environment variables to point at your newly compiled library. You can use <cite>owl’s docker file &lt;https://github.com/owlbarn/owl/blob/master/docker/Dockerfile.ubuntu&gt;</cite> as a reference for this.</p>
 </div>
 <div class="section" id="option-2-pull-from-docker-hub">
 <h2>Option 2: Pull from Docker Hub<a class="headerlink" href="#option-2-pull-from-docker-hub" title="Permalink to this headline">¶</a></h2>
