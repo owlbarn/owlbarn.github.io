@@ -17,8 +17,6 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Maths_quadrature" href="owl_maths_quadrature.html" />
-    <link rel="prev" title="Stats" href="owl_stats.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -61,10 +59,6 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="index.html">Owl API Reference</a><ul>
-      <li>Previous: <a href="owl_stats.html" title="previous chapter">Stats</a></li>
-      <li>Next: <a href="owl_maths_quadrature.html" title="next chapter">Maths_quadrature</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -91,7 +85,7 @@
   <div class="section" id="maths-root">
 <h1>Maths_root<a class="headerlink" href="#maths-root" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#11 entries have been extracted.</p>
+#8 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_maths_root.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_maths_root.ml">{Implementation}</a></p>
@@ -108,26 +102,6 @@
 </div>
 <div class="section" id="core-functions">
 <h2>Core functions<a class="headerlink" href="#core-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fzero</span> <span class="o">:</span> <span class="o">?</span><span class="n">solver</span><span class="o">:</span><span class="n">solver</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">max_iter</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">xtol</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">fzero</span> <span class="pre">~solver</span> <span class="pre">f</span> <span class="pre">a</span> <span class="pre">b</span></code> tries to find the root of univariate function <code class="docutils literal notranslate"><span class="pre">f</span></code> in
-the bracket <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> using method <code class="docutils literal notranslate"><span class="pre">solver</span></code>. This is the hub function of the
-individual root finding algorithms in the following sections. You can certainly
-call each individual ones.</p>
-<dl class="docutils">
-<dt>Parameters:</dt>
-<dd><ul class="first last simple">
-<li><code class="docutils literal notranslate"><span class="pre">solver</span></code>: solver, default one is Brent method.</li>
-<li><code class="docutils literal notranslate"><span class="pre">max_iter</span></code>: maximum number of iterations, default value is <code class="docutils literal notranslate"><span class="pre">1000</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">xtol</span></code>: the tolerance of <code class="docutils literal notranslate"><span class="pre">x</span></code> on abscissa, default value is <code class="docutils literal notranslate"><span class="pre">1e-6</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">f</span></code>: the univariate scalar function to find root.</li>
-<li><code class="docutils literal notranslate"><span class="pre">a</span></code>: boundary of bracket.</li>
-<li><code class="docutils literal notranslate"><span class="pre">b</span></code>: boundary of bracket.</li>
-</ul>
-</dd>
-</dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_root.ml#L245">source code</a></p>
 </div>
 <div class="section" id="root-of-univariate-functions">
 <h2>Root of univariate functions<a class="headerlink" href="#root-of-univariate-functions" title="Permalink to this headline">¶</a></h2>
@@ -147,24 +121,7 @@ bracket defined by <code class="docutils literal notranslate"><span class="pre">
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_root.ml#L20">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="bp">false</span><span class="o">_</span><span class="n">pos</span> <span class="o">:</span> <span class="o">?</span><span class="n">max_iter</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">xtol</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">false_pos</span> <span class="pre">f</span> <span class="pre">a</span> <span class="pre">b</span></code> tries to find the root of univariate function <code class="docutils literal notranslate"><span class="pre">f</span></code> in the
-bracket defined by <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code>.</p>
-<dl class="docutils">
-<dt>Parameters:</dt>
-<dd><ul class="first last simple">
-<li><code class="docutils literal notranslate"><span class="pre">max_iter</span></code>: maximum number of iterations.</li>
-<li><code class="docutils literal notranslate"><span class="pre">xtol</span></code>: the tolerance of <code class="docutils literal notranslate"><span class="pre">x</span></code> on abscissa.</li>
-<li><code class="docutils literal notranslate"><span class="pre">f</span></code>: the univariate scalar function to find root.</li>
-<li><code class="docutils literal notranslate"><span class="pre">a</span></code>: boundary of bracket.</li>
-<li><code class="docutils literal notranslate"><span class="pre">b</span></code>: boundary of bracket.</li>
-</ul>
-</dd>
-</dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_root.ml#L52">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_root.ml#L18">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ridder</span> <span class="o">:</span> <span class="o">?</span><span class="n">max_iter</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">xtol</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -181,7 +138,7 @@ bracket defined by <code class="docutils literal notranslate"><span class="pre">
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_root.ml#L95">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_root.ml#L94">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">brent</span> <span class="o">:</span> <span class="o">?</span><span class="n">max_iter</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">xtol</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -199,27 +156,10 @@ bracket defined by <code class="docutils literal notranslate"><span class="pre">
 </dd>
 </dl>
 <p>Refer to <a class="reference internal" href="../chapter/reference.html#brent2013algorithms" id="id1">[Bre13]</a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_root.ml#L149">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_root.ml#L144">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bracket_expand</span> <span class="o">:</span> <span class="o">?</span><span class="n">rate</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">max_iter</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="n">option</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">bracket_expand</span> <span class="pre">f</span> <span class="pre">a</span> <span class="pre">b</span></code> expands the bracket <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b]</span></code> for a given function
-<code class="docutils literal notranslate"><span class="pre">f</span></code> until it finds <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">b</span></code> have different signs.</p>
-<dl class="docutils">
-<dt>Parameters:</dt>
-<dd><ul class="first last simple">
-<li><code class="docutils literal notranslate"><span class="pre">max_iter</span></code>: maximum number of iterations, the default is 100</li>
-<li><code class="docutils literal notranslate"><span class="pre">rate</span></code>: rate of growth, the default is 1.6</li>
-<li><code class="docutils literal notranslate"><span class="pre">f</span></code>: the univariate scalar function to find root.</li>
-<li><code class="docutils literal notranslate"><span class="pre">a</span></code>: initial boundary of bracket.</li>
-<li><code class="docutils literal notranslate"><span class="pre">b</span></code>: initial boundary of bracket.</li>
-</ul>
-</dd>
-</dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_root.ml#L253">source code</a></p>
 </div>
 </div>
 

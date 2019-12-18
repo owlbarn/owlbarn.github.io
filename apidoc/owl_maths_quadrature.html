@@ -17,8 +17,6 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Maths_interpolate" href="owl_maths_interpolate.html" />
-    <link rel="prev" title="Maths_root" href="owl_maths_root.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -59,10 +57,6 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="index.html">Owl API Reference</a><ul>
-      <li>Previous: <a href="owl_maths_root.html" title="previous chapter">Maths_root</a></li>
-      <li>Next: <a href="owl_maths_interpolate.html" title="next chapter">Maths_interpolate</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -89,7 +83,7 @@
   <div class="section" id="maths-quadrature">
 <h1>Maths_quadrature<a class="headerlink" href="#maths-quadrature" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#9 entries have been extracted.</p>
+#8 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_maths_quadrature.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/maths/owl_maths_quadrature.ml">{Implementation}</a></p>
@@ -138,7 +132,7 @@ the Simpson’s rule, i.e. <span class="math notranslate nohighlight">\(\int_a^b
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L53">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L52">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">romberg</span> <span class="o">:</span> <span class="o">?</span><span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">eps</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -161,7 +155,7 @@ much faster than <code class="docutils literal notranslate"><span class="pre">tr
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L76">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L74">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_fixed</span> <span class="o">:</span> <span class="o">?</span><span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -183,7 +177,7 @@ algorithm is much faster than others due to cached weights.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L150">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L142">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian</span> <span class="o">:</span> <span class="o">?</span><span class="n">n</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">eps</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -205,7 +199,7 @@ using adaptive Gaussian quadrature of fixed tolerance.</p>
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L166">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L157">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -230,14 +224,7 @@ rule. It is the workhorse of several integration functions including <code class
 </ul>
 </dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L9">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gauss_legendre</span> <span class="o">:</span> <span class="o">?</span><span class="n">eps</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">*</span> <span class="kt">float</span> <span class="kt">array</span>
-</pre></div>
-</div>
-<p>Given the lower and upper limits of integration <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, and order
-<code class="docutils literal notranslate"><span class="pre">n</span></code>, the function computes the abscissas and weights of the Gauss-Legendre
-n-point quadrature formula.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L101">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/maths/owl_maths_quadrature.ml#L8">source code</a></p>
 </div>
 </div>
 

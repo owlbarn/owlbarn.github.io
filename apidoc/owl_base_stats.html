@@ -17,8 +17,6 @@
     <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Base.Complex" href="owl_base_complex.html" />
-    <link rel="prev" title="Base.Maths" href="owl_base_maths.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -60,10 +58,6 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="index.html">Owl API Reference</a><ul>
-      <li>Previous: <a href="owl_base_maths.html" title="previous chapter">Base.Maths</a></li>
-      <li>Next: <a href="owl_base_complex.html" title="next chapter">Base.Complex</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -90,7 +84,7 @@
   <div class="section" id="base-stats">
 <h1>Base.Stats<a class="headerlink" href="#base-stats" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#50 entries have been extracted.</p>
+#47 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/stats/owl_base_stats.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/stats/owl_base_stats.ml">{Implementation}</a></p>
@@ -100,26 +94,26 @@
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L44">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L32">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">choose</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L57">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L43">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L77">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L61">source code</a></p>
 </div>
 <div class="section" id="basic-statistical-functions">
 <h2>Basic statistical functions<a class="headerlink" href="#basic-statistical-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">histogram</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="n">bins</span>              <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="n">counts</span>            <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="n">weighted_counts</span>   <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="n">option</span><span class="o">;</span>
-  <span class="n">normalised_counts</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="n">option</span><span class="o">;</span>
-  <span class="n">density</span>           <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="n">option</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">histogram</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">bins</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="n">counts</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="n">weighted_counts</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="n">option</span>
+  <span class="o">;</span> <span class="n">normalised_counts</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="n">option</span>
+  <span class="o">;</span> <span class="n">density</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="n">option</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -128,122 +122,122 @@
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L91">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L73">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mean</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L94">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L75">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">var</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L105">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L86">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">std</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L119">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L99">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sem</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L122">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L101">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">absdev</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L128">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L107">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">skew</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sd</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L141">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L119">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">kurtosis</span> <span class="o">:</span> <span class="o">?</span><span class="n">mean</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sd</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L158">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L136">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">central_moment</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L176">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L154">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cov</span> <span class="o">:</span> <span class="o">?</span><span class="n">m0</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">m1</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L184">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L162">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">concordant</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L202">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L180">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">discordant</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L215">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L192">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">kendall_tau</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L228">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L204">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">min</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L306">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L274">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L309">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L276">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">minmax</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L312">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L278">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">min_i</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L300">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L270">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_i</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L303">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L272">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">minmax_i</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">*</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L281">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L250">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sort</span> <span class="o">:</span> <span class="o">?</span><span class="n">inc</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L235">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L211">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">argsort</span> <span class="o">:</span> <span class="o">?</span><span class="n">inc</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L246">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L218">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rank</span> <span class="o">:</span> <span class="o">?</span><span class="n">ties_strategy</span><span class="o">:[</span> <span class="o">`</span><span class="nc">Average</span> <span class="o">|</span> <span class="o">`</span><span class="nc">Min</span> <span class="o">|</span> <span class="o">`</span><span class="nc">Max</span> <span class="o">]</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L261">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L232">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">percentile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L572">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L548">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">quantile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L554">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L530">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">first_quartile</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
@@ -256,41 +250,27 @@
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L584">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L556">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">median</span> <span class="o">:</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L575">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">histogram_sorted</span> <span class="o">:</span> <span class="o">[</span> <span class="o">`</span><span class="nc">Bins</span> <span class="k">of</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">|</span> <span class="o">`</span><span class="nc">N</span> <span class="k">of</span> <span class="kt">int</span> <span class="o">]</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">weights</span><span class="o">:</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">histogram</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L510">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L550">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normalise</span> <span class="o">:</span> <span class="n">histogram</span> <span class="o">-&gt;</span> <span class="n">histogram</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L523">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L498">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normalise_density</span> <span class="o">:</span> <span class="n">histogram</span> <span class="o">-&gt;</span> <span class="n">histogram</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L534">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pp_hist</span><span class="o">:</span> <span class="nn">Format</span><span class="p">.</span><span class="n">formatter</span> <span class="o">-&gt;</span> <span class="n">histogram</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="o">[@@</span><span class="n">ocaml</span><span class="o">.</span><span class="n">toplevel_printer</span><span class="o">]</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L511">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tukey_fences</span> <span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">*</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L588">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_kde</span> <span class="o">:</span> <span class="o">?</span><span class="n">bandwidth</span><span class="o">:[</span> <span class="o">`</span><span class="nc">Silverman</span> <span class="o">|</span> <span class="o">`</span><span class="nc">Scott</span> <span class="o">]</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">n_points</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="kt">array</span> <span class="o">*</span> <span class="kt">float</span> <span class="kt">array</span><span class="o">)</span>
-</pre></div>
-</div>
-<p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L617">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L558">source code</a></p>
 </div>
 <div class="section" id="random-variables">
 <h2>Random variables<a class="headerlink" href="#random-variables" title="Permalink to this headline">¶</a></h2>
@@ -298,47 +278,47 @@
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L15">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L12">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bernoulli_rvs</span> <span class="o">:</span> <span class="n">p</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L18">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L14">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian_rvs</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L21">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L16">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exponential_rvs</span> <span class="o">:</span> <span class="n">lambda</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L24">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L18">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cauchy_rvs</span> <span class="o">:</span> <span class="n">loc</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L27">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L20">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">std_gamma_rvs</span> <span class="o">:</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L30">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L22">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gamma_rvs</span> <span class="o">:</span> <span class="n">shape</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L33">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L24">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel1_rvs</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L36">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L26">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gumbel2_rvs</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_stats.html"><span class="doc">Stats</span></a>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L39">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/stats/owl_base_stats.ml#L28">source code</a></p>
 </div>
 </div>
 

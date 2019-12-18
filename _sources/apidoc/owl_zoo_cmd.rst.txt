@@ -51,7 +51,7 @@ Download the gist of given id and version; if a version id is not given, the lat
 
 ``list_gist ""`` lists all the local gists; ``list_gist gist-id`` lists all the local versions of a gist.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L66>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L67>`__
 
 
 
@@ -61,7 +61,7 @@ Download the gist of given id and version; if a version id is not given, the lat
 
 Update the zoo gist bundles of an array of gist ids.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L73>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L74>`__
 
 
 
@@ -71,7 +71,7 @@ Update the zoo gist bundles of an array of gist ids.
 
 Show the gist's detail information of given gist id.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L82>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L80>`__
 
 
 
@@ -86,7 +86,7 @@ Execute gists
 
 Evaluate an OCaml expression in toplevel.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L9>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L8>`__
 
 
 
@@ -106,7 +106,7 @@ Preprocess the zoo scripts, inject the necessary directives, functions, and modu
 
 ``run args script`` executes the zoo script with the given arguments.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L122>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L115>`__
 
 
 
@@ -116,7 +116,7 @@ Preprocess the zoo scripts, inject the necessary directives, functions, and modu
 
 ``run_gist gist-id`` runs a zoo gist with the given ``gist-id`` and parameters.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L129>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L121>`__
 
 
 
@@ -131,7 +131,7 @@ Helper functions
 
 Print out help information of ``owl`` command line.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L136>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L128>`__
 
 
 
@@ -141,7 +141,7 @@ Print out help information of ``owl`` command line.
 
 Start the toplevel system tailored for Owl's zoo system.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L153>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L148>`__
 
 
 
@@ -151,7 +151,7 @@ Start the toplevel system tailored for Owl's zoo system.
 
 ``query_path gist`` returns the absolute path of a given gist.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L108>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L101>`__
 
 
 
@@ -161,7 +161,7 @@ Start the toplevel system tailored for Owl's zoo system.
 
 Load a zoo file with the given gist name and file name, the file path is relative to the gist/version folder.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L117>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/zoo/owl_zoo_cmd.ml#L110>`__
 
 
 

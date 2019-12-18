@@ -2,7 +2,7 @@ Exception
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#28 entries have been extracted.
+#27 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/core/owl_exception.mli>`_ 
@@ -29,7 +29,7 @@ Parameters:
 Returns:
   * ``unit``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L56>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L54>`__
 
 
 
@@ -47,7 +47,7 @@ Parameters:
 Returns:
   * ``unit``
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L60>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L56>`__
 
 
 
@@ -58,17 +58,7 @@ Returns:
 ``to_string e`` converts an exception into a string containing more
 detailed information for debugging the code.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L108>`__
-
-
-
-.. code-block:: ocaml
-
-  val pp_exception : Format.formatter -> exn -> unit [@@ocaml.toplevel_printer]
-
-``pp_exception`` is the pretty printer for Owl exceptions.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L120>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/core/owl_exception.ml#L102>`__
 
 
 

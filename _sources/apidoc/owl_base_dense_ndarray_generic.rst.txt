@@ -2,7 +2,7 @@ Base.Dense.Ndarray.Generic
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#407 entries have been extracted.
+#393 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/dense/owl_base_dense_ndarray_generic.mli>`_ 
@@ -426,7 +426,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 TODO: not implemented
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L5061>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4965>`__
 
 
 
@@ -961,7 +961,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L5039>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4943>`__
 
 
 
@@ -2238,135 +2238,7 @@ Refer to :doc:`owl_dense_matrix_generic`
 
 .. code-block:: ocaml
 
-  val inv : (float, 'b) t -> (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4943>`__
-
-
-
-.. code-block:: ocaml
-
-  val logdet : (float, 'b) t -> float
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4987>`__
-
-
-
-.. code-block:: ocaml
-
-  val chol : ?upper:bool -> (float, 'b) t -> (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4996>`__
-
-
-
-.. code-block:: ocaml
-
-  val qr : (float, 'b) t -> (float, 'b) t * (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4990>`__
-
-
-
-.. code-block:: ocaml
-
-  val lq : (float, 'b) t -> (float, 'b) t * (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4993>`__
-
-
-
-.. code-block:: ocaml
-
-  val svd : ?thin:bool -> (float, 'b) t -> (float, 'b) t * (float, 'b) t * (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L5000>`__
-
-
-
-.. code-block:: ocaml
-
-  val sylvester : (float, 'b) t -> (float, 'b) t -> (float, 'b) t -> (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L5004>`__
-
-
-
-.. code-block:: ocaml
-
-  val lyapunov : (float, 'b) t -> (float, 'b) t -> (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L5007>`__
-
-
-
-.. code-block:: ocaml
-
-  val discrete_lyapunov : ?solver:[`default | `bilinear | `direct] -> (float, 'b) t -> (float, 'b) t -> (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L5010>`__
-
-
-
-.. code-block:: ocaml
-
-  val linsolve : ?trans:bool -> ?typ:[`n | `u | `l] -> (float, 'b) t -> (float, 'b) t -> (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L5014>`__
-
-
-
-.. code-block:: ocaml
-
-  val care : ?diag_r:bool -> (float, 'b) t -> (float, 'b) t -> (float, 'b) t -> (float, 'b) t -> (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L5018>`__
-
-
-
-.. code-block:: ocaml
-
-  val diag: ?k:int -> (float, 'b) t -> (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-.. code-block:: ocaml
-
-  val diagm: ?k:int -> (float, 'b) t -> (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-.. code-block:: ocaml
-
-  val tril: ?k:int -> (float, 'b) t -> (float, 'b) t
-
-Refer to :doc:`owl_dense_matrix_generic`
-
-.. code-block:: ocaml
-
-  val triu: ?k:int -> (float, 'b) t -> (float, 'b) t
+  val diag: ?k:int -> ('a, 'b) t -> ('a, 'b) t
 
 Refer to :doc:`owl_dense_matrix_generic`
 
@@ -3722,7 +3594,7 @@ Helper functions
 
 Identity function to deal with the type conversion required by other functors.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L5066>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4970>`__
 
 
 
@@ -3732,7 +3604,7 @@ Identity function to deal with the type conversion required by other functors.
 
 Identity function to deal with the type conversion required by other functors.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L5068>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/dense/owl_base_dense_ndarray_generic.ml#L4972>`__
 
 
 
