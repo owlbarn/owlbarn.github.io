@@ -2,7 +2,7 @@ Utils.Array
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#84 entries have been extracted.
+#77 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/misc/owl_utils_array.mli>`_ 
@@ -87,7 +87,7 @@ Refer to OCaml native array.
 
 Refer to OCaml native array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L484>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L478>`__
 
 
 
@@ -170,7 +170,7 @@ Refer to OCaml native array.
 ``min_i x`` returns the index of minimum value in array ``x``. If ``cmp`` is
 not passed in then ``Stdlib.compare`` is used as default value.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L501>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L497>`__
 
 
 
@@ -181,7 +181,7 @@ not passed in then ``Stdlib.compare`` is used as default value.
 ``max_i x`` returns the index of minimum value in array ``x``. If ``cmp`` is
 not passed in then ``Stdlib.compare`` is used as default value.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L514>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L511>`__
 
 
 
@@ -192,7 +192,7 @@ not passed in then ``Stdlib.compare`` is used as default value.
 ``argsort cmp x`` sorts ``x`` according to the compare function ``cmp`` and
 returns the corresponding indices.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L492>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L489>`__
 
 
 
@@ -223,7 +223,7 @@ of length ``max - min + 1``, and fills the holes with ``fill``. E.g.,
 ``sort_fill ~min:1 ~max:5 ~fill:0 [|4;2|] x`` returns a new array as follows:
 ``[|1; 0; 2; 0; 4; 5|]``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L477>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L464>`__
 
 
 
@@ -250,7 +250,7 @@ Extended functions
 
 Operator of array concatenation.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L13>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L11>`__
 
 
 
@@ -262,7 +262,7 @@ Operator of array concatenation.
 The ``slice`` definition must have ``[|start;stop;step|]`` format. The value
 of start, stop, and step can be negative, and the boundary is inclusive.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L348>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L330>`__
 
 
 
@@ -274,7 +274,7 @@ of start, stop, and step can be negative, and the boundary is inclusive.
 of the elements in ``y`` based on the slice definition ``slice``. Please refer
 to ``get_slice`` function for the information on the format of slice definiton.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L366>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L347>`__
 
 
 
@@ -284,7 +284,7 @@ to ``get_slice`` function for the information on the format of slice definiton.
 
 Flatten an array array into an array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L34>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L32>`__
 
 
 
@@ -294,7 +294,7 @@ Flatten an array array into an array.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L23>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L20>`__
 
 
 
@@ -304,7 +304,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L27>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L23>`__
 
 
 
@@ -314,7 +314,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L43>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L39>`__
 
 
 
@@ -324,7 +324,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L50>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L46>`__
 
 
 
@@ -334,7 +334,7 @@ TODO
 
 ``unique x`` removes the duplicates in the array ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L453>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L440>`__
 
 
 
@@ -344,7 +344,7 @@ TODO
 
 ``merge x y`` merges two arrays and removes the duplicates.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L463>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L451>`__
 
 
 
@@ -354,7 +354,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L63>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L59>`__
 
 
 
@@ -364,7 +364,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L78>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L74>`__
 
 
 
@@ -374,7 +374,7 @@ TODO
 
 ``reverse x`` reverse the elements in ``x`` in place.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L466>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L453>`__
 
 
 
@@ -384,7 +384,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L122>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L119>`__
 
 
 
@@ -394,7 +394,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L132>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L129>`__
 
 
 
@@ -404,7 +404,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L144>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L140>`__
 
 
 
@@ -414,7 +414,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L137>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L133>`__
 
 
 
@@ -424,7 +424,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L158>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L154>`__
 
 
 
@@ -434,27 +434,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L151>`__
-
-
-
-.. code-block:: ocaml
-
-  val iter4i : (int -> 'a -> 'b -> 'c -> 'd -> unit) -> 'a array -> 'b array -> 'c array -> 'd array -> unit
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L165>`__
-
-
-
-.. code-block:: ocaml
-
-  val iter4 : ('a -> 'b -> 'c -> 'd -> unit) -> 'a array -> 'b array -> 'c array -> 'd array -> unit
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L176>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L147>`__
 
 
 
@@ -464,17 +444,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L179>`__
-
-
-
-.. code-block:: ocaml
-
-  val map2i_split2 : (int -> 'a -> 'b -> 'c * 'd) -> 'a array -> 'b array -> 'c array * 'd array
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L185>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L174>`__
 
 
 
@@ -484,7 +454,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L260>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L242>`__
 
 
 
@@ -494,27 +464,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L268>`__
-
-
-
-.. code-block:: ocaml
-
-  val map4i : (int -> 'a -> 'b -> 'c -> 'd -> 'e) -> 'a array -> 'b array -> 'c array -> 'd array -> 'e array
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L271>`__
-
-
-
-.. code-block:: ocaml
-
-  val map4 : ('a -> 'b -> 'c -> 'd -> 'e) -> 'a array -> 'b array -> 'c array -> 'd array -> 'e array
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L280>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L250>`__
 
 
 
@@ -534,7 +484,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L103>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L104>`__
 
 
 
@@ -554,7 +504,7 @@ TODO
 
 ``filter f x`` filters out the elements in ``x`` according to predicate ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L119>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L117>`__
 
 
 
@@ -565,7 +515,7 @@ TODO
 ``filter2i f x y`` filters the elements in ``x`` and ``y`` using passed in
 function ``f``. Both arrays must have same length.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L201>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L195>`__
 
 
 
@@ -576,7 +526,7 @@ function ``f``. Both arrays must have same length.
 ``filter2 f x y`` is similar to ``filter2i`` but without passing index of
 the elements to function ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L218>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L208>`__
 
 
 
@@ -588,7 +538,7 @@ the elements to function ``f``.
 function ``f``. Both arrays must have same length. Note that the indices of
 those satisfying the predicate ``f`` are returned in an array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L221>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L210>`__
 
 
 
@@ -599,7 +549,7 @@ those satisfying the predicate ``f`` are returned in an array.
 ``filter2_i f x y`` is similar to ``filter2i_i`` but without passing index of
 the elements to function ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L238>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L223>`__
 
 
 
@@ -610,7 +560,7 @@ the elements to function ``f``.
 ``filter2_split f x y`` is similar to ``filter2 f x y``, but the returned
 results are two separated arrays rather than merging into one tuple array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L241>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L225>`__
 
 
 
@@ -622,15 +572,19 @@ results are two separated arrays rather than merging into one tuple array.
 ``m <= n``, a copy of ``x`` subarray is returned. If ``m > n``, then ``x`` is
 extended, the extra space is filled with value ``v``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L246>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L230>`__
 
 
 
 .. code-block:: ocaml
 
-  val fold2: ('a -> 'b -> 'c -> 'a) -> 'a -> 'b array -> 'c array -> 'a
+  val fold2 : ('a -> 'b -> 'c -> 'a) -> 'a -> 'b array -> 'c array -> 'a
 
 ``fold2 a x y`` folds both ``x`` and ``y`` from left with starting value ``a``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L263>`__
+
+
 
 .. code-block:: ocaml
 
@@ -638,7 +592,7 @@ extended, the extra space is filled with value ``v``.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L290>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L270>`__
 
 
 
@@ -649,17 +603,7 @@ TODO
 ``align side v x y`` aligns two arrays ``x`` and ``y`` along the specified side
 with value ``v``. The copies of two arrays are returned.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L299>`__
-
-
-
-.. code-block:: ocaml
-
-  val align3 : [ `Left | `Right ] -> 'a -> 'a array -> 'a array -> 'a array -> 'a array * 'a array * 'a array
-
-``align3 side v x y z`` aligns three arrays ``x``, ``y``, and ``z``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L310>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L281>`__
 
 
 
@@ -669,7 +613,7 @@ with value ``v``. The copies of two arrays are returned.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L322>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L303>`__
 
 
 
@@ -679,7 +623,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L336>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L318>`__
 
 
 
@@ -689,7 +633,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L343>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L325>`__
 
 
 
@@ -699,7 +643,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L383>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L363>`__
 
 
 
@@ -711,7 +655,7 @@ TODO
 length of ``x``, if ``i < l - 1``, then ``x.(i) = x.(i)``, otherwise
 ``x.(l - 1) = mass - \sum_{i < l - 1} x.(i)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L402>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L383>`__
 
 
 
@@ -721,30 +665,20 @@ length of ``x``, if ``i < l - 1``, then ``x.(i) = x.(i)``, otherwise
 
 ``index_of x a`` returns the index of first occurrence of ``a`` in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L415>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L397>`__
 
 
 
 .. code-block:: ocaml
 
-  val bsearch : cmp:('a -> 'a -> int) -> 'a  -> 'a array -> int
+  val bsearch : cmp:('a -> 'a -> int) -> 'a -> 'a array -> int
 
 Binary search. ``bsearch cmp x a`` returns the index of the largest value
 in the sorted array ``a`` less than or equal to ``x``, according to the
 comparison function ``cmp``. If ``x`` is smaller than all elements, returns -1.
 The function raises an exception if ``a`` is empty.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L434>`__
-
-
-
-.. code-block:: ocaml
-
-  val to_string : ?prefix:string -> ?suffix:string -> ?sep:string -> ('a -> string) -> 'a array -> string
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L17>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_array.ml#L417>`__
 
 
 

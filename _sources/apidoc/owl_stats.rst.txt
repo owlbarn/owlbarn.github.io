@@ -2,7 +2,7 @@ Stats
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#253 entries have been extracted.
+#246 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/stats/owl_stats.mli>`_ 
@@ -21,7 +21,7 @@ Randomisation functions
 
 ``shuffle x`` return a new array of the shuffled ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L15>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L14>`__
 
 
 
@@ -31,7 +31,7 @@ Randomisation functions
 
 ``choose x n`` draw ``n`` samples from ``x`` without replecement.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L21>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L20>`__
 
 
 
@@ -41,7 +41,7 @@ Randomisation functions
 
 ``sample x n`` draw ``n`` samples from ``x`` with replacement.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L28>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L27>`__
 
 
 
@@ -64,7 +64,7 @@ counts.
 
 ``sum x`` returns the summation of the elements in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L36>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L35>`__
 
 
 
@@ -80,7 +80,7 @@ counts.
 
 ``var x`` returns the variance of elements in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L48>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L45>`__
 
 
 
@@ -90,7 +90,7 @@ counts.
 
 ``std x`` calculates the standard deviation of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L51>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L47>`__
 
 
 
@@ -101,7 +101,7 @@ counts.
 ``sem x`` calculates the standard error of ``x``, also referred to as
 standard error of the mean.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L54>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L49>`__
 
 
 
@@ -111,7 +111,7 @@ standard error of the mean.
 
 ``absdev x`` calculates the average absolute deviation of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L60>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L55>`__
 
 
 
@@ -121,7 +121,7 @@ standard error of the mean.
 
 ``skew x`` calculates the skewness (the third standardized moment) of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L63>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L57>`__
 
 
 
@@ -132,7 +132,7 @@ standard error of the mean.
 ``kurtosis x`` calculates the Pearson's kurtosis of ``x``, i.e. the fourth
 standardized moment of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L72>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L67>`__
 
 
 
@@ -142,7 +142,7 @@ standardized moment of ``x``.
 
 ``central_moment n x`` calculates the ``n`` th central moment of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L82>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L78>`__
 
 
 
@@ -153,7 +153,7 @@ standardized moment of ``x``.
 ``cov x0 x1`` calculates the covariance of ``x0`` and ``x1``, the mean of
 ``x0`` and ``x1`` can be specified by ``m0`` and ``m1`` respectively.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L136>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L128>`__
 
 
 
@@ -163,7 +163,7 @@ standardized moment of ``x``.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L143>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L135>`__
 
 
 
@@ -173,7 +173,7 @@ TODO
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L146>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L137>`__
 
 
 
@@ -184,7 +184,7 @@ TODO
 ``corrcoef x y`` calculates the Pearson correlation of ``x`` and ``y``. Namely,
 ``corrcoef x y = cov(x, y) / (sigma_x * sigma_y)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L84>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L80>`__
 
 
 
@@ -194,7 +194,7 @@ TODO
 
 ``kendall_tau x y`` calculates the Kendall Tau correlation between ``x`` and ``y``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L149>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L139>`__
 
 
 
@@ -204,7 +204,7 @@ TODO
 
 ``spearman_rho x y`` calculates the Spearman Rho correlation between ``x`` and ``y``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L152>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L141>`__
 
 
 
@@ -214,7 +214,7 @@ TODO
 
 ``autocorrelation ~lag x`` calculates the autocorrelation of ``x`` with the given ``lag``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L122>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L114>`__
 
 
 
@@ -225,7 +225,7 @@ TODO
 ``percentile x p`` returns the ``p`` percentile of the data ``x``. ``p`` is between
 0. and 100. ``x`` does not need to be sorted beforehand.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L226>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L202>`__
 
 
 
@@ -241,7 +241,7 @@ TODO
 
     @raise Invalid_argument if ``p`` is not between 0 and 1.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L217>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L194>`__
 
 
 
@@ -264,7 +264,7 @@ TODO
 ``interquartile x`` returns the interquartile range of ``x``
     which is defined as the first quartile subtracted from the third quartile.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L237>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L210>`__
 
 
 
@@ -274,7 +274,7 @@ TODO
 
 ``median x`` returns the median of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L229>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L204>`__
 
 
 
@@ -284,7 +284,7 @@ TODO
 
 ``min x`` returns the minimum element in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L169>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L155>`__
 
 
 
@@ -300,7 +300,7 @@ TODO
 
 ``minmax x`` returns both ``(minimum, maximum)`` elements in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L175>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L159>`__
 
 
 
@@ -310,7 +310,7 @@ TODO
 
 ``min_i x`` returns the index of the minimum in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L163>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L151>`__
 
 
 
@@ -320,7 +320,7 @@ TODO
 
 ``max_i x`` returns the index of the maximum in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L166>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L153>`__
 
 
 
@@ -330,7 +330,7 @@ TODO
 
 ``minmax_i x`` returns the indices of both minimum and maximum in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L160>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L149>`__
 
 
 
@@ -342,7 +342,7 @@ TODO
 ``inc = true``, otherwise in decreasing order if ``inc=false``. By default,
 ``inc`` is ``true``. Note a copy is returned, the original data is not modified.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L90>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L86>`__
 
 
 
@@ -356,7 +356,7 @@ the elements in the current array to their original position in ``x``.
 The sorting is in increasing order if ``inc = true``, otherwise in decreasing
 order if ``inc=false``. By default, ``inc`` is ``true``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L93>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L88>`__
 
 
 
@@ -377,19 +377,7 @@ Note that the ranking starts with one!
 - ``Min`` the minimum of ranks is assigned to each value.
 - ``Max`` the maximum of ranks is assigned to each value.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L102>`__
-
-
-
-.. code-block:: ocaml
-
-  val histogram_sorted : [ `Bins of float array | `N of int ] -> ?weights:float array -> float array -> histogram
-
-``histogram_sorted bins x`` is like ``histogram`` but assumes that ``x`` is sorted
-already. This increases efficiency if there are less bins than data. Undefined
-results if ``x`` is not in fact sorted.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L184>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L96>`__
 
 
 
@@ -401,7 +389,7 @@ results if ``x`` is not in fact sorted.
 ``hist.weighted_counts`` if present, otherwise using ``hist.counts``. The
 result is stored in the ``normalised_counts`` field and sums to one.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L187>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L167>`__
 
 
 
@@ -417,15 +405,9 @@ one. If bins are infinitely wide, their density is 0 and the sum over width
 times density of all finite bins is the total weight in the finite bins. The
 result is stored in the ``density`` field.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L190>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L169>`__
 
 
-
-.. code-block:: ocaml
-
-  val pp_hist: Format.formatter -> histogram -> unit [@@ocaml.toplevel_printer]
-
-Pretty-print summary information on a histogram record
 
 .. code-block:: ocaml
 
@@ -435,7 +417,7 @@ Pretty-print summary information on a histogram record
 function ``f`` of ``x`` at points ``x'``. ``x'`` is just ``x`` sorted in increasing
 order with duplicates removed.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L196>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L173>`__
 
 
 
@@ -445,7 +427,7 @@ order with duplicates removed.
 
 ``z_score x`` calculates the z score of a given array ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L239>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L212>`__
 
 
 
@@ -455,7 +437,7 @@ order with duplicates removed.
 
 ``t_score x`` calculates the t score of a given array ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L242>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L214>`__
 
 
 
@@ -465,7 +447,7 @@ order with duplicates removed.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L248>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L220>`__
 
 
 
@@ -481,54 +463,12 @@ as follows:
 .. math::
   (Q1 - k*(Q3-Q1), Q3 + k*(Q3-Q1))
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L768>`__
-
-
-
-.. code-block:: ocaml
-
-  val gaussian_kde : ?bandwidth:[ `Silverman | `Scott ] -> ?n_points:int -> float array -> (float array * float array)
-
-``gaussian_kde x`` is a Gaussian kernel density estimator. The estimation of
-the pdf runs in `O(sample_size * n_points)`, and returns an array tuple
-``(a, b)`` where ``a`` is a uniformly spaced points from the sample range at
-which the density function was estimated, and ``b`` is the estimates at these
-points.
-
-Bandwidth selection rules is as follows:
-  * Silverman: use `rule-of-thumb` for choosing the bandwidth. It defaults to [0.9 * min(SD, IQR / 1.34) * n^-0.2].
-  * Scott: same as Silverman, but with a factor, equal to [1.06].
-
-The default bandwidth value is ``Scott``.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L775>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L776>`__
 
 
 
 MCMC: Markov Chain Monte Carlo
 -------------------------------------------------------------------------------
-
-
-
-.. code-block:: ocaml
-
-  val metropolis_hastings : (float array -> float) -> float array -> int -> float array array
-
-TODO: ``metropolis_hastings f p n`` is Metropolis-Hastings MCMC algorithm.
-f is pdf of the p
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L738>`__
-
-
-
-.. code-block:: ocaml
-
-  val gibbs_sampling : (float array -> int -> float) -> float array -> int -> float array array
-
-TODO: ``gibbs_sampling f p n`` is Gibbs sampler. f is a sampler based on the full
-conditional function of all variables
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L754>`__
 
 
 
@@ -539,10 +479,12 @@ Hypothesis tests
 
 .. code-block:: ocaml
 
-  type hypothesis = {
-    reject  : bool;    (* reject null hypothesis if ``true`` *)
-    p_value : float;   (* p-value of the hypothesis test *)
-    score   : float;   (* score has different meaning in different tests *)
+  type hypothesis =
+    { reject : bool
+    ; (* reject null hypothesis if ``true`` *)
+    p_value : float
+    ; (* p-value of the hypothesis test *)
+    score : float (* score has different meaning in different tests *)
     }
     
 
@@ -550,27 +492,13 @@ Record type contains the result of a hypothesis test.
 
 .. code-block:: ocaml
 
-  type tail = BothSide | RightSide | LeftSide
+  type tail =
+    | BothSide
+    | RightSide
+    | LeftSide
     
 
 Types of alternative hypothesis tests: one-side, left-side, or right-side.
-
-.. code-block:: ocaml
-
-  val z_test : mu:float -> sigma:float -> ?alpha:float -> ?side:tail -> float array -> hypothesis
-
-``z_test ~mu ~sigma ~alpha ~side x`` returns a test decision for the null
-hypothesis that the data ``x`` comes from a normal distribution with mean ``mu``
-and a standard deviation ``sigma``, using the z-test of ``alpha`` significance
-level. The alternative hypothesis is that the mean is not ``mu``.
-
-The result ``(h,p,z)`` : ``h`` is ``true`` if the test rejects the null hypothesis at
-the ``alpha`` significance level, and ``false`` otherwise. ``p`` is the p-value and
-``z`` is the z-score.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L281>`__
-
-
 
 .. code-block:: ocaml
 
@@ -581,7 +509,7 @@ which is a parametric test of the location parameter when the population
 standard deviation is unknown. ``mu`` is population mean, ``alpha`` is the
 significance level.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L296>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L263>`__
 
 
 
@@ -593,25 +521,7 @@ significance level.
 hypothesis that the data in ``x – y`` comes from a normal distribution with
 mean equal to zero and unknown variance, using the paired-sample t-test.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L312>`__
-
-
-
-.. code-block:: ocaml
-
-  val t_test_unpaired : ?alpha:float -> ?side:tail -> ?equal_var:bool -> float array -> float array -> hypothesis
-
-``t_test_unpaired ~alpha ~side ~equal_var x y`` returns a test decision for
-the null hypothesis that the data in vectors ``x`` and ``y`` comes from
-independent random samples from normal distributions with equal means and
-equal but unknown variances, using the two-sample t-test. The alternative
-hypothesis is that the data in ``x`` and ``y`` comes from populations with
-unequal means.
-
-``equal_var`` indicates whether two samples have the same variance. If the
-two variances are not the same, the test is referred to as Welche's t-test.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L376>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L280>`__
 
 
 
@@ -630,7 +540,7 @@ hypothesis at the ``alpha`` significance level, and ``false``
 otherwise. ``p`` is the p-value and ``d`` is the Kolmogorov-Smirnov
 test statistic.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L438>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L403>`__
 
 
 
@@ -649,7 +559,7 @@ hypothesis at the ``alpha`` significance level, and ``false``
 otherwise. ``p`` is the p-value and ``d`` is the Kolmogorov-Smirnov
 test statistic.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L490>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L457>`__
 
 
 
@@ -662,7 +572,7 @@ hypothesis that the data in ``x`` comes from a normal distribution with input
 ``variance``, using the chi-square variance test. The alternative hypothesis
 is that ``x`` comes from a normal distribution with a different variance.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L530>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L497>`__
 
 
 
@@ -674,7 +584,7 @@ is that ``x`` comes from a normal distribution with a different variance.
 data ``x`` comes from a normal distribution with an unknown mean and variance,
 using the Jarque-Bera test.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L519>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L486>`__
 
 
 
@@ -690,7 +600,7 @@ The result ``(h,p,z)`` : ``h`` is ``true`` if the test rejects the null hypothes
 the ``alpha`` significance level, and ``false`` otherwise. ``p`` is the p-value and
 ``z`` is prior odds ratio.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L545>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L513>`__
 
 
 
@@ -704,7 +614,7 @@ by runnign Wald–Wolfowitz runs test. The test is based on the number of runs
 of consecutive values above or below the mean of ``x``. ``~v`` is the reference
 value, the default value is the median of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L698>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L692>`__
 
 
 
@@ -718,7 +628,7 @@ using exact test (see paper Ying Kuen Cheung and Jerome H. Klotz (1997)
 The Mann Whitney Wilcoxon distribution using linked list
 Statistica Sinica 7 805-813), else usning asymptotic normal distribution.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L589>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L566>`__
 
 
 
@@ -728,7 +638,7 @@ Statistica Sinica 7 805-813), else usning asymptotic normal distribution.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L641>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L626>`__
 
 
 

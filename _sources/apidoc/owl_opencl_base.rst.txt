@@ -2,7 +2,7 @@ High-level OpenCL API
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#68 entries have been extracted.
+#62 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/opencl/owl_opencl_base.mli>`_ 
@@ -17,12 +17,12 @@ Platform module
 
 .. code-block:: ocaml
 
-  type info = {
-    profile    : string;
-    version    : string;
-    name       : string;
-    vendor     : string;
-    extensions : string;
+  type info =
+    { profile : string
+    ; version : string
+    ; name : string
+    ; vendor : string
+    ; extensions : string
     }
     
 
@@ -46,7 +46,7 @@ Get the string representation of a given object, often contains the object's bas
 
 Get an array of all the available platforms.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L27>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L21>`__
 
 
 
@@ -57,31 +57,31 @@ Device module
 
 .. code-block:: ocaml
 
-  type info = {
-    name                  : string;
-    profile               : string;
-    vendor                : string;
-    version               : string;
-    driver_version        : string;
-    opencl_c_version      : string;
-    build_in_kernels      : string;
-    typ                   : int;
-    address_bits          : int;
-    available             : bool;
-    compiler_available    : bool;
-    linker_available      : bool;
-    global_mem_cache_size : int;
-    global_mem_size       : int;
-    max_clock_frequency   : int;
-    max_compute_units     : int;
-    max_work_group_size   : int;
-    max_parameter_size    : int;
-    max_samplers          : int;
-    reference_count       : int;
-    double_fp_config      : int;
-    extensions            : string;
-    parent_device         : cl_device_id;
-    platform              : cl_platform_id;
+  type info =
+    { name : string
+    ; profile : string
+    ; vendor : string
+    ; version : string
+    ; driver_version : string
+    ; opencl_c_version : string
+    ; build_in_kernels : string
+    ; typ : int
+    ; address_bits : int
+    ; available : bool
+    ; compiler_available : bool
+    ; linker_available : bool
+    ; global_mem_cache_size : int
+    ; global_mem_size : int
+    ; max_clock_frequency : int
+    ; max_compute_units : int
+    ; max_work_group_size : int
+    ; max_parameter_size : int
+    ; max_samplers : int
+    ; reference_count : int
+    ; double_fp_config : int
+    ; extensions : string
+    ; parent_device : cl_device_id
+    ; platform : cl_platform_id
     }
     
 
@@ -105,7 +105,7 @@ Get the string representation of a given object, often contains the object's bas
 
 Get an array of all the available devices on a given platform.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L101>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L89>`__
 
 
 
@@ -116,10 +116,10 @@ Context module
 
 .. code-block:: ocaml
 
-  type info = {
-    reference_count : int;
-    num_devices     : int;
-    devices         : cl_device_id array;
+  type info =
+    { reference_count : int
+    ; num_devices : int
+    ; devices : cl_device_id array
     }
     
 
@@ -149,7 +149,7 @@ Create an object with the passed in parameters.
 
 Create a context from a given type.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L232>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L268>`__
 
 
 
@@ -172,16 +172,16 @@ Program module
 
 .. code-block:: ocaml
 
-  type info = {
-    reference_count : int;
-    context         : cl_context;
-    num_devices     : int;
-    devices         : cl_device_id array;
-    source          : string;
-    binary_sizes    : int array;
-    binaries        : Cstubs_internals.voidp array;
-    num_kernels     : int;
-    kernel_names    : string array;
+  type info =
+    { reference_count : int
+    ; context : cl_context
+    ; num_devices : int
+    ; devices : cl_device_id array
+    ; source : string
+    ; binary_sizes : int array
+    ; binaries : Cstubs_internals.voidp array
+    ; num_kernels : int
+    ; kernel_names : string array
     }
     
 
@@ -205,7 +205,7 @@ Get the string representation of a given object, often contains the object's bas
 
 Create a program from its source string.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L301>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L348>`__
 
 
 
@@ -215,7 +215,7 @@ Create a program from its source string.
 
 Build a program for the passed-in devices with the given parameters.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L320>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L364>`__
 
 
 
@@ -238,14 +238,14 @@ Kernel module
 
 .. code-block:: ocaml
 
-  type info = {
-    function_name   : string;
-    num_args        : int;
-    attributes      : int;
-    reference_count : int;
-    context         : cl_context;
-    program         : cl_program;
-    work_group_size : (cl_device_id * int) array;
+  type info =
+    { function_name : string
+    ; num_args : int
+    ; attributes : int
+    ; reference_count : int
+    ; context : cl_context
+    ; program : cl_program
+    ; work_group_size : (cl_device_id * int) array
     }
     
 
@@ -275,7 +275,7 @@ Create an object with the passed in parameters.
 
 Set the arguments of a given kernel.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L425>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L480>`__
 
 
 
@@ -285,17 +285,7 @@ Set the arguments of a given kernel.
 
 Enqueue a task into the associate command queue of a given kernel.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L432>`__
-
-
-
-.. code-block:: ocaml
-
-  val enqueue_ndrange : ?wait_for:cl_event list -> ?global_work_ofs:int list -> ?local_work_size:int list -> cl_command_queue -> cl_kernel -> int -> int list -> cl_event
-
-Enqueue a ndrange task into the associate command queue of a given kernel.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L444>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L487>`__
 
 
 
@@ -318,11 +308,11 @@ CommandQueue module
 
 .. code-block:: ocaml
 
-  type info = {
-    context          : cl_context;
-    device           : cl_device_id;
-    reference_count  : int;
-    queue_properties : Unsigned.ULong.t;
+  type info =
+    { context : cl_context
+    ; device : cl_device_id
+    ; reference_count : int
+    ; queue_properties : Unsigned.ULong.t
     }
     
 
@@ -352,7 +342,7 @@ Create an object with the passed in parameters.
 
 Barrier function of the given command queue.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L534>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L616>`__
 
 
 
@@ -362,7 +352,7 @@ Barrier function of the given command queue.
 
 Marker function of the given command queue.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L546>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L628>`__
 
 
 
@@ -372,7 +362,7 @@ Marker function of the given command queue.
 
 Flush the given command queue.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L528>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L612>`__
 
 
 
@@ -382,7 +372,7 @@ Flush the given command queue.
 
 Finish the given command queue.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L531>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L614>`__
 
 
 
@@ -405,12 +395,12 @@ Event module
 
 .. code-block:: ocaml
 
-  type info = {
-    command_type             : int;
-    reference_count          : int;
-    command_execution_status : int;
-    command_queue            : cl_command_queue;
-    context                  : cl_context;
+  type info =
+    { command_type : int
+    ; reference_count : int
+    ; command_execution_status : int
+    ; command_queue : cl_command_queue
+    ; context : cl_context
     }
     
 
@@ -440,7 +430,7 @@ Create an object with the passed in parameters.
 
 Set the status of a given event.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L626>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L711>`__
 
 
 
@@ -450,7 +440,7 @@ Set the status of a given event.
 
 Wait for a list of events to finish.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L633>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L719>`__
 
 
 
@@ -473,10 +463,10 @@ Buffer module
 
 .. code-block:: ocaml
 
-  type info = {
-    typ             : int;
-    size            : int;
-    reference_count : int;
+  type info =
+    { typ : int
+    ; size : int
+    ; reference_count : int
     }
     
 
@@ -499,56 +489,6 @@ Get the string representation of a given object, often contains the object's bas
   val create : ?flags:int list -> cl_context -> int -> unit Ctypes.ptr -> cl_mem
 
 Create an object with the passed in void pointer.
-
-.. code-block:: ocaml
-
-  val create_bigarray : ?flags:int list -> cl_context -> ('a, 'b) Owl_dense_ndarray_generic.t -> cl_mem
-
-Create an object with the passed in bigarray. Refer to ``create`` for a more general function.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L690>`__
-
-
-
-.. code-block:: ocaml
-
-  val enqueue_read : ?blocking:bool -> ?wait_for:cl_event list -> cl_command_queue -> cl_mem -> int -> int -> unit Ctypes.ptr -> cl_event
-
-Enqueue a read operation on the given memory object to a command queue.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L715>`__
-
-
-
-.. code-block:: ocaml
-
-  val enqueue_write : ?blocking:bool -> ?wait_for:cl_event list -> cl_command_queue -> cl_mem -> int -> int -> unit Ctypes.ptr -> cl_event
-
-Enqueue a write operation on the given memory object to a command queue.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L735>`__
-
-
-
-.. code-block:: ocaml
-
-  val enqueue_map : ?blocking:bool -> ?wait_for:Owl_opencl_generated.cl_event list -> ?flags:int list -> cl_command_queue -> cl_mem -> int -> int -> cl_event * unit Ctypes.ptr
-
-Enqueue a map operation on the given memory object to a command queue.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L755>`__
-
-
-
-.. code-block:: ocaml
-
-  val enqueue_unmap : ?wait_for:cl_event list -> cl_command_queue -> cl_mem -> unit Ctypes.ptr -> cl_event
-
-Enqueue a unmap operation on the given memory object to a command queue.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/opencl/owl_opencl_base.ml#L778>`__
-
-
 
 .. code-block:: ocaml
 

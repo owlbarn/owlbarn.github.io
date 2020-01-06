@@ -104,52 +104,52 @@
 </pre></div>
 </div>
 <p>derivative of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L28">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L23">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diff&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">*</span> <span class="n">elt</span>
 </pre></div>
 </div>
 <p>derivative of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">scalar</span> <span class="pre">-&gt;</span> <span class="pre">scalar</span></code>, return both <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">f'</span> <span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L32">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L26">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diff2</span> <span class="o">:</span> <span class="o">(</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
 </pre></div>
 </div>
 <p>second order derivative of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">float</span> <span class="pre">-&gt;</span> <span class="pre">float</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L36">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L29">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diff2&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">*</span> <span class="n">elt</span>
 </pre></div>
 </div>
 <p>second order derivative of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">float</span> <span class="pre">-&gt;</span> <span class="pre">float</span></code>, return <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">f'</span> <span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L40">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L32">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">grad</span> <span class="o">:</span> <span class="o">(</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>gradient of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">vector</span> <span class="pre">-&gt;</span> <span class="pre">scalar</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L57">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L50">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">grad&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">*</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>gradient of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">vector</span> <span class="pre">-&gt;</span> <span class="pre">scalar</span></code>, return <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L44">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L35">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobian</span> <span class="o">:</span> <span class="o">(</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>jacobian of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">vector</span> <span class="pre">-&gt;</span> <span class="pre">vector</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L89">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L78">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobian&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">*</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>jacobian of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">vector</span> <span class="pre">-&gt;</span> <span class="pre">vector</span></code>, return <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L83">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L72">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianT</span> <span class="o">:</span> <span class="o">(</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>transposed jacobian of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">vector</span> <span class="pre">-&gt;</span> <span class="pre">vector</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L79">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L69">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">jacobianT&#39;</span> <span class="o">:</span> <span class="o">(</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">*</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>transposed jacobian of <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">vector</span> <span class="pre">-&gt;</span> <span class="pre">vector</span></code>, return <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L61">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_numdiff_generic.ml#L53">source code</a></p>
 </div>
 </div>
 

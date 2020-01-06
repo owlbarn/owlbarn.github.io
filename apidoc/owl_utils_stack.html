@@ -100,18 +100,18 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">()</span></code> creates an empty stack.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L17">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L16">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">push</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">push</span> <span class="pre">stack</span> <span class="pre">x</span></code> pushes <code class="docutils literal notranslate"><span class="pre">x</span></code> into <code class="docutils literal notranslate"><span class="pre">stack</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L23">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L18">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pop</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">option</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pop</span> <span class="pre">stack</span></code> pops the top element in <code class="docutils literal notranslate"><span class="pre">stack</span></code>. It returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if the
 <code class="docutils literal notranslate"><span class="pre">stack</span></code> is empty.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L32">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L28">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">peek</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">option</span>
 </pre></div>
 </div>
@@ -122,23 +122,23 @@ remove the element from the stack. <code class="docutils literal notranslate"><s
 </pre></div>
 </div>
 <p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the stack is empty, otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L40">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L42">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mem</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">mem</span> <span class="pre">stack</span> <span class="pre">x</span></code> checks whether <code class="docutils literal notranslate"><span class="pre">x</span></code> exist in <code class="docutils literal notranslate"><span class="pre">stack</span></code>. The complexity is
 <code class="docutils literal notranslate"><span class="pre">O(n)</span></code> where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the size of the <code class="docutils literal notranslate"><span class="pre">stack</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L42">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L44">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">memq</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p>Similar to <code class="docutils literal notranslate"><span class="pre">mem</span></code> but physical equality is used for comparing values.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L44">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L46">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_array</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">to_array</span> <span class="pre">stack</span></code> converts the elements in <code class="docutils literal notranslate"><span class="pre">stack</span></code> into an array.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L46">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L48">source code</a></p>
 </div>
 </div>
 

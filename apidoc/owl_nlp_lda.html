@@ -90,7 +90,11 @@
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/nlp/owl_nlp_lda.ml">{Implementation}</a></p>
 <div class="section" id="type-definition">
 <h2>Type definition<a class="headerlink" href="#type-definition" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">lda_typ</span> <span class="o">=</span> <span class="nc">SimpleLDA</span> <span class="o">|</span> <span class="nc">FTreeLDA</span> <span class="o">|</span> <span class="nc">LightLDA</span> <span class="o">|</span> <span class="nc">SparseLDA</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">lda_typ</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">SimpleLDA</span>
+  <span class="o">|</span> <span class="nc">FTreeLDA</span>
+  <span class="o">|</span> <span class="nc">LightLDA</span>
+  <span class="o">|</span> <span class="nc">SparseLDA</span>
 </pre></div>
 </div>
 <p>Type of LDA training algorithms.</p>
@@ -120,7 +124,7 @@
 </pre></div>
 </div>
 <p>After calling <code class="docutils literal notranslate"><span class="pre">init</span></code>, calling this function starts the training.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_lda.ml#L291">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_lda.ml#L306">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -128,17 +132,17 @@
 </pre></div>
 </div>
 <p>Function for printing out log information, tailored for LDA training.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_lda.ml#L49">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_lda.ml#L60">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">include_token</span> <span class="o">:</span> <span class="n">model</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Include a token in model, used in training and you are not supposed to use it.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_lda.ml#L39">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_lda.ml#L48">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exclude_token</span> <span class="o">:</span> <span class="n">model</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Exclude a token in model, used in training and you are not supposed to use it.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_lda.ml#L44">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_lda.ml#L54">source code</a></p>
 </div>
 </div>
 

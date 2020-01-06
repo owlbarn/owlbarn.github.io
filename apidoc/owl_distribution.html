@@ -105,7 +105,10 @@
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/ppl/owl_distribution.ml">{Implementation}</a></p>
 <div class="section" id="uniform-distribtion">
 <h2>Uniform distribtion<a class="headerlink" href="#uniform-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -152,7 +155,10 @@
 </div>
 <div class="section" id="gaussian-distribtion">
 <h2>Gaussian distribtion<a class="headerlink" href="#gaussian-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">mu</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">sigma</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">mu</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">sigma</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -199,7 +205,7 @@
 </div>
 <div class="section" id="exponential-distribtion">
 <h2>Exponential distribtion<a class="headerlink" href="#exponential-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">lambda</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">lambda</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -246,7 +252,10 @@
 </div>
 <div class="section" id="gamma-distribtion">
 <h2>Gamma distribtion<a class="headerlink" href="#gamma-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">shape</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">shape</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -293,7 +302,10 @@
 </div>
 <div class="section" id="beta-distribtion">
 <h2>Beta distribtion<a class="headerlink" href="#beta-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -340,7 +352,7 @@
 </div>
 <div class="section" id="chi2-distribtion">
 <h2>Chi2 distribtion<a class="headerlink" href="#chi2-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">df</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">df</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -387,7 +399,10 @@
 </div>
 <div class="section" id="f-distribtion">
 <h2>F distribtion<a class="headerlink" href="#f-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">dfnum</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">dfden</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">dfnum</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">dfden</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -434,7 +449,10 @@
 </div>
 <div class="section" id="cauchy-distribtion">
 <h2>Cauchy distribtion<a class="headerlink" href="#cauchy-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">loc</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">loc</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -481,7 +499,10 @@
 </div>
 <div class="section" id="lomax-distribtion">
 <h2>Lomax distribtion<a class="headerlink" href="#lomax-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">shape</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">shape</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -528,7 +549,10 @@
 </div>
 <div class="section" id="weibull-distribtion">
 <h2>Weibull distribtion<a class="headerlink" href="#weibull-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">shape</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">shape</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -575,7 +599,10 @@
 </div>
 <div class="section" id="laplace-distribtion">
 <h2>Laplace distribtion<a class="headerlink" href="#laplace-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">loc</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">loc</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -622,7 +649,10 @@
 </div>
 <div class="section" id="gumbel1-distribtion">
 <h2>Gumbel1 distribtion<a class="headerlink" href="#gumbel1-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -669,7 +699,10 @@
 </div>
 <div class="section" id="gumbel2-distribtion">
 <h2>Gumbel2 distribtion<a class="headerlink" href="#gumbel2-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -716,7 +749,10 @@
 </div>
 <div class="section" id="logistic-distribtion">
 <h2>Logistic distribtion<a class="headerlink" href="#logistic-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">loc</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">loc</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -763,7 +799,10 @@
 </div>
 <div class="section" id="lognormal-distribtion">
 <h2>Lognormal distribtion<a class="headerlink" href="#lognormal-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">mu</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="n">sigma</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">mu</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">sigma</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -810,7 +849,7 @@
 </div>
 <div class="section" id="rayleigh-distribtion">
 <h2>Rayleigh distribtion<a class="headerlink" href="#rayleigh-distribtion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">sigma</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">;</span> <span class="o">}</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">sigma</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">}</span>
 </pre></div>
 </div>
 <p>Type definition of a specific distribution</p>
@@ -858,22 +897,22 @@
 <div class="section" id="type-definition">
 <h2>Type definition<a class="headerlink" href="#type-definition" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">dist</span> <span class="o">=</span>
-  <span class="o">|</span> <span class="nc">Uniform</span> <span class="k">of</span> <span class="nn">Uniform</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Gaussian</span> <span class="k">of</span> <span class="nn">Gaussian</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Uniform</span>     <span class="k">of</span> <span class="nn">Uniform</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Gaussian</span>    <span class="k">of</span> <span class="nn">Gaussian</span><span class="p">.</span><span class="n">t</span>
   <span class="o">|</span> <span class="nc">Exponential</span> <span class="k">of</span> <span class="nn">Exponential</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Gamma</span> <span class="k">of</span> <span class="nn">Gamma</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Beta</span> <span class="k">of</span> <span class="nn">Beta</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Chi2</span> <span class="k">of</span> <span class="nn">Chi2</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">F</span> <span class="k">of</span> <span class="nn">F</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Cauchy</span> <span class="k">of</span> <span class="nn">Cauchy</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Lomax</span> <span class="k">of</span> <span class="nn">Lomax</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Weibull</span> <span class="k">of</span> <span class="nn">Weibull</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Laplace</span> <span class="k">of</span> <span class="nn">Laplace</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Gumbel1</span> <span class="k">of</span> <span class="nn">Gumbel1</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Gumbel2</span> <span class="k">of</span> <span class="nn">Gumbel2</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Logistic</span> <span class="k">of</span> <span class="nn">Logistic</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Lognormal</span> <span class="k">of</span> <span class="nn">Lognormal</span><span class="p">.</span><span class="n">t</span>
-  <span class="o">|</span> <span class="nc">Rayleigh</span> <span class="k">of</span> <span class="nn">Rayleigh</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Gamma</span>       <span class="k">of</span> <span class="nn">Gamma</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Beta</span>        <span class="k">of</span> <span class="nn">Beta</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Chi2</span>        <span class="k">of</span> <span class="nn">Chi2</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">F</span>           <span class="k">of</span> <span class="nn">F</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Cauchy</span>      <span class="k">of</span> <span class="nn">Cauchy</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Lomax</span>       <span class="k">of</span> <span class="nn">Lomax</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Weibull</span>     <span class="k">of</span> <span class="nn">Weibull</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Laplace</span>     <span class="k">of</span> <span class="nn">Laplace</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Gumbel1</span>     <span class="k">of</span> <span class="nn">Gumbel1</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Gumbel2</span>     <span class="k">of</span> <span class="nn">Gumbel2</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Logistic</span>    <span class="k">of</span> <span class="nn">Logistic</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Lognormal</span>   <span class="k">of</span> <span class="nn">Lognormal</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Rayleigh</span>    <span class="k">of</span> <span class="nn">Rayleigh</span><span class="p">.</span><span class="n">t</span>
 </pre></div>
 </div>
 <p>Type definition of various distribtions</p>
@@ -888,12 +927,12 @@
 </pre></div>
 </div>
 <p>Probability density/mass function of a given distribtion.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/ppl/owl_distribution.ml#L581">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/ppl/owl_distribution.ml#L543">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log_prob</span> <span class="o">:</span> <span class="n">dist</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
 </pre></div>
 </div>
 <p>logarithmic probability density/mass function of a given distribtion.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/ppl/owl_distribution.ml#L599">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/ppl/owl_distribution.ml#L563">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">dist</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
 </pre></div>
 </div>

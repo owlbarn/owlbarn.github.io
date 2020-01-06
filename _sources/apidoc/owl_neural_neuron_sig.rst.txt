@@ -2,7 +2,7 @@ Neural.Neuron Functor
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#497 entries have been extracted.
+#486 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_neuron_sig.ml>`_ 
@@ -25,8 +25,7 @@ Init neuron
     | GlorotNormal
     | GlorotUniform
     | LecunNormal
-    | Custom        of (int array -> t)
-    
+    | Custom        of (int array -> t) 
 
 Initialisation types
 
@@ -36,7 +35,7 @@ Initialisation types
 
 Calculate fan-in and fan-out of weights.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L34>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L28>`__
 
 
 
@@ -65,9 +64,9 @@ Input neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -115,25 +114,24 @@ Activation neuron
     | Relu
     | Sigmoid
     | HardSigmoid
-    | Softmax of int
+    | Softmax     of int
     | Softplus
     | Softsign
     | Tanh
     | Relu6
-    | LeakyRelu of float
-    | TRelu of float
-    | Custom of (t -> t)
-    | None
-    
+    | LeakyRelu   of float
+    | TRelu       of float
+    | Custom      of (t -> t)
+    | None 
 
 Types of activation functions.
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable activation : typ;
-    mutable in_shape   : int array;
-    mutable out_shape  : int array;
+  type neuron_typ =
+    { mutable activation : typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -157,7 +155,7 @@ Connect this neuron to others in a neural network.
 
 Run one specific activation function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L161>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L160>`__
 
 
 
@@ -202,12 +200,12 @@ Linear neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable b         : t;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -298,11 +296,11 @@ LinearNoBias neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -393,28 +391,22 @@ Recurrent neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable whh       : t;
-    mutable wxh       : t;
-    mutable why       : t;
-    mutable bh        : t;
-    mutable by        : t;
-    mutable h         : t;
-    mutable hiddens   : int;
-    mutable act       : Activation.typ;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable whh : t
+    ; mutable wxh : t
+    ; mutable why : t
+    ; mutable bh : t
+    ; mutable by : t
+    ; mutable h : t
+    ; mutable hiddens : int
+    ; mutable act : Activation.typ
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?time_steps:int -> ?inputs:int -> int -> int -> Activation.typ -> Init.typ -> neuron_typ
-
-Create the neuron.
 
 .. code-block:: ocaml
 
@@ -495,24 +487,24 @@ LSTM neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable wxi       : t;
-    mutable whi       : t;
-    mutable wxc       : t;
-    mutable whc       : t;
-    mutable wxf       : t;
-    mutable whf       : t;
-    mutable wxo       : t;
-    mutable who       : t;
-    mutable bi        : t;
-    mutable bc        : t;
-    mutable bf        : t;
-    mutable bo        : t;
-    mutable c         : t;
-    mutable h         : t;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable wxi : t
+    ; mutable whi : t
+    ; mutable wxc : t
+    ; mutable whc : t
+    ; mutable wxf : t
+    ; mutable whf : t
+    ; mutable wxo : t
+    ; mutable who : t
+    ; mutable bi : t
+    ; mutable bc : t
+    ; mutable bf : t
+    ; mutable bo : t
+    ; mutable c : t
+    ; mutable h : t
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -603,20 +595,20 @@ GRU neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable wxz       : t;
-    mutable whz       : t;
-    mutable wxr       : t;
-    mutable whr       : t;
-    mutable wxh       : t;
-    mutable whh       : t;
-    mutable bz        : t;
-    mutable br        : t;
-    mutable bh        : t;
-    mutable h         : t;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable wxz : t
+    ; mutable whz : t
+    ; mutable wxr : t
+    ; mutable whr : t
+    ; mutable wxh : t
+    ; mutable whh : t
+    ; mutable bz : t
+    ; mutable br : t
+    ; mutable bh : t
+    ; mutable h : t
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -707,25 +699,19 @@ Conv1D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable b         : t;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable padding   : Owl_types.padding;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable padding : Owl_types.padding
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
-
-Create the neuron.
 
 .. code-block:: ocaml
 
@@ -806,25 +792,19 @@ Conv2D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable b         : t;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable padding   : Owl_types.padding;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable padding : Owl_types.padding
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
-
-Create the neuron.
 
 .. code-block:: ocaml
 
@@ -905,25 +885,19 @@ Conv3D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable b         : t;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable padding   : Owl_types.padding;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable padding : Owl_types.padding
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
-
-Create the neuron.
 
 .. code-block:: ocaml
 
@@ -1004,26 +978,20 @@ DilatedConv1D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable b         : t;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable rate      : int array;
-    mutable padding   : Owl_types.padding;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable rate : int array
+    ; mutable padding : Owl_types.padding
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> int array -> Init.typ -> neuron_typ
-
-Create the neuron.
 
 .. code-block:: ocaml
 
@@ -1104,26 +1072,20 @@ DilatedConv2D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable b         : t;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable rate      : int array;
-    mutable padding   : Owl_types.padding;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable rate : int array
+    ; mutable padding : Owl_types.padding
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> int array -> Init.typ -> neuron_typ
-
-Create the neuron.
 
 .. code-block:: ocaml
 
@@ -1204,26 +1166,20 @@ DilatedConv3D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable b         : t;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable rate      : int array;
-    mutable padding   : Owl_types.padding;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable rate : int array
+    ; mutable padding : Owl_types.padding
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> int array -> Init.typ -> neuron_typ
-
-Create the neuron.
 
 .. code-block:: ocaml
 
@@ -1304,25 +1260,19 @@ TransposeConv1D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w : t;
-    mutable b : t;
-    mutable kernel : int array;
-    mutable stride : int array;
-    mutable padding : Owl_types.padding;
-    mutable init_typ : Init.typ;
-    mutable in_shape : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable padding : Owl_types.padding
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
-
-Create the neuron.
 
 .. code-block:: ocaml
 
@@ -1403,25 +1353,19 @@ TransposeConv2D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable b         : t;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable padding   : Owl_types.padding;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable padding : Owl_types.padding
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
-
-Create the neuron.
 
 .. code-block:: ocaml
 
@@ -1502,25 +1446,19 @@ TransposeConv3D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w : t;
-    mutable b : t;
-    mutable kernel : int array;
-    mutable stride : int array;
-    mutable padding : Owl_types.padding;
-    mutable init_typ : Init.typ;
-    mutable in_shape : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable padding : Owl_types.padding
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?inputs:int array -> Owl_types.padding -> int array -> int array -> Init.typ -> neuron_typ
-
-Create the neuron.
 
 .. code-block:: ocaml
 
@@ -1601,12 +1539,12 @@ FullyConnected neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable b         : t;
-    mutable init_typ  : Init.typ;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable b : t
+    ; mutable init_typ : Init.typ
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -1697,12 +1635,12 @@ MaxPool1D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable padding   : Owl_types.padding;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable padding : Owl_types.padding
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -1751,12 +1689,12 @@ MaxPool2D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable padding   : Owl_types.padding;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable padding : Owl_types.padding
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -1805,12 +1743,12 @@ AvgPool1D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable padding   : Owl_types.padding;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable padding : Owl_types.padding
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -1859,12 +1797,12 @@ AvgPool2D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable padding   : Owl_types.padding;
-    mutable kernel    : int array;
-    mutable stride    : int array;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable padding : Owl_types.padding
+    ; mutable kernel : int array
+    ; mutable stride : int array
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -1913,9 +1851,9 @@ GlobalMaxPool1D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -1964,9 +1902,9 @@ GlobalMaxPool2D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2015,9 +1953,9 @@ GlobalAvgPool1D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2066,9 +2004,9 @@ GlobalAvgPool2D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2122,10 +2060,10 @@ UpSampling2D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable size      : int array;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable size : int array
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2184,11 +2122,11 @@ Padding2D neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    (* array of 2 arrays of 2 ints *)
-    mutable padding   : int array array;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { (* array of 2 arrays of 2 ints *)
+    mutable padding : int array array
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2242,10 +2180,10 @@ Lambda neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable lambda    : t -> t;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable lambda : t -> t
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2294,10 +2232,10 @@ LambdaArray neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable lambda    : t array -> t;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable lambda : t array -> t
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2346,10 +2284,10 @@ Dropout neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable rate      : float;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable rate : float
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2398,9 +2336,9 @@ Reshape neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2449,9 +2387,9 @@ Flatten neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2500,9 +2438,9 @@ Add neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2551,9 +2489,9 @@ Mul neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2602,9 +2540,9 @@ Dot neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2653,9 +2591,9 @@ Max neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2704,9 +2642,9 @@ Average neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2755,10 +2693,10 @@ Concatenate neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable axis      : int;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable axis : int
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2807,26 +2745,20 @@ Normalisation neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable axis      : int;
-    mutable beta      : t;
-    mutable gamma     : t;
-    mutable mu        : t;
-    mutable var       : t;
-    mutable decay     : t;
-    mutable training  : bool;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable axis : int
+    ; mutable beta : t
+    ; mutable gamma : t
+    ; mutable mu : t
+    ; mutable var : t
+    ; mutable decay : t
+    ; mutable training : bool
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
 Neuron type definition.
-
-.. code-block:: ocaml
-
-  val create : ?training:bool -> ?decay:float -> ?mu:A.arr -> ?var:A.arr -> int -> neuron_typ
-
-Create the neuron. Note that axis 0 is the batch axis.
 
 .. code-block:: ocaml
 
@@ -2919,10 +2851,10 @@ GaussianNoise neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable sigma     : float;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable sigma : float
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -2971,10 +2903,10 @@ GaussianDropout neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable rate      : float;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable rate : float
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -3023,10 +2955,10 @@ AlphaDropout neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable rate      : float;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable rate : float
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -3075,12 +3007,12 @@ Embedding neuron
 
 .. code-block:: ocaml
 
-  type neuron_typ = {
-    mutable w         : t;
-    mutable init_typ  : Init.typ;
-    mutable in_dim    : int;
-    mutable in_shape  : int array;
-    mutable out_shape : int array;
+  type neuron_typ =
+    { mutable w : t
+    ; mutable init_typ : Init.typ
+    ; mutable in_dim : int
+    ; mutable in_shape : int array
+    ; mutable out_shape : int array
     }
     
 
@@ -3219,8 +3151,7 @@ Core functions
     | Dot             of Dot.neuron_typ
     | Max             of Max.neuron_typ
     | Average         of Average.neuron_typ
-    | Concatenate     of Concatenate.neuron_typ
-    
+    | Concatenate     of Concatenate.neuron_typ 
 
 Types of neuron.
 
@@ -3230,7 +3161,7 @@ Types of neuron.
 
 Get both input and output shapes of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3016>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3201>`__
 
 
 
@@ -3240,7 +3171,7 @@ Get both input and output shapes of a neuron.
 
 Get the input shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3062>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3247>`__
 
 
 
@@ -3250,7 +3181,7 @@ Get the input shape of a neuron.
 
 Get the output shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3065>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3249>`__
 
 
 

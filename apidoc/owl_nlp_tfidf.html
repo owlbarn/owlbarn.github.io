@@ -87,17 +87,24 @@
   <div class="section" id="nlp-tfidf">
 <h1>NLP.Tfidf<a class="headerlink" href="#nlp-tfidf" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#39 entries have been extracted.</p>
+#36 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/nlp/owl_nlp_tfidf.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/nlp/owl_nlp_tfidf.ml">{Implementation}</a></p>
 <div class="section" id="type-definition">
 <h2>Type definition<a class="headerlink" href="#type-definition" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">tf_typ</span> <span class="o">=</span> <span class="nc">Binary</span> <span class="o">|</span> <span class="nc">Count</span> <span class="o">|</span> <span class="nc">Frequency</span> <span class="o">|</span> <span class="nc">Log_norm</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">tf_typ</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">Binary</span>
+  <span class="o">|</span> <span class="nc">Count</span>
+  <span class="o">|</span> <span class="nc">Frequency</span>
+  <span class="o">|</span> <span class="nc">Log_norm</span>
 </pre></div>
 </div>
 <p>Type of term frequency.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">df_typ</span> <span class="o">=</span> <span class="nc">Unary</span> <span class="o">|</span> <span class="nc">Idf</span> <span class="o">|</span> <span class="nc">Idf_Smooth</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">df_typ</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">Unary</span>
+  <span class="o">|</span> <span class="nc">Idf</span>
+  <span class="o">|</span> <span class="nc">Idf_Smooth</span>
 </pre></div>
 </div>
 <p>Type of inverse document frequency.</p>
@@ -112,62 +119,57 @@
 </pre></div>
 </div>
 <p>Size of Tfidf model, i.e. number of documents contained.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L70">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L79">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">term_freq</span> <span class="o">:</span> <span class="n">tf_typ</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">term_freq</span> <span class="pre">term_count</span> <span class="pre">num_words</span></code> calculates the term frequency weight.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L32">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L37">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">doc_freq</span> <span class="o">:</span> <span class="n">df_typ</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">doc_freq</span> <span class="pre">doc_count</span> <span class="pre">num_docs</span></code> calculates the document frequency weight.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L38">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L44">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_uri</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Return the path of the TFIDF model.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L66">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L75">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_corpus</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">Owl_nlp_corpus</span><span class="p">.</span><span class="n">t</span>
 </pre></div>
 </div>
 <p>Return the corpus contained in TFIDF model</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L68">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L77">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">vocab_len</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p>Return the size of the vocabulary contained in the TFIDF model.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L72">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L81">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_handle</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">in_channel</span>
 </pre></div>
 </div>
 <p>Get the file handle associated with TFIDF model.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L74">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L83">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">doc_count_of</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">doc_count_of</span> <span class="pre">tfidf</span> <span class="pre">w</span></code> calculate document frequency for a given word <code class="docutils literal notranslate"><span class="pre">w</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L83">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L93">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">doc_count</span> <span class="o">:</span> <span class="nn">Owl_nlp_vocabulary</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="kt">array</span> <span class="o">*</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">doc_count</span> <span class="pre">vocab</span> <span class="pre">fname</span></code> count occurrency in all documents contained in the raw text corpus of file <code class="docutils literal notranslate"><span class="pre">fname</span></code>, for all words</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L89">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L100">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">term_count</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span><span class="o">,</span> <span class="kt">float</span><span class="o">)</span> <span class="nn">Hashtbl</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">term_count</span> <span class="pre">count</span> <span class="pre">doc</span></code> counts the term occurrency in a document, and saves the result in count hashtbl.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L110">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L121">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">density</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">float</span>
 </pre></div>
 </div>
 <p>Return the percentage of non-zero elements in doc-term matrix.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L268">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">doc_to_vec</span> <span class="o">:</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="nn">Bigarray</span><span class="p">.</span><span class="n">kind</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="nn">Owl_dense</span><span class="p">.</span><span class="nn">Ndarray</span><span class="p">.</span><span class="nn">Generic</span><span class="p">.</span><span class="n">t</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">doc_to_vec</span> <span class="pre">kind</span> <span class="pre">tfidf</span> <span class="pre">vec</span></code> converts a TFIDF vector from its sparse represents to dense ndarray vector whose length equals the vocabulary size.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L275">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L279">source code</a></p>
 </div>
 <div class="section" id="iteration-functions">
 <h2>Iteration functions<a class="headerlink" href="#iteration-functions" title="Permalink to this headline">¶</a></h2>
@@ -175,32 +177,32 @@
 </pre></div>
 </div>
 <p>Return the ith TFIDF vector in the model. The format of return is <code class="docutils literal notranslate"><span class="pre">(vocabulary</span> <span class="pre">index,</span> <span class="pre">weight)</span></code> tuple array of a document.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L211">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L219">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">next</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Return the next document vector in the model. The format of return is <code class="docutils literal notranslate"><span class="pre">(vocabulary</span> <span class="pre">index,</span> <span class="pre">weight)</span></code> tuple array of a document.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L196">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L202">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">next_batch</span> <span class="o">:</span> <span class="o">?</span><span class="n">size</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Return the next batch of document vectors in the model, the default size is 100.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L198">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L204">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iteri</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Iterate all the document vectors in a TFIDF model. The format of document vector is <code class="docutils literal notranslate"><span class="pre">(vocabulary</span> <span class="pre">index,</span> <span class="pre">weight)</span></code> tuple array of a document.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L207">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L215">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mapi</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Map all the document vectors in a TFIDF model. The format of document vector is <code class="docutils literal notranslate"><span class="pre">(vocabulary</span> <span class="pre">index,</span> <span class="pre">weight)</span></code> tuple array of a document.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L209">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L217">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reset_iterators</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Reset the iterator to the begining of the TFIDF model.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L218">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L227">source code</a></p>
 </div>
 <div class="section" id="core-functions">
 <h2>Core functions<a class="headerlink" href="#core-functions" title="Permalink to this headline">¶</a></h2>
@@ -214,7 +216,7 @@
 * <code class="docutils literal notranslate"><span class="pre">tf</span></code>: type of term frequency used in building TFIDF. The default is <code class="docutils literal notranslate"><span class="pre">Count</span></code>.
 * <code class="docutils literal notranslate"><span class="pre">df</span></code>: type of document frequency used in building TFIDF. The default is <code class="docutils literal notranslate"><span class="pre">Idf</span></code>.
 * <code class="docutils literal notranslate"><span class="pre">corpus</span></code>: the corpus built by <code class="docutils literal notranslate"><span class="pre">Owl_nlp_corpus</span></code> model atop of which TFIDF will be built.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L186">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L192">source code</a></p>
 </div>
 <div class="section" id="i-o-functions">
 <h2>I/O functions<a class="headerlink" href="#i-o-functions" title="Permalink to this headline">¶</a></h2>
@@ -222,22 +224,22 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">save</span> <span class="pre">tfidf</span> <span class="pre">fname</span></code> saves the TFIDF to a file of given file name <code class="docutils literal notranslate"><span class="pre">fname</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L246">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L256">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">fname</span></code> loads a TFIDF from a file of name <code class="docutils literal notranslate"><span class="pre">fname</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L251">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L262">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_string</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Convert a TFIDF to its string representation, contains summary information.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L253">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L264">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">print</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Pretty print out the summary information of a TFIDF model.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L262">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L274">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
@@ -245,37 +247,27 @@
 </pre></div>
 </div>
 <p>Convert term frequency type into string.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L43">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L50">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">df_typ_string</span> <span class="o">:</span> <span class="n">df_typ</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Convert document frequency type into string.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L49">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L57">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">apply</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Convert a single document according to a given model</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L226">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L236">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">normalise</span> <span class="o">:</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">normalise</span> <span class="pre">x</span></code> makes <code class="docutils literal notranslate"><span class="pre">x</span></code> a unit vector by dividing its l2norm.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L122">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L133">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="n">tf_typ</span> <span class="o">-&gt;</span> <span class="n">df_typ</span> <span class="o">-&gt;</span> <span class="nn">Owl_nlp_corpus</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>Wrap up a TFIDF model type. Low-level function and you are not supposed to use it.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L54">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">all_pairwise_distance</span> <span class="o">:</span> <span class="nn">Owl_nlp_similarity</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span>
-</pre></div>
-</div>
-<p>Calculate pairwise distance for the whole model, return format is <code class="docutils literal notranslate"><span class="pre">(id,dist)</span></code> array.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L281">source code</a></p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nearest</span> <span class="o">:</span> <span class="o">?</span><span class="n">typ</span><span class="o">:</span><span class="nn">Owl_nlp_similarity</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">*</span> <span class="kt">float</span><span class="o">)</span> <span class="kt">array</span>
-</pre></div>
-</div>
-<p>Return K-nearest neighbours, it is very slow due to linear search.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L288">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L63">source code</a></p>
 </div>
 </div>
 

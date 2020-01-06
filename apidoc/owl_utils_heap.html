@@ -100,54 +100,54 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">cmp</span></code> creates an empty min heap, using <code class="docutils literal notranslate"><span class="pre">cmp</span></code> as a comparison function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L22">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L21">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make_int</span> <span class="o">:</span> <span class="o">?</span><span class="n">initial_size</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">make_int</span> <span class="pre">?initial_size</span> <span class="pre">cmp</span></code> creates an empty integer heap, using <code class="docutils literal notranslate"><span class="pre">cmp</span></code> as a
 comparison function and pre-allocates a space of <code class="docutils literal notranslate"><span class="pre">initial_size</span></code> elements.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L28">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L23">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make_float</span> <span class="o">:</span> <span class="o">?</span><span class="n">initial_size</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="o">-&gt;</span> <span class="kt">int</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">float</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">make_float</span> <span class="pre">?initial_size</span> <span class="pre">cmp</span></code> creates an empty float heap, using <code class="docutils literal notranslate"><span class="pre">cmp</span></code> as a
 comparison function and pre-allocates a space of <code class="docutils literal notranslate"><span class="pre">initial_size</span></code> elements.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L34">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L25">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">size</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">size</span> <span class="pre">heap</span></code> returns the number of elements in the heap.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L45">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L33">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">push</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">push</span> <span class="pre">heap</span> <span class="pre">x</span></code> pushes <code class="docutils literal notranslate"><span class="pre">x</span></code> into <code class="docutils literal notranslate"><span class="pre">heap</span></code>. Time complexity is <code class="docutils literal notranslate"><span class="pre">O(log(n))</span></code>,
 where n is the size of <code class="docutils literal notranslate"><span class="pre">heap</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L47">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L35">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pop</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pop</span> <span class="pre">heap</span></code> pops the minimal element from <code class="docutils literal notranslate"><span class="pre">heap</span></code>. It raises an exception if
 the heap is empty. Time complexity is <code class="docutils literal notranslate"><span class="pre">O(log(n))</span></code>, where n is the size of
 <code class="docutils literal notranslate"><span class="pre">heap</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L68">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L54">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">peek</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">peek</span> <span class="pre">heap</span></code> returns the value of the minimal element in <code class="docutils literal notranslate"><span class="pre">heap</span></code> but it does
 not remove the element from the heap. Raises an exception if the heap is empty.
 Time complexity is <code class="docutils literal notranslate"><span class="pre">O(1)</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L99">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L82">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_empty</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">is_empty</span> <span class="pre">heap</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">heap</span></code> is empty, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L103">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L88">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_array</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">to_array</span> <span class="pre">heap</span></code> returns the elements in <code class="docutils literal notranslate"><span class="pre">heap</span></code> into an (unsorted) array.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L105">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L90">source code</a></p>
 </div>
 </div>
 

@@ -131,7 +131,7 @@
   <div class="section" id="neural-neuron-functor">
 <h1>Neural.Neuron Functor<a class="headerlink" href="#neural-neuron-functor" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#497 entries have been extracted.</p>
+#486 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_neuron_sig.ml">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_neuron.ml">{Implementation}</a></p>
@@ -153,7 +153,7 @@
 </pre></div>
 </div>
 <p>Calculate fan-in and fan-out of weights.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L34">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L28">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">run</span> <span class="o">:</span> <span class="n">typ</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -169,9 +169,9 @@
 </div>
 <div class="section" id="input-neuron">
 <h2>Input neuron<a class="headerlink" href="#input-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -204,22 +204,22 @@
   <span class="o">|</span> <span class="nc">Relu</span>
   <span class="o">|</span> <span class="nc">Sigmoid</span>
   <span class="o">|</span> <span class="nc">HardSigmoid</span>
-  <span class="o">|</span> <span class="nc">Softmax</span> <span class="k">of</span> <span class="kt">int</span>
+  <span class="o">|</span> <span class="nc">Softmax</span>     <span class="k">of</span> <span class="kt">int</span>
   <span class="o">|</span> <span class="nc">Softplus</span>
   <span class="o">|</span> <span class="nc">Softsign</span>
   <span class="o">|</span> <span class="nc">Tanh</span>
   <span class="o">|</span> <span class="nc">Relu6</span>
-  <span class="o">|</span> <span class="nc">LeakyRelu</span> <span class="k">of</span> <span class="kt">float</span>
-  <span class="o">|</span> <span class="nc">TRelu</span> <span class="k">of</span> <span class="kt">float</span>
-  <span class="o">|</span> <span class="nc">Custom</span> <span class="k">of</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span>
+  <span class="o">|</span> <span class="nc">LeakyRelu</span>   <span class="k">of</span> <span class="kt">float</span>
+  <span class="o">|</span> <span class="nc">TRelu</span>       <span class="k">of</span> <span class="kt">float</span>
+  <span class="o">|</span> <span class="nc">Custom</span>      <span class="k">of</span> <span class="o">(</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">)</span>
   <span class="o">|</span> <span class="nc">None</span>
 </pre></div>
 </div>
 <p>Types of activation functions.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">activation</span> <span class="o">:</span> <span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>   <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">activation</span> <span class="o">:</span> <span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -236,7 +236,7 @@
 </pre></div>
 </div>
 <p>Run one specific activation function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L161">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L160">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
 </pre></div>
 </div>
@@ -261,12 +261,12 @@
 </div>
 <div class="section" id="linear-neuron">
 <h2>Linear neuron<a class="headerlink" href="#linear-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -326,11 +326,11 @@
 </div>
 <div class="section" id="linearnobias-neuron">
 <h2>LinearNoBias neuron<a class="headerlink" href="#linearnobias-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -390,26 +390,22 @@
 </div>
 <div class="section" id="recurrent-neuron">
 <h2>Recurrent neuron<a class="headerlink" href="#recurrent-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">whh</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">wxh</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">why</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">bh</span>        <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">by</span>        <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">h</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">hiddens</span>   <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">act</span>       <span class="o">:</span> <span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">whh</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">wxh</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">why</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">bh</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">by</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">h</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">hiddens</span> <span class="o">:</span> <span class="kt">int</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">act</span> <span class="o">:</span> <span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">time_steps</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">inputs</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">Activation</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -461,24 +457,24 @@
 </div>
 <div class="section" id="lstm-neuron">
 <h2>LSTM neuron<a class="headerlink" href="#lstm-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">wxi</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">whi</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">wxc</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">whc</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">wxf</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">whf</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">wxo</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">who</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">bi</span>        <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">bc</span>        <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">bf</span>        <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">bo</span>        <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">c</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">h</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">wxi</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">whi</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">wxc</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">whc</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">wxf</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">whf</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">wxo</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">who</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">bi</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">bc</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">bf</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">bo</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">c</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">h</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -538,20 +534,20 @@
 </div>
 <div class="section" id="gru-neuron">
 <h2>GRU neuron<a class="headerlink" href="#gru-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">wxz</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">whz</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">wxr</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">whr</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">wxh</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">whh</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">bz</span>        <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">br</span>        <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">bh</span>        <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">h</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">wxz</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">whz</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">wxr</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">whr</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">wxh</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">whh</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">bz</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">br</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">bh</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">h</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -611,23 +607,19 @@
 </div>
 <div class="section" id="conv1d-neuron">
 <h2>Conv1D neuron<a class="headerlink" href="#conv1d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">inputs</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -679,23 +671,19 @@
 </div>
 <div class="section" id="conv2d-neuron">
 <h2>Conv2D neuron<a class="headerlink" href="#conv2d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">inputs</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -747,23 +735,19 @@
 </div>
 <div class="section" id="conv3d-neuron">
 <h2>Conv3D neuron<a class="headerlink" href="#conv3d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">inputs</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -815,24 +799,20 @@
 </div>
 <div class="section" id="dilatedconv1d-neuron">
 <h2>DilatedConv1D neuron<a class="headerlink" href="#dilatedconv1d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">rate</span>      <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">rate</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">inputs</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -884,24 +864,20 @@
 </div>
 <div class="section" id="dilatedconv2d-neuron">
 <h2>DilatedConv2D neuron<a class="headerlink" href="#dilatedconv2d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">rate</span>      <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">rate</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">inputs</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -953,24 +929,20 @@
 </div>
 <div class="section" id="dilatedconv3d-neuron">
 <h2>DilatedConv3D neuron<a class="headerlink" href="#dilatedconv3d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">rate</span>      <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">rate</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">inputs</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -1022,23 +994,19 @@
 </div>
 <div class="section" id="transposeconv1d-neuron">
 <h2>TransposeConv1D neuron<a class="headerlink" href="#transposeconv1d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">inputs</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -1090,23 +1058,19 @@
 </div>
 <div class="section" id="transposeconv2d-neuron">
 <h2>TransposeConv2D neuron<a class="headerlink" href="#transposeconv2d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">inputs</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -1158,23 +1122,19 @@
 </div>
 <div class="section" id="transposeconv3d-neuron">
 <h2>TransposeConv3D neuron<a class="headerlink" href="#transposeconv3d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">inputs</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -1226,12 +1186,12 @@
 </div>
 <div class="section" id="fullyconnected-neuron">
 <h2>FullyConnected neuron<a class="headerlink" href="#fullyconnected-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">b</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">b</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1291,12 +1251,12 @@
 </div>
 <div class="section" id="maxpool1d-neuron">
 <h2>MaxPool1D neuron<a class="headerlink" href="#maxpool1d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1328,12 +1288,12 @@
 </div>
 <div class="section" id="maxpool2d-neuron">
 <h2>MaxPool2D neuron<a class="headerlink" href="#maxpool2d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1365,12 +1325,12 @@
 </div>
 <div class="section" id="avgpool1d-neuron">
 <h2>AvgPool1D neuron<a class="headerlink" href="#avgpool1d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1402,12 +1362,12 @@
 </div>
 <div class="section" id="avgpool2d-neuron">
 <h2>AvgPool2D neuron<a class="headerlink" href="#avgpool2d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">kernel</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">stride</span>    <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">kernel</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">stride</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1439,9 +1399,9 @@
 </div>
 <div class="section" id="globalmaxpool1d-neuron">
 <h2>GlobalMaxPool1D neuron<a class="headerlink" href="#globalmaxpool1d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1473,9 +1433,9 @@
 </div>
 <div class="section" id="globalmaxpool2d-neuron">
 <h2>GlobalMaxPool2D neuron<a class="headerlink" href="#globalmaxpool2d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1507,9 +1467,9 @@
 </div>
 <div class="section" id="globalavgpool1d-neuron">
 <h2>GlobalAvgPool1D neuron<a class="headerlink" href="#globalavgpool1d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1541,9 +1501,9 @@
 </div>
 <div class="section" id="globalavgpool2d-neuron">
 <h2>GlobalAvgPool2D neuron<a class="headerlink" href="#globalavgpool2d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1578,10 +1538,10 @@
 </div>
 <div class="section" id="upsampling2d-neuron">
 <h2>UpSampling2D neuron<a class="headerlink" href="#upsampling2d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">size</span>      <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">size</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1619,11 +1579,11 @@
 </div>
 <div class="section" id="padding2d-neuron">
 <h2>Padding2D neuron<a class="headerlink" href="#padding2d-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="c">(* array of 2 arrays of 2 ints *)</span>
-  <span class="k">mutable</span> <span class="n">padding</span>   <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="c">(* array of 2 arrays of 2 ints *)</span>
+  <span class="k">mutable</span> <span class="n">padding</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1658,10 +1618,10 @@
 </div>
 <div class="section" id="lambda-neuron">
 <h2>Lambda neuron<a class="headerlink" href="#lambda-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">lambda</span>    <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">lambda</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1693,10 +1653,10 @@
 </div>
 <div class="section" id="lambdaarray-neuron">
 <h2>LambdaArray neuron<a class="headerlink" href="#lambdaarray-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">lambda</span>    <span class="o">:</span> <span class="n">t</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">lambda</span> <span class="o">:</span> <span class="n">t</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1728,10 +1688,10 @@
 </div>
 <div class="section" id="dropout-neuron">
 <h2>Dropout neuron<a class="headerlink" href="#dropout-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">rate</span>      <span class="o">:</span> <span class="kt">float</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">rate</span> <span class="o">:</span> <span class="kt">float</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1763,9 +1723,9 @@
 </div>
 <div class="section" id="reshape-neuron">
 <h2>Reshape neuron<a class="headerlink" href="#reshape-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1797,9 +1757,9 @@
 </div>
 <div class="section" id="flatten-neuron">
 <h2>Flatten neuron<a class="headerlink" href="#flatten-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1831,9 +1791,9 @@
 </div>
 <div class="section" id="add-neuron">
 <h2>Add neuron<a class="headerlink" href="#add-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1865,9 +1825,9 @@
 </div>
 <div class="section" id="mul-neuron">
 <h2>Mul neuron<a class="headerlink" href="#mul-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1899,9 +1859,9 @@
 </div>
 <div class="section" id="dot-neuron">
 <h2>Dot neuron<a class="headerlink" href="#dot-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1933,9 +1893,9 @@
 </div>
 <div class="section" id="max-neuron">
 <h2>Max neuron<a class="headerlink" href="#max-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -1967,9 +1927,9 @@
 </div>
 <div class="section" id="average-neuron">
 <h2>Average neuron<a class="headerlink" href="#average-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -2001,10 +1961,10 @@
 </div>
 <div class="section" id="concatenate-neuron">
 <h2>Concatenate neuron<a class="headerlink" href="#concatenate-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">axis</span>      <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">axis</span> <span class="o">:</span> <span class="kt">int</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -2036,24 +1996,20 @@
 </div>
 <div class="section" id="normalisation-neuron">
 <h2>Normalisation neuron<a class="headerlink" href="#normalisation-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">axis</span>      <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">beta</span>      <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">gamma</span>     <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">mu</span>        <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">var</span>       <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">decay</span>     <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">training</span>  <span class="o">:</span> <span class="kt">bool</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">axis</span> <span class="o">:</span> <span class="kt">int</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">beta</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">gamma</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">mu</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">var</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">decay</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">training</span> <span class="o">:</span> <span class="kt">bool</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
 <p>Neuron type definition.</p>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="o">?</span><span class="n">training</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">decay</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">mu</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">var</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span>
-</pre></div>
-</div>
-<p>Create the neuron. Note that axis 0 is the batch axis.</p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron_typ</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -2113,10 +2069,10 @@
 </div>
 <div class="section" id="gaussiannoise-neuron">
 <h2>GaussianNoise neuron<a class="headerlink" href="#gaussiannoise-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">sigma</span>     <span class="o">:</span> <span class="kt">float</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">sigma</span> <span class="o">:</span> <span class="kt">float</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -2148,10 +2104,10 @@
 </div>
 <div class="section" id="gaussiandropout-neuron">
 <h2>GaussianDropout neuron<a class="headerlink" href="#gaussiandropout-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">rate</span>      <span class="o">:</span> <span class="kt">float</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">rate</span> <span class="o">:</span> <span class="kt">float</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -2183,10 +2139,10 @@
 </div>
 <div class="section" id="alphadropout-neuron">
 <h2>AlphaDropout neuron<a class="headerlink" href="#alphadropout-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">rate</span>      <span class="o">:</span> <span class="kt">float</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">rate</span> <span class="o">:</span> <span class="kt">float</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -2218,12 +2174,12 @@
 </div>
 <div class="section" id="embedding-neuron">
 <h2>Embedding neuron<a class="headerlink" href="#embedding-neuron" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="k">mutable</span> <span class="n">w</span>         <span class="o">:</span> <span class="n">t</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">init_typ</span>  <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_dim</span>    <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">in_shape</span>  <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
-  <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span><span class="o">;</span>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">neuron_typ</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="k">mutable</span> <span class="n">w</span> <span class="o">:</span> <span class="n">t</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">init_typ</span> <span class="o">:</span> <span class="nn">Init</span><span class="p">.</span><span class="n">typ</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_dim</span> <span class="o">:</span> <span class="kt">int</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">in_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
+  <span class="o">;</span> <span class="k">mutable</span> <span class="n">out_shape</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span>
   <span class="o">}</span>
 </pre></div>
 </div>
@@ -2337,17 +2293,17 @@
 </pre></div>
 </div>
 <p>Get both input and output shapes of a neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3016">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3201">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_in_shape</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Get the input shape of a neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3062">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3247">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_out_shape</span> <span class="o">:</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Get the output shape of a neuron.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3065">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3249">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">connect</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">neuron</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>

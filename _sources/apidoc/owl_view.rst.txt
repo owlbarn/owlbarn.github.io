@@ -33,7 +33,7 @@ Conversion functions
 
 ``of_arr x`` creates a view from ndarray ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L77>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L70>`__
 
 
 
@@ -43,7 +43,7 @@ Conversion functions
 
 ``to_arr x`` creates an new ndarray based on the view ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L86>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L82>`__
 
 
 
@@ -58,7 +58,7 @@ Manipulation functions
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L103>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L97>`__
 
 
 
@@ -68,7 +68,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L108>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L102>`__
 
 
 
@@ -78,7 +78,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L113>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L107>`__
 
 
 
@@ -88,7 +88,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L241>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L227>`__
 
 
 
@@ -104,7 +104,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L96>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L91>`__
 
 
 
@@ -114,7 +114,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L98>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L93>`__
 
 
 
@@ -124,7 +124,7 @@ Refer to :doc:`owl_dense_ndarray_generic`
 
 Refer to :doc:`owl_dense_ndarray_generic`
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L100>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L95>`__
 
 
 
@@ -141,7 +141,7 @@ Iteration functions
 ``f : int array -> elt -> unit``, the first paramater is index. 1d indices are
 passed to the user function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L207>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L201>`__
 
 
 
@@ -151,7 +151,7 @@ passed to the user function.
 
 Similar to ``iteri``, the index is not passed in.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L204>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L199>`__
 
 
 
@@ -162,7 +162,7 @@ Similar to ``iteri``, the index is not passed in.
 ``mapi f x`` applies ``f : int array -> elt -> elt`` to every element in ``x``,
 then save the result in place. 1d indices are passed to the user function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L216>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L207>`__
 
 
 
@@ -173,7 +173,7 @@ then save the result in place. 1d indices are passed to the user function.
 ``map f x`` applies ``f : elt -> elt`` to every element in ``x``, then save the
 the result in place in ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L213>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L205>`__
 
 
 
@@ -184,7 +184,7 @@ the result in place in ``x``.
 ``iter2 f x y`` applies ``f : elt -> elt -> elt`` every pair of elements in
 ``x`` and ``y``. The indices are not passed in the user function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L225>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L213>`__
 
 
 
@@ -196,7 +196,7 @@ the result in place in ``x``.
 and ``y``, then saves the result in ``y``. So be careful with the order, it
 matters, the data reflected by view ``y`` will be modified.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L233>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L220>`__
 
 
 
@@ -207,7 +207,7 @@ matters, the data reflected by view ``y`` will be modified.
 Similar to `iteri` but n-d indices are passed in. This function is much slower
 than `iteri`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L210>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L203>`__
 
 
 
@@ -218,7 +218,7 @@ than `iteri`.
 Similar to `mapi` but n-d indices are passed in. This function is much slower
 than `mapi`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L219>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L209>`__
 
 
 
@@ -234,7 +234,7 @@ Examination & Comparison
 ``exists f x`` checks all the elements in ``x`` using ``f``. If at least one
 element satisfies ``f`` then the function returns ``true`` otherwise ``false``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L260>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L243>`__
 
 
 
@@ -245,7 +245,7 @@ element satisfies ``f`` then the function returns ``true`` otherwise ``false``.
 ``not_exists f x`` checks all the elements in ``x``, the function returns
   ``true`` only if all the elements fail to satisfy ``f : float -> bool``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L271>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L258>`__
 
 
 
@@ -256,7 +256,7 @@ element satisfies ``f`` then the function returns ``true`` otherwise ``false``.
 ``for_all f x`` checks all the elements in ``x``, the function returns ``true``
   if and only if all the elements pass the check of function ``f``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L274>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L260>`__
 
 
 
@@ -266,7 +266,7 @@ element satisfies ``f`` then the function returns ``true`` otherwise ``false``.
 
 ``equal x y`` returns ``true`` if ``x`` and ``y`` are elementwise equal.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L248>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L234>`__
 
 
 
@@ -276,7 +276,7 @@ element satisfies ``f`` then the function returns ``true`` otherwise ``false``.
 
 ``not_equal x y`` returns ``true`` if ``x`` and ``y`` are not elementwise equal.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L257>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L241>`__
 
 
 

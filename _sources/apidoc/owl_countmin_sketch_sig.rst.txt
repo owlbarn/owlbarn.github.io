@@ -44,7 +44,7 @@ Core functions
 
 ``incr s x`` increments the frequency count of ``x`` in sketch ``s`` in-place.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L31>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L32>`__
 
 
 
@@ -54,7 +54,7 @@ Core functions
 
 ``count s x`` returns the estimated frequency of element ``x`` in ``s``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L36>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L38>`__
 
 
 
@@ -65,7 +65,7 @@ Core functions
 ``init_from s`` initializes a new empty sketch with the same parameters as ``s``, which
   can later be merged with ``s``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L41>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L44>`__
 
 
 
@@ -76,7 +76,7 @@ Core functions
 ``merge s1 s2`` returns a new sketch whose counts are the sum of those in ``s1`` and ``s2``.
   Raises ``INVALID_ARGUMENT`` if the parameters of ``s1`` and ``s2`` do not match.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L45>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_countmin_sketch.ml#L49>`__
 
 
 

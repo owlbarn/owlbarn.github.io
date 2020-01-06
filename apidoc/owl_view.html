@@ -103,12 +103,12 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">of_arr</span> <span class="pre">x</span></code> creates a view from ndarray <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L77">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L70">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_arr</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">to_arr</span> <span class="pre">x</span></code> creates an new ndarray based on the view <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L86">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L82">source code</a></p>
 </div>
 <div class="section" id="manipulation-functions">
 <h2>Manipulation functions<a class="headerlink" href="#manipulation-functions" title="Permalink to this headline">¶</a></h2>
@@ -116,22 +116,22 @@
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L103">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L97">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L108">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L102">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_slice</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">list</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L113">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L107">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_slice</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">list</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L241">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L227">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shape</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
@@ -140,17 +140,17 @@
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L96">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L91">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">nth_dim</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L98">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L93">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">numel</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span>
 </pre></div>
 </div>
 <p>Refer to <a class="reference internal" href="owl_dense_ndarray_generic.html"><span class="doc">Dense.Ndarray.Generic</span></a></p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L100">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L95">source code</a></p>
 </div>
 <div class="section" id="iteration-functions">
 <h2>Iteration functions<a class="headerlink" href="#iteration-functions" title="Permalink to this headline">¶</a></h2>
@@ -160,49 +160,49 @@
 <p><code class="docutils literal notranslate"><span class="pre">iteri</span> <span class="pre">f</span> <span class="pre">x</span></code> iterates and applies <code class="docutils literal notranslate"><span class="pre">f</span></code> to every element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. <code class="docutils literal notranslate"><span class="pre">f</span></code> has type
 <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">int</span> <span class="pre">array</span> <span class="pre">-&gt;</span> <span class="pre">elt</span> <span class="pre">-&gt;</span> <span class="pre">unit</span></code>, the first paramater is index. 1d indices are
 passed to the user function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L207">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L201">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iter</span> <span class="o">:</span> <span class="o">(</span><span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Similar to <code class="docutils literal notranslate"><span class="pre">iteri</span></code>, the index is not passed in.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L204">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L199">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mapi</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">mapi</span> <span class="pre">f</span> <span class="pre">x</span></code> applies <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">int</span> <span class="pre">array</span> <span class="pre">-&gt;</span> <span class="pre">elt</span> <span class="pre">-&gt;</span> <span class="pre">elt</span></code> to every element in <code class="docutils literal notranslate"><span class="pre">x</span></code>,
 then save the result in place. 1d indices are passed to the user function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L216">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L207">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">map</span> <span class="o">:</span> <span class="o">(</span><span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">map</span> <span class="pre">f</span> <span class="pre">x</span></code> applies <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">elt</span> <span class="pre">-&gt;</span> <span class="pre">elt</span></code> to every element in <code class="docutils literal notranslate"><span class="pre">x</span></code>, then save the
 the result in place in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L213">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L205">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iter2</span> <span class="o">:</span> <span class="o">(</span><span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">iter2</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">y</span></code> applies <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">elt</span> <span class="pre">-&gt;</span> <span class="pre">elt</span> <span class="pre">-&gt;</span> <span class="pre">elt</span></code> every pair of elements in
 <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. The indices are not passed in the user function.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L225">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L213">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">map2</span> <span class="o">:</span> <span class="o">(</span><span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">map2</span> <span class="pre">f</span> <span class="pre">x</span> <span class="pre">y</span></code> applies <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">elt</span> <span class="pre">-&gt;</span> <span class="pre">elt</span> <span class="pre">-&gt;</span> <span class="pre">elt</span></code> every pair of elements in <code class="docutils literal notranslate"><span class="pre">x</span></code>
 and <code class="docutils literal notranslate"><span class="pre">y</span></code>, then saves the result in <code class="docutils literal notranslate"><span class="pre">y</span></code>. So be careful with the order, it
 matters, the data reflected by view <code class="docutils literal notranslate"><span class="pre">y</span></code> will be modified.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L233">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L220">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iteri_nd</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Similar to <cite>iteri</cite> but n-d indices are passed in. This function is much slower
 than <cite>iteri</cite>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L210">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L203">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mapi_nd</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Similar to <cite>mapi</cite> but n-d indices are passed in. This function is much slower
 than <cite>mapi</cite>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L219">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L209">source code</a></p>
 </div>
 <div class="section" id="examination-comparison">
 <h2>Examination &amp; Comparison<a class="headerlink" href="#examination-comparison" title="Permalink to this headline">¶</a></h2>
@@ -211,7 +211,7 @@ than <cite>mapi</cite>.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">exists</span> <span class="pre">f</span> <span class="pre">x</span></code> checks all the elements in <code class="docutils literal notranslate"><span class="pre">x</span></code> using <code class="docutils literal notranslate"><span class="pre">f</span></code>. If at least one
 element satisfies <code class="docutils literal notranslate"><span class="pre">f</span></code> then the function returns <code class="docutils literal notranslate"><span class="pre">true</span></code> otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L260">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L243">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">not_exists</span> <span class="o">:</span> <span class="o">(</span><span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
@@ -219,7 +219,7 @@ element satisfies <code class="docutils literal notranslate"><span class="pre">f
 <dt><code class="docutils literal notranslate"><span class="pre">not_exists</span> <span class="pre">f</span> <span class="pre">x</span></code> checks all the elements in <code class="docutils literal notranslate"><span class="pre">x</span></code>, the function returns</dt>
 <dd><code class="docutils literal notranslate"><span class="pre">true</span></code> only if all the elements fail to satisfy <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">:</span> <span class="pre">float</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code>.</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L271">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L258">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">for_all</span> <span class="o">:</span> <span class="o">(</span><span class="nn">A</span><span class="p">.</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
@@ -227,17 +227,17 @@ element satisfies <code class="docutils literal notranslate"><span class="pre">f
 <dt><code class="docutils literal notranslate"><span class="pre">for_all</span> <span class="pre">f</span> <span class="pre">x</span></code> checks all the elements in <code class="docutils literal notranslate"><span class="pre">x</span></code>, the function returns <code class="docutils literal notranslate"><span class="pre">true</span></code></dt>
 <dd>if and only if all the elements pass the check of function <code class="docutils literal notranslate"><span class="pre">f</span></code>.</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L274">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L260">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">equal</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">equal</span> <span class="pre">x</span> <span class="pre">y</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are elementwise equal.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L248">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L234">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">not_equal</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">not_equal</span> <span class="pre">x</span> <span class="pre">y</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are not elementwise equal.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L257">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_view.ml#L241">source code</a></p>
 </div>
 </div>
 

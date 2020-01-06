@@ -87,7 +87,7 @@
   <div class="section" id="nlp-corpus">
 <h1>NLP.Corpus<a class="headerlink" href="#nlp-corpus" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#40 entries have been extracted.</p>
+#38 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/nlp/owl_nlp_corpus.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/nlp/owl_nlp_corpus.ml">{Implementation}</a></p>
@@ -104,17 +104,17 @@
 </pre></div>
 </div>
 <p>Return the size of the corpus, i.e. number of documents.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L79">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L85">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Return the ith document in the corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L96">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L101">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_tok</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Return the ith tokenised document in the corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L104">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L110">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_uri</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
@@ -134,27 +134,27 @@
 </pre></div>
 </div>
 <p>Return the path of tokenised corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L59">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L61">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_tok_fh</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">in_channel</span>
 </pre></div>
 </div>
 <p>Return the file handle of the tokenised corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L61">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L63">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_vocab_uri</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Return the path of vocabulary file associated with the corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L68">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L72">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_vocab</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">Owl_nlp_vocabulary</span><span class="p">.</span><span class="n">t</span>
 </pre></div>
 </div>
 <p>Return the vocabulary associated with the corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L70">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L74">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_docid</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Return a list of document ids which are mapped back to the original file where the corpus is built.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L77">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L83">source code</a></p>
 </div>
 <div class="section" id="iteration-functions">
 <h2>Iteration functions<a class="headerlink" href="#iteration-functions" title="Permalink to this headline">¶</a></h2>
@@ -162,84 +162,65 @@
 </pre></div>
 </div>
 <p>Return the next document in the corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L84">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L89">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">next_tok</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Return the next tokenised document in the corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L86">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L91">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iteri</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Iterate all the documents in the corpus, the index (line number) is passed in.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L88">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L93">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">iteri_tok</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Iterate the tokenised documents in the corpus, the index (line number) is passed in.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L90">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L95">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mapi</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Map all the documents in a corpus into another array. The index (line number) is passed in.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L92">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L97">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mapi_tok</span> <span class="o">:</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Map all the tokenised ocuments in a corpus into another array. The index (line number) is passed in.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L94">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L99">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">next_batch</span> <span class="o">:</span> <span class="o">?</span><span class="n">size</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Return the next batch of documents in a corpus as a string array. The default <code class="docutils literal notranslate"><span class="pre">size</span></code> is 100.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L122">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L130">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">next_batch_tok</span> <span class="o">:</span> <span class="o">?</span><span class="n">size</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Return the next batch of tokenised documents in a corpus as a string array. The default <code class="docutils literal notranslate"><span class="pre">size</span></code> is 100.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L132">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L142">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reset_iterators</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Reset the iterator to the begining of the corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L113">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L120">source code</a></p>
 </div>
 <div class="section" id="core-functions">
 <h2>Core functions<a class="headerlink" href="#core-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">build</span> <span class="o">:</span> <span class="o">?</span><span class="n">docid</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">stopwords</span><span class="o">:(</span><span class="kt">string</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="nn">Hashtbl</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">lo</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">hi</span><span class="o">:</span><span class="kt">float</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">vocab</span><span class="o">:</span><span class="nn">Owl_nlp_vocabulary</span><span class="p">.</span><span class="n">t</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">minlen</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p>This function builds up a corpus of type <code class="docutils literal notranslate"><span class="pre">t</span></code> from a given raw text corpus. We
-assume that each line in the raw text corpus represents a document.</p>
-<dl class="docutils">
-<dt>Parameters:</dt>
-<dd><ul class="first last simple">
-<li><code class="docutils literal notranslate"><span class="pre">?docid</span></code>: passed in <code class="docutils literal notranslate"><span class="pre">docid</span></code> can be used for tracking back to the original corpus, but this is not compulsory.</li>
-<li><code class="docutils literal notranslate"><span class="pre">?stopwords</span></code>: stopwords used in building vocabulary.</li>
-<li><code class="docutils literal notranslate"><span class="pre">?lo</span></code>: any word below this lower bound of the frequency is removed from vocabulary.</li>
-<li><code class="docutils literal notranslate"><span class="pre">?hi</span></code>: any word above this upper bound of the frequency is removed from vocabulary.</li>
-<li><code class="docutils literal notranslate"><span class="pre">?vocab</span></code>: an optional vocabulary, if it is not passed, the vocabulary is built from current corpus.</li>
-<li><code class="docutils literal notranslate"><span class="pre">?(minlen=10)</span></code>: threshold of the document length, any document shorter than this is removed from the corpus.</li>
-<li><code class="docutils literal notranslate"><span class="pre">fname</span></code>: the file name of the raw text corpus.</li>
-</ul>
-</dd>
-</dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L155">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tokenise</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">tokenise</span> <span class="pre">corpus</span> <span class="pre">doc</span></code> tokenises the document <code class="docutils literal notranslate"><span class="pre">doc</span></code> using the <code class="docutils literal notranslate"><span class="pre">corpus</span></code> and its associated vocabulary.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L141">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L153">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">unique</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
 </pre></div>
 </div>
 <p>Remove the duplicates in a text corpus, the ids of the removed files are returned.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L228">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L235">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">simple_process</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Function for simple pre-processing a given string.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L246">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L253">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">preprocess</span> <span class="o">:</span> <span class="o">(</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">bytes</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
@@ -248,7 +229,7 @@ assume that each line in the raw text corpus represents a document.</p>
 <code class="docutils literal notranslate"><span class="pre">output_file</span></code>.</p>
 <p>E.g., you can plug in <code class="docutils literal notranslate"><span class="pre">simple_process</span></code> function to clean up the text. Note
 this function will not change the number of lines in a corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L257">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L264">source code</a></p>
 </div>
 <div class="section" id="i-o-functions">
 <h2>I/O functions<a class="headerlink" href="#i-o-functions" title="Permalink to this headline">¶</a></h2>
@@ -256,46 +237,40 @@ this function will not change the number of lines in a corpus.</p>
 </pre></div>
 </div>
 <p>Serialise the corpus and save it to a file of given name.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L280">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L289">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">load</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>Load a serialised corpus from a file.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L284">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L294">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">save_txt</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Convert the tokenised corpus back to a text file</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L292">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L303">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_string</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>The string representation of a corpus, contains the summary of a corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L307">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L316">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">print</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Pretty print the summary of a text corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L313">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L323">source code</a></p>
 </div>
 <div class="section" id="helper-functions">
 <h2>Helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">in_channel</span> <span class="n">option</span> <span class="o">-&gt;</span> <span class="n">in_channel</span> <span class="n">option</span> <span class="o">-&gt;</span> <span class="nn">Owl_nlp_vocabulary</span><span class="p">.</span><span class="n">t</span> <span class="n">option</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">t</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">`create</span> <span class="pre">uri</span> <span class="pre">bin_ofs</span> <span class="pre">tok_ofs</span> <span class="pre">bin_fh</span> <span class="pre">tok_fh</span> <span class="pre">vocab</span> <span class="pre">minlen</span> <span class="pre">docid`</span> <span class="pre">wraps</span> <span class="pre">up</span> <span class="pre">the</span>
-<span class="pre">corpus</span> <span class="pre">into</span> <span class="pre">a</span> <span class="pre">record</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">``t</span></code>.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L33">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reduce_model</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
 </pre></div>
 </div>
 <p>Set some fields to <code class="docutils literal notranslate"><span class="pre">None</span></code> so it can be safely serialised.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L269">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L277">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cleanup</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
 </pre></div>
 </div>
 <p>Close the opened file handles associated with the corpus.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L29">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L37">source code</a></p>
 </div>
 </div>
 

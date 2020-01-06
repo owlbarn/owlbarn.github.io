@@ -33,7 +33,7 @@ Basic functions
 
 ``make ()`` creates an empty stack.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L17>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L16>`__
 
 
 
@@ -43,7 +43,7 @@ Basic functions
 
 ``push stack x`` pushes ``x`` into ``stack``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L23>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L18>`__
 
 
 
@@ -54,7 +54,7 @@ Basic functions
 ``pop stack`` pops the top element in ``stack``. It returns ``None`` if the
 ``stack`` is empty.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L32>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L28>`__
 
 
 
@@ -75,7 +75,7 @@ remove the element from the stack. ``None`` is returned if the stack is empty.
 
 Returns ``true`` if the stack is empty, otherwise ``false``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L40>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L42>`__
 
 
 
@@ -86,7 +86,7 @@ Returns ``true`` if the stack is empty, otherwise ``false``.
 ``mem stack x`` checks whether ``x`` exist in ``stack``. The complexity is
 ``O(n)`` where ``n`` is the size of the ``stack``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L42>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L44>`__
 
 
 
@@ -96,7 +96,7 @@ Returns ``true`` if the stack is empty, otherwise ``false``.
 
 Similar to ``mem`` but physical equality is used for comparing values.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L44>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L46>`__
 
 
 
@@ -106,7 +106,7 @@ Similar to ``mem`` but physical equality is used for comparing values.
 
 ``to_array stack`` converts the elements in ``stack`` into an array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L46>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_stack.ml#L48>`__
 
 
 

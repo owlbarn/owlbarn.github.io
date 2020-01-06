@@ -33,7 +33,7 @@ Basic functions
 
 ``make cmp`` creates an empty min heap, using ``cmp`` as a comparison function.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L22>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L21>`__
 
 
 
@@ -44,7 +44,7 @@ Basic functions
 ``make_int ?initial_size cmp`` creates an empty integer heap, using ``cmp`` as a
 comparison function and pre-allocates a space of ``initial_size`` elements.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L28>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L23>`__
 
 
 
@@ -55,7 +55,7 @@ comparison function and pre-allocates a space of ``initial_size`` elements.
 ``make_float ?initial_size cmp`` creates an empty float heap, using ``cmp`` as a
 comparison function and pre-allocates a space of ``initial_size`` elements.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L34>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L25>`__
 
 
 
@@ -65,7 +65,7 @@ comparison function and pre-allocates a space of ``initial_size`` elements.
 
 ``size heap`` returns the number of elements in the heap.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L45>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L33>`__
 
 
 
@@ -76,7 +76,7 @@ comparison function and pre-allocates a space of ``initial_size`` elements.
 ``push heap x`` pushes ``x`` into ``heap``. Time complexity is ``O(log(n))``,
 where n is the size of ``heap``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L47>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L35>`__
 
 
 
@@ -88,7 +88,7 @@ where n is the size of ``heap``.
 the heap is empty. Time complexity is ``O(log(n))``, where n is the size of
 ``heap``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L68>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L54>`__
 
 
 
@@ -100,7 +100,7 @@ the heap is empty. Time complexity is ``O(log(n))``, where n is the size of
 not remove the element from the heap. Raises an exception if the heap is empty.
 Time complexity is ``O(1)``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L99>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L82>`__
 
 
 
@@ -110,7 +110,7 @@ Time complexity is ``O(1)``.
 
 ``is_empty heap`` returns ``true`` if ``heap`` is empty, ``false`` otherwise.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L103>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L88>`__
 
 
 
@@ -120,7 +120,7 @@ Time complexity is ``O(1)``.
 
 ``to_array heap`` returns the elements in ``heap`` into an (unsorted) array.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L105>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_heap.ml#L90>`__
 
 
 

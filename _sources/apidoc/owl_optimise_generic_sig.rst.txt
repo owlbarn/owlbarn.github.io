@@ -2,7 +2,7 @@ Optimise.Generic Functor
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#61 entries have been extracted.
+#56 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/optimise/owl_optimise_generic_sig.ml>`_ 
@@ -21,7 +21,7 @@ Utils module
 
 Return the total number of samples in passed in ndarray.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L35>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L29>`__
 
 
 
@@ -33,7 +33,7 @@ Return the total number of samples in passed in ndarray.
 (labels). The samples will be drew along axis 0, so ``x`` and ``y`` must agree
 along axis 0.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L40>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L35>`__
 
 
 
@@ -44,7 +44,7 @@ along axis 0.
 ``get_chunk x y i c`` gets a continuous chunk of ``c`` samples from position
 ``i`` from  ``x`` (observations) and ``y`` (labels).
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L49>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L44>`__
 
 
 
@@ -56,14 +56,13 @@ Learning_Rate module
 .. code-block:: ocaml
 
   type typ =
-    | Adagrad of float
-    | Const of float
-    | Decay of float * float
+    | Adagrad   of float
+    | Const     of float
+    | Decay     of float * float
     | Exp_decay of float * float
-    | RMSprop of float * float
-    | Adam of float * float * float
-    | Schedule of float array
-    
+    | RMSprop   of float * float
+    | Adam      of float * float * float
+    | Schedule  of float array 
 
 types of learning rate
 
@@ -85,7 +84,7 @@ Create module ``typ`` with default values.
 
 Update the cache of gradients.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L108>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L106>`__
 
 
 
@@ -102,8 +101,11 @@ Batch module
 
 .. code-block:: ocaml
 
-  type typ = Full | Mini of int | Sample of int | Stochastic
-    
+  type typ =
+    | Full
+    | Mini       of int
+    | Sample     of int
+    | Stochastic 
 
 Types of batches.
 
@@ -138,8 +140,7 @@ Loss module
     | L2norm
     | Quadratic
     | Cross_entropy
-    | Custom of (t -> t -> t)
-    
+    | Custom        of (t -> t -> t) 
 
 Types of loss functions.
 
@@ -162,8 +163,14 @@ Gradient module
 
 .. code-block:: ocaml
 
-  type typ = GD | CG | CD | NonlinearCG | DaiYuanCG | NewtonCG | Newton
-    
+  type typ =
+    | GD
+    | CG
+    | CD
+    | NonlinearCG
+    | DaiYuanCG
+    | NewtonCG
+    | Newton 
 
 Types of gradient function.
 
@@ -186,8 +193,10 @@ Momentum module
 
 .. code-block:: ocaml
 
-  type typ = Standard of float | Nesterov of float | None
-    
+  type typ =
+    | Standard of float
+    | Nesterov of float
+    | None 
 
 Types of momentum functions.
 
@@ -217,11 +226,10 @@ Regularisation module
 .. code-block:: ocaml
 
   type typ =
-    | L1norm of float
-    | L2norm of float
+    | L1norm      of float
+    | L2norm      of float
     | Elastic_net of float * float
-    | None
-    
+    | None 
 
 Types of regularisation functions.
 
@@ -244,8 +252,10 @@ Clipping module
 
 .. code-block:: ocaml
 
-  type typ = L2norm of float | Value of float * float | None
-    
+  type typ =
+    | L2norm of float
+    | Value  of float * float
+    | None 
 
 Types of clipping functions.
 
@@ -274,8 +284,10 @@ Stopping module
 
 .. code-block:: ocaml
 
-  type typ = Const of float | Early of int * int | None
-    
+  type typ =
+    | Const of float
+    | Early of int * int
+    | None 
 
 Types of stopping functions.
 
@@ -304,18 +316,18 @@ Checkpoint module
 
 .. code-block:: ocaml
 
-  type state = {
-    mutable current_batch : int;
-    mutable batches_per_epoch : int;
-    mutable epochs : float;
-    mutable batches : int;
-    mutable loss : t array;
-    mutable start_at : float;
-    mutable stop : bool;
-    mutable gs : t array array;
-    mutable ps : t array array;
-    mutable us : t array array;
-    mutable ch : t array array array;
+  type state =
+    { mutable current_batch : int
+    ; mutable batches_per_epoch : int
+    ; mutable epochs : float
+    ; mutable batches : int
+    ; mutable loss : t array
+    ; mutable start_at : float
+    ; mutable stop : bool
+    ; mutable gs : t array array
+    ; mutable ps : t array array
+    ; mutable us : t array array
+    ; mutable ch : t array array array
     }
     
 
@@ -324,11 +336,10 @@ Type definition of checkpoint
 .. code-block:: ocaml
 
   type typ =
-    | Batch of int
-    | Epoch of float
+    | Batch  of int
+    | Epoch  of float
     | Custom of (state -> unit)
-    | None
-    
+    | None 
 
 Batch type.
 
@@ -339,7 +350,7 @@ Batch type.
 ``init_state batches_per_epoch epochs`` initialises a state by specifying the
 number of batches per epoch and the number of epochs in total.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L361>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L370>`__
 
 
 
@@ -349,7 +360,7 @@ number of batches per epoch and the number of epochs in total.
 
 This function is used for saving intermediate files during optimisation.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L377>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L386>`__
 
 
 
@@ -359,7 +370,7 @@ This function is used for saving intermediate files during optimisation.
 
 Print out the detail information of current ``state``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L384>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L394>`__
 
 
 
@@ -369,7 +380,7 @@ Print out the detail information of current ``state``.
 
 Print out the summary of current ``state``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L397>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L407>`__
 
 
 
@@ -392,18 +403,18 @@ Params module
 
 .. code-block:: ocaml
 
-  type typ = {
-    mutable epochs : float;
-    mutable batch : Batch.typ;
-    mutable gradient : Gradient.typ;
-    mutable loss : Loss.typ;
-    mutable learning_rate : Learning_Rate.typ;
-    mutable regularisation : Regularisation.typ;
-    mutable momentum : Momentum.typ;
-    mutable clipping : Clipping.typ;
-    mutable stopping : Stopping.typ;
-    mutable checkpoint : Checkpoint.typ;
-    mutable verbosity : bool;
+  type typ =
+    { mutable epochs : float
+    ; mutable batch : Batch.typ
+    ; mutable gradient : Gradient.typ
+    ; mutable loss : Loss.typ
+    ; mutable learning_rate : Learning_Rate.typ
+    ; mutable regularisation : Regularisation.typ
+    ; mutable momentum : Momentum.typ
+    ; mutable clipping : Clipping.typ
+    ; mutable stopping : Stopping.typ
+    ; mutable checkpoint : Checkpoint.typ
+    ; mutable verbosity : bool
     }
     
 
@@ -417,69 +428,12 @@ Create module ``typ`` with default values.
 
 .. code-block:: ocaml
 
-  val config : ?batch:Batch.typ -> ?gradient:Gradient.typ -> ?loss:Loss.typ -> ?learning_rate:Learning_Rate.typ -> ?regularisation:Regularisation.typ -> ?momentum:Momentum.typ -> ?clipping:Clipping.typ -> ?stopping:Stopping.typ -> ?checkpoint:Checkpoint.typ -> ?verbosity:bool -> float -> typ
-
-This function creates a parameter object with many configurations.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L456>`__
-
-
-
-.. code-block:: ocaml
-
   val to_string : typ -> string
 
 Convert the module ``typ`` to its string representation.
 
 Core functions
 -------------------------------------------------------------------------------
-
-
-
-.. code-block:: ocaml
-
-  val minimise_weight : ?state:Checkpoint.state -> Params.typ -> (t -> t -> t) -> t -> t -> t -> Checkpoint.state * t
-
-This function minimises the weight ``w`` of passed-in function ``f``.
-
-* ``f`` is a function ``f : w -> x -> y``.
-* ``w`` is a row vector but ``y`` can have any shape.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L497>`__
-
-
-
-.. code-block:: ocaml
-
-  val minimise_network : ?state:Checkpoint.state -> Params.typ -> (t -> t * t array array) -> (t -> t array array * t array array) -> (t array array -> unit) -> (string -> unit) -> t -> t -> Checkpoint.state
-
-This function is specifically designed for minimising the weights in a neural
-network of graph structure. In Owl's earlier versions, the functions in the
-regression module were actually implemented using this function.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L585>`__
-
-
-
-.. code-block:: ocaml
-
-  val minimise_fun : ?state:Checkpoint.state -> Params.typ -> (t -> t) -> t -> Checkpoint.state * t
-
-This function minimises ``f : x -> y`` w.r.t ``x``.
-
-``x`` is an ndarray; and ``y`` is an scalar value.
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L684>`__
-
-
-
-.. code-block:: ocaml
-
-  val minimise_compiled_network : ?state:Checkpoint.state -> Params.typ -> (t -> t -> t) -> (unit -> unit) -> (string -> unit) -> t -> t -> Checkpoint.state
-
-TODO
-
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/optimise/owl_optimise_generic.ml#L764>`__
 
 
 

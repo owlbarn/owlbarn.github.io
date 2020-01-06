@@ -104,12 +104,12 @@
 </pre></div>
 </div>
 <p>The empty multimap.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L26">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L23">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">is_empty</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
 <p>Check whether the multimap is empty.</p>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L29">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L25">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mem</span> <span class="o">:</span> <span class="n">key</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
 </pre></div>
 </div>
@@ -117,7 +117,7 @@
 <dt><code class="docutils literal notranslate"><span class="pre">mem</span> <span class="pre">k</span> <span class="pre">m</span></code> returns true is the multimap <code class="docutils literal notranslate"><span class="pre">m</span></code> contains at least one binding</dt>
 <dd>for <code class="docutils literal notranslate"><span class="pre">k</span></code>, false otherwise.</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L32">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L27">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">add</span> <span class="o">:</span> <span class="n">key</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -126,7 +126,7 @@
 <dd>binding from <code class="docutils literal notranslate"><span class="pre">k</span></code> to <code class="docutils literal notranslate"><span class="pre">v</span></code>. Previous bindings for <code class="docutils literal notranslate"><span class="pre">k</span></code> are hidden by the new
 binding (they can be restored by calling <code class="docutils literal notranslate"><span class="pre">remove</span> <span class="pre">k</span> <span class="pre">m</span></code>).</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L35">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L29">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">remove</span> <span class="o">:</span> <span class="n">key</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span>
 </pre></div>
 </div>
@@ -135,7 +135,7 @@ binding (they can be restored by calling <code class="docutils literal notransla
 <dd>for the binding of <code class="docutils literal notranslate"><span class="pre">k</span></code>: the last value that was bound to it is removed. If
 there is no binding for <code class="docutils literal notranslate"><span class="pre">k</span></code> in <code class="docutils literal notranslate"><span class="pre">m</span></code>, raises <cite>Not_found</cite>.</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L48">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L41">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">find</span> <span class="o">:</span> <span class="n">key</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
@@ -143,7 +143,7 @@ there is no binding for <code class="docutils literal notranslate"><span class="
 <dt><code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">k</span> <span class="pre">m</span></code> returns the last added binding of <code class="docutils literal notranslate"><span class="pre">k</span></code> in <code class="docutils literal notranslate"><span class="pre">m</span></code>, or raises</dt>
 <dd><code class="docutils literal notranslate"><span class="pre">Not_found</span></code> if there is no such binding.</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L59">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L55">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_binding</span> <span class="o">:</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">key</span> <span class="o">*</span> <span class="k">&#39;</span><span class="n">a</span>
 </pre></div>
 </div>
@@ -151,7 +151,7 @@ there is no binding for <code class="docutils literal notranslate"><span class="
 <dt><code class="docutils literal notranslate"><span class="pre">max_binding</span> <span class="pre">m</span></code> returns the greatest binding in <code class="docutils literal notranslate"><span class="pre">m</span></code>. Raises <code class="docutils literal notranslate"><span class="pre">Not_found</span></code></dt>
 <dd>if <code class="docutils literal notranslate"><span class="pre">m</span></code> is empty.</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L68">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L66">source code</a></p>
 <div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">find_first_opt</span> <span class="o">:</span> <span class="o">(</span><span class="n">key</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">key</span> <span class="o">*</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">option</span>
 </pre></div>
 </div>
@@ -160,7 +160,7 @@ there is no binding for <code class="docutils literal notranslate"><span class="
 <dd>or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no such binding exists. The function <code class="docutils literal notranslate"><span class="pre">f</span></code> has to be
 nondecreasing. Time complexity is O(log n).</dd>
 </dl>
-<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L79">source code</a></p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L80">source code</a></p>
 </div>
 </div>
 

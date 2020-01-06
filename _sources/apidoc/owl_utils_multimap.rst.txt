@@ -40,7 +40,7 @@ Basic functions
 
 The empty multimap.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L26>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L23>`__
 
 
 
@@ -50,7 +50,7 @@ The empty multimap.
 
 Check whether the multimap is empty.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L29>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L25>`__
 
 
 
@@ -61,7 +61,7 @@ Check whether the multimap is empty.
 ``mem k m`` returns true is the multimap ``m`` contains at least one binding
   for ``k``, false otherwise.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L32>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L27>`__
 
 
 
@@ -73,7 +73,7 @@ Check whether the multimap is empty.
   binding from ``k`` to ``v``. Previous bindings for ``k`` are hidden by the new
   binding (they can be restored by calling ``remove k m``).
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L35>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L29>`__
 
 
 
@@ -85,7 +85,7 @@ Check whether the multimap is empty.
   for the binding of ``k``: the last value that was bound to it is removed. If
   there is no binding for ``k`` in ``m``, raises `Not_found`.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L48>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L41>`__
 
 
 
@@ -96,7 +96,7 @@ Check whether the multimap is empty.
 ``find k m`` returns the last added binding of ``k`` in ``m``, or raises
   ``Not_found`` if there is no such binding.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L59>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L55>`__
 
 
 
@@ -107,7 +107,7 @@ Check whether the multimap is empty.
 ``max_binding m`` returns the greatest binding in ``m``. Raises ``Not_found``
   if ``m`` is empty.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L68>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L66>`__
 
 
 
@@ -119,7 +119,7 @@ Check whether the multimap is empty.
   or ``None`` if no such binding exists. The function ``f`` has to be
   nondecreasing. Time complexity is O(log n).
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L79>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_utils_multimap.ml#L80>`__
 
 
 

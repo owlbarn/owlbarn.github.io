@@ -17,8 +17,9 @@ Type definition
 
 .. code-block:: ocaml
 
-  type state = Valid | Invalid
-    
+  type state =
+    | Valid
+    | Invalid 
 
 TODO
 

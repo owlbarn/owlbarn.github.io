@@ -17,7 +17,12 @@ Type definition
 
 .. code-block:: ocaml
 
-  type level = DEBUG | INFO | WARN | ERROR | FATAL
+  type level =
+    | DEBUG
+    | INFO
+    | WARN
+    | ERROR
+    | FATAL
     
 
 Type definition of log levels, priority is from low to high. Using ``set_level``
@@ -35,7 +40,7 @@ Configuration functions
 
 This function sets the global logging level. Low level logging will be omitted.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L34>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L48>`__
 
 
 
@@ -46,7 +51,7 @@ This function sets the global logging level. Low level logging will be omitted.
 This function sets the channel for the logging output. The default one is the
 standard output.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L36>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L50>`__
 
 
 
@@ -56,7 +61,7 @@ standard output.
 
 ``set_color true`` turns on the colour; ``set_color false`` turns it off.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L38>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L52>`__
 
 
 
@@ -71,7 +76,7 @@ Log functions
 
 This function outputs log at ``DEBUG`` level.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L74>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L93>`__
 
 
 
@@ -81,7 +86,7 @@ This function outputs log at ``DEBUG`` level.
 
 This function outputs log at ``INFO`` level.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L72>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L91>`__
 
 
 
@@ -91,7 +96,7 @@ This function outputs log at ``INFO`` level.
 
 This function outputs log at ``WARN`` level.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L76>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L95>`__
 
 
 
@@ -101,7 +106,7 @@ This function outputs log at ``WARN`` level.
 
 This function outputs log at ``ERROR`` level.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L78>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L97>`__
 
 
 
@@ -111,7 +116,7 @@ This function outputs log at ``ERROR`` level.
 
 This function outputs log at ``FATAL`` level.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L80>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/misc/owl_log.ml#L99>`__
 
 
 

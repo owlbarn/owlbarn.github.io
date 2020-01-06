@@ -17,7 +17,10 @@ Uniform distribtion
 
 .. code-block:: ocaml
 
-  type t = { a : A.arr; b : A.arr; }
+  type t =
+    { a : A.arr
+    ; b : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -89,7 +92,10 @@ Gaussian distribtion
 
 .. code-block:: ocaml
 
-  type t = { mu : A.arr; sigma : A.arr; }
+  type t =
+    { mu : A.arr
+    ; sigma : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -161,7 +167,7 @@ Exponential distribtion
 
 .. code-block:: ocaml
 
-  type t = { lambda : A.arr; }
+  type t = { lambda : A.arr }
     
 
 Type definition of a specific distribution
@@ -233,7 +239,10 @@ Gamma distribtion
 
 .. code-block:: ocaml
 
-  type t = { shape : A.arr; scale : A.arr; }
+  type t =
+    { shape : A.arr
+    ; scale : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -305,7 +314,10 @@ Beta distribtion
 
 .. code-block:: ocaml
 
-  type t = { a : A.arr; b : A.arr; }
+  type t =
+    { a : A.arr
+    ; b : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -377,7 +389,7 @@ Chi2 distribtion
 
 .. code-block:: ocaml
 
-  type t = { df : A.arr; }
+  type t = { df : A.arr }
     
 
 Type definition of a specific distribution
@@ -449,7 +461,10 @@ F distribtion
 
 .. code-block:: ocaml
 
-  type t = { dfnum : A.arr; dfden : A.arr; }
+  type t =
+    { dfnum : A.arr
+    ; dfden : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -521,7 +536,10 @@ Cauchy distribtion
 
 .. code-block:: ocaml
 
-  type t = { loc : A.arr; scale : A.arr; }
+  type t =
+    { loc : A.arr
+    ; scale : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -593,7 +611,10 @@ Lomax distribtion
 
 .. code-block:: ocaml
 
-  type t = { shape : A.arr; scale : A.arr; }
+  type t =
+    { shape : A.arr
+    ; scale : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -665,7 +686,10 @@ Weibull distribtion
 
 .. code-block:: ocaml
 
-  type t = { shape : A.arr; scale : A.arr; }
+  type t =
+    { shape : A.arr
+    ; scale : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -737,7 +761,10 @@ Laplace distribtion
 
 .. code-block:: ocaml
 
-  type t = { loc : A.arr; scale : A.arr; }
+  type t =
+    { loc : A.arr
+    ; scale : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -809,7 +836,10 @@ Gumbel1 distribtion
 
 .. code-block:: ocaml
 
-  type t = { a : A.arr; b : A.arr; }
+  type t =
+    { a : A.arr
+    ; b : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -881,7 +911,10 @@ Gumbel2 distribtion
 
 .. code-block:: ocaml
 
-  type t = { a : A.arr; b : A.arr; }
+  type t =
+    { a : A.arr
+    ; b : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -953,7 +986,10 @@ Logistic distribtion
 
 .. code-block:: ocaml
 
-  type t = { loc : A.arr; scale : A.arr; }
+  type t =
+    { loc : A.arr
+    ; scale : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -1025,7 +1061,10 @@ Lognormal distribtion
 
 .. code-block:: ocaml
 
-  type t = { mu : A.arr; sigma : A.arr; }
+  type t =
+    { mu : A.arr
+    ; sigma : A.arr
+    }
     
 
 Type definition of a specific distribution
@@ -1097,7 +1136,7 @@ Rayleigh distribtion
 
 .. code-block:: ocaml
 
-  type t = { sigma : A.arr; }
+  type t = { sigma : A.arr }
     
 
 Type definition of a specific distribution
@@ -1170,23 +1209,22 @@ Type definition
 .. code-block:: ocaml
 
   type dist =
-    | Uniform of Uniform.t
-    | Gaussian of Gaussian.t
+    | Uniform     of Uniform.t
+    | Gaussian    of Gaussian.t
     | Exponential of Exponential.t
-    | Gamma of Gamma.t
-    | Beta of Beta.t
-    | Chi2 of Chi2.t
-    | F of F.t
-    | Cauchy of Cauchy.t
-    | Lomax of Lomax.t
-    | Weibull of Weibull.t
-    | Laplace of Laplace.t
-    | Gumbel1 of Gumbel1.t
-    | Gumbel2 of Gumbel2.t
-    | Logistic of Logistic.t
-    | Lognormal of Lognormal.t
-    | Rayleigh of Rayleigh.t
-    
+    | Gamma       of Gamma.t
+    | Beta        of Beta.t
+    | Chi2        of Chi2.t
+    | F           of F.t
+    | Cauchy      of Cauchy.t
+    | Lomax       of Lomax.t
+    | Weibull     of Weibull.t
+    | Laplace     of Laplace.t
+    | Gumbel1     of Gumbel1.t
+    | Gumbel2     of Gumbel2.t
+    | Logistic    of Logistic.t
+    | Lognormal   of Lognormal.t
+    | Rayleigh    of Rayleigh.t 
 
 Type definition of various distribtions
 
@@ -1207,7 +1245,7 @@ Sample a given distribution of the given parameters.
 
 Probability density/mass function of a given distribtion.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/ppl/owl_distribution.ml#L581>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/ppl/owl_distribution.ml#L543>`__
 
 
 
@@ -1217,7 +1255,7 @@ Probability density/mass function of a given distribtion.
 
 logarithmic probability density/mass function of a given distribtion.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/ppl/owl_distribution.ml#L599>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/ppl/owl_distribution.ml#L563>`__
 
 
 
