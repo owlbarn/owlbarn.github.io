@@ -1,0 +1,607 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Owl API Reference &#8212; Owl Numerical Library 0.7 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="owl-api-reference">
+<h1>Owl API Reference<a class="headerlink" href="#owl-api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Modules: #5258 entries extracted at 2020-04-07 20:55:53</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="owl_const.html">Constants</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_const.html#maths-constants">Maths constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_const.html#constants-depending-on-bigarray-kind">Constants depending on Bigarray kind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_const.html#unit-prefixes">Unit prefixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_const.html#si-international-system-of-units">SI: International System of Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_const.html#mks-mks-system-of-units">MKS: MKS system of units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_const.html#cgs-centimetregramsecond-system-of-units">CGS: Centimetre–gram–second system of units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_const.html#cgsm-unit-systems-in-electromagnetism">CGSM: Unit Systems in Electromagnetism</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_maths.html">Maths</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#basic-functions">Basic functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#airy-functions">Airy functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#bessel-functions">Bessel functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#elliptic-functions">Elliptic functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#gamma-functions">Gamma Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#beta-functions">Beta functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#factorials">Factorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#error-functions">Error functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#dawson-fresnel-integrals">Dawson &amp; Fresnel integrals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#struve-functions">Struve functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#other-special-functions">Other special functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#raw-statistical-functions">Raw statistical functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_stats.html">Stats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_stats.html#randomisation-functions">Randomisation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_stats.html#basic-statistical-functions">Basic statistical functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_stats.html#mcmc-markov-chain-monte-carlo">MCMC: Markov Chain Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_stats.html#hypothesis-tests">Hypothesis tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_stats.html#discrete-random-variables">Discrete random variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_stats.html#continuous-random-variables">Continuous random variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_maths_root.html">Maths_root</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths_root.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths_root.html#core-functions">Core functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths_root.html#root-of-univariate-functions">Root of univariate functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths_root.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_maths_quadrature.html">Maths_quadrature</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths_quadrature.html#integration-functions">Integration functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_maths_quadrature.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_maths_interpolate.html">Maths_interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="owl_dense_ndarray_generic.html">Dense.Ndarray.Generic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#create-ndarrays">Create Ndarrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#obtain-basic-properties">Obtain basic properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#manipulate-ndarrays">Manipulate Ndarrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#iteration-functions">Iteration functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#examination-comparison">Examination &amp; Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#input-output-functions">Input/Output functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#unary-math-operators">Unary math operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#binary-math-operators">Binary math operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#tensor-calculus">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#cast-functions">Cast functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#neural-network-related">Neural network related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#helper-functions">Helper functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#in-place-modification">In-place modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#matrix-functions">Matrix functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_ndarray_generic.html#id3">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_dense_matrix_generic.html">Dense.Matrix.Generic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#create-matrices">Create matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#obtain-basic-properties">Obtain basic properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#manipulate-a-matrix">Manipulate a matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#iteration-functions">Iteration functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#examination-comparison">Examination &amp; Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#randomisation-functions">Randomisation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#input-output-functions">Input/Output functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#unary-math-operators">Unary math operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#binary-math-operators">Binary math operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#cast-functions">Cast functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dense_matrix_generic.html#in-place-modification">In-place modification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_sparse_ndarray_generic.html">Sparse.Ndarray.Generic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_ndarray_generic.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_ndarray_generic.html#create-sparse-ndarray">Create sparse ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_ndarray_generic.html#obtain-basic-properties">Obtain basic properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_ndarray_generic.html#manipulate-a-n-dimensional-array">Manipulate a N-dimensional array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_ndarray_generic.html#iterate-array-elements">Iterate array elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_ndarray_generic.html#examine-array-elements-or-compare-two-arrays">Examine array elements or compare two arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_ndarray_generic.html#input-output-and-helper-functions">Input/Output and helper functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_ndarray_generic.html#unary-mathematical-operations">Unary mathematical operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_ndarray_generic.html#binary-mathematical-operations">Binary mathematical operations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_sparse_matrix_generic.html">Sparse.Matrix.Generic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_matrix_generic.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_matrix_generic.html#create-sparse-matrices">Create sparse matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_matrix_generic.html#obtain-the-basic-properties">Obtain the basic properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_matrix_generic.html#manipulate-a-matrix">Manipulate a matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_matrix_generic.html#iterate-elements-columns-and-rows">Iterate elements, columns, and rows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_matrix_generic.html#examine-elements-and-compare-two-matrices">Examine elements and compare two matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_matrix_generic.html#randomisation-functions">Randomisation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_matrix_generic.html#input-output-and-helper-functions">Input/Output and helper functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_matrix_generic.html#unary-mathematical-operations">Unary mathematical operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_sparse_matrix_generic.html#binary-mathematical-operations">Binary mathematical operations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_linalg_generic.html">Linalg.Generic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_linalg_generic.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_linalg_generic.html#basic-functions">Basic functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_linalg_generic.html#check-matrix-types">Check matrix types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_linalg_generic.html#factorisation">Factorisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_linalg_generic.html#eigenvalues-eigenvectors">Eigenvalues &amp; eigenvectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_linalg_generic.html#linear-system-of-equations">Linear system of equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_linalg_generic.html#low-level-factorisation-functions">Low-level factorisation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_linalg_generic.html#matrix-functions">Matrix functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_linalg_generic.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_fft_generic.html">FFT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_fft_generic.html#basic-functions">Basic functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_cblas_basic.html">Low-level CBLAS API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_cblas_basic.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_cblas_basic.html#level-1-blas-vector-vector-operations">Level-1 BLAS: vector-vector operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_cblas_basic.html#level-2-blas-matrix-vector-operations">Level-2 BLAS: matrix-vector operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_cblas_basic.html#level-3-blas-matrix-matrix-operations">Level-3 BLAS: matrix-matrix operations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_cblas.html">High-level CBLAS API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_cblas.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_cblas.html#level-1-blas-vector-vector-operations">Level-1 BLAS: vector-vector operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_cblas.html#level-2-blas-matrix-vector-operations">Level-2 BLAS: matrix-vector operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_cblas.html#level-3-blas-matrix-matrix-operations">Level-3 BLAS: matrix-matrix operations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_lapacke_generated.html">Low-level LAPACKE API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="owl_lapacke.html">High-level LAPACKE API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_lapacke.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_lapacke.html#basic-functions">Basic functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_numdiff_generic_sig.html">Numdiff.Generic Functor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_numdiff_generic_sig.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_numdiff_generic_sig.html#basic-functions">Basic functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_algodiff_generic_sig.html">Algodiff.Generic Functor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_algodiff_generic_sig.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_optimise_generic_sig.html">Optimise.Generic Functor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#utils-module">Utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#learning-rate-module">Learning_Rate module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#batch-module">Batch module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#loss-module">Loss module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#gradient-module">Gradient module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#momentum-module">Momentum module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#regularisation-module">Regularisation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#clipping-module">Clipping module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#stopping-module">Stopping module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#checkpoint-module">Checkpoint module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#params-module">Params module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_optimise_generic_sig.html#core-functions">Core functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_regression_generic_sig.html">Regression.Generic Functor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_regression_generic_sig.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_regression_generic_sig.html#regression-models">Regression models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_neural_neuron_sig.html">Neural.Neuron Functor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#init-neuron">Init neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#input-neuron">Input neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#activation-neuron">Activation neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#linear-neuron">Linear neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#linearnobias-neuron">LinearNoBias neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#recurrent-neuron">Recurrent neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#lstm-neuron">LSTM neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#gru-neuron">GRU neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#conv1d-neuron">Conv1D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#conv2d-neuron">Conv2D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#conv3d-neuron">Conv3D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#dilatedconv1d-neuron">DilatedConv1D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#dilatedconv2d-neuron">DilatedConv2D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#dilatedconv3d-neuron">DilatedConv3D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#transposeconv1d-neuron">TransposeConv1D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#transposeconv2d-neuron">TransposeConv2D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#transposeconv3d-neuron">TransposeConv3D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#fullyconnected-neuron">FullyConnected neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#maxpool1d-neuron">MaxPool1D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#maxpool2d-neuron">MaxPool2D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#avgpool1d-neuron">AvgPool1D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#avgpool2d-neuron">AvgPool2D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#globalmaxpool1d-neuron">GlobalMaxPool1D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#globalmaxpool2d-neuron">GlobalMaxPool2D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#globalavgpool1d-neuron">GlobalAvgPool1D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#globalavgpool2d-neuron">GlobalAvgPool2D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#upsampling1d-neuron">UpSampling1D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#upsampling2d-neuron">UpSampling2D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#upsampling3d-neuron">UpSampling3D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#padding1d-neuron">Padding1D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#padding2d-neuron">Padding2D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#padding3d-neuron">Padding3D neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#lambda-neuron">Lambda neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#lambdaarray-neuron">LambdaArray neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#dropout-neuron">Dropout neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#reshape-neuron">Reshape neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#flatten-neuron">Flatten neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#add-neuron">Add neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#mul-neuron">Mul neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#dot-neuron">Dot neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#max-neuron">Max neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#average-neuron">Average neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#concatenate-neuron">Concatenate neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#normalisation-neuron">Normalisation neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#gaussiannoise-neuron">GaussianNoise neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#gaussiandropout-neuron">GaussianDropout neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#alphadropout-neuron">AlphaDropout neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#embedding-neuron">Embedding neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#masking-neuron">Masking neuron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_neuron_sig.html#core-functions">Core functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_neural_graph_sig.html">Neural.Graph Functor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_graph_sig.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_graph_sig.html#manipulate-networks">Manipulate networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_graph_sig.html#interface-to-optimisation-engine">Interface to optimisation engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_graph_sig.html#create-neurons">Create Neurons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_graph_sig.html#helper-functions">Helper functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_neural_graph_sig.html#train-networks">Train Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_operator.html">Operator Functor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_operator.html#basic-operators">Basic operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_operator.html#extended-operators">Extended operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_operator.html#matrix-specific-operators">Matrix-specific operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_operator.html#ndarray-specific-operators">Ndarray-specific operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_operator.html#linalg-specific-operators">Linalg-specific operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_lazy.html">Lazy Functor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_lazy.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_lazy.html#type-conversion-functions">Type conversion functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_lazy.html#utility-functions">Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_lazy.html#create-variables">Create variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_lazy.html#maths-functions">Maths functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_lazy.html#evaluation-functions">Evaluation functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_view.html">View Functor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_view.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_view.html#conversion-functions">Conversion functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_view.html#manipulation-functions">Manipulation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_view.html#iteration-functions">Iteration functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_view.html#examination-comparison">Examination &amp; Comparison</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_log.html">Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_log.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_log.html#configuration-functions">Configuration functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_log.html#log-functions">Log functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_pretty.html">Pretty</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_pretty.html#ndarray-pretty-printer">Ndarray pretty printer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_pretty.html#dataframe-pretty-printer">Dataframe pretty printer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_graph.html">Graph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_graph.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_graph.html#obtaining-properties">Obtaining properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_graph.html#manipulation-functions">Manipulation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_graph.html#iterators">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_graph.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_plot.html">Plot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_plot.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_plot.html#config-functions">Config functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_plot.html#basic-plot-functions">Basic plot functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_plot.html#plot-3d-figures">Plot 3D figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_plot.html#advanced-statistical-plot">Advanced statistical plot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_io.html">IO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_io.html#read-and-write-operations">Read and write operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_io.html#iteration-functions">Iteration functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_io.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_dataframe.html">Dataframe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_dataframe.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dataframe.html#pakcking-unpacking-element">Pakcking &amp; unpacking element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dataframe.html#pakcking-unpacking-series">Pakcking &amp; unpacking series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dataframe.html#obtain-properties">Obtain properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dataframe.html#basic-get-and-set-functions">Basic get and set functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dataframe.html#core-operations">Core operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dataframe.html#iteration-functions">Iteration functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dataframe.html#extended-indexing-operators">Extended indexing operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_dataframe.html#io-helper-functions">IO &amp; helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_opencl_generated.html">Low-level OpenCL API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_generated.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_generated.html#function-definition">Function definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_generated.html#constant-definition">Constant definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_generated.html#exception-definition">Exception definition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_opencl_base.html">High-level OpenCL API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_base.html#platform-module">Platform module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_base.html#device-module">Device module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_base.html#context-module">Context module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_base.html#program-module">Program module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_base.html#kernel-module">Kernel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_base.html#commandqueue-module">CommandQueue module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_base.html#event-module">Event module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_base.html#buffer-module">Buffer module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_opencl_context.html">OpenCL Context</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_context.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_context.html#query-platform">Query platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_context.html#manipulate-context">Manipulate context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_context.html#manipulate-kernels">Manipulate kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_context.html#evaluate-kernels">Evaluate kernels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_opencl_dense_ndarray.html">OpenCL Dense Ndarray</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_dense_ndarray.html#core-functions">Core functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_dense_ndarray.html#unary-math-functions">Unary math functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_opencl_dense_ndarray.html#binary-math-functions">Binary math functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_zoo_cmd.html">Zoo System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_zoo_cmd.html#manipulate-gists">Manipulate gists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_zoo_cmd.html#execute-gists">Execute gists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_zoo_cmd.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_top.html">Toplevel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_top.html#core-functions">Core functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_base_dense_ndarray_generic.html">Base.Dense.Ndarray.Generic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#create-ndarrays">Create Ndarrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#obtain-basic-properties">Obtain basic properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#manipulate-ndarrays">Manipulate Ndarrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#iterate-array-elements">Iterate array elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#examination-comparison">Examination &amp; Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#input-output-functions">Input/Output functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#unary-math-operators">Unary math operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#binary-math-operators">Binary math operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#neural-network-related">Neural network related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#helper-functions">Helper functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#matrix-functions">Matrix functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#in-place-modification">In-place modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_dense_ndarray_generic.html#id1">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_base_maths.html">Base.Maths</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_maths.html#basic-functions">Basic functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_maths.html#error-functions">Error functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_maths.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_base_stats.html">Base.Stats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_stats.html#randomisation-functions">Randomisation functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_stats.html#basic-statistical-functions">Basic statistical functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_stats.html#random-variables">Random variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_base_complex.html">Base.Complex</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_complex.html#type-definition-and-constants">Type definition and constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_complex.html#unary-functions">Unary functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_complex.html#binary-functions">Binary functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_complex.html#comparison-functions">Comparison functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_base_complex.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_exception.html">Exception</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_exception.html#core-function">Core function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_exception.html#exception-definition">Exception definition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_utils_heap.html">Utils.Heap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_utils_heap.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_utils_heap.html#basic-functions">Basic functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_utils_stack.html">Utils.Stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_utils_stack.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_utils_stack.html#basic-functions">Basic functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_utils_array.html">Utils.Array</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_utils_array.html#basic-functions">Basic functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_utils_array.html#extended-functions">Extended functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_utils_multimap.html">Utils.Multimap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_utils_multimap.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_utils_multimap.html#basic-functions">Basic functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_distribution.html">Distribution Functor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#uniform-distribution">Uniform distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#gaussian-distribution">Gaussian distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#exponential-distribution">Exponential distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#poisson-distribution">Poisson distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#gamma-distribution">Gamma distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#beta-distribution">Beta distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#chi2-distribution">Chi2 distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#f-distribution">F distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#cauchy-distribution">Cauchy distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#lomax-distribution">Lomax distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#weibull-distribution">Weibull distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#laplace-distribution">Laplace distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#gumbel1-distribution">Gumbel1 distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#gumbel2-distribution">Gumbel2 distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#logistic-distribution">Logistic distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#lognormal-distribution">Lognormal distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#rayleigh-distribution">Rayleigh distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_distribution.html#core-functions">Core functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_nlp_vocabulary.html">NLP.Vocabulary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_vocabulary.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_vocabulary.html#query-vocabulary">Query vocabulary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_vocabulary.html#obtain-properties">Obtain properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_vocabulary.html#core-functions">Core functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_vocabulary.html#i-o-functions">I/O functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_nlp_corpus.html">NLP.Corpus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_corpus.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_corpus.html#query-corpus">Query corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_corpus.html#iteration-functions">Iteration functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_corpus.html#core-functions">Core functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_corpus.html#i-o-functions">I/O functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_corpus.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_nlp_tfidf.html">NLP.Tfidf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_tfidf.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_tfidf.html#query-model">Query model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_tfidf.html#iteration-functions">Iteration functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_tfidf.html#core-functions">Core functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_tfidf.html#i-o-functions">I/O functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_tfidf.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_nlp_lda.html">NLP.Lda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_lda.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_lda.html#core-functions">Core functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_nlp_lda.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_computation_type_sig.html">Computation.Type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_computation_type_sig.html#type-definition">Type definition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_computation_shape_sig.html">Computation.Shape</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_computation_shape_sig.html#core-functions">Core functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_computation_symbol_sig.html">Computation.Symbol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_computation_symbol_sig.html#core-functions">Core functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_computation_operator_sig.html">Computation.Operator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_computation_operator_sig.html#vectorised-functions">Vectorised functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_computation_operator_sig.html#scalar-functions">Scalar functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_computation_optimiser_sig.html">Computation.Optimiser</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_computation_optimiser_sig.html#core-functions">Core functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_computation_graph_sig.html">Computation.Graph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_computation_graph_sig.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_computation_graph_sig.html#core-functions">Core functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="owl_countmin_sketch_sig.html">Base.Countmin_sketch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="owl_countmin_sketch_sig.html#type-definition">Type definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="owl_countmin_sketch_sig.html#core-functions">Core functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ode.html">Owl-ODE</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+
+    <div class="footer">
+      &copy;2019, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/apidoc/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123353217-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123353217-1');
+</script>
+
+  </body>
+</html>

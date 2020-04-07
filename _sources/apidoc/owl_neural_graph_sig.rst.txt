@@ -1,0 +1,689 @@
+Neural.Graph Functor
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#65 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_graph_sig.ml>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_graph.ml>`_
+
+
+
+Type definition
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type node =
+    { mutable name : string
+    ; mutable prev : node array
+    ; mutable next : node array
+    ; mutable neuron : neuron
+    ; mutable output : t option
+    ; mutable network : network
+    ; mutable train : bool
+    }
+    
+    and network =
+    { mutable nnid : string
+    ; mutable size : int
+    ; mutable roots : node array
+    ; mutable outputs : node array
+    ; mutable topo : node array
+    }
+    
+
+Type definition of a node and a neural network.
+
+Manipulate networks
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val make_network : ?nnid:string -> int -> node array -> node array -> network
+
+Create an empty neural network.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L49>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_roots : network -> node array
+
+Get the roots of the neural network.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L67>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_outputs : network -> node array
+
+Get the outputs of the neural network.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L73>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_node : network -> string -> node
+
+Get a node in a network with the given name.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L75>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_network : ?name:string -> node -> network
+
+Get the neural network of a given node associated with.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L80>`__
+
+
+
+.. code-block:: ocaml
+
+  val outputs : ?name:string -> node array -> network
+
+Get the neural network associated with the given output nodes.
+
+.. code-block:: ocaml
+
+  val get_network_name : network -> string
+
+``get_network_name n`` returns the name of the network ``n``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L106>`__
+
+
+
+.. code-block:: ocaml
+
+  val set_network_name : network -> string -> unit
+
+``set_network_name n s`` sets the name of the network ``n`` to ``s``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L108>`__
+
+
+
+.. code-block:: ocaml
+
+  val collect_output : node array -> t array
+
+Collect the output values of given nodes.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L115>`__
+
+
+
+.. code-block:: ocaml
+
+  val connect_pair : node -> node -> unit
+
+Connect two nodes in a neural network.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L124>`__
+
+
+
+.. code-block:: ocaml
+
+  val connect_to_parents : node array -> node -> unit
+
+Connect a node to a list of parents.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L131>`__
+
+
+
+.. code-block:: ocaml
+
+  val add_node : ?act_typ:Activation.typ -> network -> node array -> node -> node
+
+Add a node to the given network.
+
+.. code-block:: ocaml
+
+  val input_shape : network -> int array
+
+Get input shape of a network (without batch dimension), i.e. shape of input neuron.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L110>`__
+
+
+
+.. code-block:: ocaml
+
+  val input_shapes : network -> int array array
+
+Get input shapes of a network (without batch dimension), i.e. shape of input neurons.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L112>`__
+
+
+
+Interface to optimisation engine
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val init : network -> unit
+
+Initialise the network.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L158>`__
+
+
+
+.. code-block:: ocaml
+
+  val reset : network -> unit
+
+Reset the network, i.e. all the parameters in the neurons.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L160>`__
+
+
+
+.. code-block:: ocaml
+
+  val mktag : int -> network -> unit
+
+Tag the neurons, used by ``Algodiff`` module.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L162>`__
+
+
+
+.. code-block:: ocaml
+
+  val mkpar : network -> t array array
+
+Collect the parameters of neurons, used by ``Optimise`` module.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L164>`__
+
+
+
+.. code-block:: ocaml
+
+  val mkpri : network -> t array array
+
+Collect the primal values of neurons, used by ``Optimise`` module.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L166>`__
+
+
+
+.. code-block:: ocaml
+
+  val mkadj : network -> t array array
+
+Collect the adjacent values of neurons, used by ``Optimise`` module.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L168>`__
+
+
+
+.. code-block:: ocaml
+
+  val update : network -> t array array -> unit
+
+Update the parameters of neurons, used by ``Optimise`` module.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L170>`__
+
+
+
+.. code-block:: ocaml
+
+  val run : t -> network -> t
+
+Execute the computations in all the neurons in a network with the given input.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L194>`__
+
+
+
+.. code-block:: ocaml
+
+  val run_inputs : t array -> network -> t array
+
+Execute the computations in all the neurons in a network with the given inputs.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L172>`__
+
+
+
+.. code-block:: ocaml
+
+  val forward : network -> t -> t * t array array
+
+Run the forward pass of a network.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L212>`__
+
+
+
+.. code-block:: ocaml
+
+  val forward_inputs : network -> t array -> t array * t array array
+
+Run the forward pass of a network (multi-input/output version).
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L217>`__
+
+
+
+.. code-block:: ocaml
+
+  val backward : network -> t -> t array array * t array array
+
+Run the backward pass of a network.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L222>`__
+
+
+
+.. code-block:: ocaml
+
+  val copy : network -> network
+
+Make a deep copy of the given network.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L227>`__
+
+
+
+.. code-block:: ocaml
+
+  val model : network -> A.arr -> A.arr
+
+Make a deep copy of the given network, excluding the neurons marked with ``training = true``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L276>`__
+
+
+
+.. code-block:: ocaml
+
+  val model_inputs : network -> A.arr array -> A.arr array
+
+Make a deep copy of the given network, excluding the neurons marked with ``training = true``.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L289>`__
+
+
+
+Create Neurons
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val input : ?name:string -> int array -> node
+
+``input shape`` creates an input node for input data. Note that if your network
+has multiple inputs, you should use ``inputs`` instead.
+
+Arguments:
+  * ``shape``: shape of input data.
+
+.. code-block:: ocaml
+
+  val inputs : ?names:string array -> int array array -> node array
+
+``input shapes`` creates an array of input nodes for input data.
+
+Arguments:
+  * ``shapes``: array of shapes of input data.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L309>`__
+
+
+
+.. code-block:: ocaml
+
+  val activation : ?name:string -> Activation.typ -> node -> node
+
+Applies an activation function to an output.
+
+Arguments:
+  * ``activation``: name of activation function to use.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L329>`__
+
+
+
+.. code-block:: ocaml
+
+  val lstm : ?name:string -> ?init_typ:Init.typ -> int -> node -> node
+
+``lstm units node`` adds a LSTM node on previous ``node``.
+
+Arguments:
+  * ``units``: Positive integer, dimensionality of the output space.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L364>`__
+
+
+
+.. code-block:: ocaml
+
+  val gru : ?name:string -> ?init_typ:Init.typ -> int -> node -> node
+
+``gru units node`` adds a Gated Recurrent Unit node on previous ``node``.
+
+Arguments:
+  * ``units``: Positive integer, dimensionality of the output space.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L371>`__
+
+
+
+.. code-block:: ocaml
+
+  val global_max_pool1d : ?name:string -> ?act_typ:Activation.typ -> node -> node
+
+``global_max_pool1d`` adds global max pooling operation for temporal data.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L563>`__
+
+
+
+.. code-block:: ocaml
+
+  val global_max_pool2d : ?name:string -> ?act_typ:Activation.typ -> node -> node
+
+``global_max_poo2d`` global max pooling operation for spatial data.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L570>`__
+
+
+
+.. code-block:: ocaml
+
+  val global_avg_pool1d : ?name:string -> ?act_typ:Activation.typ -> node -> node
+
+``global_avg_pool1d`` adds global average pooling operation for temporal data.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L577>`__
+
+
+
+.. code-block:: ocaml
+
+  val global_avg_pool2d : ?name:string -> ?act_typ:Activation.typ -> node -> node
+
+``global_avg_poo2d`` global average pooling operation for spatial data.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L584>`__
+
+
+
+.. code-block:: ocaml
+
+  val upsampling2d : ?name:string -> ?act_typ:Activation.typ -> int array -> node -> node
+
+``upsampling2d ~act_typ size node`` adds a upsampling operation for spatial data to ``node``.
+
+Arguments:
+  * ``size``: array of two integers, namely the upsampling factors for columns and rows.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L591>`__
+
+
+
+.. code-block:: ocaml
+
+  val dropout : ?name:string -> float -> node -> node
+
+``dropout rate node`` applies Dropout to the input to prevent overfitting.
+
+Arguments:
+  * ``rate``: float between 0 and 1. Fraction of the input units to drop.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L605>`__
+
+
+
+.. code-block:: ocaml
+
+  val gaussian_noise : ?name:string -> float -> node -> node
+
+``gaussian_noise stddev node`` applies additive zero-centered Gaussian noise.
+
+Arguments:
+  * ``stddev``: float, standard deviation of the noise distribution.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L612>`__
+
+
+
+.. code-block:: ocaml
+
+  val gaussian_dropout : ?name:string -> float -> node -> node
+
+``gaussian_dropout rate node`` applies multiplicative 1-centered Gaussian noise.
+Only active at training time.
+
+Arguments:
+  * ``rates``: float, drop probability
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L619>`__
+
+
+
+.. code-block:: ocaml
+
+  val alpha_dropout : ?name:string -> float -> node -> node
+
+``alpha_dropout rate node`` applies Alpha Dropout to the input ``node``.
+Only active at training time.
+
+Arguments:
+  * ``rates``: float, drop probability
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L626>`__
+
+
+
+.. code-block:: ocaml
+
+  val reshape : ?name:string -> int array -> node -> node
+
+``reshape target_shape node`` reshapes an output to a certain shape.
+
+Arguments:
+  * ``target_shape``: target shape. Array of integers. Does not include the batch axis.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L640>`__
+
+
+
+.. code-block:: ocaml
+
+  val flatten : ?name:string -> node -> node
+
+``flatten node`` flattens the input. Does not affect the batch size.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L647>`__
+
+
+
+.. code-block:: ocaml
+
+  val add : ?name:string -> ?act_typ:Activation.typ -> node array -> node
+
+Node that adds a list of inputs.
+
+It takes as input an array of nodes, all of the same shape, and returns a
+single node (also of the same shape).
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L668>`__
+
+
+
+.. code-block:: ocaml
+
+  val mul : ?name:string -> ?act_typ:Activation.typ -> node array -> node
+
+Node that multiplies (element-wise) a list of inputs.
+
+It takes as input an array of nodes, all of the same shape, and returns a
+single node (also of the same shape).
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L675>`__
+
+
+
+.. code-block:: ocaml
+
+  val dot : ?name:string -> ?act_typ:Activation.typ -> node array -> node
+
+Node that computes a dot product between samples in two nodes.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L682>`__
+
+
+
+.. code-block:: ocaml
+
+  val max : ?name:string -> ?act_typ:Activation.typ -> node array -> node
+
+Node that computes the maximum (element-wise) a list of inputs.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L689>`__
+
+
+
+.. code-block:: ocaml
+
+  val average : ?name:string -> ?act_typ:Activation.typ -> node array -> node
+
+Node that averages a list of inputs.
+
+It takes as input an array of nodes, all of the same shape, and returns a
+single node (also of the same shape).
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L696>`__
+
+
+
+.. code-block:: ocaml
+
+  val concatenate : ?name:string -> ?act_typ:Activation.typ -> int -> node array -> node
+
+``concatenate axis nodes`` concatenates a array of ``nodes`` and return as a single node.
+
+Arguments:
+  * ``axis``: Axis along which to concatenate.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L703>`__
+
+
+
+Helper functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val to_string : network -> string
+
+Convert a neural network to its string representation.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L712>`__
+
+
+
+.. code-block:: ocaml
+
+  val print : network -> unit
+
+Print the string representation of a neural network to the standard output.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L737>`__
+
+
+
+.. code-block:: ocaml
+
+  val save : ?unsafe:bool -> network -> string -> unit
+
+Serialise a network and save it to the a file with the given name.
+  Set the unsafe flag to true if network contains Lambda layer.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L739>`__
+
+
+
+.. code-block:: ocaml
+
+  val load : string -> network
+
+Load the neural network from a file with the given name.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L749>`__
+
+
+
+.. code-block:: ocaml
+
+  val save_weights : network -> string -> unit
+
+Save all the weights in a neural network to a file. The weights and the name of
+their associated neurons are saved as key-value pairs in a hash table.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L751>`__
+
+
+
+.. code-block:: ocaml
+
+  val load_weights : network -> string -> unit
+
+Load the weights from a file of the given name. Note that the weights and the
+name of their associated neurons are saved as key-value pairs in a hash table.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L761>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_subnetwork : ?make_inputs:string array -> node -> network
+
+Constructs a subnetwork of nodes on which ``node`` depends, replacing
+   nodes with names in ``make_inputs`` with input nodes. If ``make_inputs``
+   is empty or unspecified, the original input nodes are used.
+   
+   Note: the weights in the new network are the references of those in
+   the old one.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_graph.ml#L770>`__
+
+
+
+Train Networks
+-------------------------------------------------------------------------------
+
+
+

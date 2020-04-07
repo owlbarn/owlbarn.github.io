@@ -1,0 +1,993 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Distribution Functor &#8212; Owl Numerical Library 0.7 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Distribution Functor</a><ul>
+<li><a class="reference internal" href="#uniform-distribution">Uniform distribution</a></li>
+<li><a class="reference internal" href="#gaussian-distribution">Gaussian distribution</a></li>
+<li><a class="reference internal" href="#exponential-distribution">Exponential distribution</a></li>
+<li><a class="reference internal" href="#poisson-distribution">Poisson distribution</a></li>
+<li><a class="reference internal" href="#gamma-distribution">Gamma distribution</a></li>
+<li><a class="reference internal" href="#beta-distribution">Beta distribution</a></li>
+<li><a class="reference internal" href="#chi2-distribution">Chi2 distribution</a></li>
+<li><a class="reference internal" href="#f-distribution">F distribution</a></li>
+<li><a class="reference internal" href="#cauchy-distribution">Cauchy distribution</a></li>
+<li><a class="reference internal" href="#lomax-distribution">Lomax distribution</a></li>
+<li><a class="reference internal" href="#weibull-distribution">Weibull distribution</a></li>
+<li><a class="reference internal" href="#laplace-distribution">Laplace distribution</a></li>
+<li><a class="reference internal" href="#gumbel1-distribution">Gumbel1 distribution</a></li>
+<li><a class="reference internal" href="#gumbel2-distribution">Gumbel2 distribution</a></li>
+<li><a class="reference internal" href="#logistic-distribution">Logistic distribution</a></li>
+<li><a class="reference internal" href="#lognormal-distribution">Lognormal distribution</a></li>
+<li><a class="reference internal" href="#rayleigh-distribution">Rayleigh distribution</a></li>
+<li><a class="reference internal" href="#type-definition">Type definition</a></li>
+<li><a class="reference internal" href="#core-functions">Core functions</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="distribution-functor">
+<h1>Distribution Functor<a class="headerlink" href="#distribution-functor" title="Permalink to this headline">¶</a></h1>
+<p>This document is auto-generated for Owl’s APIs.
+#204 entries have been extracted.</p>
+<p>Github:
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/ppl/owl_distribution.mli">{Signature}</a>
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/ppl/owl_distribution.ml">{Implementation}</a></p>
+<div class="section" id="uniform-distribution">
+<h2>Uniform distribution<a class="headerlink" href="#uniform-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="gaussian-distribution">
+<h2>Gaussian distribution<a class="headerlink" href="#gaussian-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">mu</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">sigma</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="exponential-distribution">
+<h2>Exponential distribution<a class="headerlink" href="#exponential-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">lambda</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">lambda</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="poisson-distribution">
+<h2>Poisson distribution<a class="headerlink" href="#poisson-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">mu</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+</div>
+<div class="section" id="gamma-distribution">
+<h2>Gamma distribution<a class="headerlink" href="#gamma-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">shape</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">shape</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="beta-distribution">
+<h2>Beta distribution<a class="headerlink" href="#beta-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="chi2-distribution">
+<h2>Chi2 distribution<a class="headerlink" href="#chi2-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">df</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">df</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="o">_</span><span class="n">sigma</span><span class="o">:</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="f-distribution">
+<h2>F distribution<a class="headerlink" href="#f-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">dfnum</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">dfden</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">dfnum</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">dfden</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="cauchy-distribution">
+<h2>Cauchy distribution<a class="headerlink" href="#cauchy-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">loc</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">loc</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="lomax-distribution">
+<h2>Lomax distribution<a class="headerlink" href="#lomax-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">shape</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">shape</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="weibull-distribution">
+<h2>Weibull distribution<a class="headerlink" href="#weibull-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">shape</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">shape</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="laplace-distribution">
+<h2>Laplace distribution<a class="headerlink" href="#laplace-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">loc</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">loc</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="gumbel1-distribution">
+<h2>Gumbel1 distribution<a class="headerlink" href="#gumbel1-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="gumbel2-distribution">
+<h2>Gumbel2 distribution<a class="headerlink" href="#gumbel2-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">a</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">b</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">a</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="logistic-distribution">
+<h2>Logistic distribution<a class="headerlink" href="#logistic-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">loc</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">scale</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">loc</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">scale</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="lognormal-distribution">
+<h2>Lognormal distribution<a class="headerlink" href="#lognormal-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span>
+  <span class="o">{</span> <span class="n">mu</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">;</span> <span class="n">sigma</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">mu</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">sigma</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="rayleigh-distribution">
+<h2>Rayleigh distribution<a class="headerlink" href="#rayleigh-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span> <span class="n">sigma</span> <span class="o">:</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">}</span>
+</pre></div>
+</div>
+<p>Type definition of a specific distribution</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">make</span> <span class="o">:</span> <span class="n">sigma</span><span class="o">:</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Make a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logpdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the probability density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ppf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Percentile function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logsf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the survival function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">isf</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Inverse survival function of the distribution.</p>
+</div>
+<div class="section" id="type-definition">
+<h2>Type definition<a class="headerlink" href="#type-definition" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">dist</span> <span class="o">=</span>
+  <span class="o">|</span> <span class="nc">Uniform</span>     <span class="k">of</span> <span class="nn">Uniform</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Gaussian</span>    <span class="k">of</span> <span class="nn">Gaussian</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Exponential</span> <span class="k">of</span> <span class="nn">Exponential</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Gamma</span>       <span class="k">of</span> <span class="nn">Gamma</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Beta</span>        <span class="k">of</span> <span class="nn">Beta</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Chi2</span>        <span class="k">of</span> <span class="nn">Chi2</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">F</span>           <span class="k">of</span> <span class="nn">F</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Cauchy</span>      <span class="k">of</span> <span class="nn">Cauchy</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Lomax</span>       <span class="k">of</span> <span class="nn">Lomax</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Weibull</span>     <span class="k">of</span> <span class="nn">Weibull</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Laplace</span>     <span class="k">of</span> <span class="nn">Laplace</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Gumbel1</span>     <span class="k">of</span> <span class="nn">Gumbel1</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Gumbel2</span>     <span class="k">of</span> <span class="nn">Gumbel2</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Logistic</span>    <span class="k">of</span> <span class="nn">Logistic</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Lognormal</span>   <span class="k">of</span> <span class="nn">Lognormal</span><span class="p">.</span><span class="n">t</span>
+  <span class="o">|</span> <span class="nc">Rayleigh</span>    <span class="k">of</span> <span class="nn">Rayleigh</span><span class="p">.</span><span class="n">t</span>
+</pre></div>
+</div>
+<p>Type definition of various distributions</p>
+</div>
+<div class="section" id="core-functions">
+<h2>Core functions<a class="headerlink" href="#core-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sample</span> <span class="o">:</span> <span class="n">dist</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Sample a given distribution of the given parameters.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">prob</span> <span class="o">:</span> <span class="n">dist</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Probability density/mass function of a given distribution.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/ppl/owl_distribution.ml#L554">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log_prob</span> <span class="o">:</span> <span class="n">dist</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>logarithmic probability density/mass function of a given distribution.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/ppl/owl_distribution.ml#L574">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cdf</span> <span class="o">:</span> <span class="n">dist</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Cumulative density/mass function of the distribution.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logcdf</span> <span class="o">:</span> <span class="n">dist</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">A</span><span class="p">.</span><span class="n">arr</span>
+</pre></div>
+</div>
+<p>Logarithm of the cumulative density/mass function of the distribution.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+
+    <div class="footer">
+      &copy;2019, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/apidoc/owl_distribution.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123353217-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123353217-1');
+</script>
+
+  </body>
+</html>

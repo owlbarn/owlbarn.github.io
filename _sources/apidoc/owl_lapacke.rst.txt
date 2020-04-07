@@ -1,0 +1,480 @@
+High-level LAPACKE API
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#49 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/lapacke/owl_lapacke.mli>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/owl/lapacke/owl_lapacke.ml>`_
+
+
+
+Type definition
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type ('a, 'b) t = ('a, 'b, c_layout) Genarray.t
+    
+
+Default data type
+
+.. code-block:: ocaml
+
+  type lapacke_layout =
+    | RowMajor
+    | ColMajor 
+
+Layout type.
+
+.. code-block:: ocaml
+
+  type lapacke_transpose =
+    | NoTrans
+    | Trans
+    | ConjTrans 
+
+Transpose type.
+
+.. code-block:: ocaml
+
+  type lapacke_uplo =
+    | Upper
+    | Lower 
+
+Upper or lower trangular.
+
+.. code-block:: ocaml
+
+  type lapacke_diag =
+    | NonUnit
+    | Unit 
+
+Diangonal type.
+
+.. code-block:: ocaml
+
+  type lapacke_side =
+    | Left
+    | Right 
+
+Side type.
+
+Basic functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val gebal : ?job:char -> a:('a, 'b) t -> int * int * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L153>`__
+
+
+
+.. code-block:: ocaml
+
+  val gebrd : a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t * ('a, 'b) t * ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L228>`__
+
+
+
+.. code-block:: ocaml
+
+  val gelqf : a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L288>`__
+
+
+
+.. code-block:: ocaml
+
+  val geqlf : a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L312>`__
+
+
+
+.. code-block:: ocaml
+
+  val geqrf : a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L336>`__
+
+
+
+.. code-block:: ocaml
+
+  val gerqf : a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L360>`__
+
+
+
+.. code-block:: ocaml
+
+  val geqrt : nb:int -> a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L423>`__
+
+
+
+.. code-block:: ocaml
+
+  val geqrt3 : a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L459>`__
+
+
+
+.. code-block:: ocaml
+
+  val getrf : a:('a, 'b) t -> ('a, 'b) t * (int32, int32_elt) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L484>`__
+
+
+
+.. code-block:: ocaml
+
+  val tzrzf : a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L508>`__
+
+
+
+.. code-block:: ocaml
+
+  val gesv : a:('a, 'b) t -> b:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t * (int32, int32_elt) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L624>`__
+
+
+
+.. code-block:: ocaml
+
+  val getri : a:('a, 'b) t -> ipiv:(int32, int32_elt) t -> ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L687>`__
+
+
+
+.. code-block:: ocaml
+
+  val gelsd : a:('a, 'b) t -> b:('a, 'b) t -> rcond:float -> ('a, 'b) t * int
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L938>`__
+
+
+
+.. code-block:: ocaml
+
+  val gelsy : a:('a, 'b) t -> b:('a, 'b) t -> rcond:float -> ('a, 'b) t * int
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L984>`__
+
+
+
+.. code-block:: ocaml
+
+  val gesdd : ?jobz:char -> a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L1161>`__
+
+
+
+.. code-block:: ocaml
+
+  val gtsv : dl:('a, 'b) t -> d:('a, 'b) t -> du:('a, 'b) t -> b:('a, 'b) t -> ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L1956>`__
+
+
+
+.. code-block:: ocaml
+
+  val orglq : ?k:int -> a:(float, 'a) t -> tau:(float, 'a) t -> (float, 'a) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2110>`__
+
+
+
+.. code-block:: ocaml
+
+  val unglq : ?k:int -> a:(Complex.t, 'a) t -> tau:(Complex.t, 'a) t -> (Complex.t, 'a) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2140>`__
+
+
+
+.. code-block:: ocaml
+
+  val orgqr : ?k:int -> a:(float, 'a) t -> tau:(float, 'a) t -> (float, 'a) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2172>`__
+
+
+
+.. code-block:: ocaml
+
+  val ungqr : ?k:int -> a:(Complex.t, 'a) t -> tau:(Complex.t, 'a) t -> (Complex.t, 'a) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2202>`__
+
+
+
+.. code-block:: ocaml
+
+  val orgql : ?k:int -> a:(float, 'a) t -> tau:(float, 'a) t -> (float, 'a) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2234>`__
+
+
+
+.. code-block:: ocaml
+
+  val orgrq : ?k:int -> a:(float, 'a) t -> tau:(float, 'a) t -> (float, 'a) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2264>`__
+
+
+
+.. code-block:: ocaml
+
+  val posv : uplo:char -> a:('a, 'b) t -> b:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2488>`__
+
+
+
+.. code-block:: ocaml
+
+  val potrf : uplo:char -> a:('a, 'b) t -> ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2514>`__
+
+
+
+.. code-block:: ocaml
+
+  val potri : uplo:char -> a:('a, 'b) t -> ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2537>`__
+
+
+
+.. code-block:: ocaml
+
+  val potrs : uplo:char -> a:('a, 'b) t -> b:('a, 'b) t -> ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2560>`__
+
+
+
+.. code-block:: ocaml
+
+  val ptsv : d:('a, 'b) t -> e:('a, 'b) t -> b:('a, 'b) t -> ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2618>`__
+
+
+
+.. code-block:: ocaml
+
+  val pttrf : d:('a, 'b) t -> e:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2655>`__
+
+
+
+.. code-block:: ocaml
+
+  val pttrs : ?uplo:char -> d:('a, 'b) t -> e:('a, 'b) t -> b:('a, 'b) t -> ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2685>`__
+
+
+
+.. code-block:: ocaml
+
+  val trtri : uplo:char -> diag:char -> a:('a, 'b) t -> ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2729>`__
+
+
+
+.. code-block:: ocaml
+
+  val trcon : norm:char -> uplo:char -> diag:char -> a:('a, 'b) t -> float
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L2786>`__
+
+
+
+.. code-block:: ocaml
+
+  val sytrf : uplo:char -> a:('a, 'b) t -> ('a, 'b) t * (int32, int32_elt) t * int
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L3515>`__
+
+
+
+.. code-block:: ocaml
+
+  val sytrf_rook : uplo:char -> a:('a, 'b) t -> ('a, 'b) t * (int32, int32_elt) t * int
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L3540>`__
+
+
+
+.. code-block:: ocaml
+
+  val sytri : uplo:char -> a:('a, 'b) t -> ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L3567>`__
+
+
+
+.. code-block:: ocaml
+
+  val hetrf : uplo:char -> a:('a, 'b) t -> ('a, 'b) t * (int32, int32_elt) t * int
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L3654>`__
+
+
+
+.. code-block:: ocaml
+
+  val hetrf_rook : uplo:char -> a:('a, 'b) t -> ('a, 'b) t * (int32, int32_elt) t * int
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L3677>`__
+
+
+
+.. code-block:: ocaml
+
+  val syev : jobz:char -> uplo:char -> a:(float, 'a) t -> (float, 'a) t * (float, 'a) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L3758>`__
+
+
+
+.. code-block:: ocaml
+
+  val gecon : norm:char -> a:('a, 'b) t -> anorm:float -> float
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L4091>`__
+
+
+
+.. code-block:: ocaml
+
+  val gehrd : ilo:int -> ihi:int -> a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L4131>`__
+
+
+
+.. code-block:: ocaml
+
+  val orghr : ilo:int -> ihi:int -> a:(float, 'a) t -> tau:(float, 'a) t -> (float, 'a) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L4155>`__
+
+
+
+.. code-block:: ocaml
+
+  val gees : jobvs:char -> a:('a, 'b) t -> ('a, 'b) t * ('a, 'b) t * ('a, 'b) t * ('a, 'b) t
+
+Refer to `Intel MKL C Reference <https://software.intel.com/en-us/mkl-developer-reference-c-lapack-routines>`_
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/lapacke/owl_lapacke.ml#L4204>`__
+
+
+

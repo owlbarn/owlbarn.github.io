@@ -1,0 +1,364 @@
+NLP.Corpus
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#38 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/nlp/owl_nlp_corpus.mli>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/owl/nlp/owl_nlp_corpus.ml>`_
+
+
+
+Type definition
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type t
+    
+
+Type of a text corpus.
+
+Query corpus
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val length : t -> int
+
+Return the size of the corpus, i.e. number of documents.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L85>`__
+
+
+
+.. code-block:: ocaml
+
+  val get : t -> int -> string
+
+Return the ith document in the corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L101>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_tok : t -> int -> int array
+
+Return the ith tokenised document in the corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L110>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_uri : t -> string
+
+Return the path of the corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L48>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_bin_uri : t -> string
+
+Return the path of the binary format of corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L50>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_bin_fh : t -> in_channel
+
+Return the file handle of the binary formation of corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L52>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_tok_uri : t -> string
+
+Return the path of tokenised corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L61>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_tok_fh : t -> in_channel
+
+Return the file handle of the tokenised corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L63>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_vocab_uri : t -> string
+
+Return the path of vocabulary file associated with the corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L72>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_vocab : t -> Owl_nlp_vocabulary.t
+
+Return the vocabulary associated with the corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L74>`__
+
+
+
+.. code-block:: ocaml
+
+  val get_docid : t -> int array
+
+Return a list of document ids which are mapped back to the original file where the corpus is built.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L83>`__
+
+
+
+Iteration functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val next : t -> string
+
+Return the next document in the corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L89>`__
+
+
+
+.. code-block:: ocaml
+
+  val next_tok : t -> int array
+
+Return the next tokenised document in the corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L91>`__
+
+
+
+.. code-block:: ocaml
+
+  val iteri : (int -> string -> unit) -> t -> unit
+
+Iterate all the documents in the corpus, the index (line number) is passed in.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L93>`__
+
+
+
+.. code-block:: ocaml
+
+  val iteri_tok : (int -> int array -> unit) -> t -> unit
+
+Iterate the tokenised documents in the corpus, the index (line number) is passed in.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L95>`__
+
+
+
+.. code-block:: ocaml
+
+  val mapi : (int -> string -> 'a) -> t -> 'a array
+
+Map all the documents in a corpus into another array. The index (line number) is passed in.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L97>`__
+
+
+
+.. code-block:: ocaml
+
+  val mapi_tok : (int -> 'a -> 'b) -> t -> 'b array
+
+Map all the tokenised ocuments in a corpus into another array. The index (line number) is passed in.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L99>`__
+
+
+
+.. code-block:: ocaml
+
+  val next_batch : ?size:int -> t -> string array
+
+Return the next batch of documents in a corpus as a string array. The default ``size`` is 100.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L130>`__
+
+
+
+.. code-block:: ocaml
+
+  val next_batch_tok : ?size:int -> t -> int array array
+
+Return the next batch of tokenised documents in a corpus as a string array. The default ``size`` is 100.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L142>`__
+
+
+
+.. code-block:: ocaml
+
+  val reset_iterators : t -> unit
+
+Reset the iterator to the beginning of the corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L120>`__
+
+
+
+Core functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val tokenise : t -> string -> int array
+
+``tokenise corpus doc`` tokenises the document ``doc`` using the ``corpus`` and its associated vocabulary.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L153>`__
+
+
+
+.. code-block:: ocaml
+
+  val unique : string -> string -> int array
+
+Remove the duplicates in a text corpus, the ids of the removed files are returned.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L235>`__
+
+
+
+.. code-block:: ocaml
+
+  val simple_process : string -> string
+
+Function for simple pre-processing a given string.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L253>`__
+
+
+
+.. code-block:: ocaml
+
+  val preprocess : (string -> bytes) -> string -> string -> unit
+
+``preprocess f input_file output_file`` pre-processes a given file
+``input_file`` with the passed in function ``f`` then saves the output to
+``output_file``.
+
+E.g., you can plug in ``simple_process`` function to clean up the text. Note
+this function will not change the number of lines in a corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L264>`__
+
+
+
+I/O functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val save : t -> string -> unit
+
+Serialise the corpus and save it to a file of given name.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L289>`__
+
+
+
+.. code-block:: ocaml
+
+  val load : string -> t
+
+Load a serialised corpus from a file.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L294>`__
+
+
+
+.. code-block:: ocaml
+
+  val save_txt : t -> string -> unit
+
+Convert the tokenised corpus back to a text file
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L303>`__
+
+
+
+.. code-block:: ocaml
+
+  val to_string : t -> string
+
+The string representation of a corpus, contains the summary of a corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L316>`__
+
+
+
+.. code-block:: ocaml
+
+  val print : t -> unit
+
+Pretty print the summary of a text corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L323>`__
+
+
+
+Helper functions
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  val reduce_model : t -> t
+
+Set some fields to ``None`` so it can be safely serialised.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L277>`__
+
+
+
+.. code-block:: ocaml
+
+  val cleanup : t -> unit
+
+Close the opened file handles associated with the corpus.
+
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_corpus.ml#L37>`__
+
+
+

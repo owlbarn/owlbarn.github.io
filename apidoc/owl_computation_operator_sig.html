@@ -1,0 +1,1133 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Computation.Operator &#8212; Owl Numerical Library 0.7 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/owl_logo_4.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Computation.Operator</a><ul>
+<li><a class="reference internal" href="#vectorised-functions">Vectorised functions</a></li>
+<li><a class="reference internal" href="#scalar-functions">Scalar functions</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="computation-operator">
+<h1>Computation.Operator<a class="headerlink" href="#computation-operator" title="Permalink to this headline">¶</a></h1>
+<p>This document is auto-generated for Owl’s APIs.
+#215 entries have been extracted.</p>
+<p>Github:
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_operator_sig.ml">{Signature}</a>
+<a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/base/compute/owl_computation_operator.ml">{Implementation}</a></p>
+<div class="section" id="vectorised-functions">
+<h2>Vectorised functions<a class="headerlink" href="#vectorised-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">noop</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L18">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">empty</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L20">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">zeros</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L22">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ones</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L24">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L26">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sequential</span> <span class="o">:</span> <span class="o">?</span><span class="n">a</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">step</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L31">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">uniform</span> <span class="o">:</span> <span class="o">?</span><span class="n">a</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">b</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L49">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">gaussian</span> <span class="o">:</span> <span class="o">?</span><span class="n">mu</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">sigma</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L67">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">bernoulli</span> <span class="o">:</span> <span class="o">?</span><span class="n">p</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L85">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">init</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L95">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">init_nd</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L97">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">shape</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">numel</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L103">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L105">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L107">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">get_slice</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">list</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L109">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">set_slice</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">list</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L113">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L117">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy_</span> <span class="o">:</span> <span class="n">out</span><span class="o">:</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">c</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L119">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reset</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L124">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reshape</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L126">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">reverse</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L134">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tile</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L136">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">repeat</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L138">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pad</span> <span class="o">:</span> <span class="o">?</span><span class="n">v</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">list</span> <span class="kt">list</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L142">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">expand</span> <span class="o">:</span> <span class="o">?</span><span class="n">hi</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L151">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">squeeze</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L156">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">concatenate</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L161">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">concat</span> <span class="o">:</span> <span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L165">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">split</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">c</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L170">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">draw</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">*</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L172">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">map</span> <span class="o">:</span> <span class="o">(</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L177">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fold</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L179">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scan</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L183">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">one_hot</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L187">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">delay</span> <span class="o">:</span> <span class="o">(</span><span class="nn">Device</span><span class="p">.</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="o">-&gt;</span> <span class="nn">Device</span><span class="p">.</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">delay</span> <span class="pre">f</span> <span class="pre">x</span></code> returns <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">x</span></code>. It allows to use a function that is not tracked</dt>
+<dd>by the computation graph and delay its evaluation. The output must have the
+same shape as the input.</dd>
+</dl>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L191">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">delay_array</span> <span class="o">:</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Device</span><span class="p">.</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="nn">Device</span><span class="p">.</span><span class="nn">A</span><span class="p">.</span><span class="n">arr</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">delay_array</span> <span class="pre">out_shape</span> <span class="pre">f</span> <span class="pre">x</span></code> works in the same way as <code class="docutils literal notranslate"><span class="pre">delay</span></code> but is applied</dt>
+<dd>on an array of ndarrays. Needs the shape of the output as an argument.</dd>
+</dl>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L193">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">print</span> <span class="o">:</span> <span class="o">?</span><span class="n">max_row</span><span class="o">:</span><span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">max_col</span><span class="o">:</span><span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">header</span><span class="o">:</span><span class="k">&#39;</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">fmt</span><span class="o">:</span><span class="k">&#39;</span><span class="n">d</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L206">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">abs</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">neg</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">floor</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ceil</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">round</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sqr</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sqrt</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log2</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log10</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exp</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sin</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cos</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tan</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sinh</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cosh</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tanh</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">asin</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">acos</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atan</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">asinh</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">acosh</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atanh</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">min</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L254">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L256">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sum</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L258">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sum_reduce</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L260">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">signum</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sigmoid</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">relu</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dawsn</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">min&#39;</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L272">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max&#39;</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L274">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sum&#39;</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L276">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">l1norm&#39;</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L278">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">l2norm&#39;</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L280">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">l2norm_sqr&#39;</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L282">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">clip_by_value</span> <span class="o">:</span> <span class="o">?</span><span class="n">amin</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">amax</span><span class="o">:</span><span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L284">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">clip_by_l2norm</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L299">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pow</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_pow</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L305">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pow_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L309">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atan2</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_atan2</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L317">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atan2_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L321">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">hypot</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L325">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">min2</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L329">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max2</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L331">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">add</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sub</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mul</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">div</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">add_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L341">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sub_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L345">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mul_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L349">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">div_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L353">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_add</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L357">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_sub</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L361">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_mul</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L365">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">scalar_div</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L369">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fma</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L373">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_equal</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L377">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_not_equal</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L381">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_less</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L385">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_greater</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L389">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_less_equal</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L393">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_greater_equal</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L397">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_equal_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L401">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_not_equal_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L405">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_less_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L409">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_greater_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L413">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_less_equal_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L417">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">elt_greater_equal_scalar</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L421">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L426">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L433">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L440">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L447">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L454">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L461">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L489">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L494">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L499">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool1d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L504">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool2d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L509">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool3d</span> <span class="o">:</span> <span class="o">?</span><span class="n">padding</span><span class="o">:</span><span class="nn">Owl_types</span><span class="p">.</span><span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L514">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">upsampling2d</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L519">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv1d_backward_input</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L523">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv1d_backward_kernel</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L530">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv2d_backward_input</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L537">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv2d_backward_kernel</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L544">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv3d_backward_input</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L551">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">conv3d_backward_kernel</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L558">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv1d_backward_input</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L565">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv1d_backward_kernel</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L572">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv2d_backward_input</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L579">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv2d_backward_kernel</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L586">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv3d_backward_input</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L593">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose_conv3d_backward_kernel</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L600">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv1d_backward_input</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L607">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv1d_backward_kernel</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L614">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv2d_backward_input</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L621">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv2d_backward_kernel</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L628">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv3d_backward_input</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L635">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dilated_conv3d_backward_kernel</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L642">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool1d_backward</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L649">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool2d_backward</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L656">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">max_pool3d_backward</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L663">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool1d_backward</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L670">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool2d_backward</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L677">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">avg_pool3d_backward</span> <span class="o">:</span> <span class="n">padding</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L684">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">upsampling2d_backward</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L691">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">row_num</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L698">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">col_num</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L705">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">row</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L712">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">rows</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L714">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy_row_to</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L716">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">copy_col_to</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L718">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diag</span> <span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L722">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">trace</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L720">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dot</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L727">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">transpose</span> <span class="o">:</span> <span class="o">?</span><span class="n">axis</span><span class="o">:</span><span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L736">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_rows</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L746">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">of_rows</span> <span class="o">:</span> <span class="n">arr</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L752">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_cols</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="k">&#39;</span><span class="n">a</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L763">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">of_cols</span> <span class="o">:</span> <span class="n">arr</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L759">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">of_array</span> <span class="o">:</span> <span class="n">elt</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L754">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">of_arrays</span> <span class="o">:</span> <span class="n">elt</span> <span class="kt">array</span> <span class="kt">array</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L767">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">to_arrays</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="kt">array</span> <span class="kt">array</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L775">source code</a></p>
+</div>
+<div class="section" id="scalar-functions">
+<h2>Scalar functions<a class="headerlink" href="#scalar-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">add</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sub</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">mul</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">div</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">pow</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atan2</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">abs</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">neg</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sqr</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sqrt</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">exp</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log2</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">log10</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">signum</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">floor</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ceil</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">round</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sin</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cos</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tan</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sinh</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">cosh</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tanh</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">asin</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">acos</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atan</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">asinh</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">acosh</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">atanh</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">relu</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dawsn</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sigmoid</span> <span class="o">:</span> <span class="n">elt</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">eye</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L862">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">diagm</span> <span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L864">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">triu</span> <span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L874">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">tril</span> <span class="o">:</span> <span class="o">?</span><span class="n">k</span><span class="o">:</span><span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L869">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">inv</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L880">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">logdet</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">elt</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L882">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">chol</span> <span class="o">:</span> <span class="o">?</span><span class="n">upper</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L886">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">qr</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">*</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L896">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lq</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">*</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L898">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">svd</span> <span class="o">:</span> <span class="o">?</span><span class="n">thin</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">*</span> <span class="n">arr</span> <span class="o">*</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L891">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">sylvester</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L900">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">lyapunov</span> <span class="o">:</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L904">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">linsolve</span> <span class="o">:</span> <span class="o">?</span><span class="n">trans</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="o">?</span><span class="n">typ</span><span class="o">:[</span> <span class="o">`</span><span class="n">n</span> <span class="o">|</span> <span class="o">`</span><span class="n">u</span> <span class="o">|</span> <span class="o">`</span><span class="n">l</span> <span class="o">]</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L913">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">care</span> <span class="o">:</span> <span class="o">?</span><span class="n">diag_r</span><span class="o">:</span><span class="kt">bool</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span> <span class="o">-&gt;</span> <span class="n">arr</span>
+</pre></div>
+</div>
+<p>TODO</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/base/compute/owl_computation_operator.ml#L919">source code</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+
+    <div class="footer">
+      &copy;2019, <a href="http://www.cl.cam.ac.uk/~lw525/">Liang Wang</a>   | <a href="http://www.cl.cam.ac.uk/">Computer Lab, University of Cambridge</a>.
+      
+      |
+      <a href="../_sources/apidoc/owl_computation_operator_sig.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123353217-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123353217-1');
+</script>
+
+  </body>
+</html>

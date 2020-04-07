@@ -1,0 +1,42 @@
+Owl-ODE
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#1 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/../../owl_ode/src/ode/ode.owldoc>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/../../owl_ode/src/ode/owl_ode.ml>`_
+
+
+
+.. code-block:: ocaml
+
+  val odeint : (module Types.SolverT with type output = 'a and type s = 'b and type t = 'c) -> ('b -> float -> 'c) -> 'b -> Types.tspec_t -> unit -> 'a
+
+``odeint (module Solver) f y0 timespec ()`` numerically integrates
+an initial value problem for a system of ODEs given an initial value:
+
+.. math::
+  \frac{dy}{dt} = f(y,t)
+
+.. math::
+  y(t_{0}) = y_{0}
+
+Here :math:`t` is a one-dimensional independent variable (time), :math:`y(t)` is an
+n-dimensional vector-valued function (state), and the n-dimensional
+vector-valued function :math:`f(y, t)` determines the differential equations.
+
+The goal is to find :math:`y(t)` approximately satisfying the differential
+equations, given an initial value :math:`y(t_{0}) = y_{0}`.
+The time :math:`t_{0}` is passed as part of the timespec, that includes
+also the final integration time and a time step. Refer to
+{!Owl_ode.Types.tspec_t} for further information.
+
+The solver has to be passed as a first-class module and have a common
+type, {!Owl_ode.Types.SolverT}. This is useful to write new custom
+solvers or extend and customise the provided ones.
+
+Refer to the documentation of the {!Owl_ode.Types.SolverT} type
+for further information.
+

@@ -1,0 +1,53 @@
+High-level CBLAS API
+===============================================================================
+
+This document is auto-generated for Owl's APIs.
+#7 entries have been extracted.
+
+Github:
+`{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/owl/cblas/owl_cblas.mli>`_ 
+`{Implementation} <https://github.com/ryanrhymes/owl/tree/master/src/owl/cblas/owl_cblas.ml>`_
+
+
+
+Type definition
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type ('a, 'b) t = ('a, 'b, c_layout) Genarray.t
+    
+
+The default type is Bigarray's Genarray.
+
+.. code-block:: ocaml
+
+  type side = Owl_cblas_basic.cblas_side
+    
+
+Upper or lower triangular matrix.
+
+.. code-block:: ocaml
+
+  type uplo = Owl_cblas_basic.cblas_uplo
+    
+
+Side type
+
+Level-1 BLAS: vector-vector operations
+-------------------------------------------------------------------------------
+
+
+
+Level-2 BLAS: matrix-vector operations
+-------------------------------------------------------------------------------
+
+
+
+Level-3 BLAS: matrix-matrix operations
+-------------------------------------------------------------------------------
+
+
+
