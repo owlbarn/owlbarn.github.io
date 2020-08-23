@@ -225,7 +225,7 @@ TODO
 ``percentile x p`` returns the ``p`` percentile of the data ``x``. ``p`` is between
 0. and 100. ``x`` does not need to be sorted beforehand.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L202>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L206>`__
 
 
 
@@ -241,7 +241,7 @@ TODO
 
     @raise Invalid_argument if ``p`` is not between 0 and 1.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L194>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L198>`__
 
 
 
@@ -264,7 +264,7 @@ TODO
 ``interquartile x`` returns the interquartile range of ``x``
     which is defined as the first quartile subtracted from the third quartile.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L210>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L214>`__
 
 
 
@@ -274,7 +274,7 @@ TODO
 
 ``median x`` returns the median of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L204>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L208>`__
 
 
 
@@ -416,6 +416,7 @@ result is stored in the ``density`` field.
 ``ecdf x`` returns ``(x',f)`` which are the empirical cumulative distribution
 function ``f`` of ``x`` at points ``x'``. ``x'`` is just ``x`` sorted in increasing
 order with duplicates removed.
+The function does not support ``nan`` values in the array ``x``.
 
 `source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L173>`__
 
@@ -427,7 +428,7 @@ order with duplicates removed.
 
 ``z_score x`` calculates the z score of a given array ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L212>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L216>`__
 
 
 
@@ -437,7 +438,7 @@ order with duplicates removed.
 
 ``t_score x`` calculates the t score of a given array ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L214>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L218>`__
 
 
 
@@ -447,7 +448,7 @@ order with duplicates removed.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L220>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L224>`__
 
 
 
@@ -463,7 +464,7 @@ as follows:
 .. math::
   (Q1 - k*(Q3-Q1), Q3 + k*(Q3-Q1))
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L791>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L795>`__
 
 
 
@@ -509,7 +510,7 @@ which is a parametric test of the location parameter when the population
 standard deviation is unknown. ``mu`` is population mean, ``alpha`` is the
 significance level.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L278>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L282>`__
 
 
 
@@ -521,7 +522,7 @@ significance level.
 hypothesis that the data in ``x – y`` comes from a normal distribution with
 mean equal to zero and unknown variance, using the paired-sample t-test.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L295>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L299>`__
 
 
 
@@ -540,7 +541,7 @@ hypothesis at the ``alpha`` significance level, and ``false``
 otherwise. ``p`` is the p-value and ``d`` is the Kolmogorov-Smirnov
 test statistic.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L418>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L422>`__
 
 
 
@@ -559,7 +560,7 @@ hypothesis at the ``alpha`` significance level, and ``false``
 otherwise. ``p`` is the p-value and ``d`` is the Kolmogorov-Smirnov
 test statistic.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L472>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L476>`__
 
 
 
@@ -572,7 +573,7 @@ hypothesis that the data in ``x`` comes from a normal distribution with input
 ``variance``, using the chi-square variance test. The alternative hypothesis
 is that ``x`` comes from a normal distribution with a different variance.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L512>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L516>`__
 
 
 
@@ -584,7 +585,7 @@ is that ``x`` comes from a normal distribution with a different variance.
 data ``x`` comes from a normal distribution with an unknown mean and variance,
 using the Jarque-Bera test.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L501>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L505>`__
 
 
 
@@ -600,7 +601,7 @@ The result ``(h,p,z)`` : ``h`` is ``true`` if the test rejects the null hypothes
 the ``alpha`` significance level, and ``false`` otherwise. ``p`` is the p-value and
 ``z`` is prior odds ratio.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L528>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L532>`__
 
 
 
@@ -614,7 +615,7 @@ by running Wald–Wolfowitz runs test. The test is based on the number of runs
 of consecutive values above or below the mean of ``x``. ``~v`` is the reference
 value, the default value is the median of ``x``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L707>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L711>`__
 
 
 
@@ -628,7 +629,7 @@ using exact test (see paper Ying Kuen Cheung and Jerome H. Klotz (1997)
 The Mann Whitney Wilcoxon distribution using linked list
 Statistica Sinica 7 805-813), else usning asymptotic normal distribution.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L581>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L585>`__
 
 
 
@@ -638,7 +639,7 @@ Statistica Sinica 7 805-813), else usning asymptotic normal distribution.
 
 TODO
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L641>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/stats/owl_stats.ml#L645>`__
 
 
 

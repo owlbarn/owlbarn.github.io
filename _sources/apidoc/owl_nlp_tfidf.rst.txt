@@ -152,7 +152,7 @@ Get the file handle associated with TFIDF model.
 
 Return the percentage of non-zero elements in doc-term matrix.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L279>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L283>`__
 
 
 
@@ -167,7 +167,7 @@ Iteration functions
 
 Return the ith TFIDF vector in the model. The format of return is ``(vocabulary index, weight)`` tuple array of a document.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L219>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L221>`__
 
 
 
@@ -177,7 +177,7 @@ Return the ith TFIDF vector in the model. The format of return is ``(vocabulary 
 
 Return the next document vector in the model. The format of return is ``(vocabulary index, weight)`` tuple array of a document.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L202>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L204>`__
 
 
 
@@ -187,7 +187,7 @@ Return the next document vector in the model. The format of return is ``(vocabul
 
 Return the next batch of document vectors in the model, the default size is 100.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L204>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L206>`__
 
 
 
@@ -197,7 +197,7 @@ Return the next batch of document vectors in the model, the default size is 100.
 
 Iterate all the document vectors in a TFIDF model. The format of document vector is ``(vocabulary index, weight)`` tuple array of a document.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L215>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L217>`__
 
 
 
@@ -207,7 +207,7 @@ Iterate all the document vectors in a TFIDF model. The format of document vector
 
 Map all the document vectors in a TFIDF model. The format of document vector is ``(vocabulary index, weight)`` tuple array of a document.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L217>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L219>`__
 
 
 
@@ -217,7 +217,7 @@ Map all the document vectors in a TFIDF model. The format of document vector is 
 
 Reset the iterator to the beginning of the TFIDF model.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L227>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L231>`__
 
 
 
@@ -239,7 +239,7 @@ Parameters:
 * ``df``: type of document frequency used in building TFIDF. The default is ``Idf``.
 * ``corpus``: the corpus built by ``Owl_nlp_corpus`` model atop of which TFIDF will be built.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L192>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L194>`__
 
 
 
@@ -254,7 +254,7 @@ I/O functions
 
 ``save tfidf fname`` saves the TFIDF to a file of given file name ``fname``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L256>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L260>`__
 
 
 
@@ -264,7 +264,7 @@ I/O functions
 
 ``load fname`` loads a TFIDF from a file of name ``fname``.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L262>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L266>`__
 
 
 
@@ -274,7 +274,7 @@ I/O functions
 
 Convert a TFIDF to its string representation, contains summary information.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L264>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L268>`__
 
 
 
@@ -284,7 +284,7 @@ Convert a TFIDF to its string representation, contains summary information.
 
 Pretty print out the summary information of a TFIDF model.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L274>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L278>`__
 
 
 
@@ -319,7 +319,7 @@ Convert document frequency type into string.
 
 Convert a single document according to a given model
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L236>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/owl/nlp/owl_nlp_tfidf.ml#L240>`__
 
 
 

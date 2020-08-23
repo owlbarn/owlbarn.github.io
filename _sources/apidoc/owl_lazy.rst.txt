@@ -534,19 +534,19 @@ TODO
 
 .. code-block:: ocaml
 
-  val min : ?axis:int -> arr -> arr
+  val min : ?axis:int -> ?keep_dims:bool -> arr -> arr
 
 TODO
 
 .. code-block:: ocaml
 
-  val max : ?axis:int -> arr -> arr
+  val max : ?axis:int -> ?keep_dims:bool -> arr -> arr
 
 TODO
 
 .. code-block:: ocaml
 
-  val sum : ?axis:int -> arr -> arr
+  val sum : ?axis:int -> ?keep_dims:bool -> arr -> arr
 
 TODO
 

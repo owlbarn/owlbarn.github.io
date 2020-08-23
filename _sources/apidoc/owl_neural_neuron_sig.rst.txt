@@ -2,7 +2,7 @@ Neural.Neuron Functor
 ===============================================================================
 
 This document is auto-generated for Owl's APIs.
-#486 entries have been extracted.
+#494 entries have been extracted.
 
 Github:
 `{Signature} <https://github.com/ryanrhymes/owl/tree/master/src/base/neural/owl_neural_neuron_sig.ml>`_ 
@@ -2431,6 +2431,59 @@ Convert the neuron to its string representation. The string is often a summary o
 
 Return the name of the neuron.
 
+Slice neuron
+-------------------------------------------------------------------------------
+
+
+
+.. code-block:: ocaml
+
+  type neuron_typ =
+    { mutable in_shape : int array
+    ; mutable out_shape : int array
+    ; mutable slice : int list list
+    }
+    
+    
+
+Neuron type definition.
+
+.. code-block:: ocaml
+
+  val create : int list list -> neuron_typ
+
+Create the neuron.
+
+.. code-block:: ocaml
+
+  val connect : int array -> neuron_typ -> unit
+
+Connect this neuron to others in a neural network.
+
+.. code-block:: ocaml
+
+  val copy : neuron_typ -> neuron_typ
+
+Make a deep copy of the neuron and its parameters.
+
+.. code-block:: ocaml
+
+  val run : t -> neuron_typ -> t
+
+Execute the computation in this neuron.
+
+.. code-block:: ocaml
+
+  val to_string : neuron_typ -> string
+
+Convert the neuron to its string representation. The string is often a summary of the parameters defined in the neuron.
+
+.. code-block:: ocaml
+
+  val to_name : unit -> string
+
+Return the name of the neuron.
+
 Add neuron
 -------------------------------------------------------------------------------
 
@@ -3139,6 +3192,7 @@ Core functions
     | Dropout         of Dropout.neuron_typ
     | Reshape         of Reshape.neuron_typ
     | Flatten         of Flatten.neuron_typ
+    | Slice           of Slice.neuron_typ
     | Lambda          of Lambda.neuron_typ
     | LambdaArray     of LambdaArray.neuron_typ
     | Activation      of Activation.neuron_typ
@@ -3161,7 +3215,7 @@ Types of neuron.
 
 Get both input and output shapes of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3208>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3248>`__
 
 
 
@@ -3171,7 +3225,7 @@ Get both input and output shapes of a neuron.
 
 Get the input shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3254>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3295>`__
 
 
 
@@ -3181,7 +3235,7 @@ Get the input shape of a neuron.
 
 Get the output shape of a neuron.
 
-`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3256>`__
+`source code <https://github.com/ryanrhymes/owl/blob/master/src/base/neural/owl_neural_neuron.ml#L3297>`__
 
 
 
