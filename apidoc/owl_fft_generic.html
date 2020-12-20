@@ -97,7 +97,7 @@
   <div class="section" id="fft">
 <h1>FFT<a class="headerlink" href="#fft" title="Permalink to this headline">¶</a></h1>
 <p>This document is auto-generated for Owl’s APIs.
-#4 entries have been extracted.</p>
+#6 entries have been extracted.</p>
 <p>Github:
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/fftpack/owl_fft_generic.mli">{Signature}</a>
 <a class="reference external" href="https://github.com/ryanrhymes/owl/tree/master/src/owl/fftpack/owl_fft_generic.ml">{Implementation}</a></p>
@@ -123,6 +123,16 @@ is the highest dimension by default.</p>
 precision with input <code class="docutils literal notranslate"><span class="pre">x</span></code>. You can skip this parameter by using a submodule
 with specific precision such as <code class="docutils literal notranslate"><span class="pre">Owl.Fft.S</span></code> or <code class="docutils literal notranslate"><span class="pre">Owl.Fft.D</span></code>.</p>
 <p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/fftpack/owl_fft_generic.ml#L34">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">fft2</span> <span class="o">:</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fft2</span> <span class="pre">x</span></code> performs 2-dimensional FFT on a complex input. The return is not scaled.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/fftpack/owl_fft_generic.ml#L69">source code</a></p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ifft2</span> <span class="o">:</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="nn">Complex</span><span class="p">.</span><span class="n">t</span><span class="o">,</span> <span class="k">&#39;</span><span class="n">a</span><span class="o">)</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ifft2</span> <span class="pre">x</span></code> performs inverse 2-dimensional FFT on a complex input.</p>
+<p><a class="reference external" href="https://github.com/ryanrhymes/owl/blob/master/src/owl/fftpack/owl_fft_generic.ml#L73">source code</a></p>
 </div>
 </div>
 
