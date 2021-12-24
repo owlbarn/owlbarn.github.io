@@ -56,6 +56,14 @@ div.sphinxsidebar {
     overflow-wrap : break-word;
 	overflow-y: scroll;
 	height: 90%;
+	/*-- Hide scrollbar on Firefox, IE --*/
+	-ms-overflow-style: none;
+	scrollbar-width: none
+}
+
+/*-- Hide scrollbar on Chrome, Safari, Opera --*/
+div.sphinxsidebar::-webkit-scrollbar {
+	display: none;
 }
 
 
