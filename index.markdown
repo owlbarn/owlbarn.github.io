@@ -5,4 +5,4 @@
 layout: home
 ---
 
-Hello
+Owl is a dedicated system for scientific and engineering computing. It is designed in the functional programming language OCaml. The project is led by Liang Wang. The source code is licensed under MIT and hosted on the Github.
