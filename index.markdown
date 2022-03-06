@@ -15,15 +15,24 @@ Owl is a dedicated system for scientific and engineering computing. It is design
 
 Our mission is to push the frontier of high-performance scientific computing, provide both researchers and industry programmers a powerful framework to write concise, fast and safe analytical code. The system aims to serve as the de-facto tool for computation intensive tasks in OCaml.
 
+
+## Books
+
 The project produces comprehensive learning materials to promote OCaml learning. You can learn how to use Owl using the online documentation and following books.
 
 - [<< OCaml Scientific Computing >>](https://link.springer.com/book/9783030976446)
-- [<< Architecture of Modern Numerical Software >>]() coming soon ...
+- [<< Architecture of Numerical Software >>]() coming soon ...
+
 
 ## Sponsor
 
+Owl owes a great debt of gratitude to its generous sponsors, contributors, and other open source projects. Please refer to our Sponsors, Backers, and Contributors.
+
 <p align="center" width="100%" markdown=1>
-![image](assets/ahrefs-logo.png){: width="200px" }
+[![image](assets/ahrefs-logo.png){: width="180px" }](https://ahrefs.com/)
 </p>
 
-TBD
+We are actively seeking funding opportunities to support our research and development.
+
+- For institutional funding, please contact me directly.
+- For individuals, please use this Paypal donation link.
