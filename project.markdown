@@ -4,15 +4,11 @@ title: Projects
 permalink: /projects/
 ---
 
-Finished Sub-Projects
-=================================================
-
 This page maintains a list of finished projects including a brief description and its outcome. If you think your project is relevant to Owl and want to be included in the list on this page, please contact me directly.
 
 
 
-Probabilistic Synchronous Parallel
--------------------------------------------------
+## Probabilistic Synchronous Parallel
 
 By **Benjamin P. W. Catterall** | Part III | June 2017 | :download:`{Thesis} <../papers/catterall.pdf>`  `{ArXiv 1709} <https://arxiv.org/abs/1709.07772>`_
 
@@ -20,8 +16,7 @@ The synchronisation scheme used to manage parallel updates of a distributed mach
 
 
 
-Supporting Browser-based Machine Learning
--------------------------------------------------
+## Supporting Browser-based Machine Learning
 
 By **Tudor Petru Tiplea** | Part III | June 2018 | :download:`{Thesis} <../papers/tiplea.pdf>`
 
@@ -33,8 +28,7 @@ We demonstrated our work on Owl was successful, exemplifying the browser-deploye
 
 
 
-Adaptable Asynchrony in Distributed Learning
--------------------------------------------------
+## Adaptable Asynchrony in Distributed Learning
 
 By **De Sheng Royson Lee** | M.Phil | June 2018 | :download:`{Thesis} <../papers/royson.pdf>`
 
@@ -42,8 +36,7 @@ Distributed training of deep learning models is typically trained using stochast
 
 
 
-Applications of Linear Types
--------------------------------------------------
+## Applications of Linear Types
 
 By **Dhruv C. Makwana** | Part III | June 2018 | :download:`{Thesis} <../papers/dhruv.pdf>`  `{Github} <https://github.com/dc-mak/lt4la/>`_
 
@@ -53,8 +46,7 @@ As evidence for this argument, I show non-trivial, yet readable, linear algebra 
 
 
 
-Composing Data Analytical Services
--------------------------------------------------
+## Composing Data Analytical Services
 
 By **Jianxin Zhao** | PhD | June 2018 | `{ArXiv 1805} <https://arxiv.org/abs/1805.05995>`_
 
@@ -62,8 +54,8 @@ Data analytics on the cloud is known to have issues such as increased response l
 
 
 
-Computer Vision & Performance Optimisation of Computation Graph
----------------------------------------------------------------
+## Computer Vision & Performance Optimisation of Computation Graph
+
 By **Pierre Vandenhove** | MSc | October 2018 | `{MRCNN Github} <https://github.com/owlbarn/owl-mask-rcnn>`_ | `{ArXiv 1812} <https://arxiv.org/abs/1812.03770>`_ :download:`{Report} <../papers/pierre.pdf>` | {:doc:`pierre_cgraph`}
 
 Computer vision tasks are known to be highly computationally-heavy, both performance-wise and memory-wise. They are thus especially relevant to put a numerical framework such as Owl to the test. The first part of this project focuses on the implementation of several computer vision applications using Owl's neural network library. The first such application is Microsoft's 'ResNet' network to perform simple image classification (`paper 1512.03385 <https://arxiv.org/abs/1512.03385>`_, `Resnet implementation in Owl <https://github.com/pvdhove/owl-resnet>`_). The second, more extensive one, is 'Mask R-CNN', which is one of the leading networks to perform object detection, segmentation and classification (`paper 1703.06870 <https://arxiv.org/abs/1703.06870>`_, `MRCNN implementation <https://github.com/pvdhove/owl-mask-rcnn>`_). This allowed exemplifying some use cases to improve Owl's flexibility and ease of use, as well as add some necessary operations.
@@ -72,16 +64,15 @@ These applications are valuable benchmarking tools to identify bottlenecks and g
 
 
 
-Automatic Parameter Tuning for OpenMP
--------------------------------------------------
+## Automatic Parameter Tuning for OpenMP
 
 By **Jianxin Zhao** | PhD | November 2018 | `{AEOS Github} <https://github.com/owlbarn/owl/tree/master/src/aeos>`_ | `{Thesis} <http://ocaml.xyz>`_ | {:doc:`jianxin_aeos`}
 
 Automatic Empirical Optimisation of Software (AEOS) is crucial for high performance computing software. It is a methodology to generate optimised software using empirically tuned parameters. As an initial attempt to improve the performance of Owl with it, we build the AEOS module to tune the OpenMP parameters in Owl. OpenMP is an application programming interface that supports multi-platform shared memory multiprocessing programming. It is used in Owl to boost performance of basic operations. However, using OpenMP brings certain overhead, so that when the size of input data is small, or the operation is simple, the non-OpenMP version operation might be faster. Thus an optimal threshold varies for different operations and machines. In the AEOS module, each operation is abstracted as a stand-alone module, and uses linear regression to find this optimal threshold. Compared with the previous practice of set a single threshold for all OpenMP operations, using AEOS module further improves their performance. The AEOS module is designed in such way that extending it to accommodate more parameters or operations should be easy.
 
 
-Run Your Owl Computation on TensorFlow
--------------------------------------------------
+
+## Run Your Owl Computation on TensorFlow
 
 By **Jianxin Zhao** | PhD | February 2019 | {:doc:`jianxin_cgraph`}
 
@@ -96,8 +87,8 @@ Currently we are actively developing the system. Thought still quite limited at 
 In our next step, it would be interesting to see how our system can be extended and combined with related topics such as GPU and XLA.
 
 
-Ordinary Differential Equation Solver
--------------------------------------------------------------------------------
+
+## Ordinary Differential Equation Solver
 
 By `Ta-Chu Kao <https://github.com/tachukao>`_ and `Marcello Seri <https://github.com/mseri>`_ | July 2019 | `{Owl-ODE Github} <https://github.com/owlbarn/owl_ode>`_
 

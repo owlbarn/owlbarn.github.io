@@ -5,7 +5,7 @@ layout: home
 ---
 
 <p align="center" width="100%" markdown=1>
-![image](assets/owl_logo_4.png){: width="280px" }
+![image](assets/owl_logo_2022.jpg){: width="530px" }
 </p>
 
 Owl is a dedicated system for scientific and engineering computing. It is designed in the functional programming language OCaml. The project is led by [Liang Wang](https://liang.ocaml.xyz). The source code is licensed under MIT.
