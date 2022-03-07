@@ -11,7 +11,7 @@ layout: home
 Owl is a dedicated system for scientific and engineering computing. The system is developed in OCaml and licensed under MIT. The project is led by [Liang Wang](https://liang.ocaml.xyz). The history of the project is on the [Wikipedia](https://en.wikipedia.org/wiki/Owl_Scientific_Computing).
 
 
-## Misson
+## Mission
 
 Our mission is to push the frontier of high-performance scientific computing, provide both researchers and industry programmers a powerful framework to write concise, fast and safe analytical code. The system aims to serve as the de-facto tool for computation intensive tasks in OCaml.
 
