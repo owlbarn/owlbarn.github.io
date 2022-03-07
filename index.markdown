@@ -8,7 +8,7 @@ layout: home
 ![image](assets/owl_logo_2022.jpg){: width="530px" }
 </p>
 
-Owl is a dedicated system for scientific and engineering computing. It is designed in the functional programming language OCaml. The project is led by [Liang Wang](https://liang.ocaml.xyz). The source code is licensed under MIT.
+Owl is a dedicated system for scientific and engineering computing. The system is developed in OCaml and licensed under MIT. The project is led by [Liang Wang](https://liang.ocaml.xyz). The history of the project is on the [Wikipedia](https://en.wikipedia.org/wiki/Owl_Scientific_Computing).
 
 
 ## Misson
@@ -26,15 +26,10 @@ The project produces comprehensive learning materials to promote using OCaml to 
 
 
 
-## Sponsor
+## Sponsors
 
-Owl owes a great debt of gratitude to its generous sponsors, contributors, and other open source projects. Please refer to our Sponsors, Backers, and Contributors.
+We would like to express our sincerest gratitude for our sponsors' generosity. The support is critical for Owl's development and maintenance, so the OCaml community can benefit from a strong numerical library. If you are interested in sponsorship, please [contact me](mailto:liang@ocaml.xyz) or dontate via [Paypal](https://www.paypal.me/ocaml).
 
 <p align="center" width="100%" markdown=1>
 [![image](assets/ahrefs-logo.png){: width="180px" }](https://ahrefs.com/)
 </p>
-
-We are actively seeking funding opportunities to support our research and development.
-
-- For institutional funding, please contact me directly.
-- For individuals, please use this Paypal donation link.
