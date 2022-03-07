@@ -32,4 +32,6 @@ We would like to express our sincerest gratitude for our sponsors' generosity. T
 
 <p align="center" width="100%" markdown=1>
 [![image](assets/ahrefs-logo.png){: width="180px" }](https://ahrefs.com/)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![image](assets/osf-logo.png){: width="180px" }](https://ocaml-sf.org/)
 </p>
