@@ -28,7 +28,7 @@ The project produces comprehensive learning materials to promote using OCaml to 
 
 ## Sponsors
 
-We would like to express our sincerest gratitude for our sponsors' generosity. The support is critical for Owl's development and maintenance, so the OCaml community can benefit from a strong numerical library. If you are interested in sponsorship, please [contact me](mailto:liang@ocaml.xyz) or dontate via [PayPal](https://www.paypal.me/ocaml).
+We would like to express our sincerest gratitude for our sponsors' generosity. The support is critical for Owl's development and maintenance, so the OCaml community can benefit from a strong numerical library. If you are interested in sponsorship, please [contact me](mailto:liang@ocaml.xyz) or donate via [PayPal](https://www.paypal.me/ocaml).
 
 <p align="center" width="100%" markdown=1>
 [![image](assets/ahrefs-logo.png){: width="180px" }](https://ahrefs.com/)
