@@ -9,8 +9,8 @@ The tutorial contains many examples and aims to help users to start using Owl.
 The API manual aims to provide more detailed information for developers who
 wants to dig deeper into the topic.
 
-- [Tutorials (under construction)](https:/ocaml.xyz)
-- [API Manual](https:/ocaml.xyz/owl)
+- [Tutorials (under construction)](https://ocaml.xyz)
+- [API Manual](https://ocaml.xyz/owl)
 
 If you want to systematically study the topics on OCaml scientific computing
 or the architecture of modern numerical system. Please checkout our books.
