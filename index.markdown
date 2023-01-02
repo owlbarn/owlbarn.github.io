@@ -20,7 +20,7 @@ Our mission is to push the frontier of high-performance scientific computing, pr
 
 The project produces comprehensive learning materials to promote using OCaml to solve practical numerical problems. You can learn Owl with the online documentation and following books.
 
-| << OCaml Scientific Computing >> | << Architecture of Numerical System >> |
+| << OCaml Scientific Computing >> | << Architecture of Numerical Systems >> |
 |:--------------------------------:|:--------------------------------------:|
 | [![image](assets/book-cover-osc.png){: height="200px" }](https://link.springer.com/book/9783030976446) | [![image](assets/book-cover-nas.png){: height="200px" }](https://link.springer.com/book/10.1007/978-1-4842-8853-5?sap-outbound-id=E28E6CA00CB94BE1CBC24C2F6F928D90C93E56EC) |
 
