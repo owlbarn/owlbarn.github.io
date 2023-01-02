@@ -22,7 +22,7 @@ The project produces comprehensive learning materials to promote using OCaml to 
 
 | << OCaml Scientific Computing >> | << Architecture of Numerical System >> |
 |:--------------------------------:|:--------------------------------------:|
-| [![image](assets/book-cover-osc.png){: height="200px" }](https://link.springer.com/book/9783030976446) | [![image](assets/book-cover-ans.png){: height="200px" }](https://ocaml.xyz) |
+| [![image](assets/book-cover-osc.png){: height="200px" }](https://link.springer.com/book/9783030976446) | [![image](assets/book-cover-nas.png){: height="200px" }](https://link.springer.com/book/10.1007/978-1-4842-8853-5?sap-outbound-id=E28E6CA00CB94BE1CBC24C2F6F928D90C93E56EC) |
 
 
 
