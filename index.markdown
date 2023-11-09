@@ -16,7 +16,7 @@ Our mission is to push the frontier of high-performance scientific computing, pr
 
 | Online Tutorials |
 |:--------------------------------:|
-| [![image](assets/online_tutorial_cover.png){: width="600px" }](https://ocaml.xyz/tutorial/) |
+| [![image](assets/online_tutorial_cover.png){: width="700px" }](https://ocaml.xyz/tutorial/) |
 
 ## Books
 
