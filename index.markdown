@@ -12,7 +12,7 @@ layout: home
 
 Our mission is to push the frontier of high-performance scientific computing, provide both researchers and industry programmers a powerful framework to write concise, fast and safe analytical code. The system aims to serve as the de-facto tool for computation intensive tasks in OCaml. You can learn Owl with the online documentation and following books.
 
-## Online Documents
+## Online Learning
 
 | Online Tutorials |
 |:--------------------------------:|
