@@ -12,9 +12,13 @@ layout: home
 
 Our mission is to push the frontier of high-performance scientific computing, provide both researchers and industry programmers a powerful framework to write concise, fast and safe analytical code. The system aims to serve as the de-facto tool for computation intensive tasks in OCaml. You can learn Owl with the online documentation and following books.
 
+## Online documents
+
 | Online Tutorial |
 |:--------------------------------:|
 | [![image](assets/book-cover-osc.png){: height="200px" }](https://link.springer.com/book/9783030976446) |
+
+## Books
 
 | << OCaml Scientific Computing >> | << Architecture of Numerical Systems >> |
 |:--------------------------------:|:--------------------------------------:|
