@@ -16,9 +16,3 @@ Our mission is to push the frontier of high-performance scientific computing, pr
 |:--------------------------------:|:--------------------------------------:|
 | [![image](assets/book-cover-osc.png){: height="200px" }](https://link.springer.com/book/9783030976446) | [![image](assets/book-cover-nas.png){: height="200px" }](https://link.springer.com/book/10.1007/978-1-4842-8853-5?sap-outbound-id=E28E6CA00CB94BE1CBC24C2F6F928D90C93E56EC) |
 
-
-<p align="center" width="100%" markdown=1>
-[![image](assets/ahrefs-logo.png){: width="180px" }](https://ahrefs.com/)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[![image](assets/osf-logo.png){: width="180px" }](https://ocaml-sf.org/)
-</p>
