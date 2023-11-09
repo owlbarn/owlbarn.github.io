@@ -14,9 +14,9 @@ Our mission is to push the frontier of high-performance scientific computing, pr
 
 ## Online documents
 
-| Online Tutorial |
+| Online Tutorials |
 |:--------------------------------:|
-| [![image](assets/book-cover-osc.png){: height="200px" }](https://link.springer.com/book/9783030976446) |
+| [![image](assets/online_tutorial_cover.png){: height="600px" }](https://link.springer.com/book/9783030976446) |
 
 ## Books
 
