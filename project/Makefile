@@ -1,6 +1,6 @@
 .PHONY: clean
 clean:
-	rm -rf node_modules
+	rm -rf _site .jekyll-cache
 
 .PHONY: push
 push:
