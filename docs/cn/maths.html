@@ -3,29 +3,30 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-123353217-1');</script></head><body><div class="title-bar"><div class="title"><h1>OCaml Scientific Computing Tutorials</h1><h5></h5><nav><a href="index.html">Home</a><a href="toc.html">Table of Contents</a><a href="https://ocaml.xyz/owl/">API Docs</a><a href="cn/index.html">中文版</a></nav></div></div><div class="wrap"><div class="left-column"><a class="to-chapter" href="toc.html"><small>Back</small><h5>Table of Contents</h5></a></div><article class="main-body"><section class="level1" id="mathematical-functions">
-<h1>Mathematical Functions</h1>
-<p>Staring from this chapter, we begin our journey to explore the world of numerical computing with Owl. But let’s not be hasty. Before the main dishes such as algorithmic differentiation, optimisation, computation graph, etc., let’s taste some starters first. In this chapter, we will introduce how the familiar mathematical operations are supported in Owl. This chapter is organised according to different types of functions, and you can feel free to browse any of them. Note that functions in this chapter works on scalar values. The N-dimensional array module introduced in later chapters contains these basic functions that work on n-dimensional arrays, including vectors and matrices.</p>
+<h1>数学函数</h1>
+<p>从这一章开始，我们将开始探索使用 Owl 进行数字计算的世界。但让我们不要过于仓促。在进入诸如算法微分、优化、计算图等主要内容之前，让我们先尝一些开胃菜。在本章中，我们将介绍 Owl 中如何支持熟悉的数学运算。本章根据不同类型的函数进行组织，您可以随意浏览其中任何部分。请注意，本章中的函数适用于标量值。在后续章节中介绍的 N 维数组模块包含这些在 n 维数组上工作的基本函数，包括向量和矩阵。</p>
 <section class="level2" id="basic-functions">
-<h2>Basic Functions</h2>
+<h2>基本函数</h2>
 <section class="level3" id="basic-unary-math-functions">
-<h3>Basic Unary Math Functions</h3>
-<p>Many basic mathematic functions take one float number as input and return one float number. We call them <em>unary</em> functions. You can use these unary functions easily from the <code>Maths</code> module. For example:</p>
+<h3>基本一元数学函数</h3>
+<p>许多基本数学函数将一个浮点数作为输入并返回一个浮点数。我们称它们为<em>一元</em>函数。您可以轻松使用这些一元函数从<code>Maths</code>模块中调用。例如：</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">Maths.sqrt 2.
 &gt;- : float = 1.41421356237309515
 </code></pre>
 </div>
-<p>The <span data-cites="tbl:maths:basic_unary" class="citation">[@tbl:maths:basic_unary]</span> lists these unary functions supported in this module.</p>
+<p><span data-cites="tbl:maths:basic_unary" class="citation">[@tbl:maths:basic_unary]</span> 列出了在该模块中支持的这些一元函数。</p>
 <table style="width:97%;">
-<caption>Basic unary math functions {#tbl:maths:basic_unary}</caption>
+<caption>基本一元数学函数 {#tbl:maths:basic_unary}</caption>
 <colgroup>
 <col style="width: 19%">
 <col style="width: 77%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">解释</th>
+
 </tr>
 </thead>
 <tbody>
@@ -69,18 +70,18 @@
 </table>
 </section>
 <section class="level3" id="basic-binary-functions">
-<h3>Basic Binary Functions</h3>
-<p>Unlike the unary ones, the <em>binary functions</em> take two floats as inputs and return one float as output. Most common arithmetic functions belong to this category, as shown in <span data-cites="tbl:maths:binary" class="citation">[@tbl:maths:binary]</span>.</p>
+<h3>基本二元数学函数</h3>
+<p>与一元函数不同，<em>二元函数</em>接受两个浮点数作为输入，并返回一个浮点数作为输出。大多数常见的算术函数属于这个类别，如<span data-cites="tbl:maths:binary" class="citation">[@tbl:maths:binary]</span>所示。</p>
 <table style="width:97%;">
-<caption>Binary math functions {#tbl:maths:binary}</caption>
+<caption>二元数学函数 {#tbl:maths:binary}</caption>
 <colgroup>
 <col style="width: 19%">
 <col style="width: 77%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">解释</th>
 </tr>
 </thead>
 <tbody>
@@ -114,33 +115,33 @@
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>atan2</code></td>
-<td style="text-align: left;">returns <span class="math inline">\(\arctan(y/x)\)</span>, accounting for the sign of the arguments; this is the angle to the vector <span class="math inline">\((x, y)\)</span> counting from the x-axis.</td>
+<td style="text-align: left;">返回<span class="math inline">\(\arctan(y/x)\)</span>，考虑参数的符号；这是向量<span class="math inline">\((x, y)\)</span>相对于 x 轴的角度。</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section class="level3" id="exponential-and-logarithmic-functions">
-<h3>Exponential and Logarithmic Functions</h3>
-<p>The constant <span class="math inline">\(e = \sum_{n=0}^{\infty}\frac{1}{n!}\)</span> is what we call the <em>natural constant</em>. It is named this way because the exponential function and its inverse function logarithm are so frequently used in nature and our daily life: logarithmic spiral, population growth, carbon date ancient artifacts, computing bank investments, etc. As an example, in a scientific experiment about bacteria, we can assume the number of bacterial at time <span class="math inline">\(t\)</span> follows an exponential function <span class="math inline">\(n(t) = Ce^rt\)</span> where <span class="math inline">\(C\)</span> is the initial population and <span class="math inline">\(r\)</span> is the daily increase rate. With this model, we can predict how the population of bacterial grows within certain time.</p>
-<p>We also have this beautiful Euler’s formula that connects the two most frequently used constants and the base of complex numbers and natural numbers:</p>
+<h3>指数和对数函数</h3>
+<p>常数<span class="math inline">\(e = \sum_{n=0}^{\infty}\frac{1}{n!}\)</span>是我们称之为<em>自然常数</em>的东西。之所以这样称呼它，是因为指数函数及其逆函数对数在自然界和我们的日常生活中被频繁使用：对数螺线、人口增长、碳测古物、计算银行投资等等。举个例子，在关于细菌的科学实验中，我们可以假设时间<span class="math inline">\(t\)</span>时的细菌数量遵循指数函数<span class="math inline">\(n(t) = Ce^rt\)</span>，其中<span class="math inline">\(C\)</span>是初始人口，<span class="math inline">\(r\)</span>是每日增长率。通过这个模型，我们可以预测在一定时间内细菌的增长情况。</p>
+<p>我们还有这个美妙的欧拉公式，它连接了两个最常用的常数和复数和自然数的底：</p>
 <p><span class="math display">\[e^{i\pi}+ 1=0.\]</span></p>
-<p>The full list of exponential and logarithmic functions, together with some handy variants, are presented in <span data-cites="tbl:maths:explog" class="citation">[@tbl:maths:explog]</span>.</p>
+<p>指数和对数函数的完整列表，以及一些方便的变体，都在<span data-cites="tbl:maths:explog" class="citation">[@tbl:maths:explog]</span>中呈现。</p>
 <table style="width:97%;">
-<caption>Exponential and logarithmic math functions {#tbl:maths:explog}</caption>
+<caption>指数和对数数学函数 {#tbl:maths:explog}</caption>
 <colgroup>
 <col style="width: 19%">
 <col style="width: 77%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">解释</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>exp</code></td>
-<td style="text-align: left;">exponential <span class="math inline">\(e^x\)</span></td>
+<td style="text-align: left;">指数函数<span class="math inline">\(e^x\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>exp2</code></td>
@@ -152,7 +153,7 @@
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>expm1</code></td>
-<td style="text-align: left;">returns <span class="math inline">\(\exp(x) - 1\)</span> but more accurate for <span class="math inline">\(x \sim 0\)</span></td>
+<td style="text-align: left;">返回<span class="math inline">\(\exp(x) - 1\)</span>，但对于<span class="math inline">\(x \sim 0\)</span>更精确</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>log</code></td>
@@ -164,7 +165,7 @@
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>log10</code></td>
-<td style="text-align: left;"><span class="math inline">\(\log_10~x\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\log_{10}~x\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>logn</code></td>
@@ -172,7 +173,7 @@
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>log1p</code></td>
-<td style="text-align: left;">inverse of <code>expm1</code></td>
+<td style="text-align: left;">逆函数<code>expm1</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>logabs</code></td>
@@ -205,17 +206,19 @@
 </tbody>
 </table>
 </section>
+
+</section>
 <section class="level3" id="trigonometric-functions">
-<h3>Trigonometric Functions</h3>
-<p>The sine, cosine, and tangent functions belong to the <em>trigonometric functions</em>, which relate ratios of two side lengths to an angle of a right-angled triangle. They include the commonly used <code>sin</code> and <code>cos</code> etc., and their reciprocals such as the cosecant, secant, etc. These functions are widely used in the numerical computation applications of different fields, such as mechanics and geometry. The triangular functions are all unary functions, for example:</p>
+<h3>三角函数</h3>
+<p>正弦、余弦和正切函数属于<em>三角函数</em>，它们将两条边的比率与直角三角形的角度联系起来。它们包括常用的<code>sin</code>和<code>cos</code>等，以及它们的倒数，如余割、正割等。这些函数在不同领域的数值计算应用中广泛使用，如力学和几何学。这些三角函数都是一元函数，例如：</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">Maths.sin (Owl_const.pi /. 2.)
 &gt;- : float = 1.
 </code></pre>
 </div>
-<p>They are all included in the math module in Owl, as shown in <span data-cites="tbl:maths:triangular" class="citation">[@tbl:maths:triangular]</span>.</p>
+<p>它们都包含在 Owl 的数学模块中，如<span data-cites="tbl:maths:triangular" class="citation">[@tbl:maths:triangular]</span>所示。</p>
 <table>
-<caption>Trigonometric math functions {#tbl:maths:triangular}</caption>
+<caption>三角数学函数 {#tbl:maths:triangular}</caption>
 <colgroup>
 <col style="width: 12%">
 <col style="width: 15%">
@@ -224,10 +227,10 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
-<th style="text-align: left;">Derivatives</th>
-<th style="text-align: left;">Taylor Expansion</th>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">解释</th>
+<th style="text-align: left;">导数</th>
+<th style="text-align: left;">泰勒展开</th>
 </tr>
 </thead>
 <tbody>
@@ -269,13 +272,13 @@
 </tr>
 </tbody>
 </table>
-<p>Here the <span class="math inline">\(B_n\)</span> is the <span class="math inline">\(n\)</span>th <a href="https://en.wikipedia.org/wiki/Bernoulli_number">Bernoulli number</a>, and <span class="math inline">\(E_n\)</span> is the <span class="math inline">\(n\)</span>th <a href="https://en.wikipedia.org/wiki/Euler_number">Euler number</a>. The <span data-cites="fig:algodiff:trio" class="citation">[@fig:algodiff:trio]</span> shows the relationship between these trigonometric functions. This figure is inspired by a <a href="https://zh.wikipedia.org/wiki/%E5%8F%8C%E6%9B%B2%E5%87%BD%E6%95%B0">wiki post</a>. These functions also have corresponding inverse functions: <code>asin</code>, <code>acos</code>, <code>atan</code>, <code>acot</code>, <code>asec</code>, <code>acsc</code>. For example, if <span class="math inline">\(\sin(a) = b\)</span>, then <span class="math inline">\(\textrm{asin}(b) = a\)</span>.</p>
+<p>这里的<span class="math inline">\(B_n\)</span>是第<span class="math inline">\(n\)</span>个<a href="https://zh.wikipedia.org/wiki/%E8%B4%9D%E7%BA%B3%E5%88%A9%E6%95%B0">贝努利数</a>，<span class="math inline">\(E_n\)</span>是第<span class="math inline">\(n\)</span>个<a href="https://zh.wikipedia.org/wiki/%E6%AC%A7%E6%8B%89%E6%95%B0">欧拉数</a>。图<span data-cites="fig:algodiff:trio" class="citation">[@fig:algodiff:trio]</span>显示了这些三角函数之间的关系。这个图表受到了<a href="https://zh.wikipedia.org/wiki/%E5%8F%8C%E6%9B%B2%E5%87%BD%E6%95%B0">维基百科的一篇文章</a>的启发。这些函数还有相应的反函数：<code>asin</code>、<code>acos</code>、<code>atan</code>、<code>acot</code>、<code>asec</code>、<code>acsc</code>。例如，如果<span class="math inline">\(\sin(a) = b\)</span>，那么<span class="math inline">\(\textrm{asin}(b) = a\)</span>。</p>
 <figure>
-<img style="width:60.0%" id="fig:algodiff:trio" alt="Relationship between different trigonometric functions" title="trio" src="images/maths/trio.png"><figcaption>Relationship between different trigonometric functions</figcaption>
+<img style="width:60.0%" id="fig:algodiff:trio" alt="不同三角函数之间的关系" title="trio" src="images/maths/trio.png"><figcaption>不同三角函数之间的关系</figcaption>
 </figure>
-<p>Another related idea is the <em>Hyperbolic functions</em> such as <code>sinh</code> and <code>cosh</code>. These functions are defined using exponential functions. We have seen in [@#fig:algodiff:trio] that the trigonometric functions are related to a circle. Similarly, the hyperbolic functions are related to a hyperbola. For example, the points <code>(cosh(x), sinh(x))</code> form the right half of the equilateral hyperbola, just like <code>(cos(x), sin(x))</code> on a circle. The hyperbolic functions is applied widely in numerical computing, such as in the differential equation solutions, hyperbolic geometry, etc.<br>
-These functions in Owl are shown below:</p>
+<p>另一个相关的概念是<em>双曲函数</em>，如<code>sinh</code>和<code>cosh</code>。这些函数是使用指数函数定义的。正如我们在[@#fig:algodiff:trio]中看到的，三角函数与圆相关。类似地，双曲函数与双曲线相关。例如，点<code>(cosh(x), sinh(x))</code>形成等边双曲线的右半部分，就像圆上的<code>(cos(x), sin(x))</code>一样。双曲函数广泛应用于数值计算中，如微分方程解、双曲几何等。</p>
 <ul>
+
 <li><code>sinh</code>: <span class="math inline">\(\frac{e^x - e^{-x}}{2}\)</span>, derivative is <span class="math inline">\(\cosh(x)\)</span>, and taylor expansion is <span class="math inline">\(\sum_{n=0}\frac{x^{2n+1}}{(2n+1)!}\)</span>.</li>
 <li><code>cosh</code>: <span class="math inline">\(\frac{e^x + e^{-x}}{2}\)</span>, derivative is <span class="math inline">\(\sinh(x)\)</span>, and taylor expansion is <span class="math inline">\(\sum_{n=0}\frac{x^{2n+1}}{(2n+1)!}\)</span>.</li>
 <li><code>tanh</code>: <span class="math inline">\(\frac{\sinh{x}}{\cosh{x}}\)</span>, derivative is <span class="math inline">\(1-\tanh^2(x)\)</span>, and taylor expansion is <span class="math inline">\(\sum_{n=1}\frac{4^n(4^n-1)B_{2n}~x^{2n-1}}{(2n)!}\)</span>.</li>
@@ -283,36 +286,37 @@ These functions in Owl are shown below:</p>
 <li><code>sech</code>: <span class="math inline">\(1/\cosh(x)\)</span>, derivative is <span class="math inline">\(-\tanh(x)/\cosh(x)\)</span>, and taylor expansion is <span class="math inline">\(\sum_{n=0}\frac{E_{2n}~x^{2n}}{(2n)!}\)</span>.</li>
 <li><code>csch</code>:<span class="math inline">\(1/\sinh(x)\)</span>, derivative is <span class="math inline">\(-\coth(x)/\sinh(x)\)</span>, and taylor expansion is <span class="math inline">\(\frac{1}{x}+\sum_{n=1}\frac{2(1-2^{2n-1})B_{2n}~x^{2n-1}}{(2n)!}\)</span>.</li>
 </ul>
-<p>Similarly, each of these functions has a corresponding inverse functions: <code>asinh</code>, <code>acosh</code>, <code>atanh</code>, <code>acoth</code>, <code>asech</code>, <code>acsch</code>. The relationship between these hyperbolic trigonometric functions are clearly depicted in <span data-cites="fig:algodiff:hyper_trio" class="citation">[@fig:algodiff:hyper_trio]</span>.</p>
+<p>同样地，每个这些函数都有对应的逆函数：<code>asinh</code>、<code>acosh</code>、<code>atanh</code>、<code>acoth</code>、<code>asech</code>、<code>acsch</code>。这些双曲三角函数之间的关系在<span data-cites="fig:algodiff:hyper_trio" class="citation">[@fig:algodiff:hyper_trio]</span>中清晰地描绘出来。</p>
 <figure>
-<img style="width:70.0%" id="fig:algodiff:hyper_trio" alt="Relationship between different hyperbolic trigonometric functions" title="hyper_trio" src="images/maths/hyper_trio.png"><figcaption>Relationship between different hyperbolic trigonometric functions</figcaption>
+<img style="width:70.0%" id="fig:algodiff:hyper_trio" alt="不同双曲三角函数之间的关系" title="hyper_trio" src="images/maths/hyper_trio.png"><figcaption>不同双曲三角函数之间的关系</figcaption>
 </figure>
-<p>Besides these functions, there are also some related functions. <code>sinc</code> returns <span class="math inline">\(\sin(x)/x\)</span> and 1 for <span class="math inline">\(x=0\)</span>. <code>logsinh</code> returns <span class="math inline">\(\log(\sinh(x))\)</span> but handles large <span class="math inline">\(|x|\)</span>. <code>logcosh</code> returns <span class="math inline">\(\log(\cosh(x))\)</span> but handles large <span class="math inline">\(|x|\)</span>. <code>sindg</code>/<code>cosdg</code>/<code>tandg</code>/<code>cotdg</code> are the sine/cosine/tangent/cotangent of the angle given in degrees.</p>
+<p>除了这些函数外，还有一些相关的函数。 <code>sinc</code> 返回 <span class="math inline">\(\sin(x)/x\)</span> 并且在 <span class="math inline">\(x=0\)</span> 时为 1。 <code>logsinh</code> 返回 <span class="math inline">\(\log(\sinh(x))\)</span> 但处理大的 <span class="math inline">\(|x|\)</span>。 <code>logcosh</code> 返回 <span class="math inline">\(\log(\cosh(x))\)</span> 但处理大的 <span class="math inline">\(|x|\)</span>。 <code>sindg</code>/<code>cosdg</code>/<code>tandg</code>/<code>cotdg</code> 是以度为单位给定的角度的正弦/余弦/正切/余切。</p>
 </section>
 <section class="level3" id="other-math-functions">
-<h3>Other Math Functions</h3>
-<p>There are some other functions that may not be very commonly used in traditional mathematics. Functions such as <code>sigmoid</code> and <code>relu</code> are frequently used in the Deep Learning as the activation functions in a neural network. The activation functions are crucial to the neural network regarding various aspects, including output result, accuracy, convergence speed, etc. We will talk about them in detail in the Neural Network chapter later in this book.</p>
+<h3>其他数学函数</h3>
+<p>还有一些在传统数学中可能不太常用的其他函数。像 <code>sigmoid</code> 和 <code>relu</code> 这样的函数在深度学习中经常用作神经网络中的激活函数。激活函数对于神经网络在输出结果、准确性、收敛速度等方面都至关重要。我们将在本书后面的神经网络章节中详细讨论它们。</p>
 <ul>
 <li><code>sigmoid x</code>: <span class="math inline">\(1 / (1 + \exp(-x))\)</span></li>
-<li><code>signum x</code>: returns the sign of <code>x</code>: -1, 0, or 1</li>
-<li><code>softsign x</code>: smooths <code>sign</code> function</li>
+<li><code>signum x</code>: 返回 <code>x</code> 的符号：-1、0 或 1</li>
+<li><code>softsign x</code>: 平滑 <code>sign</code> 函数</li>
 <li><code>relu x</code>: <span class="math inline">\(\max(0, x)\)</span></li>
 </ul>
 </section>
 </section>
 <section class="level2" id="special-functions">
-<h2>Special Functions</h2>
-<p>Besides what we have just listed, there are also a lot special functions. You may not heard of them before, but they have established names and are important in different fields such as mathematical analysis, physics, etc. In Owl, the implementations of these functions rely on the <a href="http://www.netlib.org/cephes/">Cephes Mathematical Functions Library</a>, a C language library with special functions of interest to scientists and engineers. They are list in the rest of this section. Perhaps we cannot dig deep into the mathematical or physical implication of all these functions, but you may find them handy when you need one.</p>
+<h2>特殊函数</h2>
+<p>除了我们刚刚列出的，还有很多特殊函数。你可能以前没听说过它们，但它们在数学分析、物理学等不同领域都有确立的名称，对科学家和工程师很重要。在 Owl 中，这些函数的实现依赖于<a href="http://www.netlib.org/cephes/">Cephes 数学函数库</a>，这是一个包含对科学家和工程师感兴趣的特殊函数的 C 语言库。它们在本节的其余部分中列出。也许我们不能深入挖掘所有这些函数的数学或物理含义，但在需要时您可能会发现它们非常方便。</p>
 <section class="level3" id="airy-functions">
-<h3>Airy Functions</h3>
-<p>The Airy function <code>Ai(x)</code> is named after the British astronomer George B. Airy. It is the solution of the second order linear differential equation:</p>
+<h3>艾里函数</h3>
+<p>艾里函数 <code>Ai(x)</code> 以英国天文学家乔治·B·艾里的名字命名。它是二阶线性微分方程的解：</p>
 <p><span class="math display">\[y''(x) = xy(x).\]</span></p>
-<p>This differential equation has two linearly independent solutions <code>Ai</code> and <code>Bi</code>. Owl provides the <code>airy</code> function to do that:</p>
+<p>这个微分方程有两个线性无关的解 <code>Ai</code> 和 <code>Bi</code>。Owl 提供 <code>airy</code> 函数来执行此操作：</p>
 <div class="highlight">
 <pre><code class="language-clike">val airy : float -&gt; float * float * float * float</code></pre>
 </div>
-<p>The four returned numbers are <code>Ai</code>, its derivative <code>Ai'</code>, <code>Bi</code>, and its derivative <code>Bi'</code>. Let’s look at an example. It plots the two solutions <code>Ai</code> and <code>Bi</code> in <span data-cites="fig:algodiff:airy" class="citation">[@fig:algodiff:airy]</span>.</p>
+<p>返回的四个数字分别是 <code>Ai</code>、它的导数 <code>Ai'</code>、<code>Bi</code> 和它的导数 <code>Bi'</code>。让我们看一个例子。它绘制了两个解 <code>Ai</code> 和 <code>Bi</code> 在<span data-cites="fig:algodiff:airy" class="citation">[@fig:algodiff:airy]</span>中。</p>
 <div class="highlight">
+
 <pre><code class="language-ocaml">let x = Mat.linspace (-15.) 5. 200
 
 let y0 = Mat.map (fun x -&gt;
@@ -332,160 +336,142 @@ let _ =
   Plot.output h</code></pre>
 </div>
 <figure>
-<img style="width:60.0%" id="fig:algodiff:airy" alt="Examples of the two solutions of an Airy equation" title="airy" src="images/maths/example_airy.png"><figcaption>Examples of the two solutions of an Airy equation</figcaption>
+<figure>
+<img style="width:60.0%" id="fig:algodiff:airy" alt="艾里方程两个解的示例" title="airy" src="images/maths/example_airy.png">
+<figcaption>艾里方程两个解的示例</figcaption>
 </figure>
 </section>
 <section class="level3" id="bessel-functions">
-<h3>Bessel Functions</h3>
-<p>Bessel functions, first defined by the mathematician Daniel Bernoulli and then generalized by Friedrich Bessel, are canonical solutions of Bessel’s differential equation:</p>
+<h3>贝塞尔函数</h3>
+<p>贝塞尔函数由数学家丹尼尔·贝努利首次定义，然后由弗里德里希·贝塞尔进行了泛化，它们是贝塞尔微分方程的规范解：</p>
 <p><span class="math display">\[x^2y''+xy'+(x^2 - \alpha^2)y = 0.\]</span></p>
-<p>The complex number <span class="math inline">\(\alpha\)</span> is called the “order” of the bessel function. Bessel functions are important for many problems in studying the wave propagation and static potentials, such as electromagnetic waves in a cylindrical waveguide. In solving cylindrical coordinate systems, Bessel functions of integer order or half integer order are often used.</p>
-<p>The Bessel functions can be divided into two kinds. Both kinds are solutions to the Bessel’s differential equations, but the first kind is non-singular at the origin, while the second kind is singular at the origin (<span class="math inline">\(x=0\)</span>). A special case is when <span class="math inline">\(x\)</span> is purely imaginary. In this case, the solutions are called the modified Bessel functions, which can also be categorised into first kind and second kind. Based on these category, Owl provides these functions.</p>
+<p>复数<span class="math inline">\(\alpha\)</span>被称为贝塞尔函数的“阶”。贝塞尔函数在研究波传播和静电势等许多问题中非常重要，例如在圆柱波导中的电磁波。在解决柱坐标系时，通常使用整数阶或半整数阶的贝塞尔函数。</p>
+<p>贝塞尔函数可以分为两种。两种都是贝塞尔微分方程的解，但第一种在原点处是非奇异的，而第二种在原点处是奇异的（<span class="math inline">\(x=0\)</span>）。特殊情况是当<span class="math inline">\(x\)</span>是纯虚数时。在这种情况下，解被称为修改的贝塞尔函数，它也可以被归类为第一种和第二种。基于这些类别，Owl提供了这些函数。</p>
 <table style="width:76%;">
-<caption>Bessel functions {#tbl:maths:bessel}</caption>
+<caption>贝塞尔函数 {#tbl:maths:bessel}</caption>
 <colgroup>
 <col style="width: 12%">
 <col style="width: 63%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Function</th>
-<th style="text-align: left;">Explanation</th>
+<th>函数</th>
+<th style="text-align: left;">解释</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>j0 x</code></td>
-<td style="text-align: left;">Bessel function of the first kind of order 0</td>
+<td style="text-align: left;">零阶第一类贝塞尔函数</td>
 </tr>
 <tr class="even">
 <td><code>j1 x</code></td>
-<td style="text-align: left;">Bessel function of the first kind of order 1</td>
+<td style="text-align: left;">一阶第一类贝塞尔函数</td>
 </tr>
 <tr class="odd">
 <td><code>jv x y</code></td>
-<td style="text-align: left;">Bessel function of the first kind of real order</td>
+<td style="text-align: left;">实阶第一类贝塞尔函数</td>
 </tr>
 <tr class="even">
 <td><code>y0 x</code></td>
-<td style="text-align: left;">Bessel function of the second kind of order 0</td>
+<td style="text-align: left;">零阶第二类贝塞尔函数</td>
 </tr>
 <tr class="odd">
 <td><code>y1 x</code></td>
-<td style="text-align: left;">Bessel function of the second kind of order 1</td>
+<td style="text-align: left;">一阶第二类贝塞尔函数</td>
 </tr>
 <tr class="even">
 <td><code>yv x y</code></td>
-<td style="text-align: left;">Bessel function of the second kind of real order</td>
+<td style="text-align: left;">实阶第二类贝塞尔函数</td>
 </tr>
 <tr class="odd">
 <td><code>yn a x</code></td>
-<td style="text-align: left;">Bessel function of the second kind of integer order</td>
+<td style="text-align: left;">整数阶第二类贝塞尔函数</td>
 </tr>
 <tr class="even">
 <td><code>i0 x</code></td>
-<td style="text-align: left;">Modified Bessel function of order 0</td>
+<td style="text-align: left;">零阶修改贝塞尔函数</td>
 </tr>
 <tr class="odd">
 <td><code>i1 x</code></td>
-<td style="text-align: left;">Modified Bessel function of order 1</td>
+<td style="text-align: left;">一阶修改贝塞尔函数</td>
 </tr>
 <tr class="even">
 <td><code>iv x y</code></td>
-<td style="text-align: left;">Modified Bessel function of real order</td>
+<td style="text-align: left;">实阶修改贝塞尔函数</td>
 </tr>
 <tr class="odd">
 <td><code>i0e x</code></td>
-<td style="text-align: left;">Exponentially scaled modified Bessel function of order 0</td>
+<td style="text-align: left;">零阶指数缩放修改贝塞尔函数</td>
 </tr>
 <tr class="even">
 <td><code>i1e x</code></td>
-<td style="text-align: left;">Exponentially scaled modified Bessel function of order 1</td>
+<td style="text-align: left;">一阶指数缩放修改贝塞尔函数</td>
 </tr>
 <tr class="odd">
 <td><code>k0 x</code></td>
-<td style="text-align: left;">Modified Bessel function of the second kind of order 0</td>
+<td style="text-align: left;">零阶第二类修改贝塞尔函数</td>
 </tr>
 <tr class="even">
 <td><code>k1</code></td>
-<td style="text-align: left;">Modified Bessel function of the second kind of order 1</td>
+<td style="text-align: left;">一阶第二类修改贝塞尔函数</td>
 </tr>
 <tr class="odd">
 <td><code>k0e</code></td>
-<td style="text-align: left;">Exponentially scaled modified Bessel function of the second kind of order 0</td>
+<td style="text-align: left;">零阶指数缩放第二类修改贝塞尔函数</td>
 </tr>
 <tr class="even">
 <td><code>k1e</code></td>
-<td style="text-align: left;">Exponentially scaled modified Bessel function of the second kind of order 1</td>
+<td style="text-align: left;">一阶指数缩放第二类修改贝塞尔函数</td>
 </tr>
 </tbody>
 </table>
-<p>In the example below, we plot the first kind Bessel function of order 0, 1, and 2, as shown in <span data-cites="fig:algodiff:bessel" class="citation">[@fig:algodiff:bessel]</span>.</p>
-<div class="highlight">
-<pre><code class="language-ocaml">let x = Mat.linspace (0.) 20. 200
-
-let y0 = Mat.map Maths.j0 x
-
-let y1 = Mat.map Maths.j1 x
-
-let y2 = Mat.map (Maths.jv 2.) x
-
-let _ =
-  let h = Plot.create "example_bessel.png" in
-  Plot.(plot ~h ~spec:[ RGB (66, 133, 244); LineStyle 1; LineWidth 2. ] x y0);
-  Plot.(plot ~h ~spec:[ RGB (219, 68,  55); LineStyle 2; LineWidth 2. ] x y1);
-  Plot.(plot ~h ~spec:[ RGB (244, 180,  0); LineStyle 3; LineWidth 2. ] x y2);
-  Plot.(legend_on h ~position:NorthEast [|"j0"; "j1"; "j2"|]);
-  Plot.output h</code></pre>
-</div>
-<figure>
-<img style="width:60.0%" id="fig:algodiff:bessel" alt="Examples of Bessel function of the first kind, with different order" title="bessel" src="images/maths/example_bessel.png"><figcaption>Examples of Bessel function of the first kind, with different order</figcaption>
-</figure>
 </section>
+
 <section class="level3" id="elliptic-functions">
-<h3>Elliptic Functions</h3>
-<p>The <em>Jacobian elliptic functions</em> are used in studying the pendulum motion. There are twelve Jacobi elliptic functions and <code>ellipj</code> we include here in Owl returns three of them: <code>sn</code>, <code>cn</code>, and <code>dn</code>. The fourth output <code>phi</code> of this function is called the amplitude of input <code>u</code>.</p>
-<p>On the other hand, the <em>Elliptic integrals</em> are initially used to find the perimeters of ellipses. A Elliptic integral function can be expressed in the form of: <span class="math display">\[f(x)=\int_c^xR(t, \sqrt(P(t)))dt,\]</span> where <span class="math inline">\(R\)</span> is a rational function of its two arguments, <span class="math inline">\(P\)</span> is a polynomial of degree 3 or 4 with no repeated roots, and <span class="math inline">\(c\)</span> is a constant. An elliptic integral can be categorised as “complete” or “incomplete”. The former one is function of a single argument, while the latter contains two arguments. Each elliptic integral can be transformed so that it contains integrals of rational functions and the three Legendre canonical forms, according to which the elliptic can be categorised into the first, second, and third kind. The elliptic functions in Owl are listed in <span data-cites="tbl:maths:elliptic" class="citation">[@tbl:maths:elliptic]</span>.</p>
+<h3>椭圆函数</h3>
+<p><em>Jacobi椭圆函数</em>用于研究摆动运动。共有十二个Jacobi椭圆函数，而我们在这里包括的<code>ellipj</code>返回其中三个：<code>sn</code>、<code>cn</code>和<code>dn</code>。该函数的第四个输出<code>phi</code>被称为输入<code>u</code>的振幅。</p>
+<p>另一方面，<em>椭圆积分</em>最初用于找到椭圆的周长。椭圆积分函数可以表示为：<span class="math display">\[f(x)=\int_c^xR(t, \sqrt{P(t)})dt,\]</span>其中<span class="math inline">\(R\)</span>是其两个参数的有理函数，<span class="math inline">\(P\)</span>是次数为3或4的多项式，没有重复的根，<span class="math inline">\(c\)</span>是一个常数。椭圆积分可以分为“完全”或“不完全”。前者是一个单一参数的函数，而后者包含两个参数。每个椭圆积分都可以变换，使其包含有理函数和三个Legendre标准形式的积分，根据这些形式，椭圆可以分为第一、第二和第三类。Owl中的椭圆函数列在<span data-cites="tbl:maths:elliptic" class="citation">[@tbl:maths:elliptic]</span>中。</p>
 <table>
-<caption>Elliptic functions {#tbl:maths:elliptic}</caption>
+<caption>椭圆函数 {#tbl:maths:elliptic}</caption>
 <colgroup>
 <col style="width: 21%">
 <col style="width: 78%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">解释</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>ellipj u m</code></td>
-<td style="text-align: left;">Jacobian elliptic functions of parameter <code>m</code> between 0 and 1, and real argument <code>u</code></td>
+<td style="text-align: left;">参数<code>m</code>在0和1之间，实参数<code>u</code>的Jacobi椭圆函数</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>ellipk m</code></td>
-<td style="text-align: left;">Complete elliptic integral of the first kind</td>
+<td style="text-align: left;">完全椭圆积分的第一类</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>ellipkm1 p</code></td>
-<td style="text-align: left;">Complete elliptic integral of the first kind around m = 1</td>
+<td style="text-align: left;">围绕m = 1的完全椭圆积分的第一类</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>ellipkinc phi m</code></td>
-<td style="text-align: left;">Incomplete elliptic integral of the first kind</td>
+<td style="text-align: left;">第一类不完全椭圆积分</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>ellipe m</code></td>
-<td style="text-align: left;">Complete elliptic integral of the second kind</td>
+<td style="text-align: left;">完全椭圆积分的第二类</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>ellipeinc phi m</code></td>
-<td style="text-align: left;">Incomplete elliptic integral of the second kind</td>
+<td style="text-align: left;">第二类不完全椭圆积分</td>
 </tr>
 </tbody>
 </table>
-<p>We can use <code>ellipe</code> to compute the circumference of an ellipse. To compute that normally requires calculus, but the elliptic functions provides a simple solution. Suppose an ellipse has semi-major axis <span class="math inline">\(a=4\)</span> and semi-minor axis <span class="math inline">\(b=3\)</span>. We an compute its circumference simply using <span class="math inline">\(4a\textrm{ellipe}(1 - \frac{b^2}{a^2})\)</span>.</p>
+<p>我们可以使用<code>ellipe</code>计算椭圆的周长。通常，要计算这个需要微积分，但椭圆函数提供了一个简单的解决方案。假设一个椭圆的半长轴<span class="math inline">\(a=4\)</span>，半短轴<span class="math inline">\(b=3\)</span>。我们可以简单地使用<span class="math inline">\(4a\textrm{ellipe}(1 - \frac{b^2}{a^2})\)</span>来计算其周长。</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">let a = 4.
 &gt;val a : float = 4.
@@ -497,61 +483,62 @@ let c = 4. *. a *. Maths.(ellipe (1. -. pow (b /. a) 2.))
 </div>
 </section>
 <section class="level3" id="gamma-functions">
-<h3>Gamma Functions</h3>
-<p>For a positive integer n, the <em>Gamma function</em> is the factorial function:</p>
+<h3>伽玛函数</h3>
+<p>对于正整数n，<em>伽玛函数</em>是阶乘函数：</p>
 <p><span class="math display">\[\Gamma(n) = (n-1)!\]</span></p>
-<p>For a complex numbers <span class="math inline">\(z\)</span> with a positive real part, the Gamma function is defined as:</p>
+<p>对于具有正实部的复数<span class="math inline">\(z\)</span>，伽玛函数定义为：</p>
 <p><span class="math display">\[\Gamma(z) = \int_0^{\infty}x^{z-1}e^{-x}dx.\]</span></p>
-<p>Here the gamma function is an integral from zero to infinity. If we change it to an integral from zero to a certain upper limit, it is called the “lower incomplete gamma function”. Similarly, if it is an integral from a certain lower limit to infinity, the integral is called the “upper incomplete gamma function”.</p>
-<p>The Gamma function is widely used in a range of areas such as fluid dynamics, geometry, astrophysics, etc. It is especially suitable for describing a common pattern of processes that decay exponentially in time or space. The Gamma function and related function provided in Owl are listed in <span data-cites="tbl:maths:gamma" class="citation">[@tbl:maths:gamma]</span>.</p>
+<p>这里的伽玛函数是从零到无穷的积分。如果我们将其更改为从零到某个上限的积分，则称为“下不完全伽玛函数”。同样，如果是从某个下限到无穷的积分，则该积分称为“上不完全伽玛函数”。</p>
+<p>伽玛函数在流体动力学、几何学、天体物理学等多个领域广泛应用。它特别适用于描述时间或空间中呈指数衰减的过程的普遍模式。Owl提供的伽玛函数及相关函数列在<span data-cites="tbl:maths:gamma" class="citation">[@tbl:maths:gamma]</span>中。</p>
 <table>
-<caption>Gamma functions {#tbl:maths:gamma}</caption>
+<caption>伽玛函数
+
 <colgroup>
 <col style="width: 32%">
 <col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">解释</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>gamma z</code></td>
-<td style="text-align: left;">Returns the value of the Gamma function</td>
+<td style="text-align: left;">返回 Gamma 函数的值</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>rgamma z</code></td>
-<td style="text-align: left;">Reciprocal of the Gamma function</td>
+<td style="text-align: left;">Gamma 函数的倒数</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>loggamma z</code></td>
-<td style="text-align: left;">Principal branch of the logarithm of the Gamma function</td>
+<td style="text-align: left;">Gamma 函数对数的主支</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>gammainc a x</code></td>
-<td style="text-align: left;">Regularized lower incomplete gamma function</td>
+<td style="text-align: left;">正则化的下不完全 Gamma 函数</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>gammaincinv a y</code></td>
-<td style="text-align: left;">Inverse function of <code>gammainc</code></td>
+<td style="text-align: left;"><code>gammainc</code> 的反函数</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>gammaincc a x</code></td>
-<td style="text-align: left;">Complemented incomplete gamma integral</td>
+<td style="text-align: left;">补充不完全 Gamma 积分</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>gammainccinv a y</code></td>
-<td style="text-align: left;">Inverse function of <code>gammaincc</code></td>
+<td style="text-align: left;"><code>gammaincc</code> 的反函数</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>psi z</code></td>
-<td style="text-align: left;">The digamma function</td>
+<td style="text-align: left;">digamma 函数</td>
 </tr>
 </tbody>
 </table>
-<p>Here is an example of using <code>gamma</code>.</p>
+<p>这里是使用 <code>gamma</code> 的一个例子。</p>
 <div class="highlight">
 <pre><code class="language-ocaml">let x = Mat.linspace (-3.5) 5. 2000
 
@@ -564,17 +551,17 @@ let _ =
   Plot.output h</code></pre>
 </div>
 <figure>
-<img style="width:60.0%" id="fig:algodiff:gamma" alt="Examples of Gamma function along part of the real axis" title="gamma" src="images/maths/example_gamma.png"><figcaption>Examples of Gamma function along part of the real axis</figcaption>
+<img style="width:60.0%" id="fig:algodiff:gamma" alt="Examples of Gamma function along part of the real axis" title="gamma" src="images/maths/example_gamma.png"><figcaption>实轴部分的 Gamma 函数示例</figcaption>
 </figure>
 </section>
 <section class="level3" id="beta-functions">
-<h3>Beta Functions</h3>
-<p>Beta function is defined as:</p>
+<h3>Beta 函数</h3>
+<p>Beta 函数定义为：</p>
 <p><span class="math display">\[B(x,y) = \int_0^1t^{x-1}(1-t)^{y-1}dt = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}\]</span></p>
-<p>Here <span class="math inline">\(\Gamma\)</span> is the Gamma function, and similar to it, the Beta function has its “incomplete” version. The incomplete Beta function extends this definition to:</p>
+<p>这里 <span class="math inline">\(\Gamma\)</span> 是 Gamma 函数，类似于 Gamma 函数，Beta 函数也有其“不完全”版本。不完全 Beta 函数将此定义扩展为：</p>
 <p><span class="math display">\[B(x, a, b) = \int_0^xt^{a-1}(1-t)^{b-1}dt.\]</span></p>
-<p>In Owl the Beta function is called using the <code>beta x y</code> function from the <code>Maths</code> module, and its incomplete version is <code>betainc a b x</code>. We also provide the <code>betaincinv</code> function, which is the inverse of <code>betainc</code>.</p>
-<p>The Beta function has several properties. For example, the code below shows the relationship between beta function and gamma function.</p>
+<p>在 Owl 中，可以使用 <code>Maths</code> 模块中的 <code>beta x y</code> 函数调用 Beta 函数，其不完全版本是 <code>betainc a b x</code>。我们还提供了 <code>betaincinv</code> 函数，它是 <code>betainc</code> 的反函数。</p>
+<p>Beta 函数有几个属性。例如，下面的代码显示了 beta 函数和 gamma 函数之间的关系。</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">let x = Maths.beta 3. 4.
 &gt;val x : float = 0.0166666666666666664
@@ -582,7 +569,7 @@ let y = Maths.((gamma 3.) *. (gamma 4.) /. (gamma (7.)))
 &gt;val y : float = 0.0166666666666666664
 </code></pre>
 </div>
-<p>Another property is its symmetricity, which means <span class="math inline">\(B(x,y) = B(y, x)\)</span>.</p>
+<p>另一个属性是其对称性，即 <span class="math inline">\(B(x,y) = B(y, x)\)</span>。</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">let x = Maths.beta 3. 4.
 &gt;val x : float = 0.0166666666666666664
@@ -590,13 +577,12 @@ let y = Maths.beta 4. 3.
 &gt;val y : float = 0.0166666666666666664
 </code></pre>
 </div>
-<p>Beta function is the first known scattering amplitude in the String theory in physics. It is also used in the analysis of the preferential attachment process, a type of stochastic urn process that describes how the resource can be distributed among a group of individuals based on the existing resource each one has acquired.</p>
-</section>
+
 <section class="level3" id="struve-functions">
-<h3>Struve Functions</h3>
-<p>The <em>Struve function</em> is defined as: <span class="math display">\[H_v(x) = (z/2)^{v + 1} \sum_{n=0}^\infty \frac{(-1)^n (z/2)^{2n}}{\Gamma(n + \frac{3}{2}) \Gamma(n + v + \frac{3}{2})},\]</span></p>
-<p>where <span class="math inline">\(\Gamma\)</span> is the Gamma function. <span class="math inline">\(x\)</span> must be positive unless <span class="math inline">\(v\)</span> is an integer. Struve functions are used across a wide variety of physics applications, such as water-wave problems and calculations in unsteady aerodynamics.</p>
-<p>The Owl function <code>struve v x</code> returns the value of Struve function. The parameter <span class="math inline">\(v\)</span> is called the <em>order</em> of this function. Here is an example that shows the curves of Struve functions with order from 0 to 4.</p>
+<h3>斯特鲁夫函数</h3>
+<p><em>斯特鲁夫函数</em>定义如下：<span class="math display">\[H_v(x) = (z/2)^{v + 1} \sum_{n=0}^\infty \frac{(-1)^n (z/2)^{2n}}{\Gamma(n + \frac{3}{2}) \Gamma(n + v + \frac{3}{2})},\]</span></p>
+<p>其中<span class="math inline">\(\Gamma\)</span>是伽玛函数。除非<span class="math inline">\(v\)</span>是整数，否则<span class="math inline">\(x\)</span>必须为正数。斯特鲁夫函数广泛应用于各种物理应用，如水波问题和非定常空气动力学计算等。</p>
+<p>Owl函数<code>struve v x</code>返回斯特鲁夫函数的值。参数<span class="math inline">\(v\)</span>被称为此函数的<em>阶</em>。以下是显示阶从0到4的斯特鲁夫函数曲线的示例。</p>
 <div class="highlight">
 <pre><code class="language-ocaml">let _ =
   let h = Plot.create "example_struve.png" in
@@ -610,15 +596,15 @@ let y = Maths.beta 4. 3.
   Plot.output h</code></pre>
 </div>
 <figure>
-<img style="width:60.0%" id="fig:algodiff:struve" alt="Examples of Struve function for different orders." title="struve" src="images/maths/example_struve.png"><figcaption>Examples of Struve function for different orders.</figcaption>
+<img style="width:60.0%" id="fig:algodiff:struve" alt="不同阶数的斯特鲁夫函数示例。" title="struve" src="images/maths/example_struve.png"><figcaption>不同阶数的斯特鲁夫函数示例。</figcaption>
 </figure>
 </section>
 <section class="level3" id="zeta-functions">
-<h3>Zeta Functions</h3>
-<p>The <em>Hurwitz zeta function</em> <code>zeta x q</code> is defined as:</p>
+<h3>ζ函数</h3>
+<p><em>赫维茨 zeta 函数</em> <code>zeta x q</code>定义如下：</p>
 <p><span class="math display">\[\zeta(x, q) = \sum_{k=0}^{\infty}\frac{1}{(k+q)^x}.\]</span></p>
-<p>When <span class="math inline">\(q\)</span> is set to 1, this function is reduced to the <em>Riemann zeta function</em>. The function <code>zetac x</code> returns Riemann zeta function minus 1. The zeta function is often used to analyse the dynamic systems. Besides, the Riemann zeta function plays an important role in number theory and is widely applied in quantum physics, probability theory, and applied statistics, etc.</p>
-<p>We can evaluate the zeta function at certain points, for example:</p>
+<p>当<span class="math inline">\(q\)</span>设置为1时，该函数缩减为<em>黎曼 zeta 函数</em>。函数<code>zetac x</code>返回黎曼 zeta 函数减1。ζ函数经常用于分析动态系统。此外，黎曼 zeta 函数在数论中发挥重要作用，并在量子物理、概率论和应用统计学等广泛应用。</p>
+<p>我们可以在特定点评估ζ函数，例如：</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">Maths.zeta 4. 1.
 &gt;- : float = 1.08232323371113837
@@ -628,45 +614,45 @@ let y = Maths.beta 4. 3.
 </div>
 </section>
 <section class="level3" id="error-functions">
-<h3>Error Functions</h3>
-<p>The error functions here are not about error processing in programming, but yet another family of special functions. In mathematics, an error function is defined as: <span class="math display">\[\frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2})dt.\]</span></p>
-<p>The error function occurs often in probability and statistics. Actually, in statistics, for a non-negative value <code>x</code>, <code>erf x</code> is the probability that a random variable <code>y</code> falls in the range <code>[-x, x]</code>. Here <code>y</code> follows a normal distribution with mean 0 and variance 0.5. Since it represents certain probability, the <em>complementary</em> error function <code>1 - erf(x)</code> is also frequently used. The error function and related variants in Owl are listed in <span data-cites="tbl:maths:error" class="citation">[@tbl:maths:error]</span>.</p>
+<h3>误差函数</h3>
+<p>这里的误差函数不是关于编程中的错误处理，而是另一类特殊函数。在数学中，误差函数定义为：<span class="math display">\[\frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2})dt.\]</span></p>
+<p>误差函数经常出现在概率和统计学中。实际上，在统计学中，对于非负值<code>x</code>，<code>erf x</code>是随机变量<code>y</code>落在范围<code>[-x, x]</code>的概率。这里<code>y</code>服从均值为0、方差为0.5的正态分布。由于它表示某种概率，<em>补充</em>误差函数<code>1 - erf(x)</code>也经常使用。Owl中的误差函数及其相关变体列在<span data-cites="tbl:maths:error" class="citation">[@tbl:maths:error]</span>中。</p>
 <table>
-<caption>Error functions {#tbl:maths:error}</caption>
+<caption>误差函数 {#tbl:maths:error}</caption>
 <colgroup>
 <col style="width: 32%">
 <col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">解释</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>erf x</code></td>
-<td style="text-align: left;">Error function</td>
+<td style="text-align: left;">误差函数</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>erfc x</code></td>
-<td style="text-align: left;">Complementary error function: <span class="math inline">\(1 - \textrm{erf}(x)\)</span></td>
+<td style="text-align: left;">补充误差函数：<span class="math inline">\(1 - \textrm{erf}(x)\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>erfcx x</code></td>
-<td style="text-align: left;">Scaled complementary error function: <span class="math inline">\(\exp(x^2) \mathrm{erfc}(x)\)</span></td>
+<td style="text-align: left;">缩放的补充误差函数：<span class="math inline">\(\exp(x^2) \mathrm{erfc}(x)\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>erfinv x</code></td>
-<td style="text-align: left;">Inverse function of <code>erf</code></td>
+<td style="text-align: left;">误差函数的反函数</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>erfcinv x</code></td>
-<td style="text-align: left;">Inverse function of <code>erfc</code></td>
+<td style="text-align: left;">补充误差函数的反函数</td>
 </tr>
 </tbody>
 </table>
-<p>The error function is a sigmoid function. We can observe its shape by the code below.</p>
+<p>误差函数是一个sigmoid函数。我们可以通过下面的代码观察其形状。</p>
 <div class="highlight">
 <pre><code class="language-ocaml">let _ =
   let h = Plot.create "example_erf.png" in
@@ -674,15 +660,15 @@ let y = Maths.beta 4. 3.
   Plot.output h</code></pre>
 </div>
 <figure>
-<img style="width:75.0%" id="fig:algodiff:erf" alt="Plot of the Error function." title="struve" src="images/maths/example_erf.png"><figcaption>Plot of the Error function.</figcaption>
+<img style="width:75.0%" id="fig:algodiff:erf" alt="误差函数的绘图。" title="struve" src="images/maths/example_erf.png"><figcaption>误差函数的绘图。</figcaption>
 </figure>
 </section>
 <section class="level3" id="integral-functions">
-<h3>Integral Functions</h3>
-<p>Besides what we have mentioned so far, Owl also provides several special integral functions.</p>
-<p>For example, the <em>Dawson function</em> is defined as: <span class="math display">\[D(x) = e^{-x^2}\int_0^x~e^{t^2}dt\]</span></p>
-<p>And the <em>Fresnel trigonometric integral</em> returns a tuple that contains two parts: <span class="math display">\[S(x) = \int_0^x~sin(t^2)dt, C(x) = \int_0^x~cos(t^2)dt.\]</span></p>
-<p>Just like many otheer special functions, these two types of inegrals are motivated by research in physics, such as the electromagnetic problems. They are provided by the <code>dawsn</code> and <code>fresnel</code> functions in the <code>Maths</code> module respecitively. We can observe the functions of these integrals with plots.</p>
+<h3>积分函数</h3>
+<p>除了我们到目前为止提到的内容，Owl还提供了几个特殊积分函数。</p>
+<p>例如，<em>道森函数</em>定义为：<span class="math display">\[D(x) = e^{-x^2}\int_0^x~e^{t^2}dt\]</span></p>
+<p>而<em>菲涅尔三角函数积分</em>返回一个包含两部分的元组：<span class="math display">\[S(x) = \int_0^x~sin(t^2)dt, C(x) = \int_0^x~cos(t^2)dt.\]</span></p>
+<p>与许多其他特殊函数一样，这两种类型的积分受到了物理研究的启发，如电磁问题。它们分别由<code>dawsn</code>和<code>fresnel</code>函数在<code>Maths</code>模块中提供。我们可以通过绘图观察这些积分函数的函数。</p>
 <div class="highlight">
 <pre><code class="language-ocaml">let _ =
   let h = Plot.create ~m:1 ~n:2 "example_integrals.png" in
@@ -696,34 +682,36 @@ let y = Maths.beta 4. 3.
   Plot.set_ylabel h "fresnel(x)";
   Plot.output h</code></pre>
 </div>
+</section>
+
 <figure>
-<img style="width:100.0%" id="fig:algodiff:integrals" alt="Plot of the Dawson and Fresnel integral function." title="integrals" src="images/maths/example_integrals.png"><figcaption>Plot of the Dawson and Fresnel integral function.</figcaption>
+<img style="width:100.0%" id="fig:algodiff:integrals" alt="Dawson 和 Fresnel 积分函数的图表" title="积分" src="images/maths/example_integrals.png"><figcaption>Dawson 和 Fresnel 积分函数的图表。</figcaption>
 </figure>
-<p>Besides these two, several other type of special integral functions are also provided. The full list is shown in <span data-cites="tbl:maths:integral" class="citation">[@tbl:maths:integral]</span>.</p>
+<p>除了这两个之外，还提供了其他几种特殊积分函数。完整列表显示在<span data-cites="tbl:maths:integral" class="citation">[@tbl:maths:integral]</span>中。</p>
 <table>
-<caption>Special integral functions {#tbl:maths:integral}</caption>
+<caption>特殊积分函数 {#tbl:maths:integral}</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 76%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">解释</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>expn n x</code></td>
-<td style="text-align: left;">Generalized exponential integral <span class="math inline">\(E_n(x) = x^{n-1}\int_x^{\infty}\frac{e^{-t}}{t^n}dt\)</span></td>
+<td style="text-align: left;">广义指数积分 <span class="math inline">\(E_n(x) = x^{n-1}\int_x^{\infty}\frac{e^{-t}}{t^n}dt\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>shi x</code></td>
-<td style="text-align: left;">Hyperbolic sine integral: <span class="math inline">\(\int_0^x~\frac{\sinh~t}{t}dt\)</span></td>
+<td style="text-align: left;">双曲正弦积分：<span class="math inline">\(\int_0^x~\frac{\sinh~t}{t}dt\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>chi x</code></td>
-<td style="text-align: left;">Hyperbolic cosine integral: <span class="math inline">\(\gamma + \log(x) + \int_0^x~\frac{\cosh~t -1}{t}dt\)</span></td>
+<td style="text-align: left;">双曲余弦积分：<span class="math inline">\(\gamma + \log(x) + \int_0^x~\frac{\cosh~t -1}{t}dt\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>shichi x</code></td>
@@ -731,11 +719,11 @@ let y = Maths.beta 4. 3.
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>si x</code></td>
-<td style="text-align: left;">Sine integral: <span class="math inline">\(\int_0^x~\frac{\sin~t}{t}dt\)</span></td>
+<td style="text-align: left;">正弦积分：<span class="math inline">\(\int_0^x~\frac{\sin~t}{t}dt\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>ci x</code></td>
-<td style="text-align: left;">Cosine integral: <span class="math inline">\(\gamma + \log(x) + \int_0^x~\frac{\cos~t -1}{t}dt\)</span></td>
+<td style="text-align: left;">余弦积分：<span class="math inline">\(\gamma + \log(x) + \int_0^x~\frac{\cos~t -1}{t}dt\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>sici x</code></td>
@@ -746,84 +734,86 @@ let y = Maths.beta 4. 3.
 </section>
 </section>
 <section class="level2" id="factorials">
-<h2>Factorials</h2>
-<p>After the functions, let’s turn to a concept that we are familiar with: the <em>factorials</em>. The definition of factorials is simple:</p>
+<h2>阶乘</h2>
+<p>在函数之后，让我们转向一个我们熟悉的概念：阶乘。阶乘的定义很简单：</p>
 <p><span class="math inline">\(F(n) = n! = n \times (n - 1) \times (n-2) \ldots \times 1\)</span></p>
-<p>The factorial function, together with several of its variants, are contained in the <code>Math</code> module.</p>
+<p>阶乘函数及其几个变体都包含在<code>Math</code>模块中。</p>
 <table>
-<caption>Factorial functions {#tbl:maths:factorial}</caption>
+<caption>阶乘函数 {#tbl:maths:factorial}</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 76%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">解释</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>fact n</code></td>
-<td style="text-align: left;">Factorial function <span class="math inline">\(!n\)</span></td>
+<td style="text-align: left;">阶乘函数<span class="math inline">\(!n\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>log_fact n</code></td>
-<td style="text-align: left;">Logarithm of factorial function</td>
+<td style="text-align: left;">阶乘函数的对数</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>doublefact n</code></td>
-<td style="text-align: left;">Double factorial function calculates <span class="math inline">\(n!! = n(n-2)(n-4)\dots 2\)</span> (or 1)</td>
+<td style="text-align: left;">双阶乘函数计算<span class="math inline">\(n!! = n(n-2)(n-4)\dots 2\)</span>（或 1）</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>log_doublefact n</code></td>
-<td style="text-align: left;">Logarithm of double factorial function</td>
+<td style="text-align: left;">双阶乘函数的对数</td>
 </tr>
 </tbody>
 </table>
-<p>The factorial functions accepts integer as input, for example:</p>
+</section>
+
+<p>阶乘函数接受整数作为输入，例如：</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">Maths.fact 5
 &gt;- : float = 120.
 </code></pre>
 </div>
-<p>The factorials are applied in many areas of mathematics, most notably the combinatorics. The permutation and combination are both defined in factorials. The permutation function returns the number <span class="math inline">\(n!/(n-k)!\)</span> of ordered subsets of length <span class="math inline">\(k\)</span>, taken from a set of <span class="math inline">\(n\)</span> elements. The combination function returns the number <span class="math inline">\({n\choose k} = n!/(k!(n-k)!)\)</span> of subsets of <span class="math inline">\(k\)</span> elements of a set of <span class="math inline">\(n\)</span> elements. <span data-cites="tbl:maths:perm" class="citation">[@tbl:maths:perm]</span> provides the combinatorics functions you can use in the <code>Math</code> module.</p>
+<p>阶乘在数学的许多领域中都有应用，尤其是在组合学中。排列和组合都以阶乘的形式定义。排列函数返回有序子集的数量<span class="math inline">\(n!/(n-k)!\)</span>，长度为<span class="math inline">\(k\)</span>，从包含<span class="math inline">\(n\)</span>个元素的集合中取出。组合函数返回集合<span class="math inline">\(n\)</span>个元素中<span class="math inline">\(k\)</span>个元素的子集数量，即<span class="math inline">\({n\choose k} = n!/(k!(n-k)!)\)</span>。表<span data-cites="tbl:maths:perm" class="citation">[@tbl:maths:perm]</span>提供了您可以在<code>Math</code>模块中使用的组合数学函数。</p>
 <table>
-<caption>Permutation and combination functions {#tbl:maths:perm}</caption>
+<caption>排列和组合函数 {#tbl:maths:perm}</caption>
 <colgroup>
 <col style="width: 28%">
 <col style="width: 71%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Function</th>
-<th style="text-align: left;">Explanation</th>
+<th style="text-align: left;">函数</th>
+<th style="text-align: left;">解释</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>permutation n k</code></td>
-<td style="text-align: left;">Permutation number</td>
+<td style="text-align: left;">排列数</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>permutation_float n k</code></td>
-<td style="text-align: left;">Similar to <code>permutation</code> but deals with larger range and returns float</td>
+<td style="text-align: left;">类似于<code>permutation</code>，但处理更大范围并返回浮点数</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>combination n k</code></td>
-<td style="text-align: left;">Combination number</td>
+<td style="text-align: left;">组合数</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>combination_float n k</code></td>
-<td style="text-align: left;">Similar to <code>combination</code> but deals with larger range and returns float</td>
+<td style="text-align: left;">类似于<code>combination</code>，但处理更大范围并返回浮点数</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>log_combination n k</code></td>
-<td style="text-align: left;">Returns the logarithm of <span class="math inline">\({n\choose k}\)</span></td>
+<td style="text-align: left;">返回<span class="math inline">\({n\choose k}\)</span>的对数</td>
 </tr>
 </tbody>
 </table>
-<p>Let’s take a look at a simple example.</p>
+<p>让我们看一个简单的例子。</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">let x = Maths.combination 10 2
 &gt;val x : int = 45
@@ -833,14 +823,14 @@ let y = Maths.combination_float 10 2
 </div>
 </section>
 <section class="level2" id="interpolation-and-extrapolation">
-<h2>Interpolation and Extrapolation</h2>
-<p>Sometimes we don’t know the full description of a function <span class="math inline">\(f\)</span>, but only some points on it, and therefore we cannot calculate its value at an aribitrary point. The target is to esimate the <span class="math inline">\(f(x)\)</span> for an arbitrary <span class="math inline">\(x\)</span> by drawing a smooth curve through the given data. If <span class="math inline">\(x\)</span> is within the range of the given data, this taks is called <em>interpolation</em>, otherwise it’s called <em>extrapolation</em>, which is much more difficult to do.</p>
-<p>The <code>Owl_maths_interpolate</code> module provides an <code>polint</code> function for interpolation and extrapolation:</p>
+<h2>插值和外推</h2>
+<p>有时我们不知道函数<span class="math inline">\(f\)</span>的完整描述，只知道其中一些点，因此无法计算其在任意点的值。我们的目标是通过在给定数据点之间绘制平滑曲线来估计<span class="math inline">\(f(x)\)</span>。如果<span class="math inline">\(x\)</span>在给定数据的范围内，这个任务称为<em>插值</em>，否则称为<em>外推</em>，后者要困难得多。</p>
+<p><code>Owl_maths_interpolate</code>模块提供了一个用于插值和外推的<code>polint</code>函数：</p>
 <div class="highlight">
 <pre><code class="language-clike">val polint : float array -&gt; float array -&gt; float -&gt; float * float</code></pre>
 </div>
-<p>The function <code>polint xs ys x</code> performs polynomial interpolation of the given arrays <code>xs</code> and <code>ys</code>. Given arrays <span class="math inline">\(xs[0 \ldots (n-1)]\)</span> and <span class="math inline">\(ys[0\ldots~(n-1)]\)</span>, and a value <code>x</code>, this function returns a value <code>y</code>, and an error estimate <code>dy</code>.</p>
-<p>As its name suggests, the <code>polint</code> approximates complicated curves with polynomial of the lowest possible degree that passes the given points. We show how this interplation method works with an example. In the previous section we have said that the Gamma function is actually an interpolation solution to the integer function <span class="math inline">\(y(x) = (n-1)!\)</span>. So we can specify five nodes on a plane that are generated from this factorial functions, and see how the interpolation function works compared with the Gamma function itself.</p>
+<p>函数<code>polint xs ys x</code>对给定的数组<code>xs</code>和<code>ys</code>执行多项式插值。给定数组<span class="math inline">\(xs[0 \ldots (n-1)]\)</span>和<span class="math inline">\(ys[0\ldots~(n-1)]\)</span>，以及一个值<code>x</code>，此函数返回一个值<code>y</code>和一个误差估计<code>dy</code>。</p>
+<p>顾名思义，<code>polint</code>使用可能通过给定点的最低可能次数的多项式来近似复杂的曲线。我们通过一个例子展示这种插值方法的工作原理。在前一节中，我们已经说过Gamma函数实际上是整数函数<span class="math inline">\(y(x) = (n-1)!\)</span>的插值解。因此，我们可以指定平面上由该阶乘函数生成的五个节点，并查看插值函数与Gamma函数本身相比的效果。</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">let x = [|2; 3; 4; 5; 6|]
 &gt;val x : int array = [|2; 3; 4; 5; 6|]
@@ -850,74 +840,47 @@ let x = Array.map float_of_int x
 &gt;val x : float array = [|2.; 3.; 4.; 5.; 6.|]
 </code></pre>
 </div>
-<p>Now we can define the interpolation function <code>f</code> that accepts one float number and returns another float number. Also we convert the given data <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> into matrix format for plotting purpose.</p>
-<div class="highlight">
-<pre><code class="language-ocaml">let f a =
-  let v, _ = Owl_maths_interpolate.polint x y a in
-  v
-
-let xm = Mat.of_array x 1 5
-let ym = Mat.of_array y 1 5</code></pre>
-</div>
-<p>Now we can plot the interpolation function and compare it to the Gamma function. As can be seen in <span data-cites="fig:maths:interp" class="citation">[@fig:maths:interp]</span>, both lines cross the given nodes. The interpolated line fits well with the “true interpolation”, i.e.&nbsp;the Gamma function, within a certain range. However, the extrapolation fitting where the x-value falls out of given data, is less than ideal.</p>
-<div class="highlight">
-<pre><code class="language-ocaml">let _ =
-  let h = Plot.create "interp.png" in
-  Plot.(plot_fun ~h ~spec:[ RGB (66, 133, 244); LineStyle 1; LineWidth 2.] f 2. 6.5);
-  Plot.(plot_fun ~h ~spec:[ RGB (219, 68,  55); LineStyle 2; LineWidth 2.] Maths.gamma 2. 6.5);
-  Plot.(scatter ~h ~spec:[ Marker "#[0x229a]"; MarkerSize 5. ] xm ym);
-  Plot.(legend_on h ~position:NorthWest [|"Interpolation"; "Gamma function"; "Given values"|]);
-  Plot.output h</code></pre>
-</div>
-<figure>
-<img style="width:60.0%" id="fig:maths:interp" alt="Plot of interpolation and corresponding Gamma function." title="interp" src="images/maths/interp.png"><figcaption>Plot of interpolation and corresponding Gamma function.</figcaption>
-</figure>
 </section>
 <section class="level2" id="integration">
-<h2>Integration</h2>
-<p>We have introduced some special integral functions, but we still need general integration methods that work for any input functions. Given a function <span class="math inline">\(f\)</span> that accepts a real variable and an interval <span class="math inline">\([a, b]\)</span> of the real line, the integral of this function</p>
+<h2>积分</h2>
+<p>我们已经介绍了一些特殊的积分函数，但我们仍然需要适用于任何输入函数的一般积分方法。给定一个函数<span class="math inline">\(f\)</span>，它接受一个实变量和实轴上的一个区间<span class="math inline">\([a, b]\)</span>，该函数的积分</p>
 <p><span class="math display">\[\int_a^bf(x)dx\]</span></p>
-<p>can be thought of as the sum of signed area of the region in the cartesian plane that is bounded by the curve of f, the x-axis within the x-axis range <span class="math inline">\([a, b]\)</span>. The area above the x-axis adds to the sum and that below the x-axis subtracts from the area sum.</p>
-<p>In the <code>Owl_maths_quandrature</code> module, Owl provides several neumerical routines to help you to do integrations. For example, we can compute <span class="math inline">\(\int_1^4x^2\)</span> with the code below:</p>
+<p>可以被视为笛卡尔平面上由曲线<span class="math inline">\(f\)</span>界定、在<span class="math inline">\([a, b]\)</span>范围内的区域的带符号面积之和。位于x轴上方的区域增加到总和中，而位于x轴下方的区域则从总面积中减去。</p>
+<p>在<code>Owl_maths_quandrature</code>模块中，Owl提供了几种数值例程，以帮助您进行积分。例如，我们可以使用以下代码计算<span class="math inline">\(\int_1^4x^2\)</span>：</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">Owl_maths_quadrature.trapz (fun x -&gt; x ** 2.) 1. 4.
 &gt;- : float = 21.0001344681758439
 </code></pre>
 </div>
-<p>We can verify this result using the fundamental theorem of calculus:</p>
-<p><span class="math display">\[\int_1^4x^2 = (4^3 -1^3) / 3 = 21\]</span>.</p>
-<p>So you might be thinking, what is this <code>trapz</code>? Why the result is not exactly <code>21</code>? Using numerical methods (or <em>quadrature</em>) to do integration dates back to the invention of calculus or even earlier. The basic idea is to use summation of small areas to approximate that of an integration. There exist a lot of algorithms to do numerical integration, and using the trapezoial rule is one of them.</p>
-<p>This classical method divides <code>a</code> to <code>b</code> into <span class="math inline">\(N\)</span> equally spaced abscissas: <span class="math inline">\(x_0, x_1, \ldots, x_N\)</span>. Each area between <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_j\)</span> is seen as an “Trapezoid” and the area formula is computed as:</p>
+<p>我们可以使用微积分基本定理验证这个结果：</p>
+<p><span class="math display">\[\int_1^4x^2 = (4^3 -1^3) / 3 = 21\]</span>。</p>
+<p>所以您可能会想，这个<code>trapz</code>是什么？为什么结果不是确切的<code>21</code>？使用数值方法（或<em>数值积分</em>）进行积分可以追溯到微积分的发明甚至更早。基本思想是使用小面积的总和来近似积分的面积。存在许多算法用于数值积分，使用梯形规则是其中之一。</p>
+<p>这个经典方法将<code>a</code>到<code>b</code>划分为<span class="math inline">\(N\)</span>个等间距的横坐标：<span class="math inline">\(x_0, x_1, \ldots, x_N\)</span>。在<span class="math inline">\(x_i\)</span>和<span class="math inline">\(x_j\)</span>之间的每个区域被看作一个“梯形”，并且面积公式计算为：</p>
 <p><span class="math display">\[\int_{x_0}^{x_1}f(x)dx = h(\frac{f(x_0)}{2} + \frac{f(x_1)}{2}) + O(h^3f'').\]</span></p>
-<p>Here the error term <span class="math inline">\(O(h^3f'')\)</span> indicated that the error of approximation is related with that of abscissas size <span class="math inline">\(h\)</span> and second order derivative of the original function. The function <code>trapz</code> implements this method. It’s interface is:</p>
+<p>这里的误差项<span class="math inline">\(O(h^3f'')\)</span>表明近似误差与横坐标大小<span class="math inline">\(h\)</span>和原始函数的二阶导数有关。函数<code>trapz</code>实现了这种方法。它的接口是：</p>
 <div class="highlight">
 <pre><code class="language-clike">val trapz : ?n:int -&gt; ?eps:float -&gt; (float -&gt; float) -&gt; float -&gt; float -&gt; float</code></pre>
 </div>
-<p><code>trapz ~n ~eps f a b</code> computes the integral of <code>f</code> on the interval <code>[a,b]</code> using the trapezoidal rule. It works by iterating for several stages, each stage improving the accuracy by adding more interior points. The argument <span class="math inline">\(n\)</span> specifies the maximum step which defaults to 20, and <code>eps</code> is the desired fractional accuracy threshold, which defaults to <code>1e-6</code>.</p>
-<p>The other methods are similar to <code>trapz</code> in interface, only different in implementation. For example, the <code>simpson</code> uses the Simpson formula:</p>
+<p><code>trapz ~n ~eps f a b</code>使用梯形法计算<code>f</code>在区间<code>[a,b]</code>上的积分。它通过迭代多个阶段工作，每个阶段通过添加更多的内部点来提高准确性。参数<span class="math inline">\(n\)</span>指定最大步数，默认为20，<code>eps</code>是所需的分数精度阈值，默认为<code>1e-6</code>。</p>
+<p>其他方法在接口上类似于<code>trapz</code>，只是在实现上有所不同。例如，<code>simpson</code>使用辛普森公式：</p>
 <p><span class="math display">\[\int_{x_0}^{x_2}f(x)dx = h(\frac{f(x_0)}{3} + \frac{4f(x_1)}{3} + \frac{f(x_2)}{3}) + O(h^5f(4)).\]</span></p>
-<p>Then there is the <em>Romberg integration</em> (<code>romberg</code>) that can choose methods of different orders to give good accuracy, and the algorithms are normally much faster than the <code>trapz</code> and <code>simpson</code> methods. Moreover, if the abscissas can be varied, we have the adaptive Gaussian quadrature of fixed tolerance (<code>gaussian</code>) and Gaussian quadrature of fixed order (<code>gaussian_fixed</code>).</p>
-<p>As an example, we can compute the special sine integral function <span class="math inline">\(Si(x)=\int_0^x\frac{sin(t)}{t}dt\)</span> from previous section using the numerical integration method. Let’s set <span class="math inline">\(x=4\)</span>. We can see the numerical method <code>gaussian</code> works well to approximate this special integral function.</p>
+<p>然后有<em>龙贝格积分</em>（<code>romberg</code>）可以选择不同阶数的方法以提供良好的准确性，这些算法通常比<code>trapz</code>和<code>simpson</code>方法快得多。此外，如果横坐标可以变化，我们有自适应的固定容差高斯积分（<code>gaussian</code>）和固定阶数的高斯积分（<code>gaussian_fixed</code>）。</p>
+<p>例如，我们可以使用数值积分方法计算上一节中的特殊正弦积分函数<span class="math inline">\(Si(x)=\int_0^x\frac{sin(t)}{t}dt\)</span>。让我们设定<span class="math inline">\(x=4\)</span>。我们可以看到数值方法<code>gaussian</code>很好地逼近了这个特殊积分函数。</p>
 <div class="highlight">
-<pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">let f t = Maths.(div (sin t) t)
-&gt;val f : float -&gt; float = &lt;fun&gt;
-Owl_maths_quadrature.gaussian f 0. 4.
-&gt;- : float = 1.75820313914469306
-Owl_maths.si 4.
-&gt;- : float = 1.75820313894905289
-</code></pre>
+<pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">
+
 </div>
 </section>
 <section class="level2" id="utility-functions">
-<h2>Utility Functions</h2>
-<p>Besides what we have mentioned so far, there are also some utitlity math functions that worth mentioning.</p>
-<p>We know that a prime number is a natural number greater than <code>1</code> that cannot be formed by multiplying two smaller natural numbers. It is a key idea in information technology and widely used in applications such as the public-key cryptography. The <code>is_prime</code> function checks if an integer is a prime number. This function is deterministic for all numbers representable by an int. It is implemented using the <a href="https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test">Miller-Rabin primality test</a> method.</p>
+<h2>实用函数</h2>
+<p>除了我们到目前为止提到的内容之外，还有一些值得一提的实用数学函数。</p>
+<p>我们知道，质数是大于<code>1</code>的自然数，不能通过两个较小的自然数相乘而得到。这是信息技术中的一个关键概念，广泛应用于公钥密码学等应用。函数<code>is_prime</code>检查整数是否为质数。该函数对所有能由整数表示的数字都是确定性的。它是使用<a href="https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test">Miller-Rabin素性测试</a>方法实现的。</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">Maths.is_prime 997
 &gt;- : bool = true
 </code></pre>
 </div>
-<p>Another number theory related idea is the <em>Fermat’s factorization</em>, which represents an odd integer as the difference of two squares: <span class="math inline">\(N = a^2 - b^2\)</span>, and therefore <code>N</code> can be factorised as <span class="math inline">\((a+b)(a-b)\)</span>. The function <code>fermat_fact</code> performs Fermat factorisation over odd number <code>N</code>, i.e.&nbsp;into two roughly equal factors <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> so that <span class="math inline">\(N=x\times~y\)</span>.</p>
+<p>另一个与数论相关的概念是<em>费马因子分解</em>，它将奇整数表示为两个平方的差：<span class="math inline">\(N = a^2 - b^2\)</span>，因此<code>N</code>可以分解为<span class="math inline">\((a+b)(a-b)\)</span>。函数<code>fermat_fact</code>对奇数<code>N</code>执行费马因子分解，即分解为两个大致相等的因子<span class="math inline">\(x\)</span>和<span class="math inline">\(y\)</span>，使得<span class="math inline">\(N=x\times~y\)</span>。</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">Maths.fermat_fact 6557
 &gt;- : int * int = (83, 79)
@@ -925,8 +888,8 @@ Owl_maths.si 4.
 &gt;- : int = 6557
 </code></pre>
 </div>
-<p>Next two functions concerns the precision of float numbers in computer.</p>
-<p>The <code>nextafter from to</code> returns the next representable double precision value of <code>from</code> in the direction of <code>to</code>. The other one, <code>nextafter from to</code> returns the next representable single precision value of <code>from</code> in the direction of <code>to</code>. In both cases, if <code>from</code> equals <code>to</code>, this value itself is returned. For example:</p>
+<p>接下来的两个函数涉及计算机中浮点数的精度。</p>
+<p><code>nextafter from to</code>返回<code>from</code>在<code>to</code>方向上的下一个可表示的双精度值。另一个函数<code>nextafter from to</code>返回<code>from</code>在<code>to</code>方向上的下一个可表示的单精度值。在两种情况下，如果<code>from</code>等于<code>to</code>，则返回此值本身。例如：</p>
 <div class="highlight">
 <pre data-filter-output=">" data-prompt="#" class="command-line"><code class="language-ocaml">Maths.nextafterf 1. 2.;;
 &gt;- : float = 1.00000011920928955
@@ -938,8 +901,8 @@ Maths.nextafter 1. 0.;;
 </div>
 </section>
 <section class="level2" id="summary">
-<h2>Summary</h2>
-<p>We start the topic of numeric computation from the mathematics functions we are familiar with. This chapter introduces the math functions supported by Owl, including the basic and commonly used functions, some less freqently used but nontheless important special function, factorial, interpolation, extrapolation, integration, etc. Feel free to jump into any part you are interested in and use these functions to solve a mathematical problem at hand. You may find Owl as good a calculator as any other numerical library.</p>
+<h2>总结</h2>
+<p>我们从我们熟悉的数学函数开始讨论数值计算的主题。本章介绍了 Owl 支持的数学函数，包括基本和常用函数、一些不太常用但仍然重要的特殊函数、阶乘、插值、外推、积分等。随时跳转到您感兴趣的任何部分，并使用这些函数解决手头的数学问题。您可能会发现 Owl 与任何其他数值库一样优秀的计算器。</p>
 </section>
 </section>
-</article></div><a href="stats.html" class="next-chapter"><div class="content"><h1><small>Next: Chapter 05</small>Statistical Functions</h1></div></a><footer><div class="content"><ul><li><a href="http://ocaml.xyz/privacy.html">Privacy Policy</a></li><li><a href="https://github.com/ryanrhymes">GitHub</a></li></ul><p>Copyright 2017-2023 Liang Wang.</p></div></footer><script src="js/jquery.min.js"></script><script src="js/min/app-min.js"></script></body></html>
+</article></div><a href="stats.html" class="next-chapter"><div class="content"><h1><small>下一步：第05章</small>统计函数</h1></div></a><footer><div class="content"><ul><li><a href="http://ocaml.xyz/privacy.html">隐私政策</a></li><li><a href="https://github.com/ryanrhymes">GitHub</a></li></ul><p>版权所有 2017-2023 梁旺。</p></div></footer><script src="js/jquery.min.js"></script><script src="js/min/app-min.js"></script></body></html>
