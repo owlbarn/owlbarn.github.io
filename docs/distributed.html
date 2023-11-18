@@ -1,24 +1,12 @@
-<html style="" lang="en" class="js flexbox fontface"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="OCaml Scientific and Engineering Computing - Tutorial Book" name="description"><meta content="OCaml, Data Science, Data Analytics, Analytics, Functional Programming, Machine Learning, Deep Neural Network, Scientific Computing, Numerical Algorithm, Tutorial, Linear Algebra, Matrix" name="keywords"><meta content="Liang Wang" name="author"><title>Distributed Computing - OCaml Scientific Computing Tutorials</title><link href="css/app.css" rel="stylesheet"><link href="css/prism.css" rel="stylesheet"><script src="js/min/modernizr-min.js"></script><script src="js/prism.js"></script><script src="https://use.typekit.net/gfj8wez.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>try{Typekit.load();}catch(e){}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1868946892712371" crossorigin="anonymous"></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-123353217-1"></script><script>
+<html style="" lang="en" class="js flexbox fontface"><head>
+  <meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="description" content="Explore the world of distributed computing with Actor system engines: Map-Reduce, Parameter Server, and Peer-to-Peer. Learn about their designs, implementations, and practical examples. Discover the innovative Probabilistic Synchronous Parallel (PSP) as a flexible barrier control method, balancing synchronization and speed in distributed processing systems.">
+  <meta content="OCaml, Data Science, Data Analytics, Analytics, Functional Programming, Machine Learning, Deep Neural Network, Scientific Computing, Numerical Algorithm, Tutorial, Linear Algebra, Matrix" name="keywords"><meta content="Liang Wang" name="author"><title>Distributed Computing - OCaml Scientific Computing Tutorials</title><link href="css/app.css" rel="stylesheet"><link href="css/prism.css" rel="stylesheet"><script src="js/min/modernizr-min.js"></script><script src="js/prism.js"></script><script src="https://use.typekit.net/gfj8wez.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>try{Typekit.load();}catch(e){}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1868946892712371" crossorigin="anonymous"></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-123353217-1"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-123353217-1');</script></head><body><div class="title-bar"><div class="title"><h1>OCaml Scientific Computing Tutorials</h1><h5></h5><nav><a href="index.html">Home</a><a href="toc.html">Table of Contents</a><a href="https://ocaml.xyz/owl/">API Docs</a><a href="cn/index.html">中文版</a></nav></div></div><div class="wrap"><div class="left-column"><a class="to-chapter" href="toc.html"><small>Back</small><h5>Table of Contents</h5></a></div><article class="main-body"><section class="level1" id="distributed-computing">
 <h1>Distributed Computing</h1>
-<p>Background: decentralised computation</p>
-<p>In this chapter, we will cover two topics:</p>
-<ol type="1">
-<li>Actor Engine</li>
-<li>Barrier control, especially PSP</li>
-</ol>
-<p>Refer to <span data-cites="wang2017probabilistic" class="citation">[@wang2017probabilistic]</span> for more detail.</p>
-<section class="level2" id="actor-system">
-<h2>Actor System</h2>
-<p>Introduction: Distributed computing engines etc.</p>
-<section class="level3" id="design">
-<h3>Design</h3>
-<p>(TODO: the design of actor’s functor stack; how network/barrier etc. are implemented as separated as different module. Connection with Mirage etc.)</p>
-</section>
-<section class="level3" id="actor-engines">
 <h3>Actor Engines</h3>
 <p>A key choice when designing systems for decentralised machine learning is the organisation of compute nodes. In the simplest case, models are trained in a centralised fashion on a single node leading to use of hardware accelerators such as GPUs and the TPU. For reasons indicated above, such as privacy and latency, decentralised machine learning is becoming more popular where data and model are spread across multiple compute nodes. Nodes compute over the data they hold, iteratively producing model updates for incorporation into the model, which is subsequently disseminated to all nodes. These compute nodes can be organised in various ways.</p>
 <p>The Actor system has implemented core APIs in both map-reduce engine and parameter sever engine. Both map-reduce and parameter server engines need a (logical) centralised entity to coordinate all the nodes’ progress. To demonstrate PSP’s capability to transform an existing barrier control method into its fully distributed version, we also extended the parameter server engine to peer-to-peer (p2p) engine. The p2p engine can be used to implement both data and model parallel applications, both data and model parameters can be (although not necessarily) divided into multiple parts then distributed over different nodes.</p>
