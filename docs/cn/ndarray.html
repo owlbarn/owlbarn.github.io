@@ -2,7 +2,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-123353217-1');</script></head><body><div class="title-bar"><div class="title"><h1>OCaml Scientific Computing Tutorials</h1><h5></h5><nav><a href="index.html">Home</a><a href="toc.html">Table of Contents</a><a href="https://ocaml.xyz/owl/">API Docs</a><a href="../index.html">英文版</a></nav></div></div><div class="wrap"><div class="left-column"><a class="to-chapter" href="toc.html"><small>Back</small><h5>Table of Contents</h5></a></div><article class="main-body"><section class="level1" id="n-dimensional-arrays">
+      gtag('config', 'UA-123353217-1');</script></head><body><div class="title-bar"><div class="title"><h1>OCaml Scientific Computing Tutorials</h1><h5></h5><nav><a href="index.html">Home</a><a href="toc.html">Table of Contents</a><a href="https://ocaml.xyz/api/">API</a><a href="../index.html">英文版</a></nav></div></div><div class="wrap"><div class="left-column"><a class="to-chapter" href="toc.html"><small>Back</small><h5>Table of Contents</h5></a></div><article class="main-body"><section class="level1" id="n-dimensional-arrays">
 <h1>N-维数组</h1>
 <p>N-维数组（又称为ndarray）是Owl库的构建基块。Ndarray对Owl就像NumPy对SciPy一样。它充当核心密集数据结构，许多高级数值函数都是在其之上构建的。例如，<code>Algodiff</code>、<code>Optimise</code>、<code>Neural</code>和<code>Lazy</code>……所有这些函数子都以Ndarray模块作为模块输入。</p>
 <p>由于其重要性，Owl已经实现了对Ndarray的一套全面的操作，所有这些操作都在文件<a href="https://github.com/owlbarn/owl/blob/master/src/owl/dense/owl_dense_ndarray_generic.mli">owl_dense_ndarray_generic.mli</a>中定义。Owl核心库中的许多函数（特别是关键函数）都有相应的C存根代码，以保证最佳性能。如果你看一下Ndarray的<code>mli</code>文件，你可能会看到数百个。但不要被数字吓到，因为其中许多是相似的，可以分组在一起。在本章中，我们将详细解释这些函数，涉及到这几个组。</p>
