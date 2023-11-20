@@ -10,5 +10,6 @@ push:
 .PHONY: build
 build:
 	jekyll build
-	cp -r _site/* ../docs/algorithms/
-	rm ../docs/algorithms/Makefile
+	cp -r _site/* ../docs/blog/
+	rm ../docs/blog/Makefile
+	git add ../docs/blog/
