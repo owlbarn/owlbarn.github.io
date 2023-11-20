@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-11-20T21:00:36+02:00</updated><id>/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Quicksort</title><link href="/algorithm/2023/11/20/quicksort.html" rel="alternate" type="text/html" title="Quicksort" /><published>2023-11-20T20:46:37+02:00</published><updated>2023-11-20T20:46:37+02:00</updated><id>/algorithm/2023/11/20/quicksort</id><content type="html" xml:base="/algorithm/2023/11/20/quicksort.html"><![CDATA[<h1 id="introduction">Introduction</h1>
+
+<p>Quicksort was developed by British computer scientist Tony Hoare in 1959. It is one of the most widely used sorting algorithms and is commonly used in computer science and engineering applications.</p>
+
+<p>Quicksort is particularly useful when sorting large datasets because it has an average time complexity of O(n log n), which is faster than many other sorting algorithms. It is also an in-place sorting algorithm, meaning that it does not require any additional memory beyond the input array.</p>
+
+<p>Quicksort is used in a variety of applications, including sorting large databases, sorting elements in computer graphics and image processing, and in network routing algorithms. It is also used in many programming languages as a built-in sorting function, such as Python’s <code class="language-plaintext highlighter-rouge">sorted()</code> function and C++’s <code class="language-plaintext highlighter-rouge">std::sort()</code> function.</p>
+
+<h1 id="implementation">Implementation</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let rec quicksort = function  
+  | [] -&gt; []  
+  | pivot::tail -&gt;  
+    let lesser, greater = List.partition (fun x -&gt; x &lt; pivot) tail in  
+    quicksort lesser @ [pivot] @ quicksort greater  
+</code></pre></div></div>
+
+<p>This implementation uses a functional programming style and takes advantage of pattern matching to handle the two cases of the input list: the empty list, which is already sorted, and a non-empty list, which is partitioned into two sub-lists based on a pivot element (in this case, the first element of the list).</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">List.partition</code> function is used to split the tail of the input list into two sub-lists: <code class="language-plaintext highlighter-rouge">lesser</code>, which contains all elements that are strictly less than the pivot, and <code class="language-plaintext highlighter-rouge">greater</code>, which contains all elements that are greater than or equal to the pivot. The <code class="language-plaintext highlighter-rouge">@</code> operator is used to concatenate the sorted <code class="language-plaintext highlighter-rouge">lesser</code> sub-list, the pivot element, and the sorted <code class="language-plaintext highlighter-rouge">greater</code> sub-list into a single sorted list.</p>
+
+<p>Here’s an example usage of the <code class="language-plaintext highlighter-rouge">quicksort</code> function:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let unsorted = [5; 1; 3; 9; 2]  
+let sorted = quicksort unsorted  
+</code></pre></div></div>
+
+<p>After running this code, the <code class="language-plaintext highlighter-rouge">sorted</code> variable should contain the list <code class="language-plaintext highlighter-rouge">[1; 2; 3; 5; 9]</code>, which is the sorted version of the <code class="language-plaintext highlighter-rouge">unsorted</code> list.</p>]]></content><author><name></name></author><category term="algorithm" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2023/11/20/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-11-20T13:43:37+02:00</published><updated>2023-11-20T13:43:37+02:00</updated><id>/jekyll/update/2023/11/20/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2023/11/20/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>Jekyll requires blog post files to be named according to the following format:</p>
+
+<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+
+<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry></feed>
