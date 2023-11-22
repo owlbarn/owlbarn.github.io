@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Counting Sort | Algorithm Blog</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Counting Sort" />
+<meta name="author" content="Liang Wang" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction Counting sort is an efficient sorting algorithm that can be used to sort elements in a range of integers. It is a non-comparison based sorting algorithm that works by counting the number of occurrences of each element in the array and then using this information to determine the position of each element in the sorted output array. Implementation Here is an implementation of counting sort in OCaml: let counting_sort arr = let max_val = Array.fold_left max arr 0 in let count_arr = Array.make (max_val + 1) 0 in Array.iter (fun x -&gt; count_arr.(x) &lt;- count_arr.(x) + 1) arr; let index_arr = Array.make (max_val + 1) 0 in let rec fill_index_arr i j = if i &lt;= max_val then begin index_arr.(i) &lt;- j; fill_index_arr (i + 1) (j + count_arr.(i)) end in fill_index_arr 0 0; let sorted_arr = Array.make (Array.length arr) 0 in Array.iter (fun x -&gt; sorted_arr.(index_arr.(x)) &lt;- x; index_arr.(x) &lt;- index_arr.(x) + 1) arr; sorted_arr Here, arr is the input array to be sorted. The function counting_sort first finds the maximum value in the input array and creates a new array count_arr to count the number of occurrences of each element in the input array. It then creates another array index_arr to store the index of each element in the sorted output array. The function fill_index_arr is a helper function that fills in the index_arr array based on the counts in count_arr. Finally, the function creates a new array sorted_arr and fills it in by iterating over the input array and using the index_arr array to determine the position of each element in the sorted output array. Step-by-step Explanation Find the maximum value in the input array. Create a new array count_arr of length max_val + 1 and initialize all elements to 0. Iterate over the input array and increment the count of each element in count_arr. Create a new array index_arr of length max_val + 1 and initialize all elements to 0. Define a helper function fill_index_arr that fills in the index_arr array based on the counts in count_arr. The function takes two arguments: i and j, where i is the current index in count_arr and j is the current index in index_arr. Call the fill_index_arr function with initial arguments 0 and 0. Create a new array sorted_arr of length n, where n is the length of the input array. Iterate over the input array and use the index_arr array to determine the position of each element in the sorted output array. Store each element in the corresponding position in sorted_arr. Return sorted_arr. Complexity Analysis The time complexity of counting sort is O(n + k), where n is the length of the input array and k is the range of the input integers. The space complexity is also O(n + k). The algorithm iterates over the input array twice: once to count the occurrences of each element and once to fill in the sorted output array. The time complexity of these two iterations is O(n). The algorithm also creates two additional arrays: count_arr and index_arr, each of length k. Therefore, the space complexity of the algorithm is O(n + k)." />
+<meta property="og:description" content="Introduction Counting sort is an efficient sorting algorithm that can be used to sort elements in a range of integers. It is a non-comparison based sorting algorithm that works by counting the number of occurrences of each element in the array and then using this information to determine the position of each element in the sorted output array. Implementation Here is an implementation of counting sort in OCaml: let counting_sort arr = let max_val = Array.fold_left max arr 0 in let count_arr = Array.make (max_val + 1) 0 in Array.iter (fun x -&gt; count_arr.(x) &lt;- count_arr.(x) + 1) arr; let index_arr = Array.make (max_val + 1) 0 in let rec fill_index_arr i j = if i &lt;= max_val then begin index_arr.(i) &lt;- j; fill_index_arr (i + 1) (j + count_arr.(i)) end in fill_index_arr 0 0; let sorted_arr = Array.make (Array.length arr) 0 in Array.iter (fun x -&gt; sorted_arr.(index_arr.(x)) &lt;- x; index_arr.(x) &lt;- index_arr.(x) + 1) arr; sorted_arr Here, arr is the input array to be sorted. The function counting_sort first finds the maximum value in the input array and creates a new array count_arr to count the number of occurrences of each element in the input array. It then creates another array index_arr to store the index of each element in the sorted output array. The function fill_index_arr is a helper function that fills in the index_arr array based on the counts in count_arr. Finally, the function creates a new array sorted_arr and fills it in by iterating over the input array and using the index_arr array to determine the position of each element in the sorted output array. Step-by-step Explanation Find the maximum value in the input array. Create a new array count_arr of length max_val + 1 and initialize all elements to 0. Iterate over the input array and increment the count of each element in count_arr. Create a new array index_arr of length max_val + 1 and initialize all elements to 0. Define a helper function fill_index_arr that fills in the index_arr array based on the counts in count_arr. The function takes two arguments: i and j, where i is the current index in count_arr and j is the current index in index_arr. Call the fill_index_arr function with initial arguments 0 and 0. Create a new array sorted_arr of length n, where n is the length of the input array. Iterate over the input array and use the index_arr array to determine the position of each element in the sorted output array. Store each element in the corresponding position in sorted_arr. Return sorted_arr. Complexity Analysis The time complexity of counting sort is O(n + k), where n is the length of the input array and k is the range of the input integers. The space complexity is also O(n + k). The algorithm iterates over the input array twice: once to count the occurrences of each element and once to fill in the sorted output array. The time complexity of these two iterations is O(n). The algorithm also creates two additional arrays: count_arr and index_arr, each of length k. Therefore, the space complexity of the algorithm is O(n + k)." />
+<link rel="canonical" href="/blog/algorithm/2023/11/10/counting-sort.html" />
+<meta property="og:url" content="/blog/algorithm/2023/11/10/counting-sort.html" />
+<meta property="og:site_name" content="Algorithm Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-10T20:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Counting Sort" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Liang Wang"},"dateModified":"2023-11-10T20:00:00+02:00","datePublished":"2023-11-10T20:00:00+02:00","description":"Introduction Counting sort is an efficient sorting algorithm that can be used to sort elements in a range of integers. It is a non-comparison based sorting algorithm that works by counting the number of occurrences of each element in the array and then using this information to determine the position of each element in the sorted output array. Implementation Here is an implementation of counting sort in OCaml: let counting_sort arr = let max_val = Array.fold_left max arr 0 in let count_arr = Array.make (max_val + 1) 0 in Array.iter (fun x -&gt; count_arr.(x) &lt;- count_arr.(x) + 1) arr; let index_arr = Array.make (max_val + 1) 0 in let rec fill_index_arr i j = if i &lt;= max_val then begin index_arr.(i) &lt;- j; fill_index_arr (i + 1) (j + count_arr.(i)) end in fill_index_arr 0 0; let sorted_arr = Array.make (Array.length arr) 0 in Array.iter (fun x -&gt; sorted_arr.(index_arr.(x)) &lt;- x; index_arr.(x) &lt;- index_arr.(x) + 1) arr; sorted_arr Here, arr is the input array to be sorted. The function counting_sort first finds the maximum value in the input array and creates a new array count_arr to count the number of occurrences of each element in the input array. It then creates another array index_arr to store the index of each element in the sorted output array. The function fill_index_arr is a helper function that fills in the index_arr array based on the counts in count_arr. Finally, the function creates a new array sorted_arr and fills it in by iterating over the input array and using the index_arr array to determine the position of each element in the sorted output array. Step-by-step Explanation Find the maximum value in the input array. Create a new array count_arr of length max_val + 1 and initialize all elements to 0. Iterate over the input array and increment the count of each element in count_arr. Create a new array index_arr of length max_val + 1 and initialize all elements to 0. Define a helper function fill_index_arr that fills in the index_arr array based on the counts in count_arr. The function takes two arguments: i and j, where i is the current index in count_arr and j is the current index in index_arr. Call the fill_index_arr function with initial arguments 0 and 0. Create a new array sorted_arr of length n, where n is the length of the input array. Iterate over the input array and use the index_arr array to determine the position of each element in the sorted output array. Store each element in the corresponding position in sorted_arr. Return sorted_arr. Complexity Analysis The time complexity of counting sort is O(n + k), where n is the length of the input array and k is the range of the input integers. The space complexity is also O(n + k). The algorithm iterates over the input array twice: once to count the occurrences of each element and once to fill in the sorted output array. The time complexity of these two iterations is O(n). The algorithm also creates two additional arrays: count_arr and index_arr, each of length k. Therefore, the space complexity of the algorithm is O(n + k).","headline":"Counting Sort","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/algorithm/2023/11/10/counting-sort.html"},"url":"/blog/algorithm/2023/11/10/counting-sort.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Algorithm Blog" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-123353217-1"></script>
+<script>
+  window['ga-disable-UA-123353217-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123353217-1');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1868946892712371" crossorigin="anonymous"></script></head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Algorithm Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Counting Sort</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-11-10T20:00:00+02:00" itemprop="datePublished">
+        Nov 10, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="introduction">Introduction</h2>
+<p>Counting sort is an efficient sorting algorithm that can be used to sort elements in a range of integers. It is a non-comparison based sorting algorithm that works by counting the number of occurrences of each element in the array and then using this information to determine the position of each element in the sorted output array.</p>
+
+<h2 id="implementation">Implementation</h2>
+<p>Here is an implementation of counting sort in OCaml:</p>
+
+<div class="language-ocaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">counting_sort</span> <span class="n">arr</span> <span class="o">=</span>  
+  <span class="k">let</span> <span class="n">max_val</span> <span class="o">=</span> <span class="nn">Array</span><span class="p">.</span><span class="n">fold_left</span> <span class="n">max</span> <span class="n">arr</span> <span class="mi">0</span> <span class="k">in</span>  
+  <span class="k">let</span> <span class="n">count_arr</span> <span class="o">=</span> <span class="nn">Array</span><span class="p">.</span><span class="n">make</span> <span class="p">(</span><span class="n">max_val</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="mi">0</span> <span class="k">in</span>  
+  <span class="nn">Array</span><span class="p">.</span><span class="n">iter</span> <span class="p">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">count_arr</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">count_arr</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">arr</span><span class="p">;</span>  
+  <span class="k">let</span> <span class="n">index_arr</span> <span class="o">=</span> <span class="nn">Array</span><span class="p">.</span><span class="n">make</span> <span class="p">(</span><span class="n">max_val</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="mi">0</span> <span class="k">in</span>  
+  <span class="k">let</span> <span class="k">rec</span> <span class="n">fill_index_arr</span> <span class="n">i</span> <span class="n">j</span> <span class="o">=</span>  
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">max_val</span> <span class="k">then</span>  
+      <span class="k">begin</span>  
+        <span class="n">index_arr</span><span class="o">.</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">j</span><span class="p">;</span>  
+        <span class="n">fill_index_arr</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="n">count_arr</span><span class="o">.</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>  
+      <span class="k">end</span>  
+  <span class="k">in</span>  
+  <span class="n">fill_index_arr</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>  
+  <span class="k">let</span> <span class="n">sorted_arr</span> <span class="o">=</span> <span class="nn">Array</span><span class="p">.</span><span class="n">make</span> <span class="p">(</span><span class="nn">Array</span><span class="p">.</span><span class="n">length</span> <span class="n">arr</span><span class="p">)</span> <span class="mi">0</span> <span class="k">in</span>  
+  <span class="nn">Array</span><span class="p">.</span><span class="n">iter</span> <span class="p">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">sorted_arr</span><span class="o">.</span><span class="p">(</span><span class="n">index_arr</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&lt;-</span> <span class="n">x</span><span class="p">;</span> <span class="n">index_arr</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">index_arr</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">arr</span><span class="p">;</span>  
+  <span class="n">sorted_arr</span>  
+</code></pre></div></div>
+
+<p>Here, <code class="language-plaintext highlighter-rouge">arr</code> is the input array to be sorted. The function <code class="language-plaintext highlighter-rouge">counting_sort</code> first finds the maximum value in the input array and creates a new array <code class="language-plaintext highlighter-rouge">count_arr</code> to count the number of occurrences of each element in the input array. It then creates another array <code class="language-plaintext highlighter-rouge">index_arr</code> to store the index of each element in the sorted output array. The function <code class="language-plaintext highlighter-rouge">fill_index_arr</code> is a helper function that fills in the <code class="language-plaintext highlighter-rouge">index_arr</code> array based on the counts in <code class="language-plaintext highlighter-rouge">count_arr</code>. Finally, the function creates a new array <code class="language-plaintext highlighter-rouge">sorted_arr</code> and fills it in by iterating over the input array and using the <code class="language-plaintext highlighter-rouge">index_arr</code> array to determine the position of each element in the sorted output array.</p>
+
+<h2 id="step-by-step-explanation">Step-by-step Explanation</h2>
+<ol>
+  <li>Find the maximum value in the input array.</li>
+  <li>Create a new array <code class="language-plaintext highlighter-rouge">count_arr</code> of length <code class="language-plaintext highlighter-rouge">max_val + 1</code> and initialize all elements to 0.</li>
+  <li>Iterate over the input array and increment the count of each element in <code class="language-plaintext highlighter-rouge">count_arr</code>.</li>
+  <li>Create a new array <code class="language-plaintext highlighter-rouge">index_arr</code> of length <code class="language-plaintext highlighter-rouge">max_val + 1</code> and initialize all elements to 0.</li>
+  <li>Define a helper function <code class="language-plaintext highlighter-rouge">fill_index_arr</code> that fills in the <code class="language-plaintext highlighter-rouge">index_arr</code> array based on the counts in <code class="language-plaintext highlighter-rouge">count_arr</code>. The function takes two arguments: <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code>, where <code class="language-plaintext highlighter-rouge">i</code> is the current index in <code class="language-plaintext highlighter-rouge">count_arr</code> and <code class="language-plaintext highlighter-rouge">j</code> is the current index in <code class="language-plaintext highlighter-rouge">index_arr</code>.</li>
+  <li>Call the <code class="language-plaintext highlighter-rouge">fill_index_arr</code> function with initial arguments <code class="language-plaintext highlighter-rouge">0</code> and <code class="language-plaintext highlighter-rouge">0</code>.</li>
+  <li>Create a new array <code class="language-plaintext highlighter-rouge">sorted_arr</code> of length <code class="language-plaintext highlighter-rouge">n</code>, where <code class="language-plaintext highlighter-rouge">n</code> is the length of the input array.</li>
+  <li>Iterate over the input array and use the <code class="language-plaintext highlighter-rouge">index_arr</code> array to determine the position of each element in the sorted output array. Store each element in the corresponding position in <code class="language-plaintext highlighter-rouge">sorted_arr</code>.</li>
+  <li>Return <code class="language-plaintext highlighter-rouge">sorted_arr</code>.</li>
+</ol>
+
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<p>The time complexity of counting sort is O(n + k), where n is the length of the input array and k is the range of the input integers. The space complexity is also O(n + k).</p>
+
+<p>The algorithm iterates over the input array twice: once to count the occurrences of each element and once to fill in the sorted output array. The time complexity of these two iterations is O(n). The algorithm also creates two additional arrays: <code class="language-plaintext highlighter-rouge">count_arr</code> and <code class="language-plaintext highlighter-rouge">index_arr</code>, each of length k. Therefore, the space complexity of the algorithm is O(n + k).</p>
+
+  </div><a class="u-url" href="/blog/algorithm/2023/11/10/counting-sort.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          <li class="p-name">Liang Wang</li>
+          <li><a class="u-email" href="mailto:liang@ocaml.xyz">liang@ocaml.xyz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>A collection of classic algorithms, written in OCaml.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

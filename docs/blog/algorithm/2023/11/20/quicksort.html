@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Quicksort | Algorithm Blog</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Quicksort" />
+<meta name="author" content="Liang Wang" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="/blog/algorithm/2023/11/20/quicksort.html" />
+<meta property="og:url" content="/blog/algorithm/2023/11/20/quicksort.html" />
+<meta property="og:site_name" content="Algorithm Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-20T20:46:37+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Quicksort" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Liang Wang"},"dateModified":"2023-11-20T20:46:37+02:00","datePublished":"2023-11-20T20:46:37+02:00","description":"Introduction","headline":"Quicksort","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/algorithm/2023/11/20/quicksort.html"},"url":"/blog/algorithm/2023/11/20/quicksort.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Algorithm Blog" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-123353217-1"></script>
+<script>
+  window['ga-disable-UA-123353217-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123353217-1');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1868946892712371" crossorigin="anonymous"></script></head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Algorithm Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Quicksort</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-11-20T20:46:37+02:00" itemprop="datePublished">
+        Nov 20, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="introduction">Introduction</h2>
+
+<p>Quicksort was developed by British computer scientist Tony Hoare in 1959. It is one of the most widely used sorting algorithms and is commonly used in computer science and engineering applications.</p>
+
+<p>Quicksort is particularly useful when sorting large datasets because it has an average time complexity of O(n log n), which is faster than many other sorting algorithms. It is also an in-place sorting algorithm, meaning that it does not require any additional memory beyond the input array.</p>
+
+<p>Quicksort is used in a variety of applications, including sorting large databases, sorting elements in computer graphics and image processing, and in network routing algorithms. It is also used in many programming languages as a built-in sorting function, such as Python’s <code class="language-plaintext highlighter-rouge">sorted()</code> function and C++’s <code class="language-plaintext highlighter-rouge">std::sort()</code> function.</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<div class="language-ocaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="k">rec</span> <span class="n">quicksort</span> <span class="o">=</span> <span class="k">function</span>  
+  <span class="o">|</span> <span class="bp">[]</span> <span class="o">-&gt;</span> <span class="bp">[]</span>  
+  <span class="o">|</span> <span class="n">pivot</span><span class="o">::</span><span class="n">tail</span> <span class="o">-&gt;</span>  
+    <span class="k">let</span> <span class="n">lesser</span><span class="o">,</span> <span class="n">greater</span> <span class="o">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">partition</span> <span class="p">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">)</span> <span class="n">tail</span> <span class="k">in</span>  
+    <span class="n">quicksort</span> <span class="n">lesser</span> <span class="o">@</span> <span class="p">[</span><span class="n">pivot</span><span class="p">]</span> <span class="o">@</span> <span class="n">quicksort</span> <span class="n">greater</span>  
+</code></pre></div></div>
+
+<p>This implementation uses a functional programming style and takes advantage of pattern matching to handle the two cases of the input list: the empty list, which is already sorted, and a non-empty list, which is partitioned into two sub-lists based on a pivot element (in this case, the first element of the list).</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">List.partition</code> function is used to split the tail of the input list into two sub-lists: <code class="language-plaintext highlighter-rouge">lesser</code>, which contains all elements that are strictly less than the pivot, and <code class="language-plaintext highlighter-rouge">greater</code>, which contains all elements that are greater than or equal to the pivot. The <code class="language-plaintext highlighter-rouge">@</code> operator is used to concatenate the sorted <code class="language-plaintext highlighter-rouge">lesser</code> sub-list, the pivot element, and the sorted <code class="language-plaintext highlighter-rouge">greater</code> sub-list into a single sorted list.</p>
+
+<p>Here’s an example usage of the <code class="language-plaintext highlighter-rouge">quicksort</code> function:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let unsorted = [5; 1; 3; 9; 2]  
+let sorted = quicksort unsorted  
+</code></pre></div></div>
+
+<p>After running this code, the <code class="language-plaintext highlighter-rouge">sorted</code> variable should contain the list <code class="language-plaintext highlighter-rouge">[1; 2; 3; 5; 9]</code>, which is the sorted version of the <code class="language-plaintext highlighter-rouge">unsorted</code> list.</p>
+
+<h2 id="step-by-step-explanation">Step-by-step Explanation</h2>
+
+<p>Here’s a step-by-step explanation of how the quicksort algorithm works:</p>
+
+<ol>
+  <li>
+    <p>Choose a pivot element from the list. This can be any element, but a common choice is the first or last element in the list.</p>
+  </li>
+  <li>
+    <p>Partition the list into two sub-lists, with one sub-list containing elements less than the pivot and the other sub-list containing elements greater than or equal to the pivot. This can be done by iterating through the list and swapping elements as necessary to ensure that all elements less than the pivot are on one side of the pivot and all elements greater than or equal to the pivot are on the other side.</p>
+  </li>
+  <li>
+    <p>Recursively apply steps 1 and 2 to the sub-lists until the entire list is sorted. This can be done by calling the quicksort function on each sub-list.</p>
+  </li>
+</ol>
+
+<p>Here’s an example of how this algorithm would sort the list <code class="language-plaintext highlighter-rouge">[5; 1; 3; 9; 2]</code>:</p>
+
+<ol>
+  <li>
+    <p>Choose the first element, <code class="language-plaintext highlighter-rouge">5</code>, as the pivot.</p>
+  </li>
+  <li>
+    <p>Partition the list into two sub-lists: <code class="language-plaintext highlighter-rouge">[1; 3; 2]</code> and <code class="language-plaintext highlighter-rouge">[9]</code>. All elements less than <code class="language-plaintext highlighter-rouge">5</code> are on the left and all elements greater than or equal to <code class="language-plaintext highlighter-rouge">5</code> are on the right.</p>
+  </li>
+  <li>
+    <p>Recursively apply steps 1 and 2 to each sub-list. For the left sub-list, choose <code class="language-plaintext highlighter-rouge">1</code> as the pivot and partition it into <code class="language-plaintext highlighter-rouge">[ ]</code>, <code class="language-plaintext highlighter-rouge">[1]</code>, and <code class="language-plaintext highlighter-rouge">[3; 2]</code>. For the right sub-list, it is already sorted.</p>
+  </li>
+  <li>
+    <p>Recursively apply steps 1 and 2 to the sub-lists <code class="language-plaintext highlighter-rouge">[1]</code> and <code class="language-plaintext highlighter-rouge">[3; 2]</code>. Both sub-lists are already sorted, so no further partitioning is necessary.</p>
+  </li>
+  <li>
+    <p>Concatenate the sorted sub-lists in the order <code class="language-plaintext highlighter-rouge">[1]</code>, <code class="language-plaintext highlighter-rouge">[2; 3]</code>, <code class="language-plaintext highlighter-rouge">[5]</code>, and <code class="language-plaintext highlighter-rouge">[9]</code> to obtain the sorted list <code class="language-plaintext highlighter-rouge">[1; 2; 3; 5; 9]</code>.</p>
+  </li>
+</ol>
+
+<p>This example shows how the quicksort algorithm works by recursively dividing the input list into smaller sub-lists, sorting them, and then combining them to obtain the final sorted list.</p>
+
+<h2 id="complexity">Complexity</h2>
+
+<p>The time complexity of quicksort is O(n log n) on average, where n is the number of elements in the input list.</p>
+
+<p>The average case occurs when the pivot element is chosen randomly and is close to the median value of the list. In this case, the list is divided roughly in half with each partition, and the algorithm will make log n recursive calls to sort the entire list. The partitioning step takes linear time, so the total time complexity is O(n log n).</p>
+
+<p>However, in the worst case, quicksort can have a time complexity of O(n^2) if the pivot element is consistently chosen poorly. For example, if the pivot is always chosen as the smallest or largest element in the list, then each partition will only remove one element from the list, and the algorithm will make n recursive calls to sort the entire list. This worst-case scenario is rare in practice, but it can occur in certain edge cases.</p>
+
+<p>In terms of space complexity, quicksort is an in-place sorting algorithm, meaning that it does not require any additional memory beyond the input list. However, the recursive nature of the algorithm means that it has a space complexity of O(log n) due to the call stack used for the recursive calls.</p>
+
+<p>Overall, quicksort is a highly efficient sorting algorithm with a time complexity of O(n log n) on average, making it a popular choice for sorting large datasets.</p>
+
+  </div><a class="u-url" href="/blog/algorithm/2023/11/20/quicksort.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          <li class="p-name">Liang Wang</li>
+          <li><a class="u-email" href="mailto:liang@ocaml.xyz">liang@ocaml.xyz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>A collection of classic algorithms, written in OCaml.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

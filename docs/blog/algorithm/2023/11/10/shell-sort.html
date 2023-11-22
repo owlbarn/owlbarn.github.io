@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Selection Sort | Algorithm Blog</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Selection Sort" />
+<meta name="author" content="Liang Wang" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction Shell sort is an efficient sorting algorithm that is a variation of insertion sort. It was invented by Donald Shell in 1959. The algorithm works by sorting elements that are far apart from each other and then gradually reducing the gap between them. This makes the algorithm faster than insertion sort for larger lists. Implementation Here is an implementation of Shell sort in OCaml: let shell_sort arr = let n = Array.length arr in let gap = ref (n / 2) in while !gap &gt; 0 do for i = !gap to n - 1 do let temp = arr.(i) in let j = ref i in while !j &gt;= !gap &amp;&amp; arr.(!j - !gap) &gt; temp do arr.(!j) &lt;- arr.(!j - !gap); j := !j - !gap done; arr.(!j) &lt;- temp done; gap := !gap / 2 done; arr To use this function, simply pass in an array of elements to sort: let arr = [| 5; 3; 8; 4; 2 |] let sorted_arr = shell_sort arr The sorted_arr variable will contain the sorted array. Step-by-step Explanation Start by dividing the list into sublists of equal intervals. The interval is called the gap. Sort each sublist using insertion sort. Reduce the gap by half and repeat step 2 until the gap is 1. For example, let’s say we have the following list of integers: [5, 3, 8, 4, 2]. We’ll use a gap of 2 for the first pass. Divide the list into sublists with a gap of 2: [5, 8, 2] and [3, 4]. Sort each sublist using insertion sort. The first sublist becomes [2, 5, 8] and the second sublist stays the same: [3, 4]. Reduce the gap to 1 and sort the entire list using insertion sort. The sorted list is [2, 3, 4, 5, 8]. Complexity Analysis The time complexity of Shell sort depends on the gap sequence used. The worst-case time complexity is O(n^2), which occurs when the gap sequence is 1, making the algorithm equivalent to insertion sort. However, the average-case time complexity is O(n log n), which is faster than insertion sort for larger lists. The space complexity of Shell sort is O(1) because it sorts the list in place." />
+<meta property="og:description" content="Introduction Shell sort is an efficient sorting algorithm that is a variation of insertion sort. It was invented by Donald Shell in 1959. The algorithm works by sorting elements that are far apart from each other and then gradually reducing the gap between them. This makes the algorithm faster than insertion sort for larger lists. Implementation Here is an implementation of Shell sort in OCaml: let shell_sort arr = let n = Array.length arr in let gap = ref (n / 2) in while !gap &gt; 0 do for i = !gap to n - 1 do let temp = arr.(i) in let j = ref i in while !j &gt;= !gap &amp;&amp; arr.(!j - !gap) &gt; temp do arr.(!j) &lt;- arr.(!j - !gap); j := !j - !gap done; arr.(!j) &lt;- temp done; gap := !gap / 2 done; arr To use this function, simply pass in an array of elements to sort: let arr = [| 5; 3; 8; 4; 2 |] let sorted_arr = shell_sort arr The sorted_arr variable will contain the sorted array. Step-by-step Explanation Start by dividing the list into sublists of equal intervals. The interval is called the gap. Sort each sublist using insertion sort. Reduce the gap by half and repeat step 2 until the gap is 1. For example, let’s say we have the following list of integers: [5, 3, 8, 4, 2]. We’ll use a gap of 2 for the first pass. Divide the list into sublists with a gap of 2: [5, 8, 2] and [3, 4]. Sort each sublist using insertion sort. The first sublist becomes [2, 5, 8] and the second sublist stays the same: [3, 4]. Reduce the gap to 1 and sort the entire list using insertion sort. The sorted list is [2, 3, 4, 5, 8]. Complexity Analysis The time complexity of Shell sort depends on the gap sequence used. The worst-case time complexity is O(n^2), which occurs when the gap sequence is 1, making the algorithm equivalent to insertion sort. However, the average-case time complexity is O(n log n), which is faster than insertion sort for larger lists. The space complexity of Shell sort is O(1) because it sorts the list in place." />
+<link rel="canonical" href="/blog/algorithm/2023/11/10/shell-sort.html" />
+<meta property="og:url" content="/blog/algorithm/2023/11/10/shell-sort.html" />
+<meta property="og:site_name" content="Algorithm Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-10T23:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Selection Sort" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Liang Wang"},"dateModified":"2023-11-10T23:00:00+02:00","datePublished":"2023-11-10T23:00:00+02:00","description":"Introduction Shell sort is an efficient sorting algorithm that is a variation of insertion sort. It was invented by Donald Shell in 1959. The algorithm works by sorting elements that are far apart from each other and then gradually reducing the gap between them. This makes the algorithm faster than insertion sort for larger lists. Implementation Here is an implementation of Shell sort in OCaml: let shell_sort arr = let n = Array.length arr in let gap = ref (n / 2) in while !gap &gt; 0 do for i = !gap to n - 1 do let temp = arr.(i) in let j = ref i in while !j &gt;= !gap &amp;&amp; arr.(!j - !gap) &gt; temp do arr.(!j) &lt;- arr.(!j - !gap); j := !j - !gap done; arr.(!j) &lt;- temp done; gap := !gap / 2 done; arr To use this function, simply pass in an array of elements to sort: let arr = [| 5; 3; 8; 4; 2 |] let sorted_arr = shell_sort arr The sorted_arr variable will contain the sorted array. Step-by-step Explanation Start by dividing the list into sublists of equal intervals. The interval is called the gap. Sort each sublist using insertion sort. Reduce the gap by half and repeat step 2 until the gap is 1. For example, let’s say we have the following list of integers: [5, 3, 8, 4, 2]. We’ll use a gap of 2 for the first pass. Divide the list into sublists with a gap of 2: [5, 8, 2] and [3, 4]. Sort each sublist using insertion sort. The first sublist becomes [2, 5, 8] and the second sublist stays the same: [3, 4]. Reduce the gap to 1 and sort the entire list using insertion sort. The sorted list is [2, 3, 4, 5, 8]. Complexity Analysis The time complexity of Shell sort depends on the gap sequence used. The worst-case time complexity is O(n^2), which occurs when the gap sequence is 1, making the algorithm equivalent to insertion sort. However, the average-case time complexity is O(n log n), which is faster than insertion sort for larger lists. The space complexity of Shell sort is O(1) because it sorts the list in place.","headline":"Selection Sort","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/algorithm/2023/11/10/shell-sort.html"},"url":"/blog/algorithm/2023/11/10/shell-sort.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Algorithm Blog" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-123353217-1"></script>
+<script>
+  window['ga-disable-UA-123353217-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123353217-1');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1868946892712371" crossorigin="anonymous"></script></head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Algorithm Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Selection Sort</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2023-11-10T23:00:00+02:00" itemprop="datePublished">
+        Nov 10, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="introduction">Introduction</h2>
+<p>Shell sort is an efficient sorting algorithm that is a variation of insertion sort. It was invented by Donald Shell in 1959. The algorithm works by sorting elements that are far apart from each other and then gradually reducing the gap between them. This makes the algorithm faster than insertion sort for larger lists.</p>
+
+<h2 id="implementation">Implementation</h2>
+<p>Here is an implementation of Shell sort in OCaml:</p>
+
+<div class="language-ocaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">shell_sort</span> <span class="n">arr</span> <span class="o">=</span>  
+  <span class="k">let</span> <span class="n">n</span> <span class="o">=</span> <span class="nn">Array</span><span class="p">.</span><span class="n">length</span> <span class="n">arr</span> <span class="k">in</span>  
+  <span class="k">let</span> <span class="n">gap</span> <span class="o">=</span> <span class="n">ref</span> <span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="k">in</span>  
+  <span class="k">while</span> <span class="o">!</span><span class="n">gap</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">do</span>  
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">!</span><span class="n">gap</span> <span class="k">to</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">do</span>  
+      <span class="k">let</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">in</span>  
+      <span class="k">let</span> <span class="n">j</span> <span class="o">=</span> <span class="n">ref</span> <span class="n">i</span> <span class="k">in</span>  
+      <span class="k">while</span> <span class="o">!</span><span class="n">j</span> <span class="o">&gt;=</span> <span class="o">!</span><span class="n">gap</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">.</span><span class="p">(</span><span class="o">!</span><span class="n">j</span> <span class="o">-</span> <span class="o">!</span><span class="n">gap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">temp</span> <span class="k">do</span>  
+        <span class="n">arr</span><span class="o">.</span><span class="p">(</span><span class="o">!</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">arr</span><span class="o">.</span><span class="p">(</span><span class="o">!</span><span class="n">j</span> <span class="o">-</span> <span class="o">!</span><span class="n">gap</span><span class="p">);</span>  
+        <span class="n">j</span> <span class="o">:=</span> <span class="o">!</span><span class="n">j</span> <span class="o">-</span> <span class="o">!</span><span class="n">gap</span>  
+      <span class="k">done</span><span class="p">;</span>  
+      <span class="n">arr</span><span class="o">.</span><span class="p">(</span><span class="o">!</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">temp</span>  
+    <span class="k">done</span><span class="p">;</span>  
+    <span class="n">gap</span> <span class="o">:=</span> <span class="o">!</span><span class="n">gap</span> <span class="o">/</span> <span class="mi">2</span>  
+  <span class="k">done</span><span class="p">;</span>  
+  <span class="n">arr</span>  
+</code></pre></div></div>
+
+<p>To use this function, simply pass in an array of elements to sort:</p>
+
+<div class="language-ocaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="o">|</span> <span class="mi">5</span><span class="p">;</span> <span class="mi">3</span><span class="p">;</span> <span class="mi">8</span><span class="p">;</span> <span class="mi">4</span><span class="p">;</span> <span class="mi">2</span> <span class="o">|</span><span class="p">]</span>  
+<span class="k">let</span> <span class="n">sorted_arr</span> <span class="o">=</span> <span class="n">shell_sort</span> <span class="n">arr</span>  
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">sorted_arr</code> variable will contain the sorted array.</p>
+
+<h2 id="step-by-step-explanation">Step-by-step Explanation</h2>
+<ol>
+  <li>Start by dividing the list into sublists of equal intervals. The interval is called the gap.</li>
+  <li>Sort each sublist using insertion sort.</li>
+  <li>Reduce the gap by half and repeat step 2 until the gap is 1.</li>
+</ol>
+
+<p>For example, let’s say we have the following list of integers: <code class="language-plaintext highlighter-rouge">[5, 3, 8, 4, 2]</code>. We’ll use a gap of 2 for the first pass.</p>
+
+<ol>
+  <li>Divide the list into sublists with a gap of 2: <code class="language-plaintext highlighter-rouge">[5, 8, 2]</code> and <code class="language-plaintext highlighter-rouge">[3, 4]</code>.</li>
+  <li>Sort each sublist using insertion sort. The first sublist becomes <code class="language-plaintext highlighter-rouge">[2, 5, 8]</code> and the second sublist stays the same: <code class="language-plaintext highlighter-rouge">[3, 4]</code>.</li>
+  <li>Reduce the gap to 1 and sort the entire list using insertion sort. The sorted list is <code class="language-plaintext highlighter-rouge">[2, 3, 4, 5, 8]</code>.</li>
+</ol>
+
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<p>The time complexity of Shell sort depends on the gap sequence used. The worst-case time complexity is O(n^2), which occurs when the gap sequence is 1, making the algorithm equivalent to insertion sort. However, the average-case time complexity is O(n log n), which is faster than insertion sort for larger lists.</p>
+
+<p>The space complexity of Shell sort is O(1) because it sorts the list in place.</p>
+
+  </div><a class="u-url" href="/blog/algorithm/2023/11/10/shell-sort.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          <li class="p-name">Liang Wang</li>
+          <li><a class="u-email" href="mailto:liang@ocaml.xyz">liang@ocaml.xyz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>A collection of classic algorithms, written in OCaml.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
