@@ -10,6 +10,32 @@ layout: home
 
 Owl is a dedicated system for scientific and engineering computing. It originated from a research project in the Computer Lab at the University of Cambridge back in 2016 and was formally concluded in 2024. The project was led by Liang Wang, with Jianxin, who was working on his PhD at the time. The mission was to advance the frontier of high-performance scientific computing, establishing Owl as the de-facto tool for computation-intensive tasks in OCaml. The history of the project is documented on [Wikipedia](https://en.wikipedia.org/wiki/Owl_Scientific_Computing).
 
+# Mission
+
+Our mission is to push the frontier of high-performance scientific computing, provide both researchers and industry programmers a powerful framework to write concise, fast and safe analytical code. The system aims to serve as the de-facto tool for computation intensive tasks in OCaml.
+Currently we aim to actively maintain it and keep it stable, utilizing the limited time and human resource we have.
+
+## Owl Team 
+
+To achieve this mission, we are assembling an *Owl Team*. Anyone who can potentially give sufficient contributions recognized by the community can request to be a team member.
+A team member is expected to make several valuable and significant contributions to the project in both quality and quantity. 
+Typically a committer focuses on one specific aspect of the project and is a domain expert. 
+We hope but cannot guarantee that the team members can cover all aspects of the code base.
+
+Emphasis are put on the responsibility of each team member.
+Each one should take responsibility of certain aspects of the code base, e.g. a module or maintenance for a specific OS platform.
+Team members, together with their domain aspects and responsibilities, will be listed here and also on the [GitHub page](https://github.com/owlbarn/owl).
+
+**Current team member:**
+
+- [@jzstark](https://github.com/jzstark): Project leader. Manage overall architecture, roadmap，and tech vision. Community communication. Set research agenda.
+
+
+- [@ryanrhymes](https://github.com/ryanrhymes): Potential commercialization, business opportunity & funding seeking.
+
+## Community 
+
+The Owl community is based on the [OCaml Discourse](https://discuss.ocaml.org/).  All participants in the community are encouraged to provide support for new users within the project management infrastructure. Those seeking technical support should also recognize that all support activities within the project is voluntary and is therefore provided as and when time permits.
 
 ## Publications
 
