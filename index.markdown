@@ -28,7 +28,7 @@ Team members, together with their domain aspects and responsibilities, will be l
 
 **Current team member:**
 
-- [@jzstark](https://github.com/jzstark): Project leader. Manage overall architecture, roadmap，and tech vision. Community communication. Set research agenda.
+- [@jzstark](https://github.com/jzstark): Project leader. Manage overall architecture, roadmap, and tech vision. Community communication. Set research agenda.
 
 
 - [@ryanrhymes](https://github.com/ryanrhymes): Potential commercialization, business opportunity & funding seeking.
