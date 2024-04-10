@@ -40,11 +40,6 @@ For anyone who is willing to contribute, some good starting points could be:
 - [@jzstark](https://github.com/jzstark): Project leader. Manage overall architecture, roadmap，and tech vision. Community communication. Set research agenda.
 - [@ryanrhymes](https://github.com/ryanrhymes): Potential commercialization, business opportunity & funding seeking.
 
-- [@mikhailazaryan](https://github.com/mikhailazaryan)
-- [@mseri](https://github.com/mseri): multi-platform installation
-- [@patrick-nicodemus](https://github.com/patrick-nicodemus)
-- [@Ramiro Checa-Garcia](https://github.com/RCHG)
-
 ## Community 
 
 The Owl community is based on the [OCaml Discourse](https://discuss.ocaml.org/).  All participants in the community are encouraged to provide support for new users within the project management infrastructure. Those seeking technical support should also recognize that all support activities within the project is voluntary and is therefore provided as and when time permits.
