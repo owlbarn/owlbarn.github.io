@@ -8,7 +8,7 @@ layout: home
 ![image](assets/owl_logo_2022.jpg){: width="530px" }
 </p>
 
-Owl is a dedicated system for scientific and engineering computing. It originated from a research project in the Computer Lab at the University of Cambridge back in 2016 and was formally concluded in 2024. The project was led by Liang Wang, with Jianxin, who was working on his PhD at the time. The mission was to advance the frontier of high-performance scientific computing, establishing Owl as the de-facto tool for computation-intensive tasks in OCaml. The history of the project is documented on [Wikipedia](https://en.wikipedia.org/wiki/Owl_Scientific_Computing).
+Owl is a dedicated system for scientific and engineering computing. It originated from a research project in the Computer Lab at the University of Cambridge back in 2016. The project was led by Liang Wang, with Jianxin, who was working on his PhD at the time. The mission was to advance the frontier of high-performance scientific computing, establishing Owl as the de-facto tool for computation-intensive tasks in OCaml. The history of the project is documented on [Wikipedia](https://en.wikipedia.org/wiki/Owl_Scientific_Computing).
 
 ## Mission
 
